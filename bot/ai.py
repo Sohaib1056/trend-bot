@@ -27,6 +27,7 @@ Topics already posted recently (do NOT repeat these or close variants): {', '.jo
 TASK: Choose the {n} best topic(s) for high engagement that fit the niche, and write one post for each.
 RULES:
 - Use ONLY facts stated in the headlines/snippets above. Never invent numbers, quotes, scores or claims. If unsure, keep it general.
+- If two snippets disagree (e.g. different rankings or numbers), leave that detail out.
 - SKIP: deaths, tragedies, disasters with victims, crime/violence, shootings, war, medical claims, adult content, gambling. {politics}
 - Prefer: entertainment, celebrities (positive/neutral), sports results, tech/gadgets, viral moments, movies/TV, music, lifestyle, science wonders, big sales/events.
 - English only. Friendly, energetic, not clickbait-lying.
@@ -60,6 +61,7 @@ def _parse(text):
         if not all(p.get(k) for k in ("key", "headline", "caption")):
             continue
         p["hashtags"] = [h.strip().lstrip("#").replace(" ", "") for h in p.get("hashtags", []) if h.strip()][:15]
+        p["caption"] = p["caption"].replace("*", "")  # Facebook shows asterisks literally
         p["theme"] = p.get("theme") if p.get("theme") in THEMES else "red"
         p["key"] = re.sub(r"[^a-z0-9-]+", "-", p["key"].lower()).strip("-")[:60]
         good.append(p)
