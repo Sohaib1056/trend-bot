@@ -1,15 +1,17 @@
 """Creative 1080x1350 posters for Facebook + Instagram.
 
 Background image source (first one that works):
-  1. AI-generated image  (POLLINATIONS_API_KEY, optional)
-  2. Real HD stock photo (PEXELS_API_KEY, free - recommended)
-  3. No photo -> bold graphic design
+  1. FREE AI image - Cloudflare Workers AI, FLUX model (CF_ACCOUNT_ID + CF_API_TOKEN)
+  2. AI image      - Pollinations (POLLINATIONS_API_KEY, optional, paid)
+  3. Stock photo   - Pixabay (PIXABAY_API_KEY, free) or Pexels (PEXELS_API_KEY)
+  4. No image -> bold graphic design
 
 Photo templates rotate so the page never looks repetitive:
   viral    - photo on top, black panel, big white text with yellow keywords
   breaking - full-bleed photo, news ribbon, highlighted word boxes
   frame    - bright colour frame, rounded photo, magazine-style text
 """
+import base64
 import io
 import os
 import random
@@ -229,9 +231,56 @@ def _stock_photo(query):
     return None
 
 
+def _cloudflare_image(prompt, seed):
+    """Free: ~170 FLUX images/day on Cloudflare's free Workers AI plan."""
+    acc, tok = os.getenv("CF_ACCOUNT_ID", "").strip(), os.getenv("CF_API_TOKEN", "").strip()
+    if not acc or not tok or not prompt:
+        return None
+    full = (f"{prompt}. Cinematic editorial photograph, dramatic lighting, vibrant colors, sharp focus, "
+            f"high detail, professional magazine quality. No text, no letters, no words, no watermark, no logo.")
+    try:
+        r = requests.post(
+            f"https://api.cloudflare.com/client/v4/accounts/{acc}/ai/run/@cf/black-forest-labs/flux-1-schnell",
+            headers={"Authorization": f"Bearer {tok}"},
+            json={"prompt": full[:2000], "steps": 8}, timeout=120)
+        data = r.json()
+        if r.status_code != 200 or not data.get("success", True):
+            raise RuntimeError(f"HTTP {r.status_code}: {str(data)[:300]}")
+        img_b64 = (data.get("result") or {}).get("image")
+        if not img_b64:
+            raise RuntimeError(f"no image in response: {str(data)[:200]}")
+        im = Image.open(io.BytesIO(base64.b64decode(img_b64))).convert("RGB")
+        print("[poster] background: Cloudflare FLUX AI image")
+        return im
+    except Exception as e:
+        print(f"[poster] Cloudflare AI image failed: {e}")
+        return None
+
+
+def _pixabay_photo(query):
+    key = os.getenv("PIXABAY_API_KEY", "").strip()
+    if not key or not query:
+        return None
+    try:
+        for q in (query, " ".join(query.split()[:2])):
+            r = requests.get("https://pixabay.com/api/", params={
+                "key": key, "q": q[:100], "image_type": "photo", "orientation": "vertical",
+                "safesearch": "true", "order": "popular", "per_page": 20, "min_width": 900}, timeout=20)
+            hits = r.json().get("hits", [])
+            if hits:
+                im = _download(random.choice(hits[:8])["largeImageURL"])
+                print(f"[poster] background: Pixabay photo for '{q}'")
+                return im
+    except Exception as e:
+        print(f"[poster] Pixabay failed: {e}")
+    return None
+
+
 def get_background(post):
     seed = abs(hash(post["key"])) % 100000
-    return _ai_image(post.get("image_prompt") or post.get("image_query"), seed) or _stock_photo(post.get("image_query"))
+    prompt = post.get("image_prompt") or post.get("image_query")
+    return (_cloudflare_image(prompt, seed) or _ai_image(prompt, seed)
+            or _pixabay_photo(post.get("image_query")) or _stock_photo(post.get("image_query")))
 
 
 # --------------------------------------------------------------- templates

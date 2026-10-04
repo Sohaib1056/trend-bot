@@ -37,11 +37,19 @@ Cost: **Rs 0**, using free tiers of Gemini, GitHub Actions and the Meta Graph AP
 
 > Keep these tokens secret. Never post them anywhere or put them inside the code.
 
-## Step 4 (strongly recommended): Pexels key for photo posters, free
-Get a free key at https://www.pexels.com/api/. With it, every poster gets a real HD photo, and the templates rotate between "viral", "breaking" and "frame".
-Without it, the bot falls back to a text-only graphic design.
+## Step 4: Free images for the posters (recommended)
+**A) Free AI images: Cloudflare Workers AI (FLUX model), about 100 free images a day**
+1. Sign up free at https://dash.cloudflare.com.
+2. In the left menu, open **AI → Workers AI**.
+3. Copy your **Account ID**. This is `CF_ACCOUNT_ID`.
+4. Click **Create a Workers AI API Token** (permissions: Workers AI Read and Edit), then copy the token. This is `CF_API_TOKEN`.
 
-Optional: for AI-generated background art, get a key at https://enter.pollinations.ai and add it as the secret `POLLINATIONS_API_KEY`. This service is pay-as-you-go.
+**B) Free stock photos (backup): Pixabay**
+1. Sign up free at https://pixabay.com.
+2. Open https://pixabay.com/api/docs/. Your key is shown in the "key" parameter. This is `PIXABAY_API_KEY`.
+
+The bot tries a Cloudflare AI image first, then Pixabay. If neither works, it makes a text-only graphic design.
+(`PEXELS_API_KEY` and `POLLINATIONS_API_KEY` are also supported if you have them.)
 
 ## Step 5: Put the bot on GitHub
 1. Create an account at https://github.com.
@@ -60,8 +68,10 @@ Go to Repo **Settings → Secrets and variables → Actions**.
 | `FB_PAGE_ID` | from Step 3 |
 | `FB_PAGE_TOKEN` | from Step 3 |
 | `IG_USER_ID` | from Step 3 |
-| `PEXELS_API_KEY` | from Step 4 (recommended) |
-| `POLLINATIONS_API_KEY` | optional, for AI art |
+| `CF_ACCOUNT_ID` | from Step 4A (free AI images) |
+| `CF_API_TOKEN` | from Step 4A |
+| `PIXABAY_API_KEY` | from Step 4B (free photos) |
+| `PEXELS_API_KEY` / `POLLINATIONS_API_KEY` | optional |
 | `GROQ_API_KEY` | optional backup AI (console.groq.com) |
 
 **Variables** tab, then **New repository variable**:
