@@ -64,42 +64,86 @@ def _parse(text):
     return good
 
 
+GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta"
+SKIP_WORDS = ("image", "tts", "audio", "live", "embed", "vision", "guard", "whisper", "native", "robotics")
+
+
+def _version(name):
+    m = re.search(r"(\d+(?:\.\d+)?)", name)
+    return float(m.group(1)) if m else 0.0
+
+
+def _gemini_models():
+    """Configured models first, then whatever flash models this key can actually use (newest first)."""
+    wanted = [config.GEMINI_MODEL] + config.GEMINI_FALLBACK_MODELS
+    try:
+        r = requests.get(f"{GEMINI_BASE}/models", params={"pageSize": 200},
+                         headers={"x-goog-api-key": config.GEMINI_API_KEY}, timeout=30)
+        found = [m["name"].split("/", 1)[1] for m in r.json().get("models", [])
+                 if "generateContent" in m.get("supportedGenerationMethods", [])]
+        found = [m for m in found if "flash" in m and not any(w in m for w in SKIP_WORDS)
+                 and "preview" not in m and "exp" not in m]
+        found.sort(key=lambda m: ("lite" in m, -_version(m)))
+        wanted += found
+    except Exception as e:
+        print(f"[ai] could not list Gemini models: {e}")
+    return list(dict.fromkeys(wanted))[:6]
+
+
 def _gemini(prompt):
-    models = [config.GEMINI_MODEL] + [m for m in config.GEMINI_FALLBACK_MODELS if m != config.GEMINI_MODEL]
     last = None
-    for m in models:
+    for m in _gemini_models():
         try:
             r = requests.post(
-                f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent",
+                f"{GEMINI_BASE}/models/{m}:generateContent",
                 headers={"x-goog-api-key": config.GEMINI_API_KEY, "Content-Type": "application/json"},
                 json={"contents": [{"parts": [{"text": prompt}]}],
                       "generationConfig": {"temperature": 0.8, "responseMimeType": "application/json"}},
                 timeout=90,
             )
             if r.status_code != 200:
-                raise RuntimeError(f"HTTP {r.status_code}: {r.text[:300]}")
+                raise RuntimeError(f"HTTP {r.status_code}: {r.text[:200]}")
             parts = r.json()["candidates"][0]["content"]["parts"]
             print(f"[ai] Gemini model used: {m}")
-            return "".join(p.get("text", "") for p in parts)
+            return "".join(p.get("text", "") for p in parts if not p.get("thought"))
         except Exception as e:
             print(f"[ai] Gemini {m} failed: {e}")
             last = e
     raise RuntimeError(f"All Gemini models failed: {last}")
 
 
+def _groq_models():
+    wanted = [config.GROQ_MODEL]
+    try:
+        r = requests.get("https://api.groq.com/openai/v1/models",
+                         headers={"Authorization": f"Bearer {config.GROQ_API_KEY}"}, timeout=30)
+        found = [m["id"] for m in r.json().get("data", []) if m.get("active", True)]
+        found = [m for m in found if not any(w in m.lower() for w in SKIP_WORDS)]
+        # bigger general models first
+        found.sort(key=lambda m: (not any(k in m for k in ("70b", "120b", "versatile", "maverick")), m))
+        wanted += found
+    except Exception as e:
+        print(f"[ai] could not list Groq models: {e}")
+    return list(dict.fromkeys(wanted))[:5]
+
+
 def _groq(prompt):
-    r = requests.post(
-        "https://api.groq.com/openai/v1/chat/completions",
-        headers={"Authorization": f"Bearer {config.GROQ_API_KEY}"},
-        json={"model": config.GROQ_MODEL, "temperature": 0.8,
-              "response_format": {"type": "json_object"},
-              "messages": [{"role": "user", "content": prompt}]},
-        timeout=90,
-    )
-    if r.status_code != 200:
-        raise RuntimeError(f"Groq HTTP {r.status_code}: {r.text[:300]}")
-    print(f"[ai] Groq model used: {config.GROQ_MODEL}")
-    return r.json()["choices"][0]["message"]["content"]
+    last = None
+    for m in _groq_models():
+        r = requests.post(
+            "https://api.groq.com/openai/v1/chat/completions",
+            headers={"Authorization": f"Bearer {config.GROQ_API_KEY}"},
+            json={"model": m, "temperature": 0.8,
+                  "response_format": {"type": "json_object"},
+                  "messages": [{"role": "user", "content": prompt}]},
+            timeout=90,
+        )
+        if r.status_code == 200:
+            print(f"[ai] Groq model used: {m}")
+            return r.json()["choices"][0]["message"]["content"]
+        last = f"Groq {m} HTTP {r.status_code}: {r.text[:200]}"
+        print(f"[ai] {last}")
+    raise RuntimeError(last)
 
 
 def write_posts(candidates, already_posted, n):

@@ -35,7 +35,7 @@ POST_TO_INSTAGRAM = _bool("POST_TO_INSTAGRAM", True)
 AVOID_POLITICS = _bool("AVOID_POLITICS", True)
 
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "").strip() or "gemini-flash-latest"
-GEMINI_FALLBACK_MODELS = ["gemini-2.5-flash", "gemini-2.5-flash-lite"]
+GEMINI_FALLBACK_MODELS = []  # others are discovered automatically (see ai._gemini_models)
 GROQ_MODEL = os.getenv("GROQ_MODEL", "").strip() or "llama-3.3-70b-versatile"
 GRAPH_VERSION = os.getenv("GRAPH_VERSION", "").strip() or "v23.0"
 
