@@ -15,6 +15,7 @@ import base64
 import io
 import os
 import random
+import re
 import urllib.parse
 from datetime import datetime, timezone
 
@@ -127,7 +128,7 @@ def _fit(d, toks, max_w, max_h, big=140, small=44, max_lines=5, lh_ratio=1.05):
     return f, _wrap_tokens(d, toks, f, max_w), int(small * lh_ratio)
 
 
-def _draw_rich(d, lines, font, lh, x, y, colour, hl_colour, align="left", box=None, shadow=True, width=W):
+def _draw_rich(d, lines, font, lh, x, y, colour, hl_colour, align="left", box=None, shadow=True, width=W, stroke=0):
     """Draw wrapped headline. box=(bg,fg) paints highlighted words as coloured boxes."""
     space = d.textlength(" ", font=font)
     asc, desc = font.getmetrics()
@@ -157,7 +158,8 @@ def _draw_rich(d, lines, font, lh, x, y, colour, hl_colour, align="left", box=No
             else:
                 if shadow:
                     d.text((px + 3, y + 4), word, font=font, fill=(0, 0, 0, 150))
-                d.text((px, y), word, font=font, fill=hl_colour if hl else colour)
+                d.text((px, y), word, font=font, fill=hl_colour if hl else colour,
+                       stroke_width=stroke, stroke_fill=(0, 0, 0))
         y += lh
     return y
 
@@ -281,8 +283,46 @@ def _pixabay_photo(query):
     return None
 
 
+WIKI_UA = {"User-Agent": "HypeAtlasBot/1.0 (facebook.com/hypeatlasnews)"}
+FREE_LICENSE = ("cc by", "cc0", "public domain", "pd", "cc-by")
+
+
+def _wikimedia_photo(title):
+    """Real photo of the person/team/film from Wikipedia, only if freely licensed. Returns (img, credit)."""
+    if not title:
+        return None, None
+    try:
+        r = requests.get("https://en.wikipedia.org/api/rest_v1/page/summary/" + urllib.parse.quote(title.replace(" ", "_")),
+                         headers=WIKI_UA, timeout=20)
+        info = r.json()
+        src = ((info.get("originalimage") or {}).get("source") or "").split("?", 1)[0]
+        if r.status_code != 200 or not src or info.get("type") == "disambiguation":
+            raise RuntimeError("no page image")
+        if (info.get("originalimage") or {}).get("width", 0) < 700:
+            raise RuntimeError("image too small")
+        fname = urllib.parse.unquote(src.rsplit("/", 1)[-1])
+        q = requests.get("https://en.wikipedia.org/w/api.php", headers=WIKI_UA, timeout=20, params={
+            "action": "query", "format": "json", "prop": "imageinfo", "iiprop": "extmetadata",
+            "titles": "File:" + fname}).json()
+        meta = next(iter(q["query"]["pages"].values()))["imageinfo"][0]["extmetadata"]
+        lic = meta.get("LicenseShortName", {}).get("value", "")
+        if not lic.lower().startswith(FREE_LICENSE) or "non-free" in lic.lower() or "fair use" in lic.lower():
+            raise RuntimeError(f"license not free: {lic}")
+        artist = re.sub(r"<[^>]+>", "", meta.get("Artist", {}).get("value", "")).strip()[:40] or "Wikimedia Commons"
+        im = _download(src, WIKI_UA)
+        print(f"[poster] background: Wikimedia photo of '{title}' ({lic})")
+        return im, f"Photo: {artist} / {lic}"
+    except Exception as e:
+        print(f"[poster] Wikimedia photo for '{title}' not used: {e}")
+        return None, None
+
+
 def get_background(post):
     seed = abs(hash(post["key"])) % 100000
+    real, credit = _wikimedia_photo(post.get("wiki_title"))
+    if real is not None:
+        post["_credit"] = credit
+        return real
     prompt = post.get("image_prompt") or post.get("image_query")
     return (_cloudflare_image(prompt, seed) or _ai_image(prompt, seed)
             or _pixabay_photo(post.get("image_query")) or _stock_photo(post.get("image_query")))
@@ -516,7 +556,7 @@ def tpl_hype(post, photo, theme=None):
     Full-bleed photo, brand header, big white headline with yellow keywords, brand gradient footer."""
     img = _cover(_enhance(photo), W, H).convert("RGBA")
     img = Image.alpha_composite(img, _vfade(W, H, 0, 260, (0, 0, 0), a0=150, a1=0, power=1))
-    img = Image.alpha_composite(img, _vfade(W, H, 520, H - 40, (6, 6, 10), a1=248, power=1.35))
+    img = Image.alpha_composite(img, _vfade(W, H, 560, H - 120, (6, 6, 10), a1=252, power=1.25))
     d = ImageDraw.Draw(img)
 
     # header: logo + page name (left), brand badge (right)
@@ -540,14 +580,14 @@ def tpl_hype(post, photo, theme=None):
 
     # headline + subtext, anchored to the bottom
     toks = _tokens(post["headline"])
-    f, lines, lh = _fit(d, toks, W - PAD * 2, 480, big=112, small=54, max_lines=4, lh_ratio=1.08)
+    f, lines, lh = _fit(d, toks, W - PAD * 2, 330, big=100, small=50, max_lines=3, lh_ratio=1.08)
     sub_f = _font("medium", 36)
     sub = _wrap(d, post.get("subtext", ""), sub_f, W - PAD * 2)[:2]
     foot_top = H - 96
     y = foot_top - 40 - len(sub) * 50 - (26 if sub else 0) - lh * len(lines) - 36
     img.paste(_hgradient(150, 10, [PINK, ORANGE, YELLOW]), (PAD, int(y)))
     d = ImageDraw.Draw(img)
-    y = _draw_rich(d, lines, f, lh, PAD, y + 30, WHITE, YELLOW, shadow=True)
+    y = _draw_rich(d, lines, f, lh, PAD, y + 30, WHITE, YELLOW, shadow=True, stroke=3)
     if sub:
         y += 26
         for line in sub:
@@ -560,6 +600,9 @@ def tpl_hype(post, photo, theme=None):
     date = datetime.now(timezone.utc).strftime("%d %b %Y").upper()
     df = _font("medium", 24)
     d.text((W - PAD - d.textlength(date, font=df), H - 70), date, font=df, fill=(170, 170, 178))
+    if post.get("_credit"):
+        cf = _font("regular", 18)
+        d.text((W - PAD - d.textlength(post["_credit"], font=cf), H - 38), post["_credit"], font=cf, fill=(140, 140, 148))
     img.paste(_hgradient(W, 12, [PINK, ORANGE, YELLOW]), (0, H - 12))
     return img
 
