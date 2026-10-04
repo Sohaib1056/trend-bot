@@ -34,6 +34,7 @@ def norm(s):
 
 def main():
     print(f"== Trend Bot | page: {config.PAGE_NAME} | countries: {config.COUNTRIES} | DRY_RUN={config.DRY_RUN}")
+    meta.check_connection()
     state = load_state()
     done_keys = {p["key"] for p in state["posted"]}
     done_topics = {norm(p.get("topic", "")) for p in state["posted"]}

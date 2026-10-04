@@ -20,6 +20,25 @@ def _check(r, what):
     return data
 
 
+def check_connection():
+    """Read-only check that the Page token works and belongs to FB_PAGE_ID. Never posts."""
+    if not (config.FB_PAGE_ID and config.FB_PAGE_TOKEN):
+        print("[meta] FB_PAGE_ID / FB_PAGE_TOKEN not set -> skipping Facebook check")
+        return False
+    try:
+        r = requests.get(_url("me"), params={"fields": "id,name", "access_token": config.FB_PAGE_TOKEN}, timeout=30)
+        me = _check(r, "Facebook token check")
+        if me.get("id") != config.FB_PAGE_ID:
+            print(f"[meta] WARNING: token belongs to '{me.get('name')}' ({me.get('id')}), "
+                  f"but FB_PAGE_ID is {config.FB_PAGE_ID}. Use the Page token, not the user token.")
+            return False
+        print(f"[meta] Facebook connected OK: page '{me.get('name')}'")
+        return True
+    except Exception as e:
+        print(f"[meta] {e}")
+        return False
+
+
 def post_facebook_photo(image_path, message):
     """Publishes the photo on the Page. Returns (photo_id, post_id)."""
     with open(image_path, "rb") as f:
