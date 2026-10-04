@@ -39,7 +39,7 @@ def main():
     done_keys = {p["key"] for p in state["posted"]}
     done_topics = {norm(p.get("topic", "")) for p in state["posted"]}
 
-    items = trends.collect(config.COUNTRIES)
+    items = trends.rank(trends.collect(config.COUNTRIES))
     seen, candidates = set(), []
     for it in items:
         t = norm(it["topic"])
@@ -48,8 +48,10 @@ def main():
             continue
         seen.add(t)
         candidates.append(it)
-    candidates = candidates[:30]
-    print(f"[main] {len(candidates)} safe, fresh candidate topics")
+    candidates = candidates[:25]
+    print(f"[main] {len(candidates)} safe, fresh candidate topics (strongest first)")
+    for c in candidates[:5]:
+        print(f"[main]   power {c['power']:>9,} | {c['country']:<11} | {c['topic']}")
     if not candidates:
         print("Nothing new to post right now.")
         return 0

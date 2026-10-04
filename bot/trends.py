@@ -91,6 +91,50 @@ def google_news(geo):
     return out[:15]
 
 
+COUNTRY_WEIGHT = {"US": 1.0, "GB": 0.8, "CA": 0.5, "AU": 0.5}
+
+
+def traffic_num(t):
+    """'200K+' -> 200000, '1M+' -> 1000000, '' -> 0"""
+    m = re.match(r"([\d.,]+)\s*([KM]?)", (t or "").replace(",", "").upper())
+    if not m:
+        return 0
+    n = float(m.group(1) or 0)
+    return int(n * {"K": 1_000, "M": 1_000_000}.get(m.group(2), 1))
+
+
+def _key(topic):
+    return re.sub(r"[^a-z0-9]+", " ", topic.lower()).strip()
+
+
+def rank(items):
+    """Merge the same topic across countries and sort by 'power':
+    search traffic (weighted by country) x bonus for trending in several countries.
+    News-only headlines get a small base score so big search trends come first."""
+    merged = {}
+    for it in items:
+        k = _key(it["topic"])
+        if not k:
+            continue
+        m = merged.setdefault(k, {**it, "countries": [], "traffic_sum": 0, "news": []})
+        if it["country"] not in m["countries"]:
+            m["countries"].append(it["country"])
+        w = COUNTRY_WEIGHT.get(it["country"], 0.5)
+        m["traffic_sum"] += (traffic_num(it["traffic"]) or 5_000) * w
+        if it["source"] == "google_trends":
+            m["source"] = "google_trends"
+        for n in it["news"]:
+            if len(m["news"]) < 3 and n["title"] not in {x["title"] for x in m["news"]}:
+                m["news"].append(n)
+    out = list(merged.values())
+    for m in out:
+        multi = 1 + 0.6 * (len(m["countries"]) - 1)
+        m["power"] = int(m["traffic_sum"] * multi * (1.0 if m["source"] == "google_trends" else 0.4))
+        m["country"] = ",".join(m["countries"])
+    out.sort(key=lambda m: m["power"], reverse=True)
+    return out
+
+
 def collect(countries):
     items = []
     for geo in countries:

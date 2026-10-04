@@ -27,7 +27,7 @@ PEXELS_API_KEY = os.getenv("PEXELS_API_KEY", "").strip()      # optional backgro
 # --- Settings (GitHub Variables) ---
 PAGE_NAME = os.getenv("PAGE_NAME", "").strip() or "Trending Now"
 NICHE = os.getenv("NICHE", "").strip() or "general viral & trending news, entertainment, sports, tech and lifestyle"
-COUNTRIES = [c.strip().upper() for c in (os.getenv("COUNTRIES", "") or "US,GB").split(",") if c.strip()]
+COUNTRIES = [c.strip().upper() for c in (os.getenv("COUNTRIES", "") or "US,GB,CA,AU").split(",") if c.strip()]
 POSTS_PER_RUN = max(1, _int("POSTS_PER_RUN", 1))
 DRY_RUN = _bool("DRY_RUN", True)            # True = make posters only, do NOT upload
 POST_TO_FACEBOOK = _bool("POST_TO_FACEBOOK", True)

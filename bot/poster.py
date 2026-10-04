@@ -19,7 +19,7 @@ import urllib.parse
 from datetime import datetime, timezone
 
 import requests
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 
 from . import config
 
@@ -38,6 +38,10 @@ THEMES = {
     "teal":   ((0, 115, 125),  (0, 25, 35),   (255, 175, 45)),
 }
 BLACK, WHITE = (12, 12, 14), (255, 255, 255)
+
+# Hype Atlas brand (matches the page logo and cover)
+PINK, ORANGE, YELLOW = (255, 31, 107), (255, 122, 0), (255, 212, 0)
+LOGO_PATH = os.path.join(config.BASE_DIR, "branding", "profile.png")
 
 
 # ---------------------------------------------------------------- helpers
@@ -236,8 +240,9 @@ def _cloudflare_image(prompt, seed):
     acc, tok = os.getenv("CF_ACCOUNT_ID", "").strip(), os.getenv("CF_API_TOKEN", "").strip()
     if not acc or not tok or not prompt:
         return None
-    full = (f"{prompt}. Cinematic editorial photograph, dramatic lighting, vibrant colors, sharp focus, "
-            f"high detail, professional magazine quality. No text, no letters, no words, no watermark, no logo.")
+    full = (f"{prompt}. Vertical portrait composition, main subject large and in the upper half of the frame, "
+            f"cinematic editorial photograph, dramatic lighting, rich vibrant colors, sharp focus, high detail, "
+            f"professional magazine cover quality. No text, no letters, no words, no watermark, no logo.")
     try:
         r = requests.post(
             f"https://api.cloudflare.com/client/v4/accounts/{acc}/ai/run/@cf/black-forest-labs/flux-1-schnell",
@@ -445,22 +450,138 @@ def tpl_graphic(post, theme):
     return img
 
 
-PHOTO_TEMPLATES = {"viral": tpl_viral, "breaking": tpl_breaking, "frame": tpl_frame}
+
+# ------------------------------------------------- signature brand template
+def _hgradient(w, h, stops):
+    """Horizontal gradient image through the given colour stops."""
+    g = Image.new("RGB", (w, h))
+    d = ImageDraw.Draw(g)
+    n = len(stops) - 1
+    for x in range(w):
+        t = x / max(1, w - 1) * n
+        i = min(int(t), n - 1)
+        f = t - i
+        d.line([(x, 0), (x, h)], fill=tuple(int(stops[i][k] + (stops[i + 1][k] - stops[i][k]) * f) for k in range(3)))
+    return g
+
+
+def _paste_rounded(img, src, xy, radius):
+    mask = Image.new("L", src.size, 0)
+    ImageDraw.Draw(mask).rounded_rectangle([0, 0, src.width - 1, src.height - 1], radius=radius, fill=255)
+    img.paste(src, xy, mask)
+
+
+def _logo(size):
+    try:
+        lg = Image.open(LOGO_PATH).convert("RGB").resize((size, size), Image.LANCZOS)
+        mask = Image.new("L", (size, size), 0)
+        ImageDraw.Draw(mask).ellipse([0, 0, size - 1, size - 1], fill=255)
+        out = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+        out.paste(lg, (0, 0), mask)
+        return out
+    except Exception:
+        return None
+
+
+def _enhance(photo):
+    photo = ImageEnhance.Color(photo).enhance(1.15)
+    photo = ImageEnhance.Contrast(photo).enhance(1.08)
+    return photo.filter(ImageFilter.UnsharpMask(radius=2, percent=80, threshold=3))
+
+
+def _brand_backdrop(post):
+    """Used when no photo is available: dark canvas with brand-coloured glows."""
+    img = _gradient((28, 10, 40), (8, 4, 14))
+    rnd = random.Random(post["key"])
+    glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    g = ImageDraw.Draw(glow)
+    for colour in (PINK, ORANGE, YELLOW):
+        r = rnd.randint(260, 420)
+        x, y = rnd.randint(0, W), rnd.randint(0, H // 2)
+        g.ellipse([x - r, y - r, x + r, y + r], fill=colour + (90,))
+    img = Image.alpha_composite(img, glow.filter(ImageFilter.GaussianBlur(140)))
+    word = (post.get("topic") or post["headline"]).split()[0].upper()[:10]
+    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    bf = _font("bold", 380)
+    bw = d.textlength(word, font=bf)
+    if bw > W * 1.5:
+        bf = _font("bold", int(380 * W * 1.5 / bw))
+    d.text((-20, 180), word, font=bf, fill=(0, 0, 0, 0), stroke_width=4, stroke_fill=(255, 255, 255, 45))
+    return Image.alpha_composite(img, layer).convert("RGB")
+
+
+def tpl_hype(post, photo, theme=None):
+    """Hype Atlas signature design: one consistent look so the page grid reads like a magazine.
+    Full-bleed photo, brand header, big white headline with yellow keywords, brand gradient footer."""
+    img = _cover(_enhance(photo), W, H).convert("RGBA")
+    img = Image.alpha_composite(img, _vfade(W, H, 0, 260, (0, 0, 0), a0=150, a1=0, power=1))
+    img = Image.alpha_composite(img, _vfade(W, H, 520, H - 40, (6, 6, 10), a1=248, power=1.35))
+    d = ImageDraw.Draw(img)
+
+    # header: logo + page name (left), brand badge (right)
+    lg = _logo(88)
+    x = PAD - 22
+    if lg:
+        d.ellipse([x - 4, 42, x + 92, 138], fill=WHITE)
+        img.alpha_composite(lg, (x, 46))
+        x += 110
+    d.text((x, 50), "HYPE ATLAS", font=_font("bold", 36), fill=WHITE)
+    d.text((x + 2, 98), "VIRAL & TRENDING", font=_font("bold", 20), fill=YELLOW)
+
+    bf = _font("bold", 26)
+    label = (post.get("badge") or "TRENDING").upper()[:18]
+    bw = int(d.textlength(label, font=bf)) + 76
+    bx, by, bh = W - PAD + 22 - bw, 62, 56
+    _paste_rounded(img, _hgradient(bw, bh, [PINK, ORANGE]), (bx, by), bh // 2)
+    d = ImageDraw.Draw(img)
+    d.ellipse([bx + 24, by + bh // 2 - 7, bx + 38, by + bh // 2 + 7], fill=WHITE)
+    d.text((bx + 50, by + 13), label, font=bf, fill=WHITE)
+
+    # headline + subtext, anchored to the bottom
+    toks = _tokens(post["headline"])
+    f, lines, lh = _fit(d, toks, W - PAD * 2, 480, big=112, small=54, max_lines=4, lh_ratio=1.08)
+    sub_f = _font("medium", 36)
+    sub = _wrap(d, post.get("subtext", ""), sub_f, W - PAD * 2)[:2]
+    foot_top = H - 96
+    y = foot_top - 40 - len(sub) * 50 - (26 if sub else 0) - lh * len(lines) - 36
+    img.paste(_hgradient(150, 10, [PINK, ORANGE, YELLOW]), (PAD, int(y)))
+    d = ImageDraw.Draw(img)
+    y = _draw_rich(d, lines, f, lh, PAD, y + 30, WHITE, YELLOW, shadow=True)
+    if sub:
+        y += 26
+        for line in sub:
+            d.text((PAD, y), line, font=sub_f, fill=(225, 225, 232))
+            y += 50
+
+    # footer
+    ff = _font("bold", 26)
+    d.text((PAD, H - 72), "FOLLOW FOR MORE", font=ff, fill=YELLOW)
+    date = datetime.now(timezone.utc).strftime("%d %b %Y").upper()
+    df = _font("medium", 24)
+    d.text((W - PAD - d.textlength(date, font=df), H - 70), date, font=df, fill=(170, 170, 178))
+    img.paste(_hgradient(W, 12, [PINK, ORANGE, YELLOW]), (0, H - 12))
+    return img
+
+
+PHOTO_TEMPLATES = {"hype": tpl_hype, "viral": tpl_viral, "breaking": tpl_breaking, "frame": tpl_frame}
+DEFAULT_TEMPLATE = os.getenv("POSTER_TEMPLATE", "hype").strip() or "hype"
 
 
 def make_poster(post, path, photo=None, template=None):
+    """Signature 'hype' design for every post (consistent page grid).
+    Other templates only when asked for explicitly (template arg or POSTER_TEMPLATE env)."""
     theme = THEMES.get(post.get("theme"), THEMES["red"])
     if photo is None:
         photo = get_background(post)
-    if photo is not None:
-        name = template or post.get("template")
-        if name not in PHOTO_TEMPLATES:
-            name = random.choice(list(PHOTO_TEMPLATES))
-        print(f"[poster] template: {name}")
-        img = PHOTO_TEMPLATES[name](post, photo, theme)
-    else:
-        print("[poster] template: graphic (no background image; add CF_ACCOUNT_ID + CF_API_TOKEN or PIXABAY_API_KEY)")
-        img = tpl_graphic(post, theme)
+    if photo is None:
+        print("[poster] no background image (add CF_ACCOUNT_ID + CF_API_TOKEN or PIXABAY_API_KEY) -> brand backdrop")
+        photo = _brand_backdrop(post)
+    name = template or DEFAULT_TEMPLATE
+    if name not in PHOTO_TEMPLATES:
+        name = "hype"
+    print(f"[poster] template: {name}")
+    img = PHOTO_TEMPLATES[name](post, photo, theme)
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
-    img.convert("RGB").save(path, "JPEG", quality=93)
+    img.convert("RGB").save(path, "JPEG", quality=95, subsampling=0)
     return path
