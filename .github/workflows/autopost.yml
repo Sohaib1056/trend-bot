@@ -2,10 +2,11 @@ name: Trend Auto Post
 
 on:
   schedule:
-    # Peak times (UTC): 07 UK morning + Australia evening, 12 US morning + UK lunch,
-    # 16 US noon, 19 US afternoon + UK evening, 23 US East evening,
-    # 01 US prime time (9pm East / 6pm West)
-    - cron: "17 1,7,12,16,19,23 * * *"
+    # Wakes up every hour; the bot itself posts only once per peak slot (bot/config.py POST_SLOTS),
+    # so a late or skipped GitHub cron run is caught up by the next hour.
+    # Slots (UTC): 01 US prime time, 07 UK morning + Australia evening, 12 US morning + UK lunch,
+    # 16 US noon, 19 US afternoon + UK evening, 23 US East evening
+    - cron: "17 * * * *"
   workflow_dispatch:      # lets you press "Run workflow" manually
     inputs:
       dry_run:

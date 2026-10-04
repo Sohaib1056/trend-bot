@@ -3,7 +3,7 @@ import json
 import os
 import re
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 from . import ai, config, meta, poster, trends
 
@@ -32,10 +32,43 @@ def norm(s):
     return re.sub(r"[^a-z0-9]+", " ", s.lower()).strip()
 
 
+def current_slot(now):
+    """Start time of the posting slot we are inside, or None."""
+    for day in (0, -1):
+        for h in sorted(config.POST_SLOTS_UTC, reverse=True):
+            start = (now + timedelta(days=day)).replace(hour=h, minute=0, second=0, microsecond=0)
+            if start <= now < start + timedelta(hours=config.SLOT_WINDOW_HOURS):
+                return start
+    return None
+
+
+def should_post_now(state):
+    """Manual runs always go. Hourly scheduled runs post once per slot window."""
+    if os.getenv("GITHUB_EVENT_NAME", "") != "schedule":
+        return True
+    now = datetime.now(timezone.utc)
+    slot = current_slot(now)
+    if slot is None:
+        print(f"[main] {now:%H:%M} UTC is not in a posting window {config.POST_SLOTS_UTC} -> nothing to do")
+        return False
+    for p in reversed(state["posted"]):
+        try:
+            t = datetime.fromisoformat(p["time"])
+        except Exception:
+            continue
+        if t >= slot and bool(p.get("dry_run", False)) == config.DRY_RUN:
+            print(f"[main] slot {slot:%H:%M} UTC already done ({p.get('topic', p['key'])}) -> nothing to do")
+            return False
+    print(f"[main] posting for slot {slot:%H:%M} UTC")
+    return True
+
+
 def main():
     print(f"== Trend Bot | page: {config.PAGE_NAME} | countries: {config.COUNTRIES} | DRY_RUN={config.DRY_RUN}")
-    meta.check_connection()
     state = load_state()
+    if not should_post_now(state):
+        return 0
+    meta.check_connection()
     done_keys = {p["key"] for p in state["posted"]}
     done_topics = {norm(p.get("topic", "")) for p in state["posted"]}
 

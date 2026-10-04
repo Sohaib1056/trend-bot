@@ -29,6 +29,10 @@ PAGE_NAME = os.getenv("PAGE_NAME", "").strip() or "Trending Now"
 NICHE = os.getenv("NICHE", "").strip() or "general viral & trending news, entertainment, sports, tech and lifestyle"
 COUNTRIES = [c.strip().upper() for c in (os.getenv("COUNTRIES", "") or "US,GB,CA,AU").split(",") if c.strip()]
 POSTS_PER_RUN = max(1, _int("POSTS_PER_RUN", 1))
+# Posting slots (UTC hours). The workflow wakes up every hour; a scheduled run only posts
+# inside a slot window and only once per slot, so GitHub's late/dropped cron runs are covered.
+POST_SLOTS_UTC = sorted({int(h) for h in (os.getenv("POST_SLOTS", "") or "1,7,12,16,19,23").split(",") if h.strip().isdigit()})
+SLOT_WINDOW_HOURS = _int("SLOT_WINDOW_HOURS", 3)
 DRY_RUN = _bool("DRY_RUN", True)            # True = make posters only, do NOT upload
 POST_TO_FACEBOOK = _bool("POST_TO_FACEBOOK", True)
 POST_TO_INSTAGRAM = _bool("POST_TO_INSTAGRAM", True)
