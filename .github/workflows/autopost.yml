@@ -2,9 +2,9 @@ name: Trend Auto Post
 
 on:
   schedule:
-    # Every 4 hours (UTC) = 6 posts a day. Pakistan time = UTC+5.
-    # Change to "0 */3 * * *" for every 3 hours, "0 */6 * * *" for every 6 hours.
-    - cron: "17 */4 * * *"
+    # Peak US/UK times (UTC): 07 UK morning, 12 US morning + UK lunch,
+    # 16 US noon, 19 US afternoon + UK evening, 23 US evening
+    - cron: "17 7,12,16,19,23 * * *"
   workflow_dispatch: {}   # lets you press "Run workflow" manually
 
 permissions:

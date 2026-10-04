@@ -40,7 +40,7 @@ Return JSON exactly in this shape:
   "subtext": "max 18 words, one supporting line for the poster",
   "image_prompt": "one vivid sentence describing a dramatic, eye-catching background picture for this story (no text, no real person's face, no logos)",
   "template": "one of viral, breaking, frame (viral = celebrity/entertainment/viral moments, breaking = news/sports/events, frame = tech/lifestyle/products)",
-  "caption": "80-140 words. First line = strong hook with 1-2 emojis. Short paragraphs. Explain what happened using only given facts. End with a question to drive comments.",
+  "caption": "80-140 words. First line = strong hook with 1-2 emojis. Short paragraphs. Explain what happened using only given facts. End with a question to drive comments, then a short share nudge like 'Send this to a friend who needs to see it 👀'.",
   "hashtags": ["10 to 15 hashtags without #, mix of broad popular tags and topic-specific tags"],
   "image_query": "2-4 generic words for a stock photo background (no person names), e.g. 'football stadium night'",
   "theme": "one of {THEMES}"
