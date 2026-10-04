@@ -459,7 +459,7 @@ def make_poster(post, path, photo=None, template=None):
         print(f"[poster] template: {name}")
         img = PHOTO_TEMPLATES[name](post, photo, theme)
     else:
-        print("[poster] template: graphic (add PEXELS_API_KEY for photo posters)")
+        print("[poster] template: graphic (no background image; add CF_ACCOUNT_ID + CF_API_TOKEN or PIXABAY_API_KEY)")
         img = tpl_graphic(post, theme)
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     img.convert("RGB").save(path, "JPEG", quality=93)
