@@ -6,7 +6,13 @@ on:
     # 16 US noon, 19 US afternoon + UK evening, 23 US East evening,
     # 01 US prime time (9pm East / 6pm West)
     - cron: "17 1,7,12,16,19,23 * * *"
-  workflow_dispatch: {}   # lets you press "Run workflow" manually
+  workflow_dispatch:      # lets you press "Run workflow" manually
+    inputs:
+      dry_run:
+        description: "Dry run? default = use the DRY_RUN variable, false = really post this one run"
+        type: choice
+        options: ["default", "true", "false"]
+        default: "default"
 
 permissions:
   contents: write
@@ -45,7 +51,7 @@ jobs:
           NICHE: ${{ vars.NICHE }}
           COUNTRIES: ${{ vars.COUNTRIES }}
           POSTS_PER_RUN: ${{ vars.POSTS_PER_RUN }}
-          DRY_RUN: ${{ vars.DRY_RUN }}
+          DRY_RUN: ${{ (inputs.dry_run == 'true' || inputs.dry_run == 'false') && inputs.dry_run || vars.DRY_RUN }}
           AVOID_POLITICS: ${{ vars.AVOID_POLITICS }}
         run: python -m bot.main
 
