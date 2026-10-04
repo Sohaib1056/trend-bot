@@ -36,7 +36,7 @@ AVOID_POLITICS = _bool("AVOID_POLITICS", True)
 
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "").strip() or "gemini-flash-latest"
 GEMINI_FALLBACK_MODELS = []  # others are discovered automatically (see ai._gemini_models)
-GROQ_MODEL = os.getenv("GROQ_MODEL", "").strip() or "llama-3.3-70b-versatile"
+GROQ_MODEL = os.getenv("GROQ_MODEL", "").strip() or "openai/gpt-oss-120b"
 GRAPH_VERSION = os.getenv("GRAPH_VERSION", "").strip() or "v23.0"
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

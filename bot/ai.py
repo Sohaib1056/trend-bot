@@ -52,7 +52,9 @@ def _parse(text):
     text = text.strip()
     text = re.sub(r"^```(?:json)?|```$", "", text, flags=re.M).strip()
     data = json.loads(text)
-    posts = data.get("posts", data if isinstance(data, list) else [])
+    if isinstance(data, list):  # some models return the posts list (or [{"posts": [...]}]) directly
+        data = data[0] if len(data) == 1 and isinstance(data[0], dict) and "posts" in data[0] else {"posts": data}
+    posts = data.get("posts", [])
     good = []
     for p in posts:
         if not all(p.get(k) for k in ("key", "headline", "caption")):
