@@ -67,6 +67,8 @@ def main():
         stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M")
         img = poster.make_poster(p, os.path.join(config.OUTPUT_DIR, f"{stamp}-{p['key']}.jpg"))
         caption = p["caption"].strip() + "\n\n" + " ".join("#" + h for h in p["hashtags"])
+        if p.get("_credit"):  # photo licence requires attribution; kept off the poster, in the caption
+            caption += "\n\n" + p["_credit"]
         with open(img.replace(".jpg", ".txt"), "w") as f:
             f.write(caption)
         print(f"\n--- POST: {p['headline']}\n{caption}\nimage: {img}\n")

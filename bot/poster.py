@@ -311,7 +311,7 @@ def _wikimedia_photo(title):
         artist = re.sub(r"<[^>]+>", "", meta.get("Artist", {}).get("value", "")).strip()[:40] or "Wikimedia Commons"
         im = _download(src, WIKI_UA)
         print(f"[poster] background: Wikimedia photo of '{title}' ({lic})")
-        return im, f"Photo: {artist} / {lic}"
+        return im, f"📷 Photo: {artist}, {lic}, via Wikimedia Commons"
     except Exception as e:
         print(f"[poster] Wikimedia photo for '{title}' not used: {e}")
         return None, None
@@ -600,9 +600,6 @@ def tpl_hype(post, photo, theme=None):
     date = datetime.now(timezone.utc).strftime("%d %b %Y").upper()
     df = _font("medium", 24)
     d.text((W - PAD - d.textlength(date, font=df), H - 70), date, font=df, fill=(170, 170, 178))
-    if post.get("_credit"):
-        cf = _font("regular", 18)
-        d.text((W - PAD - d.textlength(post["_credit"], font=cf), H - 38), post["_credit"], font=cf, fill=(140, 140, 148))
     img.paste(_hgradient(W, 12, [PINK, ORANGE, YELLOW]), (0, H - 12))
     return img
 
