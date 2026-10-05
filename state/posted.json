@@ -48,6 +48,13 @@
       "headline": "HBO CEO Gives *Glowing Review* To *Harry Potter* Series",
       "time": "2026-10-05T01:59+00:00",
       "facebook": "1397517856769204_122105705889493621"
+    },
+    {
+      "key": "nfl-london-series",
+      "topic": "nfl results",
+      "headline": "The *NFL* Officially *Kicks Off* Its London Series",
+      "time": "2026-10-05T05:26+00:00",
+      "dry_run": true
     }
   ]
 }
