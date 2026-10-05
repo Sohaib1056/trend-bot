@@ -53,6 +53,7 @@ jobs:
           COUNTRIES: ${{ vars.COUNTRIES }}
           POSTS_PER_RUN: ${{ vars.POSTS_PER_RUN }}
           DRY_RUN: ${{ (inputs.dry_run == 'true' || inputs.dry_run == 'false') && inputs.dry_run || vars.DRY_RUN }}
+          RUN_MODE: ${{ inputs.dry_run }}
           AVOID_POLITICS: ${{ vars.AVOID_POLITICS }}
         run: python -m bot.main
 

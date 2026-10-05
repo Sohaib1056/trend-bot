@@ -43,8 +43,10 @@ def current_slot(now):
 
 
 def should_post_now(state):
-    """Manual runs always go. Hourly scheduled runs post once per slot window."""
-    if os.getenv("GITHUB_EVENT_NAME", "") != "schedule":
+    """Hourly GitHub runs and cron-job.org triggers post once per slot window.
+    A manual 'Run workflow' with dry_run set to true/false always runs (for testing)."""
+    event = os.getenv("GITHUB_EVENT_NAME", "")
+    if event != "schedule" and not (event == "workflow_dispatch" and os.getenv("RUN_MODE", "default") in ("", "default")):
         return True
     now = datetime.now(timezone.utc)
     slot = current_slot(now)
