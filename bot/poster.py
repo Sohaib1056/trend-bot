@@ -245,6 +245,25 @@ def _cloudflare_image(prompt, seed):
     full = (f"{prompt}. Vertical portrait composition, main subject large and in the upper half of the frame, "
             f"cinematic editorial photograph, dramatic lighting, rich vibrant colors, sharp focus, high detail, "
             f"professional magazine cover quality. No text, no letters, no words, no watermark, no logo.")
+    # 1) higher-quality model rendered directly in 4:5 portrait; 2) fast FLUX schnell as fallback
+    try:
+        r = requests.post(
+            f"https://api.cloudflare.com/client/v4/accounts/{acc}/ai/run/@cf/leonardo/lucid-origin",
+            headers={"Authorization": f"Bearer {tok}"},
+            json={"prompt": full[:1500], "width": 1088, "height": 1360, "num_steps": 40, "seed": seed},
+            timeout=150)
+        if r.headers.get("content-type", "").startswith("image/"):
+            im = Image.open(io.BytesIO(r.content)).convert("RGB")
+        else:
+            data = r.json()
+            img_b64 = (data.get("result") or {}).get("image")
+            if r.status_code != 200 or not img_b64:
+                raise RuntimeError(f"HTTP {r.status_code}: {str(data)[:200]}")
+            im = Image.open(io.BytesIO(base64.b64decode(img_b64))).convert("RGB")
+        print("[poster] background: Cloudflare Leonardo Lucid Origin AI image")
+        return im
+    except Exception as e:
+        print(f"[poster] Leonardo model not available, using FLUX schnell: {e}")
     try:
         r = requests.post(
             f"https://api.cloudflare.com/client/v4/accounts/{acc}/ai/run/@cf/black-forest-labs/flux-1-schnell",
@@ -287,6 +306,19 @@ WIKI_UA = {"User-Agent": "HypeAtlasBot/1.0 (facebook.com/hypeatlasnews)"}
 FREE_LICENSE = ("cc by", "cc0", "public domain", "pd", "cc-by")
 
 
+def _is_person(qid):
+    """Wikidata check: instance of human (Q5)."""
+    if not qid:
+        return False
+    try:
+        r = requests.get("https://www.wikidata.org/w/api.php", headers=WIKI_UA, timeout=20, params={
+            "action": "wbgetclaims", "entity": qid, "property": "P31", "format": "json"})
+        claims = r.json().get("claims", {}).get("P31", [])
+        return any(c["mainsnak"].get("datavalue", {}).get("value", {}).get("id") == "Q5" for c in claims)
+    except Exception:
+        return False
+
+
 def _wikimedia_photo(title):
     """Real photo of the person/team/film from Wikipedia, only if freely licensed. Returns (img, credit)."""
     if not title:
@@ -298,9 +330,17 @@ def _wikimedia_photo(title):
         src = ((info.get("originalimage") or {}).get("source") or "").split("?", 1)[0]
         if r.status_code != 200 or not src or info.get("type") == "disambiguation":
             raise RuntimeError("no page image")
-        if (info.get("originalimage") or {}).get("width", 0) < 700:
+        oi = info.get("originalimage") or {}
+        if oi.get("width", 0) < 700:
             raise RuntimeError("image too small")
         fname = urllib.parse.unquote(src.rsplit("/", 1)[-1])
+        # real photos of people only: shows, films, teams and brands usually lead with a logo/title card
+        if not fname.lower().endswith((".jpg", ".jpeg")) or re.search(r"logo|title|card|poster|wordmark|banner", fname, re.I):
+            raise RuntimeError(f"looks like a logo/poster, not a photo: {fname}")
+        if not oi.get("height") or oi["width"] / oi["height"] > 1.8:
+            raise RuntimeError("very wide image (likely a banner)")
+        if not _is_person(info.get("wikibase_item")):
+            raise RuntimeError("not a person (only real photos of people are used)")
         q = requests.get("https://en.wikipedia.org/w/api.php", headers=WIKI_UA, timeout=20, params={
             "action": "query", "format": "json", "prop": "imageinfo", "iiprop": "extmetadata",
             "titles": "File:" + fname}).json()
