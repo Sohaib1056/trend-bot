@@ -6,11 +6,15 @@
   ~3s   subtext fades in
   end   card: logo + "FOLLOW HYPE ATLAS"
   brand-gradient progress bar along the top the whole time
-Music: a random track from assets/music/ if present (use only royalty-free tracks), else silent audio.
+Voice: the AI's narration read by Cloudflare text-to-speech (Deepgram Aura, MeloTTS backup); the Reel is as long
+       as the narration. Music: a random track from assets/music/ (royalty-free), quieter under the voice.
 """
+import base64
 import glob
+import math
 import os
 import random
+import re
 import subprocess
 
 import requests
@@ -23,7 +27,8 @@ from .poster import (PAD, PINK, ORANGE, YELLOW, WHITE, _cover, _download, _enhan
 RW, RH = 1080, 1920
 FPS = 30
 SCENE = 2.0          # seconds per scene
-MAX_SCENES = 5
+MAX_SCENES = 6
+VOICE_AT = 0.3       # narration starts after the hook frame
 END_LEN = 2.2        # end card
 MUSIC_DIR = os.path.join(config.BASE_DIR, "assets", "music")
 CLIP_DIR = os.path.join(config.OUTPUT_DIR, "clips")
@@ -95,20 +100,63 @@ def _pixabay_videos(post, want=3):
     return clips
 
 
-def _scenes(post, photo):
+# ------------------------------------------------------------------ voice
+def _voice_text(post):
+    text = post.get("voiceover") or (post["headline"] + ". " + post.get("subtext", ""))
+    text = re.sub(r"[*#_]|[^\x00-ɏ\s]", "", text).strip()  # drop emoji
+    return f"{text} Follow Hype Atlas for more!"
+
+
+def _tts(text, path):
+    """Cloudflare Workers AI text-to-speech (same free account as the images). Returns True on success."""
+    acc, tok = os.getenv("CF_ACCOUNT_ID", "").strip(), os.getenv("CF_API_TOKEN", "").strip()
+    if not acc or not tok:
+        return False
+    base = f"https://api.cloudflare.com/client/v4/accounts/{acc}/ai/run/"
+    for model, body in (("@cf/deepgram/aura-1", {"text": text, "speaker": os.getenv("VOICE", "asteria"), "encoding": "mp3"}),
+                        ("@cf/myshell-ai/melotts", {"prompt": text, "lang": "en"})):
+        try:
+            r = requests.post(base + model, headers={"Authorization": f"Bearer {tok}"}, json=body, timeout=90)
+            if r.status_code != 200:
+                raise RuntimeError(f"HTTP {r.status_code}: {r.text[:150]}")
+            if "json" in r.headers.get("content-type", ""):
+                audio = (r.json().get("result") or {}).get("audio")
+                if not audio:
+                    raise RuntimeError(f"no audio: {r.text[:150]}")
+                data = base64.b64decode(audio)
+            else:
+                data = r.content
+            if len(data) < 2000:
+                raise RuntimeError("audio too short")
+            with open(path, "wb") as f:
+                f.write(data)
+            print(f"[reel] voiceover by {model}: \"{text}\"")
+            return True
+        except Exception as e:
+            print(f"[reel] voice {model} failed: {e}")
+    return False
+
+
+def _audio_secs(exe, path):
+    out = subprocess.run([exe, "-i", path], capture_output=True, text=True).stderr
+    m = re.search(r"Duration: (\d+):(\d+):([\d.]+)", out)
+    return int(m.group(1)) * 3600 + int(m.group(2)) * 60 + float(m.group(3)) if m else 0.0
+
+
+def _scenes(post, photo, count=4):
     """Ordered list of ('photo', img) / ('video', (path, duration)) scenes."""
     photos = [photo] + [im for im in post.get("_extras", []) if im is not photo]
-    videos = _pixabay_videos(post)
+    videos = _pixabay_videos(post, want=min(4, count - 1))
     scenes = []
     if post.get("_person") or not videos:  # a real face is the strongest hook
         scenes.append(("photo", photos.pop(0)))
-    while len(scenes) < MAX_SCENES and (videos or photos):
+    while len(scenes) < count and (videos or photos):
         if videos:
             scenes.append(("video", videos.pop(0)))
-        if photos and len(scenes) < MAX_SCENES:
+        if photos and len(scenes) < count:
             scenes.append(("photo", photos.pop(0)))
-    while len(scenes) < 3:  # too little footage: re-use the main photo with a different move
-        scenes.append(("photo", photo))
+    while len(scenes) < count:  # too little footage: re-use the photos with a different move
+        scenes.append(scenes[len(scenes) % max(1, len(scenes))] if scenes[-1][0] == "video" else ("photo", photo))
     print(f"[reel] {len(scenes)} scenes: " + ", ".join(k for k, _ in scenes))
     return scenes
 
@@ -212,7 +260,7 @@ def _end_card():
     return layer
 
 
-def _frames(post, scenes, exe):
+def _frames(post, scenes, exe, duration):
     shade = Image.alpha_composite(_vfade(RW, RH, 0, 420, (0, 0, 0), a0=170, a1=0, power=1),
                                   _vfade(RW, RH, 820, RH, (6, 6, 10), a1=245, power=1.3))
     header = _header_layer(post)
@@ -221,8 +269,7 @@ def _frames(post, scenes, exe):
     f, words, sub_f, sub, sub_y, _ = _layout_headline(post)
     bar = _hgradient(RW, 10, [PINK, ORANGE, YELLOW]).convert("RGBA")
     per = int(SCENE * FPS)
-    end_at = len(scenes) * SCENE
-    duration = end_at + END_LEN
+    end_at = duration - END_LEN
     total = int(duration * FPS)
     word_gap = min(0.12, 1.0 / max(1, len(words)))  # whole headline is up within ~1s
     sub_at = word_gap * len(words) + 0.8
@@ -241,7 +288,7 @@ def _frames(post, scenes, exe):
 
     for i, base in enumerate(source()):
         t = i / FPS
-        since_cut = t % SCENE if t < end_at else 99
+        since_cut = t % SCENE if t < len(scenes) * SCENE else 99
         frame = base
         if i >= per and since_cut < 0.25:  # zoom punch on each cut
             z = 1.0 + 0.08 * (1 - since_cut / 0.25)
@@ -288,28 +335,39 @@ def make_reel(post, photo, path):
     try:
         import imageio_ffmpeg
         exe = imageio_ffmpeg.get_ffmpeg_exe()
-        scenes = _scenes(post, photo)
-        duration = len(scenes) * SCENE + END_LEN
+        voice = path.replace(".mp4", "-voice.mp3")
+        vsecs = _audio_secs(exe, voice) if _tts(_voice_text(post), voice) else 0.0
+        # the narration (minus the "follow" line, which plays over the end card) decides the length
+        count = max(3, min(MAX_SCENES, math.ceil((vsecs + VOICE_AT - 1.6) / SCENE))) if vsecs else 4
+        scenes = _scenes(post, photo, count)
+        duration = max(len(scenes) * SCENE + END_LEN, vsecs + VOICE_AT + 0.5)
         track = _music()
         cmd = [exe, "-y", "-loglevel", "error",
                "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{RW}x{RH}", "-r", str(FPS), "-i", "-"]
         if track:
-            cmd += ["-stream_loop", "-1", "-i", track,
-                    "-af", f"afade=t=in:d=0.3,afade=t=out:st={duration - 1.2}:d=1.2,volume=0.8"]
+            cmd += ["-stream_loop", "-1", "-i", track]
         else:
             cmd += ["-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo"]
-        cmd += ["-map", "0:v", "-map", "1:a", "-t", str(duration),
+        fades = f"afade=t=in:d=0.3,afade=t=out:st={duration - 1.2:.2f}:d=1.2"
+        if vsecs:
+            ms = int(VOICE_AT * 1000)
+            cmd += ["-i", voice, "-filter_complex",
+                    f"[1:a]volume=0.22,{fades}[m];[2:a]adelay={ms}|{ms},volume=1.5[v];"
+                    f"[m][v]amix=inputs=2:duration=first:normalize=0[a]", "-map", "0:v", "-map", "[a]"]
+        else:
+            cmd += ["-af", f"{fades},volume=0.8", "-map", "0:v", "-map", "1:a"]
+        cmd += ["-t", f"{duration:.2f}",
                 "-c:v", "libx264", "-preset", "medium", "-crf", "19", "-pix_fmt", "yuv420p",
-                "-profile:v", "high", "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", path]
+                "-profile:v", "high", "-c:a", "aac", "-b:a", "160k", "-ar", "44100", "-movflags", "+faststart", path]
         os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
         proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
-        for buf in _frames(post, scenes, exe):
+        for buf in _frames(post, scenes, exe, duration):
             proc.stdin.write(buf)
         proc.stdin.close()
         if proc.wait() != 0:
             raise RuntimeError(f"ffmpeg exit code {proc.returncode}")
-        print(f"[reel] rendered {os.path.basename(path)}, {duration:.0f}s "
-              f"({'music: ' + os.path.basename(track) if track else 'no music'})")
+        print(f"[reel] rendered {os.path.basename(path)}, {duration:.0f}s, {'voice + ' if vsecs else ''}"
+              f"{'music: ' + os.path.basename(track) if track else 'no music'}")
         return path
     except Exception as e:
         print(f"[reel] failed: {e}")

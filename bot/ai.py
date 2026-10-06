@@ -52,6 +52,7 @@ Return JSON exactly in this shape:
   "caption": "80-140 words. First line = strong hook with 1-2 emojis. Short paragraphs. Explain what happened using only given facts. End with a question to drive comments, then a short share nudge like 'Send this to a friend who needs to see it 👀'.",
   "hashtags": ["10 to 15 hashtags without #, mix of broad popular tags and topic-specific tags"],
   "image_query": "2-4 words for a vibrant, eye-catching, professional stock photo that captures the excitement or emotion of the story, not a dull literal object (e.g. 'online shopping sale' not 'cardboard boxes', 'football stadium crowd' not 'football'). No person names.",
+  "voiceover": "the Reel narration, read aloud by an energetic US news voice: 22-32 words, 2-3 short punchy spoken sentences. Open with a hook that names the famous person/thing, then the key fact (only given facts). Plain words, no emoji, no hashtags, no asterisks. Do NOT end with a follow request (added automatically).",
   "video_queries": ["2-3 searches (2-3 words each) for real stock VIDEO footage showing the story's action and mood, for fast cuts in a Reel, e.g. tennis upset -> 'tennis match', 'stadium crowd cheering'; app hack -> 'smartphone notification', 'shocked woman phone'. No person names."],
   "theme": "one of {THEMES}"
 }}]}}
