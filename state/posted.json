@@ -245,6 +245,21 @@
       "time": "2026-10-06T17:52+00:00",
       "dry_run": true,
       "format": "reel"
+    },
+    {
+      "key": "ai-safety-guarantee",
+      "topic": "OpenAI, Anthropic, Meta, Google stop short of AI safety guarantee",
+      "headline": "OpenAI, Meta, Google *stop short* of AI safety guarantee",
+      "badge": "TECH",
+      "slot": "16",
+      "share_groups": [
+        "Artificial Intelligence enthusiasts",
+        "Tech news community",
+        "AI safety discussion"
+      ],
+      "time": "2026-10-06T17:57+00:00",
+      "dry_run": true,
+      "format": "reel"
     }
   ],
   "replied": [],
