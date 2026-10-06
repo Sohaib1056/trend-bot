@@ -245,25 +245,7 @@ def _cloudflare_image(prompt, seed):
     full = (f"{prompt}. Vertical portrait composition, main subject large and in the upper half of the frame, "
             f"cinematic editorial photograph, dramatic lighting, rich vibrant colors, sharp focus, high detail, "
             f"professional magazine cover quality. No text, no letters, no words, no watermark, no logo.")
-    # 1) higher-quality model rendered directly in 4:5 portrait; 2) fast FLUX schnell as fallback
-    try:
-        r = requests.post(
-            f"https://api.cloudflare.com/client/v4/accounts/{acc}/ai/run/@cf/leonardo/lucid-origin",
-            headers={"Authorization": f"Bearer {tok}"},
-            json={"prompt": full[:1500], "width": 1088, "height": 1360, "num_steps": 40, "seed": seed},
-            timeout=150)
-        if r.headers.get("content-type", "").startswith("image/"):
-            im = Image.open(io.BytesIO(r.content)).convert("RGB")
-        else:
-            data = r.json()
-            img_b64 = (data.get("result") or {}).get("image")
-            if r.status_code != 200 or not img_b64:
-                raise RuntimeError(f"HTTP {r.status_code}: {str(data)[:200]}")
-            im = Image.open(io.BytesIO(base64.b64decode(img_b64))).convert("RGB")
-        print("[poster] background: Cloudflare Leonardo Lucid Origin AI image")
-        return im
-    except Exception as e:
-        print(f"[poster] Leonardo model not available, using FLUX schnell: {e}")
+    # FLUX schnell: cheap enough for ~170 images/day on the free plan (bigger models used up the quota in 2-3 images)
     try:
         r = requests.post(
             f"https://api.cloudflare.com/client/v4/accounts/{acc}/ai/run/@cf/black-forest-labs/flux-1-schnell",
@@ -357,6 +339,40 @@ def _wikimedia_photo(title):
         return None, None
 
 
+COMMONS_SKIP = re.compile(r"logo|map|flag|diagram|chart|icon|seal|coat.of.arms|screenshot|signature|poster|banner|svg", re.I)
+
+
+def _commons_photo(query):
+    """Free-licensed real photo for a topic (e.g. 'football stadium night') from Wikimedia Commons."""
+    if not query:
+        return None, None
+    try:
+        for q in (query, " ".join(query.split()[:2])):
+            r = requests.get("https://commons.wikimedia.org/w/api.php", headers=WIKI_UA, timeout=25, params={
+                "action": "query", "format": "json", "generator": "search", "gsrnamespace": 6,
+                "gsrsearch": f"{q} filetype:bitmap", "gsrlimit": 25,
+                "prop": "imageinfo", "iiprop": "url|size|extmetadata", "iiurlwidth": 1600})
+            pages = sorted((r.json().get("query") or {}).get("pages", {}).values(), key=lambda p: p.get("index", 99))
+            for p in pages:
+                ii = (p.get("imageinfo") or [{}])[0]
+                title = p.get("title", "")
+                if not title.lower().endswith((".jpg", ".jpeg")) or COMMONS_SKIP.search(title):
+                    continue
+                if ii.get("width", 0) < 1200 or ii.get("height", 0) < 800:
+                    continue
+                meta = ii.get("extmetadata", {})
+                lic = meta.get("LicenseShortName", {}).get("value", "")
+                if not lic.lower().startswith(FREE_LICENSE) or "non-free" in lic.lower():
+                    continue
+                artist = re.sub(r"<[^>]+>", "", meta.get("Artist", {}).get("value", "")).strip()[:40] or "Wikimedia Commons"
+                im = _download(ii.get("thumburl") or ii["url"], WIKI_UA)
+                print(f"[poster] background: Wikimedia Commons photo for '{q}' ({title})")
+                return im, f"📷 Photo: {artist}, {lic}, via Wikimedia Commons"
+    except Exception as e:
+        print(f"[poster] Commons search failed: {e}")
+    return None, None
+
+
 def get_background(post):
     seed = abs(hash(post["key"])) % 100000
     real, credit = _wikimedia_photo(post.get("wiki_title"))
@@ -364,8 +380,14 @@ def get_background(post):
         post["_credit"] = credit
         return real
     prompt = post.get("image_prompt") or post.get("image_query")
-    return (_cloudflare_image(prompt, seed) or _ai_image(prompt, seed)
-            or _pixabay_photo(post.get("image_query")) or _stock_photo(post.get("image_query")))
+    im = _cloudflare_image(prompt, seed) or _ai_image(prompt, seed)
+    if im is not None:
+        return im
+    real, credit = _commons_photo(post.get("image_query"))
+    if real is not None:
+        post["_credit"] = credit
+        return real
+    return _pixabay_photo(post.get("image_query")) or _stock_photo(post.get("image_query"))
 
 
 # --------------------------------------------------------------- templates
