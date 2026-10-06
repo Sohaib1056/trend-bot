@@ -260,6 +260,21 @@
       "time": "2026-10-06T17:57+00:00",
       "dry_run": true,
       "format": "reel"
+    },
+    {
+      "key": "croatia-spain-nations-league",
+      "topic": "Croatia vs Spain",
+      "headline": "Spain fields *five* Barcelona stars as Croatia showdown looms",
+      "badge": "SPORTS",
+      "slot": "16",
+      "share_groups": [
+        "Croatia fans",
+        "Spain football fans",
+        "UEFA Nations League fans"
+      ],
+      "time": "2026-10-06T18:11+00:00",
+      "dry_run": true,
+      "format": "reel"
     }
   ],
   "replied": [],
