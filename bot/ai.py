@@ -173,3 +173,40 @@ def write_posts(candidates, already_posted, n):
         except Exception as e:
             print(f"[ai] {engine.__name__} error: {e}")
     raise RuntimeError("AI could not write any post.")
+
+
+def judge_image(img, headline):
+    """Ask Gemini (vision) how well a background photo fits the headline and how good it looks.
+    Returns (relevance 0-10, quality 0-10), or None if no judge is available."""
+    if not config.GEMINI_API_KEY:
+        return None
+    import base64, io
+    small = img.copy()
+    small.thumbnail((768, 768))
+    buf = io.BytesIO()
+    small.convert("RGB").save(buf, "JPEG", quality=85)
+    prompt = (f'A Facebook news page will use this photo as the background of a poster with the headline: "{headline}".\n'
+              "Score it like a strict photo editor of a big viral news page.\n"
+              "relevance: 0-10, does the photo clearly match the story (its person, sport, place, product or event)?\n"
+              "quality: 0-10, is it sharp, well lit, professional and eye-catching (not blurry, dull, amateur or cluttered)?\n"
+              'Reply JSON only: {"relevance": n, "quality": n, "why": "few words"}')
+    for m in _gemini_models()[:3]:
+        try:
+            r = requests.post(f"{GEMINI_BASE}/models/{m}:generateContent",
+                              headers={"x-goog-api-key": config.GEMINI_API_KEY, "Content-Type": "application/json"},
+                              json={"contents": [{"parts": [
+                                  {"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(buf.getvalue()).decode()}},
+                                  {"text": prompt}]}],
+                                    "generationConfig": {"temperature": 0, "responseMimeType": "application/json"}},
+                              timeout=60)
+            if r.status_code != 200:
+                continue
+            parts = r.json()["candidates"][0]["content"]["parts"]
+            data = json.loads("".join(p.get("text", "") for p in parts if not p.get("thought")))
+            if isinstance(data, list):
+                data = data[0]
+            print(f"[judge] relevance {data.get('relevance')}/10, quality {data.get('quality')}/10 - {data.get('why', '')}")
+            return float(data.get("relevance", 0)), float(data.get("quality", 0))
+        except Exception as e:
+            print(f"[judge] {m} failed: {e}")
+    return None

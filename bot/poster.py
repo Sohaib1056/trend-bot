@@ -265,23 +265,25 @@ def _cloudflare_image(prompt, seed):
         return None
 
 
-def _pixabay_photo(query):
+def _pixabay_photos(query, limit=3):
+    """Up to `limit` professional stock photos from Pixabay (most popular first)."""
     key = os.getenv("PIXABAY_API_KEY", "").strip()
     if not key or not query:
-        return None
+        return []
+    out = []
     try:
         for q in (query, " ".join(query.split()[:2])):
             r = requests.get("https://pixabay.com/api/", params={
-                "key": key, "q": q[:100], "image_type": "photo", "orientation": "vertical",
-                "safesearch": "true", "order": "popular", "per_page": 20, "min_width": 900}, timeout=20)
-            hits = r.json().get("hits", [])
-            if hits:
-                im = _download(random.choice(hits[:8])["largeImageURL"])
-                print(f"[poster] background: Pixabay photo for '{q}'")
-                return im
+                "key": key, "q": q[:100], "image_type": "photo", "safesearch": "true",
+                "order": "popular", "per_page": 20, "min_width": 1200}, timeout=20)
+            for h in r.json().get("hits", [])[:limit]:
+                out.append(_download(h["largeImageURL"]))
+            if out:
+                print(f"[poster] Pixabay: {len(out)} photo(s) for '{q}'")
+                return out
     except Exception as e:
         print(f"[poster] Pixabay failed: {e}")
-    return None
+    return out
 
 
 WIKI_UA = {"User-Agent": "HypeAtlasBot/1.0 (facebook.com/hypeatlasnews)"}
@@ -376,23 +378,51 @@ def _commons_photo(query):
     return None, None
 
 
-def get_background(post):
+def _candidates(post):
+    """Background candidates in order of preference: (image, credit, source)."""
     seed = abs(hash(post["key"])) % 100000
+    prompt = post.get("image_prompt") or post.get("image_query")
+    im = _cloudflare_image(prompt, seed) or _ai_image(prompt, seed)
+    if im is not None:
+        yield im, None, "AI image"
+    for im in _pixabay_photos(post.get("image_query")):
+        yield im, None, "Pixabay"
+    im = _stock_photo(post.get("image_query"))
+    if im is not None:
+        yield im, None, "Pexels"
+    im, credit = _commons_photo(post.get("image_query"))
+    if im is not None:
+        yield im, credit, "Wikimedia Commons"
+
+
+def get_background(post):
+    """Real photo of the person if the story is about one; otherwise the best candidate as scored
+    by the AI image judge (relevance to the headline + photo quality)."""
+    from .ai import judge_image
     real, credit = _wikimedia_photo(post.get("wiki_title"))
     if real is not None:
         post["_credit"] = credit
         return real
-    prompt = post.get("image_prompt") or post.get("image_query")
-    im = _cloudflare_image(prompt, seed) or _ai_image(prompt, seed)
-    if im is not None:
-        return im
-    im = _pixabay_photo(post.get("image_query")) or _stock_photo(post.get("image_query"))
-    if im is not None:
-        return im
-    real, credit = _commons_photo(post.get("image_query"))
-    if real is not None:
-        post["_credit"] = credit
-    return real
+    best, best_score = None, -1
+    for im, credit, source in _candidates(post):
+        score = judge_image(im, post["headline"].replace("*", ""))
+        if score is None:  # no judge available -> take the first candidate
+            post["_credit"] = credit
+            return im
+        rel, qual = score
+        total = rel * 2 + qual
+        print(f"[poster] candidate from {source}: score {total:.0f}/30")
+        if rel >= 7 and qual >= 6:
+            post["_credit"] = credit
+            print(f"[poster] background: {source} (passed the judge)")
+            return im
+        if total > best_score:
+            best, best_score, best_credit, best_source = im, total, credit, source
+    if best is not None and best_score >= 12:
+        post["_credit"] = best_credit
+        print(f"[poster] background: {best_source} (best available, score {best_score:.0f}/30)")
+        return best
+    return None
 
 
 # --------------------------------------------------------------- templates
