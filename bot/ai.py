@@ -210,7 +210,7 @@ def judge_image(img, headline):
             return _score(data)
         except Exception as e:
             print(f"[judge] {m} failed: {e}")
-    return _groq_judge(b64, prompt)
+    return _groq_judge(b64, prompt) or _cloudflare_judge(b64, prompt)
 
 
 def _score(data):
@@ -227,10 +227,11 @@ def _groq_judge(b64, prompt):
     try:
         r = requests.get("https://api.groq.com/openai/v1/models",
                          headers={"Authorization": f"Bearer {config.GROQ_API_KEY}"}, timeout=30)
-        models = [m["id"] for m in r.json().get("data", []) if "llama-4" in m["id"] or "vision" in m["id"]]
+        models = [m["id"] for m in r.json().get("data", [])
+                  if any(k in m["id"].lower() for k in ("llama-4", "vision", "scout", "maverick", "-vl"))]
     except Exception:
         models = []
-    for m in models or ["meta-llama/llama-4-scout-17b-16e-instruct"]:
+    for m in models[:2]:
         try:
             r = requests.post("https://api.groq.com/openai/v1/chat/completions",
                               headers={"Authorization": f"Bearer {config.GROQ_API_KEY}"}, timeout=60,
@@ -244,3 +245,27 @@ def _groq_judge(b64, prompt):
         except Exception as e:
             print(f"[judge] Groq {m} failed: {e}")
     return None
+
+
+def _cloudflare_judge(b64, prompt):
+    """Second backup judge: Llama 4 Scout (vision) on Cloudflare Workers AI (same free account as the images)."""
+    import os
+    acc, tok = os.getenv("CF_ACCOUNT_ID", "").strip(), os.getenv("CF_API_TOKEN", "").strip()
+    if not acc or not tok:
+        return None
+    try:
+        r = requests.post(
+            f"https://api.cloudflare.com/client/v4/accounts/{acc}/ai/run/@cf/meta/llama-4-scout-17b-16e-instruct",
+            headers={"Authorization": f"Bearer {tok}"}, timeout=90,
+            json={"temperature": 0, "max_tokens": 200, "messages": [{"role": "user", "content": [
+                {"type": "text", "text": prompt},
+                {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{b64}"}}]}]})
+        res = (r.json().get("result") or {}).get("response")
+        if r.status_code != 200 or res is None:
+            raise RuntimeError(f"HTTP {r.status_code}: {r.text[:150]}")
+        if isinstance(res, str):
+            res = json.loads(re.search(r"\{.*\}", res, re.S).group(0))
+        return _score(res)
+    except Exception as e:
+        print(f"[judge] Cloudflare vision failed: {e}")
+        return None
