@@ -399,9 +399,11 @@ def get_background(post):
     """Real photo of the person if the story is about one; otherwise the best candidate as scored
     by the AI image judge (relevance to the headline + photo quality)."""
     from .ai import judge_image
+    post["_extras"] = []  # other good images, reused as extra scenes in the Reel
     real, credit = _wikimedia_photo(post.get("wiki_title"))
     if real is not None:
         post["_credit"] = credit
+        post["_person"] = True
         return real
     best, best_score = None, -1
     for im, credit, source in _candidates(post):
@@ -415,6 +417,8 @@ def get_background(post):
         rel, qual = score
         total = rel * 2 + qual
         print(f"[poster] candidate from {source}: score {total:.0f}/30")
+        if rel >= 6 and qual >= 6 and credit is None:  # no-attribution images only
+            post["_extras"].append(im)
         if rel >= 7 and qual >= 6:
             post["_credit"] = credit
             print(f"[poster] background: {source} (passed the judge)")

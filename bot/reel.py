@@ -1,10 +1,10 @@
-"""10-second vertical Reel (1080x1920) built from the post's background photo.
+"""Fast-cut vertical Reel (1080x1920), built like the big viral news pages:
 
-Timeline:
-  0.0s  photo with slow Ken Burns zoom, brand header fades in
-  0.4s  headline words pop in one by one (keywords in yellow)
+  0.0s  hook: headline is on screen from the very first second (muted autoplay decides in ~1s)
+  every ~2s a new scene: real moving stock footage (Pixabay videos, checked by the AI judge)
+        mixed with the post's photos, with a white flash + zoom punch on every cut
   ~3s   subtext fades in
-  7.6s  end card: logo + "FOLLOW HYPE ATLAS"
+  end   card: logo + "FOLLOW HYPE ATLAS"
   brand-gradient progress bar along the top the whole time
 Music: a random track from assets/music/ if present (use only royalty-free tracks), else silent audio.
 """
@@ -13,17 +13,20 @@ import os
 import random
 import subprocess
 
+import requests
 from PIL import Image, ImageDraw
 
 from . import config
-from .poster import (PAD, PINK, ORANGE, YELLOW, WHITE, _cover, _enhance, _fit, _font, _hgradient,
+from .poster import (PAD, PINK, ORANGE, YELLOW, WHITE, _cover, _download, _enhance, _fit, _font, _hgradient,
                      _logo, _paste_rounded, _tokens, _vfade, _wrap)
 
 RW, RH = 1080, 1920
 FPS = 30
-DURATION = 10.0
-END_AT = 7.6
+SCENE = 2.0          # seconds per scene
+MAX_SCENES = 5
+END_LEN = 2.2        # end card
 MUSIC_DIR = os.path.join(config.BASE_DIR, "assets", "music")
+CLIP_DIR = os.path.join(config.OUTPUT_DIR, "clips")
 
 
 def _ease(t):
@@ -39,6 +42,117 @@ def _with_alpha(layer, a):
     return out
 
 
+# ------------------------------------------------------------------ footage
+def _pixabay_videos(post, want=3):
+    """Real stock video clips for the story, each checked by the AI judge (via its thumbnail)."""
+    from .ai import judge_image
+    key = os.getenv("PIXABAY_API_KEY", "").strip()
+    queries = [q for q in (post.get("video_queries") or []) if isinstance(q, str) and q.strip()]
+    queries += [post.get("image_query") or ""]
+    if not key:
+        return []
+    headline = post["headline"].replace("*", "")
+    os.makedirs(CLIP_DIR, exist_ok=True)
+    clips, seen, judged = [], set(), 0
+    for q in queries:
+        if len(clips) >= want or judged >= 7 or not q.strip():
+            continue
+        try:
+            r = requests.get("https://pixabay.com/api/videos/", timeout=20, params={
+                "key": key, "q": q[:100], "safesearch": "true", "order": "popular", "per_page": 12})
+            hits = [h for h in r.json().get("hits", []) if h.get("duration", 0) >= 3 and h["id"] not in seen]
+        except Exception as e:
+            print(f"[reel] Pixabay video search failed for '{q}': {e}")
+            continue
+        hits.sort(key=lambda h: (h["videos"]["large"].get("height", 0) <= h["videos"]["large"].get("width", 1)))
+        taken = 0
+        for h in hits[:4]:
+            if len(clips) >= want or judged >= 7 or taken >= 2:
+                break
+            seen.add(h["id"])
+            v = h["videos"].get("large") or {}
+            if not v.get("url") or v.get("width", 0) < 1280:
+                v = h["videos"].get("medium") or {}
+            if not v.get("url"):
+                continue
+            try:
+                judged += 1
+                score = judge_image(_download(v["thumbnail"]), headline) if v.get("thumbnail") else None
+                if score is not None and (score[0] < 6 or score[1] < 5):
+                    print(f"[reel] clip {h['id']} for '{q}' rejected by the judge")
+                    continue
+                path = os.path.join(CLIP_DIR, f"{h['id']}.mp4")
+                if not os.path.exists(path):
+                    data = requests.get(v["url"], timeout=90)
+                    data.raise_for_status()
+                    with open(path, "wb") as f:
+                        f.write(data.content)
+                clips.append((path, h.get("duration", 0)))
+                taken += 1
+                print(f"[reel] clip {h['id']} for '{q}' ({v.get('width')}x{v.get('height')}, {h.get('duration')}s)")
+            except Exception as e:
+                print(f"[reel] clip {h.get('id')} failed: {e}")
+    return clips
+
+
+def _scenes(post, photo):
+    """Ordered list of ('photo', img) / ('video', (path, duration)) scenes."""
+    photos = [photo] + [im for im in post.get("_extras", []) if im is not photo]
+    videos = _pixabay_videos(post)
+    scenes = []
+    if post.get("_person") or not videos:  # a real face is the strongest hook
+        scenes.append(("photo", photos.pop(0)))
+    while len(scenes) < MAX_SCENES and (videos or photos):
+        if videos:
+            scenes.append(("video", videos.pop(0)))
+        if photos and len(scenes) < MAX_SCENES:
+            scenes.append(("photo", photos.pop(0)))
+    while len(scenes) < 3:  # too little footage: re-use the main photo with a different move
+        scenes.append(("photo", photo))
+    print(f"[reel] {len(scenes)} scenes: " + ", ".join(k for k, _ in scenes))
+    return scenes
+
+
+def _video_frames(exe, path, duration, n):
+    """Yields n RGB frames of the clip, cropped to fill 1080x1920 (last frame held if the clip is short)."""
+    start = 1.0 if duration >= 5 else 0.0  # skip slow fade-ins
+    cmd = [exe, "-loglevel", "error", "-ss", str(start), "-i", path, "-an",
+           "-vf", f"scale={RW}:{RH}:force_original_aspect_ratio=increase,crop={RW}:{RH},fps={FPS},eq=contrast=1.06:saturation=1.15",
+           "-frames:v", str(n), "-f", "rawvideo", "-pix_fmt", "rgb24", "-"]
+    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE)
+    size, last = RW * RH * 3, None
+    try:
+        for _ in range(n):
+            buf = proc.stdout.read(size)
+            if len(buf) < size:
+                break
+            last = Image.frombytes("RGB", (RW, RH), buf)
+            yield last
+            n -= 1
+    finally:
+        proc.stdout.close()
+        proc.wait()
+    if last is None:
+        raise RuntimeError(f"could not decode {os.path.basename(path)}")
+    for _ in range(n):
+        yield last
+
+
+MOVES = [(1.00, 1.16, 0.5, 0.35), (1.16, 1.02, 0.5, 0.3), (1.08, 1.18, 0.3, 0.3), (1.08, 1.18, 0.7, 0.35)]
+
+
+def _photo_frames(img, n, move):
+    """Ken Burns move (zoom in/out, drift left/right) over n frames."""
+    z0, z1, fx, fy = move
+    big = _cover(_enhance(img), int(RW * 1.2), int(RH * 1.2))
+    for i in range(n):
+        z = z0 + (z1 - z0) * (i / max(1, n - 1))
+        cw, ch = int(RW * 1.2 / z), int(RH * 1.2 / z)
+        left, top = int((big.width - cw) * fx), int((big.height - ch) * fy)
+        yield big.crop((left, top, left + cw, top + ch)).resize((RW, RH), Image.BILINEAR)
+
+
+# ------------------------------------------------------------------ overlays
 def _header_layer(post):
     layer = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
@@ -98,30 +212,50 @@ def _end_card():
     return layer
 
 
-def _frames(post, photo):
-    big = _cover(_enhance(photo), int(RW * 1.14), int(RH * 1.14))
+def _frames(post, scenes, exe):
     shade = Image.alpha_composite(_vfade(RW, RH, 0, 420, (0, 0, 0), a0=170, a1=0, power=1),
                                   _vfade(RW, RH, 820, RH, (6, 6, 10), a1=245, power=1.3))
     header = _header_layer(post)
     end = _end_card()
+    flash = Image.new("RGBA", (RW, RH), (255, 255, 255, 255))
     f, words, sub_f, sub, sub_y, _ = _layout_headline(post)
     bar = _hgradient(RW, 10, [PINK, ORANGE, YELLOW]).convert("RGBA")
-    n = int(DURATION * FPS)
-    word_gap = min(0.28, 2.4 / max(1, len(words)))
-    sub_at = 0.4 + word_gap * len(words) + 0.3
+    per = int(SCENE * FPS)
+    end_at = len(scenes) * SCENE
+    duration = end_at + END_LEN
+    total = int(duration * FPS)
+    word_gap = min(0.12, 1.0 / max(1, len(words)))  # whole headline is up within ~1s
+    sub_at = word_gap * len(words) + 0.8
 
-    for i in range(n):
+    def source():
+        for k, (kind, item) in enumerate(scenes):
+            n = per + (total - per * len(scenes) if k == len(scenes) - 1 else 0)  # last scene runs under the end card
+            if kind == "video":
+                try:
+                    yield from _video_frames(exe, item[0], item[1], n)
+                    continue
+                except Exception as e:
+                    print(f"[reel] {e} -> using the photo instead")
+                    item = scenes[0][1] if scenes[0][0] == "photo" else post["_photo"]
+            yield from _photo_frames(item, n, MOVES[k % len(MOVES)])
+
+    for i, base in enumerate(source()):
         t = i / FPS
-        z = 1.0 + 0.12 * (t / DURATION)  # Ken Burns: slow push-in
-        cw, ch = int(big.width / 1.14 * (1.14 / z)), int(big.height / 1.14 * (1.14 / z))
-        left, top = (big.width - cw) // 2, (big.height - ch) // 3
-        frame = big.crop((left, top, left + cw, top + ch)).resize((RW, RH), Image.BILINEAR).convert("RGBA")
+        since_cut = t % SCENE if t < end_at else 99
+        frame = base
+        if i >= per and since_cut < 0.25:  # zoom punch on each cut
+            z = 1.0 + 0.08 * (1 - since_cut / 0.25)
+            cw, ch = int(RW / z), int(RH / z)
+            frame = frame.crop(((RW - cw) // 2, (RH - ch) // 2, (RW + cw) // 2, (RH + ch) // 2)).resize((RW, RH), Image.BILINEAR)
+        frame = frame.convert("RGBA")
         frame.alpha_composite(shade)
-        frame.alpha_composite(_with_alpha(header, _ease(t / 0.5)))
+        if i >= per and since_cut < 0.15:  # white flash on each cut
+            frame.alpha_composite(_with_alpha(flash, 0.55 * (1 - since_cut / 0.15)))
+        frame.alpha_composite(_with_alpha(header, _ease(t / 0.3)))
 
         d = ImageDraw.Draw(frame)
         for k, (x, y, w, hl) in enumerate(words):
-            p = _ease((t - 0.4 - k * word_gap) / 0.18)
+            p = 1.0 if k == 0 else _ease((t - k * word_gap) / 0.15)  # first word is there on frame 1
             if p <= 0:
                 continue
             dy = int((1 - p) * 40)
@@ -136,10 +270,12 @@ def _frames(post, photo):
                 d.text((PAD, yy), line, font=sub_f, fill=(225, 225, 232, int(255 * sp)))
                 yy += 52
 
-        if t >= END_AT:
-            frame.alpha_composite(_with_alpha(end, _ease((t - END_AT) / 0.45)))
-        frame.alpha_composite(bar.crop((0, 0, max(1, int(RW * (t + 1 / FPS) / DURATION)), 10)), (0, 0))
+        if t >= end_at:
+            frame.alpha_composite(_with_alpha(end, _ease((t - end_at) / 0.35)))
+        frame.alpha_composite(bar.crop((0, 0, max(1, int(RW * (t + 1 / FPS) / duration)), 10)), (0, 0))
         yield frame.convert("RGB").tobytes()
+        if i + 1 >= total:
+            break
 
 
 def _music():
@@ -152,25 +288,28 @@ def make_reel(post, photo, path):
     try:
         import imageio_ffmpeg
         exe = imageio_ffmpeg.get_ffmpeg_exe()
+        scenes = _scenes(post, photo)
+        duration = len(scenes) * SCENE + END_LEN
         track = _music()
         cmd = [exe, "-y", "-loglevel", "error",
                "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{RW}x{RH}", "-r", str(FPS), "-i", "-"]
         if track:
             cmd += ["-stream_loop", "-1", "-i", track,
-                    "-af", f"afade=t=in:d=0.6,afade=t=out:st={DURATION - 1.2}:d=1.2,volume=0.8"]
+                    "-af", f"afade=t=in:d=0.3,afade=t=out:st={duration - 1.2}:d=1.2,volume=0.8"]
         else:
             cmd += ["-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo"]
-        cmd += ["-map", "0:v", "-map", "1:a", "-t", str(DURATION),
+        cmd += ["-map", "0:v", "-map", "1:a", "-t", str(duration),
                 "-c:v", "libx264", "-preset", "medium", "-crf", "19", "-pix_fmt", "yuv420p",
                 "-profile:v", "high", "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", path]
         os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
         proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
-        for buf in _frames(post, photo):
+        for buf in _frames(post, scenes, exe):
             proc.stdin.write(buf)
         proc.stdin.close()
         if proc.wait() != 0:
             raise RuntimeError(f"ffmpeg exit code {proc.returncode}")
-        print(f"[reel] rendered {os.path.basename(path)} ({'music: ' + os.path.basename(track) if track else 'no music'})")
+        print(f"[reel] rendered {os.path.basename(path)}, {duration:.0f}s "
+              f"({'music: ' + os.path.basename(track) if track else 'no music'})")
         return path
     except Exception as e:
         print(f"[reel] failed: {e}")
