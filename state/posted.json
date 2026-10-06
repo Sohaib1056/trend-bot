@@ -230,6 +230,21 @@
       "time": "2026-10-06T17:45+00:00",
       "dry_run": true,
       "format": "reel"
+    },
+    {
+      "key": "alabama-georgia-game",
+      "topic": "Alabama vs Georgia football showdown",
+      "headline": "Alabama and Georgia set to *clash* in epic SEC showdown",
+      "badge": "SPORTS",
+      "slot": "16",
+      "share_groups": [
+        "College football fans",
+        "SEC fans",
+        "Alabama Crimson Tide fans"
+      ],
+      "time": "2026-10-06T17:52+00:00",
+      "dry_run": true,
+      "format": "reel"
     }
   ],
   "replied": [],
