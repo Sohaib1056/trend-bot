@@ -5,7 +5,7 @@ import re
 import sys
 from datetime import datetime, timedelta, timezone
 
-from . import ai, config, meta, poster, trends
+from . import ai, config, meta, poster, reel, trends
 
 # extra safety net on top of the AI's own rules
 BLOCK_WORDS = re.compile(
@@ -113,13 +113,39 @@ def main():
         if config.DRY_RUN:
             record["dry_run"] = True
             print("[main] DRY_RUN is on -> not uploading. Set DRY_RUN=false to go live.")
+        fmt = config.POST_FORMAT
+        if fmt == "alternate":
+            live = sum(1 for x in state["posted"] if not x.get("dry_run"))
+            fmt = "reel" if live % 2 == 0 else "photo"
+        video = None
+        if fmt in ("reel", "both") and p.get("_photo") is not None:
+            video = reel.make_reel(p, p["_photo"], img.replace(".jpg", ".mp4"))
+        record["format"] = "reel" if video and fmt == "reel" else ("both" if video and fmt == "both" else "photo")
+        print(f"[main] format: {record['format']}")
+        res = {}
+        if config.DRY_RUN:
+            pass
+        elif record["format"] == "reel":
+            try:
+                record["facebook_reel"] = record["facebook"] = meta.publish_reel(video, caption)
+                res = {"facebook": record["facebook"]}
+            except Exception as e:  # reel upload failed -> fall back to the photo post
+                print(f"[main] Reel failed ({e}) -> posting the photo instead")
+                record["format"] = "photo"
+                res = meta.publish(img, caption)
+                record.update(res)
         else:
             res = meta.publish(img, caption)
             record.update(res)
-            if not any(k in res for k in ("facebook", "instagram")):
-                print("[main] Upload failed on both platforms.")
-                save_state(state)
-                return 1
+            if record["format"] == "both":
+                try:
+                    record["facebook_reel"] = meta.publish_reel(video, caption)
+                except Exception as e:
+                    print(f"[main] Reel failed: {e}")
+        if not config.DRY_RUN and not any(k in res for k in ("facebook", "instagram")):
+            print("[main] Upload failed on both platforms.")
+            save_state(state)
+            return 1
         state["posted"].append(record)
         done_keys.add(p["key"])
         made += 1

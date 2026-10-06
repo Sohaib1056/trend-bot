@@ -684,6 +684,7 @@ def make_poster(post, path, photo=None, template=None):
     if photo is None:
         print("[poster] no background image (add CF_ACCOUNT_ID + CF_API_TOKEN or PIXABAY_API_KEY) -> brand backdrop")
         photo = _brand_backdrop(post)
+    post["_photo"] = photo  # reused by the Reel
     name = template or DEFAULT_TEMPLATE
     if name not in PHOTO_TEMPLATES:
         name = "hype"

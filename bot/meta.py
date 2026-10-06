@@ -85,6 +85,25 @@ def post_instagram(image_url, caption):
     return _check(r, "Instagram publish")["id"]
 
 
+def publish_reel(video_path, caption):
+    """Facebook Page Reel: start upload session -> upload bytes -> finish & publish. Returns video id."""
+    r = requests.post(_url(f"{config.FB_PAGE_ID}/video_reels"),
+                      data={"upload_phase": "start", "access_token": config.FB_PAGE_TOKEN}, timeout=60)
+    start = _check(r, "Reel start")
+    video_id, upload_url = start["video_id"], start["upload_url"]
+    with open(video_path, "rb") as f:
+        body = f.read()
+    r = requests.post(upload_url, data=body, timeout=300, headers={
+        "Authorization": f"OAuth {config.FB_PAGE_TOKEN}", "offset": "0", "file_size": str(len(body))})
+    _check(r, "Reel upload")
+    r = requests.post(_url(f"{config.FB_PAGE_ID}/video_reels"), timeout=60, data={
+        "upload_phase": "finish", "video_id": video_id, "video_state": "PUBLISHED",
+        "description": caption, "access_token": config.FB_PAGE_TOKEN})
+    _check(r, "Reel publish")
+    print(f"[meta] Facebook Reel posted: {video_id}")
+    return video_id
+
+
 def publish(image_path, caption):
     """Post to both platforms. Returns dict of results; one failing does not stop the other."""
     result = {}
