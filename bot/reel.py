@@ -103,6 +103,7 @@ def _pixabay_videos(post, want=3):
 # ------------------------------------------------------------------ voice
 def _voice_text(post):
     text = post.get("voiceover") or (post["headline"] + ". " + post.get("subtext", ""))
+    text = text.translate(str.maketrans({"’": "'", "‘": "'", "“": '"', "”": '"', "‑": "-", "–": ", ", "—": ", "}))
     text = re.sub(r"[*#_]|[^\x00-ɏ\s]", "", text).strip()  # drop emoji
     return f"{text} Follow Hype Atlas for more!"
 
