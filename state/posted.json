@@ -28,12 +28,12 @@
       "time": "2026-10-04T12:09+00:00",
       "facebook": "1397517856769204_122105066025493621",
       "stats": {
-        "views": 45,
+        "views": 48,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-06T07:05+00:00",
-        "score": 0.9
+        "checked": "2026-10-06T12:05+00:00",
+        "score": 1.0
       }
     },
     {
@@ -47,7 +47,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-06T07:05+00:00",
+        "checked": "2026-10-06T12:05+00:00",
         "score": 0.2
       }
     },
@@ -62,7 +62,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-06T07:05+00:00",
+        "checked": "2026-10-06T12:05+00:00",
         "score": 0.3
       }
     },
@@ -77,7 +77,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-06T07:05+00:00",
+        "checked": "2026-10-06T12:05+00:00",
         "score": 0.5
       }
     },
@@ -95,11 +95,11 @@
       "time": "2026-10-05T09:01+00:00",
       "facebook": "1397517856769204_122105951289493621",
       "stats": {
-        "views": 8,
+        "views": 9,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-06T07:05+00:00",
+        "checked": "2026-10-06T12:05+00:00",
         "score": 0.2
       }
     },
@@ -110,12 +110,12 @@
       "time": "2026-10-05T18:26+00:00",
       "facebook": "1397517856769204_122106405669493621",
       "stats": {
-        "views": 6,
+        "views": 8,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-06T07:05+00:00",
-        "score": 0.1
+        "checked": "2026-10-06T12:05+00:00",
+        "score": 0.2
       }
     },
     {
@@ -125,12 +125,12 @@
       "time": "2026-10-06T00:48+00:00",
       "facebook": "1397517856769204_122106643809493621",
       "stats": {
-        "views": 8,
+        "views": 15,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-06T07:05+00:00",
-        "score": 0.2
+        "checked": "2026-10-06T12:05+00:00",
+        "score": 0.3
       }
     },
     {
@@ -171,13 +171,29 @@
       "facebook": "1397517856769204_122106806955493621",
       "facebook_photo_id": "122106806925493621",
       "stats": {
-        "views": 0,
+        "views": 5,
         "reactions": 0,
         "comments": 1,
         "shares": 0,
-        "checked": "2026-10-06T07:32+00:00",
-        "score": 3.0
+        "checked": "2026-10-06T12:05+00:00",
+        "score": 3.1
       }
+    },
+    {
+      "key": "asos-app-hack",
+      "topic": "ASOS",
+      "headline": "ASOS shoppers *in meltdown* after receiving threatening app notifications",
+      "badge": "SHOPPING",
+      "slot": "12",
+      "share_groups": [
+        "ASOS Hauls and Fashion",
+        "Online Shopping Addicts",
+        "Cyber Security Updates"
+      ],
+      "time": "2026-10-06T12:06+00:00",
+      "format": "reel",
+      "facebook_reel": "1143204774702997",
+      "facebook": "1143204774702997"
     }
   ],
   "replied": [],
