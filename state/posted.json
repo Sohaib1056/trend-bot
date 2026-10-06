@@ -83,6 +83,13 @@
       "headline": "Amazon *Prime Big Deal Days* Are *Back*",
       "time": "2026-10-06T04:41+00:00",
       "dry_run": true
+    },
+    {
+      "key": "met-office-weather-scare",
+      "topic": "'Plunging temperatures' and 'wall of rain and snow'? Met Office sets the record straight",
+      "headline": "The *Truth* Behind the UK *Polar Vortex* Panic",
+      "time": "2026-10-06T05:17+00:00",
+      "dry_run": true
     }
   ]
 }
