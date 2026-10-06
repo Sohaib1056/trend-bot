@@ -215,6 +215,21 @@
       "format": "photo",
       "facebook": "1397517856769204_122107237065493621",
       "facebook_photo_id": "122107237035493621"
+    },
+    {
+      "key": "nyc-ai-bubble",
+      "topic": "What Happens to New York City When the AI Bubble Bursts",
+      "headline": "New York City faces *AI bubble* uncertainty as firms pull back",
+      "badge": "TECH",
+      "slot": "16",
+      "share_groups": [
+        "Artificial Intelligence enthusiasts",
+        "NYC tech community",
+        "Silicon Alley fans"
+      ],
+      "time": "2026-10-06T17:45+00:00",
+      "dry_run": true,
+      "format": "reel"
     }
   ],
   "replied": [],
