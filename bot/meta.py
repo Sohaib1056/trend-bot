@@ -85,6 +85,17 @@ def post_instagram(image_url, caption):
     return _check(r, "Instagram publish")["id"]
 
 
+def video_source(video_id):
+    """Public mp4 URL of an uploaded video (used to cross-post Reels to Threads)."""
+    for _ in range(12):
+        r = requests.get(_url(video_id), params={"fields": "source", "access_token": config.FB_PAGE_TOKEN}, timeout=30)
+        src = r.json().get("source")
+        if src:
+            return src
+        time.sleep(10)
+    return None
+
+
 def publish_reel(video_path, caption):
     """Facebook Page Reel: start upload session -> upload bytes -> finish & publish. Returns video id."""
     r = requests.post(_url(f"{config.FB_PAGE_ID}/video_reels"),
@@ -112,6 +123,7 @@ def publish(image_path, caption):
         try:
             fb_photo_id, post_id = post_facebook_photo(image_path, caption)
             result["facebook"] = post_id or fb_photo_id
+            result["facebook_photo_id"] = fb_photo_id
             print(f"[meta] Facebook posted: {result['facebook']}")
         except Exception as e:
             result["facebook_error"] = str(e)

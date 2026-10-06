@@ -43,6 +43,7 @@ Return JSON exactly in this shape:
   "topic": "topic name",
   "badge": "exactly one of: SPORTS, CELEBRITY, TV & FILM, MUSIC, TECH, GAMING, SHOPPING, ROYALS, WEATHER, VIRAL, BUSINESS, SCIENCE",
   "first_comment": "one short, fun question the page itself will comment under the post to spark replies (max 15 words, 1 emoji, e.g. 'Would you watch this? Yes or no? 👇')",
+  "share_groups": ["2-3 short Facebook group search terms where fans of this exact topic hang out, e.g. 'Manchester City fans', 'Premier League fans'"],
   "headline": "6-10 words in normal sentence case (NOT all caps), written like the big viral news pages (Pubity, Pop Base): lead with the famous name, use an emotional or surprising angle, and leave a little curiosity while still saying what happened (not vague clickbait). No emoji. Wrap the 1-3 most striking words in *asterisks* for a highlighter, e.g. 'Zoe Saldaña just *turned down* Taylor Sheridan's next big show'",
   "subtext": "max 14 words, one supporting line for the poster with the key fact",
   "wiki_title": "exact English Wikipedia article title of the ONE main PERSON in the story (e.g. 'Zoe Saldaña', 'Aryna Sabalenka', 'Erling Haaland'), or empty string if the story is about a show, film, team, product or event rather than a person",

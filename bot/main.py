@@ -5,7 +5,7 @@ import re
 import sys
 from datetime import datetime, timedelta, timezone
 
-from . import ai, config, insights, meta, poster, reel, trends
+from . import ai, config, growth, insights, meta, poster, reel, trends
 
 # extra safety net on top of the AI's own rules
 BLOCK_WORDS = re.compile(
@@ -72,6 +72,7 @@ def main():
         try:
             insights.update_stats(state)
             insights.reply_comments(state)
+            growth.daily_todo(state)
         except Exception as e:
             print(f"[insights] skipped: {e}")
         save_state(state)
@@ -111,7 +112,8 @@ def main():
             continue
         stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M")
         img = poster.make_poster(p, os.path.join(config.OUTPUT_DIR, f"{stamp}-{p['key']}.jpg"))
-        caption = p["caption"].strip() + "\n\n" + " ".join("#" + h for h in p["hashtags"])
+        tags = [h for h in p["hashtags"] if h.lower() != "hypeatlas"]
+        caption = p["caption"].strip() + "\n\n" + growth.FOLLOW_LINE + "\n\n" + " ".join("#" + h for h in tags)
         if p.get("_credit"):  # photo licence requires attribution; kept off the poster, in the caption
             caption += "\n\n" + p["_credit"]
         with open(img.replace(".jpg", ".txt"), "w") as f:
@@ -121,6 +123,7 @@ def main():
         slot = current_slot(datetime.now(timezone.utc))
         record = {"key": p["key"], "topic": p.get("topic", ""), "headline": p["headline"],
                   "badge": p.get("badge", ""), "slot": f"{slot:%H}" if slot else "",
+                  "share_groups": p.get("share_groups", [])[:3],
                   "time": datetime.now(timezone.utc).isoformat(timespec="minutes")}
         if config.DRY_RUN:
             record["dry_run"] = True
@@ -158,6 +161,17 @@ def main():
                     record["facebook_reel"] = meta.publish_reel(video, caption)
                 except Exception as e:
                     print(f"[main] Reel failed: {e}")
+        if res.get("facebook") and not config.DRY_RUN:  # cross-post to Threads when configured
+            try:
+                if record["format"] == "reel":
+                    media, vid = meta.video_source(record["facebook"]), True
+                else:
+                    media, vid = meta.photo_public_url(res.get("facebook_photo_id") or res["facebook"]), False
+                tid = growth.post_threads(media, growth.threads_text(p["headline"], p["caption"]), vid)
+                if tid:
+                    record["threads"] = tid
+            except Exception as e:
+                print(f"[threads] skipped: {e}")
         if config.FIRST_COMMENT and res.get("facebook"):
             insights.first_comment(res["facebook"], p.get("first_comment", ""))
         if not config.DRY_RUN and not any(k in res for k in ("facebook", "instagram")):
