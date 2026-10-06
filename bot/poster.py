@@ -347,7 +347,10 @@ def _commons_photo(query):
     if not query:
         return None, None
     try:
-        for q in (query, " ".join(query.split()[:2])):
+        short = " ".join(query.split()[:2])
+        # reviewed high-quality photos first, then any free photo
+        searches = [f'{query} incategory:"Quality_images"', f'{short} incategory:"Quality_images"', query, short]
+        for q in searches:
             r = requests.get("https://commons.wikimedia.org/w/api.php", headers=WIKI_UA, timeout=25, params={
                 "action": "query", "format": "json", "generator": "search", "gsrnamespace": 6,
                 "gsrsearch": f"{q} filetype:bitmap", "gsrlimit": 25,
@@ -383,11 +386,13 @@ def get_background(post):
     im = _cloudflare_image(prompt, seed) or _ai_image(prompt, seed)
     if im is not None:
         return im
+    im = _pixabay_photo(post.get("image_query")) or _stock_photo(post.get("image_query"))
+    if im is not None:
+        return im
     real, credit = _commons_photo(post.get("image_query"))
     if real is not None:
         post["_credit"] = credit
-        return real
-    return _pixabay_photo(post.get("image_query")) or _stock_photo(post.get("image_query"))
+    return real
 
 
 # --------------------------------------------------------------- templates
