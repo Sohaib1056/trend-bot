@@ -38,6 +38,9 @@ POST_TO_FACEBOOK = _bool("POST_TO_FACEBOOK", True)
 POST_TO_INSTAGRAM = _bool("POST_TO_INSTAGRAM", True)
 # What each slot posts: "alternate" (Reel, photo, Reel, ...), "reel", "photo" or "both"
 POST_FORMAT = (os.getenv("POST_FORMAT", "") or "alternate").strip().lower()
+# Replies to comments: "off", "preview" (only print suggested replies in the log) or "on"
+AUTO_REPLY = (os.getenv("AUTO_REPLY", "") or "preview").strip().lower()
+FIRST_COMMENT = _bool("FIRST_COMMENT", True)  # page posts a question under each new post
 AVOID_POLITICS = _bool("AVOID_POLITICS", True)
 
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "").strip() or "gemini-flash-latest"

@@ -9,7 +9,7 @@ from . import config
 THEMES = ["red", "blue", "purple", "orange", "green", "dark", "pink", "teal"]
 
 
-def build_prompt(candidates, already_posted, n):
+def build_prompt(candidates, already_posted, n, performance=""):
     lines = []
     for i, c in enumerate(candidates, 1):
         lines.append(f"{i}. TOPIC: {c['topic']} | power: {c.get('power', 0):,} | trending in: {c['country']}")
@@ -22,7 +22,7 @@ Page niche: {config.NICHE}. Audience: the general public in the US, UK, Canada a
 Below are topics trending RIGHT NOW with related news headlines.
 {chr(10).join(lines)}
 
-Topics already posted recently (do NOT repeat these or close variants): {', '.join(already_posted[-60:]) or 'none'}
+{('WHAT WORKS ON THIS PAGE (learn from it, favour topics like the best ones):' + chr(10) + performance + chr(10) + chr(10)) if performance else ''}Topics already posted recently (do NOT repeat these or close variants): {', '.join(already_posted[-60:]) or 'none'}
 
 TASK: Choose the {n} topic(s) with the BIGGEST mass appeal and write one post for each.
 Topics are sorted strongest first. "power" = how many people are searching it, boosted when it trends
@@ -41,7 +41,8 @@ Return JSON exactly in this shape:
 {{"posts": [{{
   "key": "short-lowercase-slug-of-topic",
   "topic": "topic name",
-  "badge": "one or two words like TRENDING, BREAKING, SPORTS, TECH, MUST WATCH",
+  "badge": "exactly one of: SPORTS, CELEBRITY, TV & FILM, MUSIC, TECH, GAMING, SHOPPING, ROYALS, WEATHER, VIRAL, BUSINESS, SCIENCE",
+  "first_comment": "one short, fun question the page itself will comment under the post to spark replies (max 15 words, 1 emoji, e.g. 'Would you watch this? Yes or no? 👇')",
   "headline": "6-10 words in normal sentence case (NOT all caps), written like the big viral news pages (Pubity, Pop Base): lead with the famous name, use an emotional or surprising angle, and leave a little curiosity while still saying what happened (not vague clickbait). No emoji. Wrap the 1-3 most striking words in *asterisks* for a highlighter, e.g. 'Zoe Saldaña just *turned down* Taylor Sheridan's next big show'",
   "subtext": "max 14 words, one supporting line for the poster with the key fact",
   "wiki_title": "exact English Wikipedia article title of the ONE main PERSON in the story (e.g. 'Zoe Saldaña', 'Aryna Sabalenka', 'Erling Haaland'), or empty string if the story is about a show, film, team, product or event rather than a person",
@@ -156,8 +157,8 @@ def _groq(prompt):
     raise RuntimeError(last)
 
 
-def write_posts(candidates, already_posted, n):
-    prompt = build_prompt(candidates, already_posted, n)
+def write_posts(candidates, already_posted, n, performance=""):
+    prompt = build_prompt(candidates, already_posted, n, performance)
     engines = []
     if config.GEMINI_API_KEY:
         engines.append(_gemini)

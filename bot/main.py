@@ -5,7 +5,7 @@ import re
 import sys
 from datetime import datetime, timedelta, timezone
 
-from . import ai, config, meta, poster, reel, trends
+from . import ai, config, insights, meta, poster, reel, trends
 
 # extra safety net on top of the AI's own rules
 BLOCK_WORDS = re.compile(
@@ -68,6 +68,13 @@ def should_post_now(state):
 def main():
     print(f"== Trend Bot | page: {config.PAGE_NAME} | countries: {config.COUNTRIES} | DRY_RUN={config.DRY_RUN}")
     state = load_state()
+    if not config.DRY_RUN:  # learn from results + answer comments on every run
+        try:
+            insights.update_stats(state)
+            insights.reply_comments(state)
+        except Exception as e:
+            print(f"[insights] skipped: {e}")
+        save_state(state)
     if not should_post_now(state):
         return 0
     meta.check_connection()
@@ -92,7 +99,10 @@ def main():
         return 0
 
     already = [p.get("topic", p["key"]) for p in state["posted"]]
-    posts = ai.write_posts(candidates, already, config.POSTS_PER_RUN)
+    performance = insights.summary(state)
+    if performance:
+        print("[insights] " + performance.replace("\n", "\n[insights] "))
+    posts = ai.write_posts(candidates, already, config.POSTS_PER_RUN, performance)
 
     made = 0
     for p in posts:
@@ -108,7 +118,9 @@ def main():
             f.write(caption)
         print(f"\n--- POST: {p['headline']}\n{caption}\nimage: {img}\n")
 
+        slot = current_slot(datetime.now(timezone.utc))
         record = {"key": p["key"], "topic": p.get("topic", ""), "headline": p["headline"],
+                  "badge": p.get("badge", ""), "slot": f"{slot:%H}" if slot else "",
                   "time": datetime.now(timezone.utc).isoformat(timespec="minutes")}
         if config.DRY_RUN:
             record["dry_run"] = True
@@ -116,7 +128,11 @@ def main():
         fmt = config.POST_FORMAT
         if fmt == "alternate":
             live = sum(1 for x in state["posted"] if not x.get("dry_run"))
-            fmt = "reel" if live % 2 == 0 else "photo"
+            winner = insights.best_format(state)  # once one format clearly wins, use it 2 of every 3 posts
+            if winner:
+                fmt = winner if live % 3 else ("photo" if winner == "reel" else "reel")
+            else:
+                fmt = "reel" if live % 2 == 0 else "photo"
         video = None
         if fmt in ("reel", "both") and p.get("_photo") is not None:
             video = reel.make_reel(p, p["_photo"], img.replace(".jpg", ".mp4"))
@@ -142,6 +158,8 @@ def main():
                     record["facebook_reel"] = meta.publish_reel(video, caption)
                 except Exception as e:
                     print(f"[main] Reel failed: {e}")
+        if config.FIRST_COMMENT and res.get("facebook"):
+            insights.first_comment(res["facebook"], p.get("first_comment", ""))
         if not config.DRY_RUN and not any(k in res for k in ("facebook", "instagram")):
             print("[main] Upload failed on both platforms.")
             save_state(state)
