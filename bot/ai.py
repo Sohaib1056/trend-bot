@@ -42,7 +42,7 @@ Return JSON exactly in this shape:
   "key": "short-lowercase-slug-of-topic",
   "topic": "topic name",
   "badge": "one or two words like TRENDING, BREAKING, SPORTS, TECH, MUST WATCH",
-  "headline": "6-9 words, punchy viral-page style poster headline that makes people stop scrolling (curiosity + the big name first). Wrap the 1-3 most exciting words in *asterisks* so they get highlighted, e.g. 'Apple Just *Dropped* The *iPhone 18*'",
+  "headline": "6-10 words in normal sentence case (NOT all caps), written like the big viral news pages (Pubity, Pop Base): lead with the famous name, use an emotional or surprising angle, and leave a little curiosity while still saying what happened (not vague clickbait). No emoji. Wrap the 1-3 most striking words in *asterisks* for a highlighter, e.g. 'Zoe Saldaña just *turned down* Taylor Sheridan's next big show'",
   "subtext": "max 14 words, one supporting line for the poster with the key fact",
   "wiki_title": "exact English Wikipedia article title of the ONE main PERSON in the story (e.g. 'Zoe Saldaña', 'Aryna Sabalenka', 'Erling Haaland'), or empty string if the story is about a show, film, team, product or event rather than a person",
   "image_prompt": "one vivid sentence describing a professional, photorealistic, high-contrast scene that explains the story at a glance - its actual subject matter (its sport, venue, objects, setting - e.g. tennis upset -> a tennis racket on a clay court under stadium lights; TV casting news -> a film set with a director's chair and cameras), with the main subject large in the upper half of the frame (no text, no real person's face, no logos)",

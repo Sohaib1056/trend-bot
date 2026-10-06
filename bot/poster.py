@@ -80,7 +80,7 @@ def _gradient(top, bottom):
     return img.convert("RGBA")
 
 
-def _tokens(headline):
+def _tokens(headline, upper=True):
     """'Apple *just dropped* iPhone 18' -> [('APPLE',False),('JUST',True),...]"""
     out, hl = [], False
     for raw in headline.replace("**", "*").split():
@@ -89,7 +89,7 @@ def _tokens(headline):
         if start:
             hl = True
         if word:
-            out.append((word.upper(), hl))
+            out.append((word.upper() if upper else word, hl))
         if end or (start and raw.count("*") >= 2):
             hl = False
     if not any(h for _, h in out) and len(out) > 2:  # AI forgot -> highlight last 2 words
@@ -671,8 +671,74 @@ def tpl_hype(post, photo, theme=None):
     return img
 
 
-PHOTO_TEMPLATES = {"hype": tpl_hype, "viral": tpl_viral, "breaking": tpl_breaking, "frame": tpl_frame}
-DEFAULT_TEMPLATE = os.getenv("POSTER_TEMPLATE", "hype").strip() or "hype"
+
+# ------------------------------------------------ news-card template (default)
+INK = (17, 17, 20)
+MARKER = (255, 214, 10)
+
+
+def tpl_card(post, photo, theme=None):
+    """'News card' layout used by the big viral pages (Pubity, Pop Base style):
+    clean white headline panel on top (readable even as a small feed thumbnail),
+    big photo below, keywords marked with a yellow highlighter, small brand watermark."""
+    probe = ImageDraw.Draw(Image.new("RGB", (10, 10)))
+    toks = _tokens(post["headline"], upper=False)
+    max_w = W - 2 * 64
+    f, lines, lh = _fit(probe, toks, max_w, 300, big=74, small=46, max_lines=4, lh_ratio=1.22)
+    label_f = _font("bold", 24)
+    panel_h = max(300, 64 + 40 + lh * len(lines) + 46)
+
+    img = Image.new("RGBA", (W, H), WHITE + (255,))
+    ph = _cover(_enhance(photo), W, H - panel_h)
+    img.paste(ph, (0, panel_h))
+    img = Image.alpha_composite(img, _vfade(W, H, H - 260, H, (0, 0, 0), a1=150, power=1.2))
+    img.paste(_hgradient(W, 10, [PINK, ORANGE, YELLOW]), (0, panel_h - 5))
+    d = ImageDraw.Draw(img)
+
+    # small category label
+    label = (post.get("badge") or "TRENDING").upper()[:22]
+    d.ellipse([64, 52, 80, 68], fill=PINK)
+    d.text((92, 44), label, font=label_f, fill=PINK)
+
+    # headline with highlighter marks on the keywords
+    y = 64 + 40
+    space = d.textlength(" ", font=f)
+    asc, desc = f.getmetrics()
+    for line in lines:
+        pos, x = [], 64
+        for word, hl in line:
+            ww = d.textlength(word, font=f)
+            pos.append((x, ww, word, hl))
+            x += ww + space
+        i = 0
+        while i < len(pos):  # one continuous highlighter stroke per run of keywords
+            if pos[i][3]:
+                j = i
+                while j + 1 < len(pos) and pos[j + 1][3]:
+                    j += 1
+                d.rounded_rectangle([pos[i][0] - 10, y + asc * 0.18, pos[j][0] + pos[j][1] + 10, y + asc + desc * 0.25],
+                                    radius=8, fill=MARKER)
+                i = j + 1
+            else:
+                i += 1
+        for px, ww, word, hl in pos:
+            d.text((px, y), word, font=f, fill=INK)
+        y += lh
+
+    # brand watermark on the photo (bottom-left), like the big pages do
+    lg = _logo(70)
+    if lg:
+        d.ellipse([46, H - 120, 122, H - 44], fill=WHITE)
+        img.alpha_composite(lg, (49, H - 117))
+    d = ImageDraw.Draw(img)
+    for dx, dy, col in ((2, 2, (0, 0, 0, 160)), (0, 0, WHITE)):
+        d.text((138 + dx, H - 106 + dy), "HYPE ATLAS", font=_font("bold", 30), fill=col)
+        d.text((139 + dx, H - 70 + dy), "Viral & Trending", font=_font("medium", 20), fill=col)
+    return img
+
+
+PHOTO_TEMPLATES = {"card": tpl_card, "hype": tpl_hype, "viral": tpl_viral, "breaking": tpl_breaking, "frame": tpl_frame}
+DEFAULT_TEMPLATE = os.getenv("POSTER_TEMPLATE", "card").strip() or "card"
 
 
 def make_poster(post, path, photo=None, template=None):
@@ -687,7 +753,7 @@ def make_poster(post, path, photo=None, template=None):
     post["_photo"] = photo  # reused by the Reel
     name = template or DEFAULT_TEMPLATE
     if name not in PHOTO_TEMPLATES:
-        name = "hype"
+        name = "card"
     print(f"[poster] template: {name}")
     img = PHOTO_TEMPLATES[name](post, photo, theme)
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
