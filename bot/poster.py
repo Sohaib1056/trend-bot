@@ -287,7 +287,7 @@ def _pixabay_photos(query, limit=3):
 
 
 WIKI_UA = {"User-Agent": "HypeAtlasBot/1.0 (facebook.com/hypeatlasnews)"}
-FREE_LICENSE = ("cc by", "cc0", "public domain", "pd", "cc-by")
+FREE_LICENSE = ("cc by", "cc0", "public domain", "pd", "cc-by", "ogl")  # OGL = UK Open Government Licence
 
 
 def _is_person(qid):
@@ -406,8 +406,11 @@ def get_background(post):
     best, best_score = None, -1
     for im, credit, source in _candidates(post):
         score = judge_image(im, post["headline"].replace("*", ""))
-        if score is None:  # no judge available -> take the first candidate
+        if score is None:  # judge unavailable: keep the best judged one so far, else take this one
+            if best is not None:
+                break
             post["_credit"] = credit
+            print(f"[poster] background: {source} (judge unavailable)")
             return im
         rel, qual = score
         total = rel * 2 + qual
