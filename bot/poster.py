@@ -348,8 +348,8 @@ def _commons_photo(query):
         return None, None
     try:
         short = " ".join(query.split()[:2])
-        # reviewed high-quality photos first, then any free photo
-        searches = [f'{query} incategory:"Quality_images"', f'{short} incategory:"Quality_images"', query, short]
+        # only photos reviewed as high quality: random amateur shots look worse than the brand backdrop
+        searches = [f'{query} incategory:"Quality_images"', f'{short} incategory:"Quality_images"']
         for q in searches:
             r = requests.get("https://commons.wikimedia.org/w/api.php", headers=WIKI_UA, timeout=25, params={
                 "action": "query", "format": "json", "generator": "search", "gsrnamespace": 6,
