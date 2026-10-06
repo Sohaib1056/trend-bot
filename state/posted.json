@@ -26,28 +26,60 @@
       "topic": "zoe salda\u00f1a",
       "headline": "Zoe Salda\u00f1a *Rejects* New *Taylor Sheridan* Shows",
       "time": "2026-10-04T12:09+00:00",
-      "facebook": "1397517856769204_122105066025493621"
+      "facebook": "1397517856769204_122105066025493621",
+      "stats": {
+        "views": 45,
+        "reactions": 0,
+        "comments": 0,
+        "shares": 0,
+        "checked": "2026-10-06T07:05+00:00",
+        "score": 0.9
+      }
     },
     {
       "key": "chargers-vs-seahawks",
       "topic": "chargers vs seahawks",
       "headline": "Seahawks And Chargers *Clash* In *Week 4*",
       "time": "2026-10-04T20:10+00:00",
-      "facebook": "1397517856769204_122105496987493621"
+      "facebook": "1397517856769204_122105496987493621",
+      "stats": {
+        "views": 9,
+        "reactions": 0,
+        "comments": 0,
+        "shares": 0,
+        "checked": "2026-10-06T07:05+00:00",
+        "score": 0.2
+      }
     },
     {
       "key": "haaland-injury-portugal-norway",
       "topic": "Erling Haaland Injury Concern",
       "headline": "Erling Haaland *Limps Off* In Huge *Injury Scare*",
       "time": "2026-10-04T23:07+00:00",
-      "facebook": "1397517856769204_122105586207493621"
+      "facebook": "1397517856769204_122105586207493621",
+      "stats": {
+        "views": 15,
+        "reactions": 0,
+        "comments": 0,
+        "shares": 0,
+        "checked": "2026-10-06T07:05+00:00",
+        "score": 0.3
+      }
     },
     {
       "key": "hbo-harry-potter-series",
       "topic": "hbo",
       "headline": "HBO CEO Gives *Glowing Review* To *Harry Potter* Series",
       "time": "2026-10-05T01:59+00:00",
-      "facebook": "1397517856769204_122105705889493621"
+      "facebook": "1397517856769204_122105705889493621",
+      "stats": {
+        "views": 24,
+        "reactions": 0,
+        "comments": 0,
+        "shares": 0,
+        "checked": "2026-10-06T07:05+00:00",
+        "score": 0.5
+      }
     },
     {
       "key": "nfl-london-series",
@@ -61,21 +93,45 @@
       "topic": "carlos alcaraz",
       "headline": "*Alcaraz* Advances After *Shapovalov* Pulls Out, *Final* Secured",
       "time": "2026-10-05T09:01+00:00",
-      "facebook": "1397517856769204_122105951289493621"
+      "facebook": "1397517856769204_122105951289493621",
+      "stats": {
+        "views": 8,
+        "reactions": 0,
+        "comments": 0,
+        "shares": 0,
+        "checked": "2026-10-06T07:05+00:00",
+        "score": 0.2
+      }
     },
     {
       "key": "france-vs-belgium",
       "topic": "france vs belgium",
       "headline": "France Faces Belgium In *Massive* Football *Clash*",
       "time": "2026-10-05T18:26+00:00",
-      "facebook": "1397517856769204_122106405669493621"
+      "facebook": "1397517856769204_122106405669493621",
+      "stats": {
+        "views": 6,
+        "reactions": 0,
+        "comments": 0,
+        "shares": 0,
+        "checked": "2026-10-06T07:05+00:00",
+        "score": 0.1
+      }
     },
     {
       "key": "youtube-tv-worth-it",
       "topic": "youtube tv",
       "headline": "Is YouTube TV *Still Worth* Your *Money*?",
       "time": "2026-10-06T00:48+00:00",
-      "facebook": "1397517856769204_122106643809493621"
+      "facebook": "1397517856769204_122106643809493621",
+      "stats": {
+        "views": 8,
+        "reactions": 0,
+        "comments": 0,
+        "shares": 0,
+        "checked": "2026-10-06T07:05+00:00",
+        "score": 0.2
+      }
     },
     {
       "key": "amazon-prime-big-deal-days",
@@ -98,6 +154,24 @@
       "time": "2026-10-06T06:01+00:00",
       "dry_run": true,
       "format": "photo"
+    },
+    {
+      "key": "ghost-ai-computer",
+      "topic": "ghost seed round",
+      "headline": "Teenager raises *$11 million* for screenless AI computer",
+      "badge": "TECH",
+      "slot": "07",
+      "share_groups": [
+        "Artificial Intelligence",
+        "Tech Gadgets",
+        "Future Technology"
+      ],
+      "time": "2026-10-06T07:09+00:00",
+      "format": "photo",
+      "facebook": "1397517856769204_122106806955493621",
+      "facebook_photo_id": "122106806925493621"
     }
-  ]
+  ],
+  "replied": [],
+  "todo_date": "2026-10-06"
 }
