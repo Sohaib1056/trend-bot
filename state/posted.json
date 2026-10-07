@@ -328,6 +328,22 @@
         "checked": "2026-10-07T00:40+00:00",
         "score": 3.0
       }
+    },
+    {
+      "key": "adam-levine-the-voice-mistake",
+      "topic": "adam levine",
+      "headline": "Adam Levine admits he *made a mistake* on The Voice",
+      "badge": "CELEBRITY",
+      "slot": "01",
+      "share_groups": [
+        "The Voice Fans",
+        "Maroon 5 Fans",
+        "Reality TV Gossip"
+      ],
+      "time": "2026-10-07T01:06+00:00",
+      "format": "reel",
+      "facebook_reel": "2622862774832358",
+      "facebook": "2622862774832358"
     }
   ],
   "replied": [],
