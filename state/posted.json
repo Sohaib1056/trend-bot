@@ -446,6 +446,21 @@
       "time": "2026-10-07T12:56+00:00",
       "dry_run": true,
       "format": "reel"
+    },
+    {
+      "key": "stock-market-dow",
+      "topic": "why is the stock market down today",
+      "headline": "*Dow* falls 500 points as yields hit 24\u2011year high",
+      "badge": "BUSINESS",
+      "slot": "12",
+      "share_groups": [
+        "Wall Street investors",
+        "stock market news",
+        "finance enthusiasts"
+      ],
+      "time": "2026-10-07T14:20+00:00",
+      "dry_run": true,
+      "format": "reel"
     }
   ],
   "replied": [],
