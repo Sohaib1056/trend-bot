@@ -32,7 +32,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T19:05+00:00",
+        "checked": "2026-10-07T23:05+00:00",
         "score": 1.0
       }
     },
@@ -47,7 +47,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T19:05+00:00",
+        "checked": "2026-10-07T23:05+00:00",
         "score": 0.2
       }
     },
@@ -58,12 +58,12 @@
       "time": "2026-10-04T23:07+00:00",
       "facebook": "1397517856769204_122105586207493621",
       "stats": {
-        "views": 15,
+        "views": 0,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T19:05+00:00",
-        "score": 0.3
+        "checked": "2026-10-07T23:05+00:00",
+        "score": 0.0
       }
     },
     {
@@ -73,12 +73,12 @@
       "time": "2026-10-05T01:59+00:00",
       "facebook": "1397517856769204_122105705889493621",
       "stats": {
-        "views": 24,
+        "views": 0,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T19:05+00:00",
-        "score": 0.5
+        "checked": "2026-10-07T23:05+00:00",
+        "score": 0.0
       }
     },
     {
@@ -95,12 +95,12 @@
       "time": "2026-10-05T09:01+00:00",
       "facebook": "1397517856769204_122105951289493621",
       "stats": {
-        "views": 9,
+        "views": 0,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T19:05+00:00",
-        "score": 0.2
+        "checked": "2026-10-07T23:05+00:00",
+        "score": 0.0
       }
     },
     {
@@ -114,7 +114,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T19:05+00:00",
+        "checked": "2026-10-07T23:05+00:00",
         "score": 0.2
       }
     },
@@ -125,12 +125,12 @@
       "time": "2026-10-06T00:48+00:00",
       "facebook": "1397517856769204_122106643809493621",
       "stats": {
-        "views": 18,
+        "views": 0,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T19:05+00:00",
-        "score": 0.4
+        "checked": "2026-10-07T23:05+00:00",
+        "score": 0.0
       }
     },
     {
@@ -175,7 +175,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T19:05+00:00",
+        "checked": "2026-10-07T23:05+00:00",
         "score": 0.2
       }
     },
@@ -199,7 +199,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T19:05+00:00",
+        "checked": "2026-10-07T23:05+00:00",
         "score": 1.0
       }
     },
@@ -223,7 +223,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T19:05+00:00",
+        "checked": "2026-10-07T23:05+00:00",
         "score": 0.3
       }
     },
@@ -307,7 +307,7 @@
         "reactions": 1,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T19:05+00:00",
+        "checked": "2026-10-07T23:05+00:00",
         "score": 4.6
       }
     },
@@ -331,7 +331,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T19:05+00:00",
+        "checked": "2026-10-07T23:05+00:00",
         "score": 0.3
       }
     },
@@ -355,7 +355,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T19:05+00:00",
+        "checked": "2026-10-07T23:05+00:00",
         "score": 1.7
       }
     },
@@ -379,7 +379,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T19:05+00:00",
+        "checked": "2026-10-07T23:05+00:00",
         "score": 0.4
       }
     },
@@ -398,7 +398,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T19:05+00:00",
+        "checked": "2026-10-07T23:05+00:00",
         "score": 0.2
       }
     },
@@ -497,7 +497,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 10,
-        "checked": "2026-10-07T19:05+00:00",
+        "checked": "2026-10-07T23:05+00:00",
         "score": 50.1
       }
     },
@@ -524,6 +524,22 @@
         "checked": "2026-10-07T20:36+00:00",
         "score": 0.0
       }
+    },
+    {
+      "key": "zuckerberg-biohub-ai-data",
+      "topic": "US government, Google join Zuckerberg-backed Biohub in $1.8 billion push for AI biology data",
+      "headline": "Mark Zuckerberg backs *$1.8\u202fbillion* AI biology push with Google",
+      "badge": "AI",
+      "slot": "23",
+      "share_groups": [
+        "Mark Zuckerberg fans",
+        "AI research community",
+        "Google enthusiasts"
+      ],
+      "time": "2026-10-07T23:06+00:00",
+      "format": "photo",
+      "facebook": "1397517856769204_122108462181493621",
+      "facebook_photo_id": "122108462151493621"
     }
   ],
   "replied": [],
