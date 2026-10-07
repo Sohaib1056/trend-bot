@@ -1,17 +1,16 @@
 """Fast-cut vertical Reel (1080x1920), built like the big viral news pages:
 
-  0.0s  hook: headline is on screen from the very first second (muted autoplay decides in ~1s)
-  every ~2s a new scene: real moving stock footage (Pixabay videos, checked by the AI judge)
-        mixed with the post's photos, with a white flash + zoom punch on every cut
-  ~3s   subtext fades in
-  end   card: logo + "FOLLOW HYPE ATLAS"
-  brand-gradient progress bar along the top the whole time
-Voice: the AI's narration read by Cloudflare text-to-speech (Deepgram Aura, MeloTTS backup); the Reel is as long
-       as the narration. Music: a random track from assets/music/ (royalty-free), quieter under the voice.
+  0.0s  hook: the famous face (or the best footage) + a white headline card at the top, on screen from frame 1
+  every ~2s a new scene, never the same picture twice in a row: several real photos of the person (Wikimedia
+        Commons, free licences), real moving stock footage (Pixabay videos) and AI images, all checked by the
+        AI judge, with a white flash + zoom punch on every cut
+  voice: AI narration (Cloudflare text-to-speech) with big word-by-word subtitles in the middle of the screen
+  end   "FOLLOW HYPE ATLAS" banner over the footage (no black screen, so the Reel loops smoothly)
+  All text stays inside the Reels safe zone (Facebook covers the bottom ~35% with the caption and buttons).
+Music: a random track from assets/music/ (royalty-free), quieter under the voice.
 """
 import base64
 import glob
-import math
 import os
 import random
 import re
@@ -21,15 +20,17 @@ import requests
 from PIL import Image, ImageDraw
 
 from . import config
-from .poster import (PAD, PINK, ORANGE, YELLOW, WHITE, _cover, _download, _enhance, _fit, _font, _hgradient,
-                     _logo, _paste_rounded, _tokens, _vfade, _wrap)
+from .poster import (COMMONS_SKIP, FREE_LICENSE, MARKER, INK, PAD, PINK, ORANGE, YELLOW, WHITE, WIKI_UA,
+                     _cloudflare_image, _cover, _download, _enhance, _fit, _font, _hgradient, _logo,
+                     _paste_rounded, _tokens, _vfade)
 
 RW, RH = 1080, 1920
 FPS = 30
-SCENE = 2.0          # seconds per scene
-MAX_SCENES = 6
+SCENE = 2.0          # target seconds per scene
+MAX_SCENES = 7
 VOICE_AT = 0.3       # narration starts after the hook frame
-END_LEN = 2.2        # end card
+END_LEN = 1.8        # follow banner at the end (when there is no voice to time it)
+SUB_Y = 1060         # centre of the subtitles: the middle of the Reels safe zone
 MUSIC_DIR = os.path.join(config.BASE_DIR, "assets", "music")
 CLIP_DIR = os.path.join(config.OUTPUT_DIR, "clips")
 
@@ -54,7 +55,7 @@ def _pixabay_videos(post, want=3):
     key = os.getenv("PIXABAY_API_KEY", "").strip()
     queries = [q for q in (post.get("video_queries") or []) if isinstance(q, str) and q.strip()]
     queries += [post.get("image_query") or ""]
-    if not key:
+    if not key or want <= 0:
         return []
     headline = post["headline"].replace("*", "")
     os.makedirs(CLIP_DIR, exist_ok=True)
@@ -69,7 +70,9 @@ def _pixabay_videos(post, want=3):
         except Exception as e:
             print(f"[reel] Pixabay video search failed for '{q}': {e}")
             continue
-        hits.sort(key=lambda h: (h["videos"]["large"].get("height", 0) <= h["videos"]["large"].get("width", 1)))
+        # full-HD (or bigger) first: smaller clips look soft when cropped to 9:16; vertical clips first
+        hits.sort(key=lambda h: (max(h["videos"]["large"].get("width", 0), h["videos"]["large"].get("height", 0)) < 1920,
+                                 h["videos"]["large"].get("height", 0) <= h["videos"]["large"].get("width", 1)))
         taken = 0
         for h in hits[:4]:
             if len(clips) >= want or judged >= 7 or taken >= 2:
@@ -98,6 +101,62 @@ def _pixabay_videos(post, want=3):
             except Exception as e:
                 print(f"[reel] clip {h.get('id')} failed: {e}")
     return clips
+
+
+def _person_photos(post, want=3):
+    """More real photos of the person in the story (Wikimedia Commons, free licences only), checked by the judge."""
+    from .ai import judge_image
+    name = (post.get("wiki_title") or "").strip()
+    if not name or not post.get("_person") or want <= 0:
+        return []
+    last = name.split()[-1].lower()
+    out, judged = [], 0
+    try:
+        r = requests.get("https://commons.wikimedia.org/w/api.php", headers=WIKI_UA, timeout=25, params={
+            "action": "query", "format": "json", "generator": "search", "gsrnamespace": 6,
+            "gsrsearch": f'"{name}" filetype:bitmap', "gsrlimit": 30,
+            "prop": "imageinfo", "iiprop": "url|size|extmetadata", "iiurlwidth": 1600})
+        pages = sorted((r.json().get("query") or {}).get("pages", {}).values(), key=lambda p: p.get("index", 99))
+    except Exception as e:
+        print(f"[reel] Commons search for '{name}' failed: {e}")
+        return []
+    for p in pages:
+        if len(out) >= want or judged >= 5:
+            break
+        title, ii = p.get("title", ""), (p.get("imageinfo") or [{}])[0]
+        if last not in title.lower() or not title.lower().endswith((".jpg", ".jpeg")) or COMMONS_SKIP.search(title):
+            continue
+        if min(ii.get("width", 0), ii.get("height", 0)) < 900:
+            continue
+        meta = ii.get("extmetadata", {})
+        lic = meta.get("LicenseShortName", {}).get("value", "")
+        if not lic.lower().startswith(FREE_LICENSE) or "non-free" in lic.lower():
+            continue
+        try:
+            im = _download(ii.get("thumburl") or ii["url"], WIKI_UA)
+            judged += 1
+            score = judge_image(im, post["headline"].replace("*", ""))
+            if score is not None and (score[0] < 6 or score[1] < 6):
+                print(f"[reel] photo {title[:50]} rejected by the judge")
+                continue
+            artist = re.sub(r"<[^>]+>", "", meta.get("Artist", {}).get("value", "")).strip()[:40] or "Wikimedia Commons"
+            out.append((im, f"{artist}, {lic}"))
+            print(f"[reel] extra photo of {name}: {title[:60]}")
+        except Exception as e:
+            print(f"[reel] photo {title[:40]} failed: {e}")
+    return out
+
+
+def _ai_images(post, n):
+    """Extra AI scenes (different angles of the story) when real footage is short."""
+    base = post.get("image_prompt") or post.get("image_query") or ""
+    out = []
+    for k, angle in enumerate(("dramatic close-up detail shot of", "wide cinematic establishing shot of",
+                               "dynamic low-angle shot of")[:n]):
+        im = _cloudflare_image(f"{angle} {base}", abs(hash(post["key"])) % 100000 + 17 * (k + 1))
+        if im is not None:
+            out.append(im)
+    return out
 
 
 # ------------------------------------------------------------------ voice
@@ -144,21 +203,36 @@ def _audio_secs(exe, path):
     return int(m.group(1)) * 3600 + int(m.group(2)) * 60 + float(m.group(3)) if m else 0.0
 
 
-def _scenes(post, photo, count=4):
-    """Ordered list of ('photo', img) / ('video', (path, duration)) scenes."""
-    photos = [photo] + [im for im in post.get("_extras", []) if im is not photo]
-    videos = _pixabay_videos(post, want=min(4, count - 1))
+# ------------------------------------------------------------------ scenes
+def _scenes(post, photo, count):
+    """Ordered list of ('photo', img) / ('video', (path, duration)) scenes, no picture shown twice in a row."""
+    people = [photo] if post.get("_person") else []
+    extra_people = _person_photos(post, want=min(3, count // 2))
+    people += [im for im, _ in extra_people]
+    if extra_people:
+        post["_reel_credits"] = [c for _, c in extra_people]
+    others = ([] if post.get("_person") else [photo]) + [im for im in post.get("_extras", []) if im is not photo]
+    videos = _pixabay_videos(post, want=min(4, count - len(people)))
+    short = count - len(people) - len(videos) - len(others)
+    if short > 0:
+        others += _ai_images(post, min(3, short))
     scenes = []
-    if post.get("_person") or not videos:  # a real face is the strongest hook
-        scenes.append(("photo", photos.pop(0)))
-    while len(scenes) < count and (videos or photos):
-        if videos:
-            scenes.append(("video", videos.pop(0)))
-        if photos and len(scenes) < count:
-            scenes.append(("photo", photos.pop(0)))
-    while len(scenes) < count:  # too little footage: re-use the photos with a different move
-        scenes.append(scenes[len(scenes) % max(1, len(scenes))] if scenes[-1][0] == "video" else ("photo", photo))
-    print(f"[reel] {len(scenes)} scenes: " + ", ".join(k for k, _ in scenes))
+    if people:  # a real face is the strongest hook
+        scenes.append(("photo", people.pop(0)))
+    elif videos:
+        scenes.append(("video", videos.pop(0)))
+    while len(scenes) < count and (videos or people or others):
+        for pool, kind in ((videos, "video"), (people, "photo"), (others, "photo")):
+            if pool and len(scenes) < count:
+                scenes.append((kind, pool.pop(0)))
+    distinct = len(scenes)
+    k = 0
+    while len(scenes) < count:  # still short: re-use pictures, never next to themselves
+        cand = scenes[k % distinct]
+        if cand is not scenes[-1] or distinct == 1:
+            scenes.append(cand)
+        k += 1
+    print(f"[reel] {len(scenes)} scenes ({distinct} different): " + ", ".join(kind for kind, _ in scenes))
     return scenes
 
 
@@ -210,8 +284,8 @@ def _header_layer(post):
     if lg:
         d.ellipse([x - 4, y - 4, x + 100, y + 100], fill=WHITE)
         layer.alpha_composite(lg, (x, y))
-    d.text((x + 120, y + 4), "HYPE ATLAS", font=_font("bold", 40), fill=WHITE)
-    d.text((x + 122, y + 56), "VIRAL & TRENDING", font=_font("bold", 22), fill=YELLOW)
+    d.text((x + 120, y + 4), "HYPE ATLAS", font=_font("bold", 40), fill=WHITE, stroke_width=2, stroke_fill=(0, 0, 0))
+    d.text((x + 122, y + 56), "VIRAL & TRENDING", font=_font("bold", 22), fill=YELLOW, stroke_width=2, stroke_fill=(0, 0, 0))
     bf = _font("bold", 28)
     label = (post.get("badge") or "TRENDING").upper()[:18]
     bw = int(d.textlength(label, font=bf)) + 80
@@ -223,73 +297,128 @@ def _header_layer(post):
     return layer
 
 
-def _layout_headline(post):
-    """Positions of every headline word, computed once."""
+def _title_layer(post):
+    """White headline card at the top (brand look of the posters), keywords marked with the highlighter."""
     probe = ImageDraw.Draw(Image.new("RGB", (10, 10)))
-    toks = _tokens(post["headline"])
-    max_w = RW - PAD * 2 - 60  # keep clear of the Reels side buttons
-    f, lines, lh = _fit(probe, toks, max_w, 520, big=112, small=56, max_lines=4, lh_ratio=1.1)
-    sub_f = _font("medium", 38)
-    sub = _wrap(probe, post.get("subtext", ""), sub_f, max_w)[:3]
-    block = lh * len(lines) + (30 + len(sub) * 52 if sub else 0)
-    y0 = 1500 - block  # bottom of text block sits above the Reels caption area
-    space = probe.textlength(" ", font=f)
-    words, y = [], y0
-    for line in lines:
-        x = PAD
-        for w, hl in line:
-            words.append((x, y, w, hl))
-            x += probe.textlength(w, font=f) + space
-        y += lh
-    return f, words, sub_f, sub, y + 30, y0
-
-
-def _end_card():
-    layer = Image.new("RGBA", (RW, RH), (6, 6, 10, 246))
+    x0, top = PAD - 30, 372
+    max_w = RW - 2 * x0 - 60
+    f, lines, lh = _fit(probe, _tokens(post["headline"], upper=False), max_w, 400,
+                        big=76, small=48, max_lines=4, lh_ratio=1.2)
+    h = lh * len(lines) + 56
+    layer = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
-    lg = _logo(240)
-    cy = 640
-    if lg:
-        d.ellipse([RW // 2 - 128, cy - 8, RW // 2 + 128, cy + 248], fill=WHITE)
-        layer.alpha_composite(lg, (RW // 2 - 120, cy))
-    for text, font, fill, yy in (("FOLLOW", _font("bold", 64), WHITE, 960),
-                                 ("HYPE ATLAS", _font("bold", 110), YELLOW, 1040),
-                                 ("Daily viral & trending news", _font("medium", 42), (225, 225, 232), 1190),
-                                 ("from the US, UK & the world", _font("medium", 42), (225, 225, 232), 1245)):
-        d.text(((RW - d.textlength(text, font=font)) / 2, yy), text, font=font, fill=fill)
-    _paste_rounded(layer, _hgradient(420, 12, [PINK, ORANGE, YELLOW]).convert("RGBA"), ((RW - 420) // 2, 1340), 6)
+    d.rounded_rectangle([x0 + 6, top + 8, RW - x0 + 6, top + h + 8], radius=26, fill=(0, 0, 0, 110))
+    d.rounded_rectangle([x0, top, RW - x0, top + h], radius=26, fill=WHITE)
+    space = d.textlength(" ", font=f)
+    asc, desc = f.getmetrics()
+    y = top + 26
+    for line in lines:
+        pos, x = [], x0 + 30
+        for word, hl in line:
+            ww = d.textlength(word, font=f)
+            pos.append((x, ww, word, hl))
+            x += ww + space
+        i = 0
+        while i < len(pos):  # one highlighter stroke per run of keywords
+            if pos[i][3]:
+                j = i
+                while j + 1 < len(pos) and pos[j + 1][3]:
+                    j += 1
+                d.rounded_rectangle([pos[i][0] - 8, y + asc * 0.18, pos[j][0] + pos[j][1] + 8, y + asc + desc * 0.25],
+                                    radius=8, fill=MARKER)
+                i = j + 1
+            else:
+                i += 1
+        for px, ww, word, hl in pos:
+            d.text((px, y), word, font=f, fill=INK)
+        y += lh
     return layer
 
 
-def _frames(post, scenes, exe, duration):
-    shade = Image.alpha_composite(_vfade(RW, RH, 0, 420, (0, 0, 0), a0=170, a1=0, power=1),
-                                  _vfade(RW, RH, 820, RH, (6, 6, 10), a1=245, power=1.3))
+def _subtitle_timeline(text, secs):
+    """Word timings for the narration (estimated from word length + pauses), grouped in chunks of <= 3 words."""
+    words = text.split()
+    weights = [len(w) + 3 + (6 if w[-1] in ".,!?;:" else 0) for w in words]
+    scale = secs / max(1, sum(weights))
+    t, timed = VOICE_AT + 0.05, []
+    for w, wt in zip(words, weights):
+        timed.append((w, t, t + wt * scale))
+        t += wt * scale
+    chunks, cur = [], []
+    for item in timed:
+        cur.append(item)
+        if len(cur) == 3 or item[0][-1] in ".,!?;:":
+            chunks.append(cur)
+            cur = []
+    if cur:
+        chunks.append(cur)
+    return chunks
+
+
+def _draw_subtitle(frame, chunk, t, font):
+    """Big centred subtitle, the word being spoken in yellow and slightly raised."""
+    d = ImageDraw.Draw(frame)
+    words = [w.upper() for w, _, _ in chunk]
+    space = d.textlength(" ", font=font)
+    widths = [d.textlength(w, font=font) for w in words]
+    total = sum(widths) + space * (len(words) - 1)
+    size = font.size
+    while total > RW - 2 * PAD and size > 50:  # long words: shrink to fit
+        size -= 6
+        font = _font("bold", size)
+        space = d.textlength(" ", font=font)
+        widths = [d.textlength(w, font=font) for w in words]
+        total = sum(widths) + space * (len(words) - 1)
+    x = (RW - total) / 2
+    for (_, a, b), w, ww in zip(chunk, words, widths):
+        active = a <= t < b
+        d.text((x, SUB_Y - size // 2 - (8 if active else 0)), w, font=font, fill=YELLOW if active else WHITE,
+               stroke_width=7, stroke_fill=(0, 0, 0))
+        x += ww + space
+
+
+def _follow_banner():
+    layer = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    d.rounded_rectangle([90, 900, RW - 90, 1230], radius=40, fill=(8, 8, 12, 225))
+    lg = _logo(150)
+    if lg:
+        d.ellipse([RW // 2 - 80, 820, RW // 2 + 80, 980], fill=WHITE)
+        layer.alpha_composite(lg, (RW // 2 - 75, 825))
+    for text, font, fill, yy in (("FOLLOW", _font("bold", 56), WHITE, 1000),
+                                 ("HYPE ATLAS", _font("bold", 96), YELLOW, 1062),
+                                 ("for daily viral news", _font("medium", 38), (225, 225, 232), 1172)):
+        d.text(((RW - d.textlength(text, font=font)) / 2, yy), text, font=font, fill=fill)
+    return layer
+
+
+def _frames(post, scenes, exe, duration, chunks, follow_at):
+    shade = Image.alpha_composite(_vfade(RW, RH, 0, 360, (0, 0, 0), a0=150, a1=0, power=1),
+                                  _vfade(RW, RH, 880, RH, (6, 6, 10), a1=200, power=1.1))
     header = _header_layer(post)
-    end = _end_card()
+    title = _title_layer(post)
+    banner = _follow_banner()
+    sub_font = _font("bold", 86)
     flash = Image.new("RGBA", (RW, RH), (255, 255, 255, 255))
-    f, words, sub_f, sub, sub_y, _ = _layout_headline(post)
     bar = _hgradient(RW, 10, [PINK, ORANGE, YELLOW]).convert("RGBA")
-    per = int(SCENE * FPS)
-    end_at = duration - END_LEN
     total = int(duration * FPS)
-    word_gap = min(0.12, 1.0 / max(1, len(words)))  # whole headline is up within ~1s
-    sub_at = word_gap * len(words) + 0.8
+    per = total // len(scenes)
 
     def source():
         for k, (kind, item) in enumerate(scenes):
-            n = per + (total - per * len(scenes) if k == len(scenes) - 1 else 0)  # last scene runs under the end card
+            n = per + (total - per * len(scenes) if k == len(scenes) - 1 else 0)
             if kind == "video":
                 try:
                     yield from _video_frames(exe, item[0], item[1], n)
                     continue
                 except Exception as e:
                     print(f"[reel] {e} -> using the photo instead")
-                    item = scenes[0][1] if scenes[0][0] == "photo" else post["_photo"]
+                    item = post["_photo"]
             yield from _photo_frames(item, n, MOVES[k % len(MOVES)])
 
     for i, base in enumerate(source()):
         t = i / FPS
-        since_cut = t % SCENE if t < len(scenes) * SCENE else 99
+        since_cut = (i % per) / FPS if i < per * len(scenes) else 99
         frame = base
         if i >= per and since_cut < 0.25:  # zoom punch on each cut
             z = 1.0 + 0.08 * (1 - since_cut / 0.25)
@@ -298,28 +427,18 @@ def _frames(post, scenes, exe, duration):
         frame = frame.convert("RGBA")
         frame.alpha_composite(shade)
         if i >= per and since_cut < 0.15:  # white flash on each cut
-            frame.alpha_composite(_with_alpha(flash, 0.55 * (1 - since_cut / 0.15)))
-        frame.alpha_composite(_with_alpha(header, _ease(t / 0.3)))
-
-        d = ImageDraw.Draw(frame)
-        for k, (x, y, w, hl) in enumerate(words):
-            p = 1.0 if k == 0 else _ease((t - k * word_gap) / 0.15)  # first word is there on frame 1
-            if p <= 0:
-                continue
-            dy = int((1 - p) * 40)
-            col = YELLOW if hl else WHITE
-            d.text((x + 3, y + dy + 4), w, font=f, fill=(0, 0, 0, int(150 * p)))
-            d.text((x, y + dy), w, font=f, fill=col + (int(255 * p),), stroke_width=3,
-                   stroke_fill=(0, 0, 0, int(255 * p)))
-        sp = _ease((t - sub_at) / 0.4)
-        if sp > 0:
-            yy = sub_y
-            for line in sub:
-                d.text((PAD, yy), line, font=sub_f, fill=(225, 225, 232, int(255 * sp)))
-                yy += 52
-
-        if t >= end_at:
-            frame.alpha_composite(_with_alpha(end, _ease((t - end_at) / 0.35)))
+            frame.alpha_composite(_with_alpha(flash, 0.5 * (1 - since_cut / 0.15)))
+        frame.alpha_composite(header)
+        if t < follow_at:
+            frame.alpha_composite(title)  # headline card from the very first frame
+            for chunk in chunks:
+                if chunk[0][1] <= t < chunk[-1][2] + 0.15:
+                    _draw_subtitle(frame, chunk, t, sub_font)
+                    break
+        else:
+            p = _ease((t - follow_at) / 0.3)
+            frame.alpha_composite(_with_alpha(title, 1 - p))
+            frame.alpha_composite(_with_alpha(banner, p))
         frame.alpha_composite(bar.crop((0, 0, max(1, int(RW * (t + 1 / FPS) / duration)), 10)), (0, 0))
         yield frame.convert("RGB").tobytes()
         if i + 1 >= total:
@@ -337,11 +456,17 @@ def make_reel(post, photo, path):
         import imageio_ffmpeg
         exe = imageio_ffmpeg.get_ffmpeg_exe()
         voice = path.replace(".mp4", "-voice.mp3")
-        vsecs = _audio_secs(exe, voice) if _tts(_voice_text(post), voice) else 0.0
-        # the narration (minus the "follow" line, which plays over the end card) decides the length
-        count = max(3, min(MAX_SCENES, math.ceil((vsecs + VOICE_AT - 1.6) / SCENE))) if vsecs else 4
+        text = _voice_text(post)
+        vsecs = _audio_secs(exe, voice) if _tts(text, voice) else 0.0
+        if vsecs:
+            chunks = _subtitle_timeline(text, vsecs)
+            follow_at = next((c[0][1] for c in chunks if c[0][0].lower().startswith("follow")), vsecs - 1.5)
+            duration = vsecs + VOICE_AT + 0.6
+        else:
+            chunks, duration = [], 4 * SCENE + END_LEN
+            follow_at = duration - END_LEN
+        count = max(3, min(MAX_SCENES, round(duration / SCENE)))
         scenes = _scenes(post, photo, count)
-        duration = max(len(scenes) * SCENE + END_LEN, vsecs + VOICE_AT + 0.5)
         track = _music()
         cmd = [exe, "-y", "-loglevel", "error",
                "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{RW}x{RH}", "-r", str(FPS), "-i", "-"]
@@ -362,7 +487,7 @@ def make_reel(post, photo, path):
                 "-profile:v", "high", "-c:a", "aac", "-b:a", "160k", "-ar", "44100", "-movflags", "+faststart", path]
         os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
         proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
-        for buf in _frames(post, scenes, exe, duration):
+        for buf in _frames(post, scenes, exe, duration, chunks, follow_at):
             proc.stdin.write(buf)
         proc.stdin.close()
         if proc.wait() != 0:

@@ -143,6 +143,8 @@ def main():
         if fmt in ("reel", "both") and p.get("_photo") is not None:
             video = reel.make_reel(p, p["_photo"], img.replace(".jpg", ".mp4"))
         record["format"] = "reel" if video and fmt == "reel" else ("both" if video and fmt == "both" else "photo")
+        if video and p.get("_reel_credits"):  # extra photos used in the Reel need attribution too
+            caption += "\n📷 Also: " + "; ".join(p["_reel_credits"]) + ", via Wikimedia Commons"
         print(f"[main] format: {record['format']}")
         res = {}
         if config.DRY_RUN:
