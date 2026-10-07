@@ -31,22 +31,66 @@ def _group_search(term):
     return "https://www.facebook.com/search/groups/?q=" + urllib.parse.quote(term)
 
 
+def share_url(rec):
+    """Opens Facebook's share box for the post (then pick 'Share to a group')."""
+    return "https://www.facebook.com/sharer/sharer.php?u=" + urllib.parse.quote(post_url(rec), safe="")
+
+
+# USA groups the page owner joined (public, active). Matched to each post by its category.
+GROUPS = {
+    "ai": [("ChatGPT Community", "https://www.facebook.com/groups/chatgpt/"),
+           ("ChatGPT", "https://www.facebook.com/groups/884312880432310/"),
+           ("AI Community: ChatGPT & Claude", "https://www.facebook.com/groups/chatgptpromptsandaitools/"),
+           ("AI, ChatGPT, AI Tools & News", "https://www.facebook.com/groups/artificialintelligenceforbusines/")],
+    "tech": [("Technology News And Innovation", "https://www.facebook.com/groups/1005778496594307/"),
+             ("Latest Technology & New Inventions", "https://www.facebook.com/groups/latesttechnologyandnewinvention/")],
+    "elon": [("Elon Musk 🇺🇸", "https://www.facebook.com/groups/whatthefaukotha/"),
+             ("Elon Musk Fans Group", "https://www.facebook.com/groups/elonmuskfansgroups/"),
+             ("Elon Musk News", "https://www.facebook.com/groups/elonmusknewss/")],
+    "trump": [("President Donald J. Trump Supporters", "https://www.facebook.com/groups/1943471822837002/"),
+              ("Donald Trump Breaking News", "https://www.facebook.com/groups/403462736059777/")],
+    "usa": [("USA Community 🇺🇸", "https://www.facebook.com/groups/727497509498049/"),
+            ("We Love USA 🇺🇸", "https://www.facebook.com/groups/1387947085887977/"),
+            ("USA News Today", "https://www.facebook.com/groups/4030316150358436/"),
+            ("America First News", "https://www.facebook.com/groups/770527441988235/")],
+}
+
+
+def groups_for(rec):
+    text = (rec.get("headline", "") + " " + rec.get("topic", "")).lower()
+    badge = (rec.get("badge") or "").upper()
+    if "musk" in text or "tesla" in text or "spacex" in text:
+        key = "elon"
+    elif "trump" in text:
+        key = "trump"
+    elif badge == "AI" or any(w in text for w in ("openai", "chatgpt", " ai ", "altman", "gemini")):
+        key = "ai"
+    elif badge in ("TECH", "BUSINESS", "SCIENCE", "GAMING"):
+        key = "tech"
+    else:
+        key = "usa"
+    day = datetime.now(timezone.utc).toordinal()  # rotate, so the same group isn't used every day
+    pool = GROUPS[key]
+    return [pool[(day + i) % len(pool)] for i in range(min(2, len(pool)))]
+
+
 def _todo_body(state):
     today = datetime.now(timezone.utc).date()
     live = [r for r in state["posted"] if r.get("facebook") and not r.get("dry_run")]
     recent = [r for r in live if (today - datetime.fromisoformat(r["time"]).date()).days <= 1]
     if not recent:
         return None
-    best = sorted(recent, key=lambda r: -(r.get("stats", {}).get("score", 0)))[:3]
-    lines = ["**Roz 5 minute = asli followers.** Facebook ye kaam bot ko karne nahi deta, isliye ye aapke liye hain 🙏", "",
-             "## 1. In posts ko Facebook Groups mein share karein", "",
-             "Post kholein → **Share** → **Share to a group**. Sirf un groups mein jahan ijazat ho, roz max 2-3 groups.", ""]
+    best = sorted(recent, key=lambda r: (r.get("format") != "reel", -(r.get("stats", {}).get("score", 0))))[:4]
+    owner = os.getenv("GITHUB_REPOSITORY", "").split("/")[0]
+    lines = [f"@{owner} **Roz 3 minute = asli followers.** Facebook ye kaam bot ko karne nahi deta, isliye ye aapke liye hain 🙏", "",
+             "## 1. Ye posts groups mein share karein", "",
+             "Har post ke liye: **Share link kholein → \"Share to a group\" chunein → neeche likha group chunein → Post.**  ",
+             "Roz sirf 2-3 posts, aur ek group mein din mein 1 post.", ""]
     for i, r in enumerate(best, 1):
-        lines.append(f"**{i}. {r['headline'].replace('*', '')}**  ")
-        lines.append(f"Post: {post_url(r)}  ")
-        groups = r.get("share_groups") or []
-        if groups:
-            lines.append("Groups dhoondhein: " + " · ".join(f"[{g}]({_group_search(g)})" for g in groups[:3]))
+        kind = "🎬 Reel" if r.get("format") == "reel" else "🖼️ Photo"
+        lines.append(f"**{i}. {kind}: {r['headline'].replace('*', '')}**  ")
+        lines.append(f"👉 [Share link (click karein)]({share_url(r)}) · [Post dekhein]({post_url(r)})  ")
+        lines.append("Group: " + " · ".join(f"[{name}]({url})" for name, url in groups_for(r)))
         lines.append("")
     reacted = [r for r in live if r.get("stats", {}).get("reactions", 0) > 0][-5:]
     lines += ["## 2. Like karne walon ko Invite karein", "",
@@ -73,7 +117,9 @@ def daily_todo(state):
     try:
         r = requests.post(f"https://api.github.com/repos/{repo}/issues", timeout=30,
                           headers={"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json"},
-                          json={"title": f"📈 Aaj ka growth kaam ({today})", "body": body, "labels": []})
+                          # assigned + @mention: GitHub e-mails assignees (it often skips plain bot issues)
+                          json={"title": f"📈 Aaj ka growth kaam ({today})", "body": body,
+                                "assignees": [repo.split("/")[0]]})
         r.raise_for_status()
         state["todo_date"] = today
         print(f"[growth] daily to-do issue created: {r.json().get('html_url')}")

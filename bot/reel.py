@@ -17,7 +17,7 @@ import re
 import subprocess
 
 import requests
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFilter
 
 from . import config
 from .poster import (COMMONS_SKIP, FREE_LICENSE, MARKER, INK, PAD, PINK, ORANGE, YELLOW, WHITE, WIKI_UA,
@@ -30,7 +30,8 @@ SCENE = 2.0          # target seconds per scene
 MAX_SCENES = 7
 VOICE_AT = 0.3       # narration starts after the hook frame
 END_LEN = 1.8        # follow banner at the end (when there is no voice to time it)
-SUB_Y = 1060         # centre of the subtitles: the middle of the Reels safe zone
+SUB_Y = 1190         # centre of the subtitles: low in the Reels safe zone, under the face
+FACE_Y = 870         # where a face is placed: between the headline card and the subtitles
 MUSIC_DIR = os.path.join(config.BASE_DIR, "assets", "music")
 # backup footage searches per category, so every Reel gets moving video even when the story is hard to match
 BROLL = {
@@ -157,7 +158,7 @@ def _person_photos(post, want=3):
                 print(f"[reel] photo {title[:50]} rejected by the judge")
                 continue
             artist = re.sub(r"<[^>]+>", "", meta.get("Artist", {}).get("value", "")).strip()[:40] or "Wikimedia Commons"
-            out.append((im, f"{artist}, {lic}"))
+            out.append((im, f"{artist}, {lic}", score[2] if score else None))
             print(f"[reel] extra photo of {name}: {title[:60]}")
         except Exception as e:
             print(f"[reel] photo {title[:40]} failed: {e}")
@@ -223,11 +224,15 @@ def _audio_secs(exe, path):
 # ------------------------------------------------------------------ scenes
 def _scenes(post, photo, count):
     """Ordered list of ('photo', img) / ('video', (path, duration)) scenes, no picture shown twice in a row."""
-    people = [photo] if post.get("_person") else []
+    people = []
+    if post.get("_person"):
+        from .ai import judge_image
+        score = judge_image(photo, post["headline"].replace("*", ""))  # where is the face?
+        people.append((photo, score[2] if score else None))
     extra_people = _person_photos(post, want=min(3, count // 2))
-    people += [im for im, _ in extra_people]
+    people += [(im, face) for im, _, face in extra_people]
     if extra_people:
-        post["_reel_credits"] = [c for _, c in extra_people]
+        post["_reel_credits"] = [c for _, c, _ in extra_people]
     others = ([] if post.get("_person") else [photo]) + [im for im in post.get("_extras", []) if im is not photo]
     videos = _pixabay_videos(post, want=min(4, count - len(people)))
     short = count - len(people) - len(videos) - len(others)
@@ -235,11 +240,11 @@ def _scenes(post, photo, count):
         others += _ai_images(post, min(3, short))
     scenes = []
     if people:  # a real face is the strongest hook
-        scenes.append(("photo", people.pop(0)))
+        scenes.append(("face", people.pop(0)))
     elif videos:
         scenes.append(("video", videos.pop(0)))
     while len(scenes) < count and (videos or people or others):
-        for pool, kind in ((videos, "video"), (people, "photo"), (others, "photo")):
+        for pool, kind in ((videos, "video"), (people, "face"), (others, "photo")):
             if pool and len(scenes) < count:
                 scenes.append((kind, pool.pop(0)))
     distinct = len(scenes)
@@ -279,6 +284,33 @@ def _video_frames(exe, path, duration, n):
 
 
 MOVES = [(1.00, 1.16, 0.5, 0.35), (1.16, 1.02, 0.5, 0.3), (1.08, 1.18, 0.3, 0.3), (1.08, 1.18, 0.7, 0.35)]
+FACE_MOVES = [(1.00, 1.12), (1.12, 1.02), (1.04, 1.16)]  # slow push-in / pull-out, face stays in place
+
+
+def _face_frames(img, n, face_y, move):
+    """Person photo with the face held at FACE_Y: clear of the headline card above and the subtitles below.
+    A blurred copy of the photo fills any space above it when the face sits high in the picture."""
+    z0, z1 = move
+    face_y = 0.33 if face_y is None else face_y  # head-and-shoulders portraits: face in the upper third
+    src = _enhance(img).convert("RGB")
+    cw0 = int(RW * 1.15)
+    s = max(cw0 / src.width, RH / src.height)
+    pic = src.resize((int(src.width * s), int(src.height * s)), Image.LANCZOS)
+    left0 = (pic.width - cw0) // 2
+    pic = pic.crop((left0, 0, left0 + cw0, pic.height))
+    pad = RH  # room above the photo, so the face can be pushed down
+    canvas = _cover(src, cw0, pic.height + pad).filter(ImageFilter.GaussianBlur(40))
+    canvas = Image.blend(canvas, Image.new("RGB", canvas.size, (8, 8, 12)), 0.45)
+    canvas.paste(pic, (0, pad))
+    fy = pad + face_y * pic.height
+    for i in range(n):
+        z = z0 + (z1 - z0) * (i / max(1, n - 1))
+        cw, ch = int(RW / z * 1.0), int(RH / z)
+        top = int(fy - FACE_Y / RH * ch)
+        top = max(pad - int(ch * 0.30), min(top, canvas.height - ch))  # never more than 30% blurred band
+        left = (canvas.width - cw) // 2
+        yield canvas.crop((left, top, left + cw, top + ch)).resize((RW, RH), Image.BILINEAR)
+
 
 
 def _photo_frames(img, n, move):
@@ -431,6 +463,9 @@ def _frames(post, scenes, exe, duration, chunks, follow_at):
                 except Exception as e:
                     print(f"[reel] {e} -> using the photo instead")
                     item = post["_photo"]
+            if kind == "face":
+                yield from _face_frames(item[0], n, item[1], FACE_MOVES[k % len(FACE_MOVES)])
+                continue
             yield from _photo_frames(item, n, MOVES[k % len(MOVES)])
 
     for i, base in enumerate(source()):

@@ -65,6 +65,18 @@ def should_post_now(state):
     return True
 
 
+def choose_format(state):
+    fmt = config.POST_FORMAT
+    if fmt == "alternate":
+        n = sum(1 for x in state["posted"] if not x.get("dry_run"))
+        winner = insights.best_format(state)  # once one format clearly wins, use it 2 of every 3 posts
+        if winner:
+            fmt = winner if n % 3 else ("photo" if winner == "reel" else "reel")
+        else:
+            fmt = "reel" if n % 2 == 0 else "photo"
+    return fmt
+
+
 def main():
     print(f"== Trend Bot | page: {config.PAGE_NAME} | countries: {config.COUNTRIES} | DRY_RUN={config.DRY_RUN}")
     state = load_state()
@@ -110,6 +122,8 @@ def main():
     # a couple of spares, so one skipped post doesn't leave the slot empty
     posts = ai.write_posts(candidates, already, config.POSTS_PER_RUN + 2, performance)
 
+    if choose_format(state) == "reel":  # a Reel is due: stories about a famous person first
+        posts.sort(key=lambda p: not p.get("wiki_title"))
     made = 0
     for p in posts:
         if made >= config.POSTS_PER_RUN:
@@ -135,14 +149,10 @@ def main():
         if config.DRY_RUN:
             record["dry_run"] = True
             print("[main] DRY_RUN is on -> not uploading. Set DRY_RUN=false to go live.")
-        fmt = config.POST_FORMAT
-        if fmt == "alternate":
-            live = sum(1 for x in state["posted"] if not x.get("dry_run"))
-            winner = insights.best_format(state)  # once one format clearly wins, use it 2 of every 3 posts
-            if winner:
-                fmt = winner if live % 3 else ("photo" if winner == "reel" else "reel")
-            else:
-                fmt = "reel" if live % 2 == 0 else "photo"
+        fmt = choose_format(state)
+        if fmt == "reel" and not p.get("_person"):  # Reels stop the scroll with a famous face; none here
+            print("[main] no famous face in this story -> photo post instead of a Reel")
+            fmt = "photo"
         video = None
         if fmt in ("reel", "both") and p.get("_photo") is not None:
             video = reel.make_reel(p, p["_photo"], img.replace(".jpg", ".mp4"))

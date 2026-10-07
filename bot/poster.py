@@ -414,7 +414,7 @@ def get_background(post):
             post["_credit"] = credit
             print(f"[poster] background: {source} (judge unavailable)")
             return im
-        rel, qual = score
+        rel, qual = score[:2]
         total = rel * 2 + qual
         print(f"[poster] candidate from {source}: score {total:.0f}/30")
         if rel >= 6 and qual >= 6 and credit is None:  # no-attribution images only

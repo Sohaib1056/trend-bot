@@ -30,7 +30,8 @@ Below are topics trending RIGHT NOW with related news headlines.
 {('WHAT WORKS ON THIS PAGE (learn from it, favour topics like the best ones):' + chr(10) + performance + chr(10) + chr(10)) if performance else ''}Topics already posted recently (do NOT repeat these or close variants): {', '.join(already_posted[-60:]) or 'none'}
 
 TASK: Choose the {n} topic(s) with the BIGGEST mass appeal and write one post for each.
-Topics marked PAGE FOCUS are about the page's core names (big tech, AI, Trump, Elon...): pick those FIRST,
+Stories built around ONE famous face (a person people recognise instantly) get far more views than stories
+about companies or markets: prefer them. Topics marked PAGE FOCUS are about the page's core names (big tech, AI, Trump, Elon...): pick those FIRST,
 as long as the story is genuinely interesting (a launch, a big move, money, a clash, a surprising statement).
 Topics are sorted strongest first. "power" = how many people are searching it, boosted when it trends
 in several countries at once. Pick what the general public in the US, UK, Canada and Australia will
@@ -52,9 +53,9 @@ Return JSON exactly in this shape:
   "badge": "exactly one of: AI, TECH, POLITICS, BUSINESS, CELEBRITY, SPORTS, TV & FILM, MUSIC, GAMING, SHOPPING, VIRAL, SCIENCE",
   "first_comment": "one short, fun question the page itself will comment under the post to spark replies (max 15 words, 1 emoji, e.g. 'Would you watch this? Yes or no? 👇')",
   "share_groups": ["2-3 short Facebook group search terms where fans of this exact topic hang out, e.g. 'Manchester City fans', 'Premier League fans'"],
-  "headline": "6-10 words in normal sentence case (NOT all caps), written like the big viral news pages (Pubity, Pop Base): lead with the famous name, use an emotional or surprising angle, and leave a little curiosity while still saying what happened (not vague clickbait). No emoji. Wrap the 1-3 most striking words in *asterisks* for a highlighter, e.g. 'Zoe Saldaña just *turned down* Taylor Sheridan's next big show'",
+  "headline": "6-10 words in normal sentence case (NOT all caps), written like the big viral news pages (Pubity, Pop Base). Use the PERSONALITY + MONEY + CLASH formula: lead with the famous person's name (not the company), then the most dramatic true angle - a big dollar figure, a rivalry or clash (X vs Y, slams, fires back, warns), a shock move or a surprising statement - and leave a little curiosity while still saying what happened (never invent or exaggerate). No emoji. Wrap the 1-3 most striking words in *asterisks* for a highlighter, e.g. 'Elon Musk just *fired back* at Sam Altman over OpenAI', 'Jensen Huang's fortune *jumps $20 billion* in one day'",
   "subtext": "max 14 words, one supporting line for the poster with the key fact",
-  "wiki_title": "exact English Wikipedia article title of the ONE main PERSON in the story (e.g. 'Zoe Saldaña', 'Aryna Sabalenka', 'Erling Haaland'), or empty string if the story is about a show, film, team, product or event rather than a person",
+  "wiki_title": "exact English Wikipedia article title of the ONE main famous PERSON in the story (e.g. 'Sam Altman', 'Jensen Huang', 'Donald Trump'). If the story is about a company or product, use its famous leader ONLY if the snippets name them. Empty string only if no famous person is involved. Stories with a famous face do much better, so prefer them.",
   "image_prompt": "one vivid sentence describing a professional, photorealistic, high-contrast scene that explains the story at a glance - its actual subject matter (its sport, venue, objects, setting - e.g. tennis upset -> a tennis racket on a clay court under stadium lights; TV casting news -> a film set with a director's chair and cameras), with the main subject large in the upper half of the frame (no text, no real person's face, no logos)",
   "template": "one of viral, breaking, frame (viral = celebrity/entertainment/viral moments, breaking = news/sports/events, frame = tech/lifestyle/products)",
   "caption": "80-140 words. First line = strong hook with 1-2 emojis. Short paragraphs. Explain what happened using only given facts. End with a question to drive comments, then a short share nudge like 'Send this to a friend who needs to see it 👀'.",
@@ -205,7 +206,7 @@ def write_posts(candidates, already_posted, n, performance=""):
 def judge_image(img, headline, broll=False):
     """Ask Gemini (vision) how well a background photo fits the headline and how good it looks.
     broll=True: a stock video frame used as B-roll, judged on theme and mood, not on showing the exact story.
-    Returns (relevance 0-10, quality 0-10), or None if no judge is available."""
+    Returns (relevance 0-10, quality 0-10, face_y 0-1 or None), or None if no judge is available."""
     if not config.GEMINI_API_KEY and not config.GROQ_API_KEY:
         return None
     import base64, io
@@ -225,7 +226,9 @@ def judge_image(img, headline, broll=False):
                 "relevance: 0-10, does the photo clearly match the story (its person, sport, place, product or event)?\n")
     prompt = (task +
               "quality: 0-10, is it sharp, well lit, professional and eye-catching (not blurry, dull, amateur or cluttered)?\n"
-              'Reply JSON only: {"relevance": n, "quality": n, "why": "few words"}')
+              "face_y: vertical position of the centre of the main person's face, from 0.0 (top edge of the photo) "
+              "to 1.0 (bottom edge), or -1 if no face is clearly visible.\n"
+              'Reply JSON only: {"relevance": n, "quality": n, "face_y": n, "why": "few words"}')
     b64 = base64.b64encode(buf.getvalue()).decode()
     for m in (_gemini_models()[:2] if config.GEMINI_API_KEY else []):
         if _GEMINI["down"]:
@@ -252,8 +255,14 @@ def judge_image(img, headline, broll=False):
 def _score(data):
     if isinstance(data, list):
         data = data[0]
-    print(f"[judge] relevance {data.get('relevance')}/10, quality {data.get('quality')}/10 - {data.get('why', '')}")
-    return float(data.get("relevance", 0)), float(data.get("quality", 0))
+    print(f"[judge] relevance {data.get('relevance')}/10, quality {data.get('quality')}/10, "
+          f"face {data.get('face_y')} - {data.get('why', '')}")
+    try:
+        face = float(data.get("face_y"))
+        face = face if 0 <= face <= 1 else None
+    except (TypeError, ValueError):
+        face = None
+    return float(data.get("relevance", 0)), float(data.get("quality", 0)), face
 
 
 def _groq_judge(b64, prompt):
