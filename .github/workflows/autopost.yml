@@ -14,6 +14,11 @@ on:
         type: choice
         options: ["default", "true", "false"]
         default: "default"
+      format:
+        description: "Post format for this run (default = automatic, learns what works)"
+        type: choice
+        options: ["default", "reel", "photo"]
+        default: "default"
 
 permissions:
   contents: write
@@ -60,6 +65,7 @@ jobs:
           DRY_RUN: ${{ (inputs.dry_run == 'true' || inputs.dry_run == 'false') && inputs.dry_run || vars.DRY_RUN }}
           RUN_MODE: ${{ inputs.dry_run }}
           AVOID_POLITICS: ${{ vars.AVOID_POLITICS }}
+          POST_FORMAT: ${{ (inputs.format == 'reel' || inputs.format == 'photo') && inputs.format || vars.POST_FORMAT }}
           PYTHONUNBUFFERED: "1"  # show log lines live
         run: python -m bot.main
 
