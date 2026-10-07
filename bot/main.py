@@ -82,8 +82,9 @@ def main():
     if not should_post_now(state):
         return 0
     meta.check_connection()
-    done_keys = {p["key"] for p in state["posted"]}
-    done_topics = {norm(p.get("topic", "")) for p in state["posted"]}
+    live = [p for p in state["posted"] if not p.get("dry_run")]  # test runs must not use up topics
+    done_keys = {p["key"] for p in live}
+    done_topics = {norm(p.get("topic", "")) for p in live}
 
     items = trends.rank(trends.collect(config.COUNTRIES))
     seen, candidates = set(), []
@@ -102,15 +103,18 @@ def main():
         print("Nothing new to post right now.")
         return 0
 
-    already = [p.get("topic", p["key"]) for p in state["posted"]]
+    already = [p.get("topic", p["key"]) for p in live]
     performance = insights.summary(state)
     if performance:
         print("[insights] " + performance.replace("\n", "\n[insights] "))
-    posts = ai.write_posts(candidates, already, config.POSTS_PER_RUN, performance)
+    # a couple of spares, so one skipped post doesn't leave the slot empty
+    posts = ai.write_posts(candidates, already, config.POSTS_PER_RUN + 2, performance)
 
     made = 0
     for p in posts:
-        if p["key"] in done_keys or BLOCK_WORDS.search(p["headline"] + " " + p["caption"]):
+        if made >= config.POSTS_PER_RUN:
+            break
+        if p["key"] in done_keys or norm(p.get("topic", "")) in done_topics or BLOCK_WORDS.search(p["headline"] + " " + p["caption"]):
             print(f"[main] skipping {p['key']}")
             continue
         stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M")
