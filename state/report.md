@@ -1,18 +1,19 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-07 12:32 UTC_
+_Updated 2026-10-07 12:51 UTC_
 
 ```
-Based on the last 14 posts on this page:
+Based on the last 15 posts on this page:
 Best categories: TECH (2.2), SHOPPING (1.0), CELEBRITY (0.5)
-Weakest categories: CELEBRITY (0.5), SPORTS (0.2)
-Format: reel (2.2, 3 posts), photo (0.3, 11 posts)
-Best posting slots (UTC): 19:00 (4.3), 01:00 (1.2), 12:00 (1.0)
+Weakest categories: SPORTS (0.2), SCIENCE (0.0)
+Format: reel (2.2, 3 posts), photo (0.3, 12 posts)
+Best posting slots (UTC): 19:00 (4.3), 01:00 (1.2), 12:00 (0.5)
 Top posts: Elon Musk returns as trillionaire, even after massive SpaceX dip (4.3) | Adam Levine admits he made a mistake on The Voice (1.2) | Zoe Saldaña Rejects New Taylor Sheridan Shows (1.0)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-07T12:14 | photo | SCIENCE | Henri Kagan and Kenso Soai just won the Nobel Prize | 0 | 0 | 0 | 0 | 0.0 |
 | 2026-10-07T07:06 | photo | CELEBRITY | Kiara Advani announces second pregnancy, calls it a blessing | 11 | 0 | 0 | 0 | 0.2 |
 | 2026-10-07T01:06 | reel | CELEBRITY | Adam Levine admits he made a mistake on The Voice | 60 | 0 | 0 | 0 | 1.2 |
 | 2026-10-06T23:06 | photo | SPORTS | Shohei Ohtani bumped to No.5 spot sparks debate | 9 | 0 | 0 | 0 | 0.2 |

@@ -392,7 +392,15 @@
       "share_groups": [],
       "time": "2026-10-07T12:14+00:00",
       "format": "photo",
-      "facebook": "1397517856769204_122108012253493621"
+      "facebook": "1397517856769204_122108012253493621",
+      "stats": {
+        "views": 0,
+        "reactions": 0,
+        "comments": 0,
+        "shares": 0,
+        "checked": "2026-10-07T12:51+00:00",
+        "score": 0.0
+      }
     },
     {
       "key": "kagan-soai-nobel-chemistry",
@@ -408,6 +416,21 @@
       "time": "2026-10-07T12:33+00:00",
       "dry_run": true,
       "format": "reel"
+    },
+    {
+      "key": "tropical-storm-isaias",
+      "topic": "Tropical Storm Isaias forms in Gulf, could reach U.S. as hurricane this weekend",
+      "headline": "Tropical Storm Isaias *grows* into *potential* hurricane this weekend",
+      "badge": "WEATHER",
+      "slot": "12",
+      "share_groups": [
+        "Storm chasers",
+        "Gulf Coast residents",
+        "Weather enthusiasts"
+      ],
+      "time": "2026-10-07T12:51+00:00",
+      "dry_run": true,
+      "format": "photo"
     }
   ],
   "replied": [],
