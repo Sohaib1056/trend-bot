@@ -1,20 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-07 12:14 UTC_
+_Updated 2026-10-07 12:32 UTC_
 
 ```
 Based on the last 14 posts on this page:
 Best categories: TECH (2.2), SHOPPING (1.0), CELEBRITY (0.5)
 Weakest categories: CELEBRITY (0.5), SPORTS (0.2)
-Format: reel (2.1, 3 posts), photo (0.3, 11 posts)
-Best posting slots (UTC): 19:00 (4.3), 01:00 (1.1), 12:00 (1.0)
-Top posts: Elon Musk returns as trillionaire, even after massive SpaceX dip (4.3) | Adam Levine admits he made a mistake on The Voice (1.1) | Zoe Saldaña Rejects New Taylor Sheridan Shows (1.0)
+Format: reel (2.2, 3 posts), photo (0.3, 11 posts)
+Best posting slots (UTC): 19:00 (4.3), 01:00 (1.2), 12:00 (1.0)
+Top posts: Elon Musk returns as trillionaire, even after massive SpaceX dip (4.3) | Adam Levine admits he made a mistake on The Voice (1.2) | Zoe Saldaña Rejects New Taylor Sheridan Shows (1.0)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
 | 2026-10-07T07:06 | photo | CELEBRITY | Kiara Advani announces second pregnancy, calls it a blessing | 11 | 0 | 0 | 0 | 0.2 |
-| 2026-10-07T01:06 | reel | CELEBRITY | Adam Levine admits he made a mistake on The Voice | 56 | 0 | 0 | 0 | 1.1 |
+| 2026-10-07T01:06 | reel | CELEBRITY | Adam Levine admits he made a mistake on The Voice | 60 | 0 | 0 | 0 | 1.2 |
 | 2026-10-06T23:06 | photo | SPORTS | Shohei Ohtani bumped to No.5 spot sparks debate | 9 | 0 | 0 | 0 | 0.2 |
 | 2026-10-06T19:06 | reel | TECH | Elon Musk returns as trillionaire, even after massive SpaceX dip | 164 | 1 | 0 | 0 | 4.3 |
 | 2026-10-06T16:05 | photo | CELEBRITY | Michael Douglas opens up about separation from Catherine Zeta‑Jones | 9 | 0 | 0 | 0 | 0.2 |

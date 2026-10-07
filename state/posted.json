@@ -28,11 +28,11 @@
       "time": "2026-10-04T12:09+00:00",
       "facebook": "1397517856769204_122105066025493621",
       "stats": {
-        "views": 50,
+        "views": 52,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T07:05+00:00",
+        "checked": "2026-10-07T12:32+00:00",
         "score": 1.0
       }
     },
@@ -47,7 +47,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T07:05+00:00",
+        "checked": "2026-10-07T12:32+00:00",
         "score": 0.2
       }
     },
@@ -62,7 +62,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T07:05+00:00",
+        "checked": "2026-10-07T12:32+00:00",
         "score": 0.3
       }
     },
@@ -77,7 +77,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T07:05+00:00",
+        "checked": "2026-10-07T12:32+00:00",
         "score": 0.5
       }
     },
@@ -99,7 +99,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T07:05+00:00",
+        "checked": "2026-10-07T12:32+00:00",
         "score": 0.2
       }
     },
@@ -114,7 +114,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T07:05+00:00",
+        "checked": "2026-10-07T12:32+00:00",
         "score": 0.2
       }
     },
@@ -129,7 +129,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T07:05+00:00",
+        "checked": "2026-10-07T12:32+00:00",
         "score": 0.4
       }
     },
@@ -173,10 +173,10 @@
       "stats": {
         "views": 11,
         "reactions": 0,
-        "comments": 1,
+        "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T07:05+00:00",
-        "score": 3.2
+        "checked": "2026-10-07T12:32+00:00",
+        "score": 0.2
       }
     },
     {
@@ -195,9 +195,12 @@
       "facebook_reel": "1143204774702997",
       "facebook": "1143204774702997",
       "stats": {
-        "views": 0,
-        "checked": "2026-10-07T07:05+00:00",
-        "score": 0.0
+        "views": 50,
+        "reactions": 0,
+        "comments": 0,
+        "shares": 0,
+        "checked": "2026-10-07T12:32+00:00",
+        "score": 1.0
       }
     },
     {
@@ -216,12 +219,12 @@
       "facebook": "1397517856769204_122107237065493621",
       "facebook_photo_id": "122107237035493621",
       "stats": {
-        "views": 4,
+        "views": 9,
         "reactions": 0,
-        "comments": 1,
+        "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T07:05+00:00",
-        "score": 3.1
+        "checked": "2026-10-07T12:32+00:00",
+        "score": 0.2
       }
     },
     {
@@ -300,9 +303,12 @@
       "facebook_reel": "2028743817805689",
       "facebook": "2028743817805689",
       "stats": {
-        "views": 0,
-        "checked": "2026-10-07T07:05+00:00",
-        "score": 0.0
+        "views": 164,
+        "reactions": 1,
+        "comments": 0,
+        "shares": 0,
+        "checked": "2026-10-07T12:32+00:00",
+        "score": 4.3
       }
     },
     {
@@ -321,12 +327,12 @@
       "facebook": "1397517856769204_122107529733493621",
       "facebook_photo_id": "122107529691493621",
       "stats": {
-        "views": 1,
+        "views": 9,
         "reactions": 0,
-        "comments": 1,
+        "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T07:05+00:00",
-        "score": 3.0
+        "checked": "2026-10-07T12:32+00:00",
+        "score": 0.2
       }
     },
     {
@@ -345,9 +351,12 @@
       "facebook_reel": "2622862774832358",
       "facebook": "2622862774832358",
       "stats": {
-        "views": 0,
-        "checked": "2026-10-07T07:05+00:00",
-        "score": 0.0
+        "views": 60,
+        "reactions": 0,
+        "comments": 0,
+        "shares": 0,
+        "checked": "2026-10-07T12:32+00:00",
+        "score": 1.2
       }
     },
     {
@@ -366,13 +375,28 @@
       "facebook": "1397517856769204_122107776759493621",
       "facebook_photo_id": "122107776735493621",
       "stats": {
-        "views": 0,
+        "views": 11,
         "reactions": 0,
-        "comments": 1,
+        "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T07:12+00:00",
-        "score": 3.0
+        "checked": "2026-10-07T12:32+00:00",
+        "score": 0.2
       }
+    },
+    {
+      "key": "kagan-soai-nobel-chemistry",
+      "topic": "Henri B. Kagan and Kenso Soai win Nobel Prize in chemistry",
+      "headline": "Henri Kagan and Kenso Soai *win* Nobel chemistry prize",
+      "badge": "SCIENCE",
+      "slot": "12",
+      "share_groups": [
+        "science enthusiasts",
+        "chemistry students",
+        "Nobel laureates fans"
+      ],
+      "time": "2026-10-07T12:33+00:00",
+      "dry_run": true,
+      "format": "reel"
     }
   ],
   "replied": [],
