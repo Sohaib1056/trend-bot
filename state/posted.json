@@ -32,7 +32,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-06T23:05+00:00",
+        "checked": "2026-10-07T07:05+00:00",
         "score": 1.0
       }
     },
@@ -47,7 +47,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-06T23:05+00:00",
+        "checked": "2026-10-07T07:05+00:00",
         "score": 0.2
       }
     },
@@ -62,7 +62,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-06T23:05+00:00",
+        "checked": "2026-10-07T07:05+00:00",
         "score": 0.3
       }
     },
@@ -77,7 +77,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-06T23:05+00:00",
+        "checked": "2026-10-07T07:05+00:00",
         "score": 0.5
       }
     },
@@ -99,7 +99,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-06T23:05+00:00",
+        "checked": "2026-10-07T07:05+00:00",
         "score": 0.2
       }
     },
@@ -114,7 +114,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-06T23:05+00:00",
+        "checked": "2026-10-07T07:05+00:00",
         "score": 0.2
       }
     },
@@ -129,7 +129,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-06T23:05+00:00",
+        "checked": "2026-10-07T07:05+00:00",
         "score": 0.4
       }
     },
@@ -175,7 +175,7 @@
         "reactions": 0,
         "comments": 1,
         "shares": 0,
-        "checked": "2026-10-06T23:05+00:00",
+        "checked": "2026-10-07T07:05+00:00",
         "score": 3.2
       }
     },
@@ -196,7 +196,7 @@
       "facebook": "1143204774702997",
       "stats": {
         "views": 0,
-        "checked": "2026-10-06T23:05+00:00",
+        "checked": "2026-10-07T07:05+00:00",
         "score": 0.0
       }
     },
@@ -216,11 +216,11 @@
       "facebook": "1397517856769204_122107237065493621",
       "facebook_photo_id": "122107237035493621",
       "stats": {
-        "views": 3,
+        "views": 4,
         "reactions": 0,
         "comments": 1,
         "shares": 0,
-        "checked": "2026-10-06T23:05+00:00",
+        "checked": "2026-10-07T07:05+00:00",
         "score": 3.1
       }
     },
@@ -301,7 +301,7 @@
       "facebook": "2028743817805689",
       "stats": {
         "views": 0,
-        "checked": "2026-10-07T00:40+00:00",
+        "checked": "2026-10-07T07:05+00:00",
         "score": 0.0
       }
     },
@@ -321,11 +321,11 @@
       "facebook": "1397517856769204_122107529733493621",
       "facebook_photo_id": "122107529691493621",
       "stats": {
-        "views": 0,
+        "views": 1,
         "reactions": 0,
         "comments": 1,
         "shares": 0,
-        "checked": "2026-10-07T00:40+00:00",
+        "checked": "2026-10-07T07:05+00:00",
         "score": 3.0
       }
     },
@@ -343,9 +343,30 @@
       "time": "2026-10-07T01:06+00:00",
       "format": "reel",
       "facebook_reel": "2622862774832358",
-      "facebook": "2622862774832358"
+      "facebook": "2622862774832358",
+      "stats": {
+        "views": 0,
+        "checked": "2026-10-07T07:05+00:00",
+        "score": 0.0
+      }
+    },
+    {
+      "key": "kiara-advani-pregnancy",
+      "topic": "Kiara Advani",
+      "headline": "Kiara Advani *announces* second pregnancy, calls it a *blessing*",
+      "badge": "CELEBRITY",
+      "slot": "07",
+      "share_groups": [
+        "Bollywood fans",
+        "Kiara Advani fans",
+        "Indian celebrity gossip"
+      ],
+      "time": "2026-10-07T07:06+00:00",
+      "format": "photo",
+      "facebook": "1397517856769204_122107776759493621",
+      "facebook_photo_id": "122107776735493621"
     }
   ],
   "replied": [],
-  "todo_date": "2026-10-06"
+  "todo_date": "2026-10-07"
 }

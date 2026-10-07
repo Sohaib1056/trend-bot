@@ -1,21 +1,22 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-07 01:05 UTC_
+_Updated 2026-10-07 07:05 UTC_
 
 ```
-Based on the last 12 posts on this page:
-Best categories: CELEBRITY (3.1), SPORTS (3.0), TECH (1.6)
-Weakest categories: TECH (1.6), SHOPPING (0.0)
-Format: photo (1.2, 10 posts), reel (0.0, 2 posts)
+Based on the last 13 posts on this page:
+Best categories: SPORTS (3.0), TECH (1.6), CELEBRITY (1.6)
+Weakest categories: CELEBRITY (1.6), SHOPPING (0.0)
+Format: photo (1.2, 10 posts), reel (0.0, 3 posts)
 Best posting slots (UTC): 07:00 (3.2), 16:00 (3.1), 23:00 (3.0)
 Top posts: Teenager raises $11 million for screenless AI computer (3.2) | Michael Douglas opens up about separation from Catherine Zeta‑Jones (3.1) | Shohei Ohtani bumped to No.5 spot sparks debate (3.0)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
-| 2026-10-06T23:06 | photo | SPORTS | Shohei Ohtani bumped to No.5 spot sparks debate | 0 | 0 | 1 | 0 | 3.0 |
+| 2026-10-07T01:06 | reel | CELEBRITY | Adam Levine admits he made a mistake on The Voice | 0 | 0 | 0 | 0 | 0.0 |
+| 2026-10-06T23:06 | photo | SPORTS | Shohei Ohtani bumped to No.5 spot sparks debate | 1 | 0 | 1 | 0 | 3.0 |
 | 2026-10-06T19:06 | reel | TECH | Elon Musk returns as trillionaire, even after massive SpaceX dip | 0 | 0 | 0 | 0 | 0.0 |
-| 2026-10-06T16:05 | photo | CELEBRITY | Michael Douglas opens up about separation from Catherine Zeta‑Jones | 3 | 0 | 1 | 0 | 3.1 |
+| 2026-10-06T16:05 | photo | CELEBRITY | Michael Douglas opens up about separation from Catherine Zeta‑Jones | 4 | 0 | 1 | 0 | 3.1 |
 | 2026-10-06T12:06 | reel | SHOPPING | ASOS shoppers in meltdown after receiving threatening app notifications | 0 | 0 | 0 | 0 | 0.0 |
 | 2026-10-06T07:09 | photo | TECH | Teenager raises $11 million for screenless AI computer | 11 | 0 | 1 | 0 | 3.2 |
 | 2026-10-06T00:48 | photo |  | Is YouTube TV Still Worth Your Money? | 18 | 0 | 0 | 0 | 0.4 |
