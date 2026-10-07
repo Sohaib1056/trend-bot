@@ -431,6 +431,21 @@
       "time": "2026-10-07T12:51+00:00",
       "dry_run": true,
       "format": "photo"
+    },
+    {
+      "key": "france-student-protests",
+      "topic": "We\u2019re short of resources: France\u2019s student protesters, in their own words",
+      "headline": "French students *cry* 'short of resources' in raw protest videos",
+      "badge": "VIRAL",
+      "slot": "12",
+      "share_groups": [
+        "French student activists",
+        "Europe protests",
+        "Student rights groups"
+      ],
+      "time": "2026-10-07T12:56+00:00",
+      "dry_run": true,
+      "format": "reel"
     }
   ],
   "replied": [],
