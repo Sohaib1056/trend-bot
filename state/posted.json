@@ -32,7 +32,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T12:32+00:00",
+        "checked": "2026-10-07T16:05+00:00",
         "score": 1.0
       }
     },
@@ -47,7 +47,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T12:32+00:00",
+        "checked": "2026-10-07T16:05+00:00",
         "score": 0.2
       }
     },
@@ -62,7 +62,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T12:32+00:00",
+        "checked": "2026-10-07T16:05+00:00",
         "score": 0.3
       }
     },
@@ -77,7 +77,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T12:32+00:00",
+        "checked": "2026-10-07T16:05+00:00",
         "score": 0.5
       }
     },
@@ -99,7 +99,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T12:32+00:00",
+        "checked": "2026-10-07T16:05+00:00",
         "score": 0.2
       }
     },
@@ -114,7 +114,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T12:32+00:00",
+        "checked": "2026-10-07T16:05+00:00",
         "score": 0.2
       }
     },
@@ -129,7 +129,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T12:32+00:00",
+        "checked": "2026-10-07T16:05+00:00",
         "score": 0.4
       }
     },
@@ -175,7 +175,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T12:32+00:00",
+        "checked": "2026-10-07T16:05+00:00",
         "score": 0.2
       }
     },
@@ -199,7 +199,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T12:32+00:00",
+        "checked": "2026-10-07T16:05+00:00",
         "score": 1.0
       }
     },
@@ -219,11 +219,11 @@
       "facebook": "1397517856769204_122107237065493621",
       "facebook_photo_id": "122107237035493621",
       "stats": {
-        "views": 9,
+        "views": 10,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T12:32+00:00",
+        "checked": "2026-10-07T16:05+00:00",
         "score": 0.2
       }
     },
@@ -303,12 +303,12 @@
       "facebook_reel": "2028743817805689",
       "facebook": "2028743817805689",
       "stats": {
-        "views": 164,
+        "views": 169,
         "reactions": 1,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T12:32+00:00",
-        "score": 4.3
+        "checked": "2026-10-07T16:05+00:00",
+        "score": 4.4
       }
     },
     {
@@ -327,11 +327,11 @@
       "facebook": "1397517856769204_122107529733493621",
       "facebook_photo_id": "122107529691493621",
       "stats": {
-        "views": 9,
+        "views": 12,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T12:32+00:00",
+        "checked": "2026-10-07T16:05+00:00",
         "score": 0.2
       }
     },
@@ -351,12 +351,12 @@
       "facebook_reel": "2622862774832358",
       "facebook": "2622862774832358",
       "stats": {
-        "views": 60,
+        "views": 71,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T12:32+00:00",
-        "score": 1.2
+        "checked": "2026-10-07T16:05+00:00",
+        "score": 1.4
       }
     },
     {
@@ -375,12 +375,12 @@
       "facebook": "1397517856769204_122107776759493621",
       "facebook_photo_id": "122107776735493621",
       "stats": {
-        "views": 11,
+        "views": 16,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T12:32+00:00",
-        "score": 0.2
+        "checked": "2026-10-07T16:05+00:00",
+        "score": 0.3
       }
     },
     {
@@ -394,12 +394,12 @@
       "format": "photo",
       "facebook": "1397517856769204_122108012253493621",
       "stats": {
-        "views": 0,
+        "views": 5,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T12:51+00:00",
-        "score": 0.0
+        "checked": "2026-10-07T16:05+00:00",
+        "score": 0.1
       }
     },
     {
@@ -476,6 +476,22 @@
       "time": "2026-10-07T15:25+00:00",
       "dry_run": true,
       "format": "reel"
+    },
+    {
+      "key": "satya-nadella-ai-laptop",
+      "topic": "Microsoft, Nvidia CEOs to unveil new AI laptop at San Francisco event",
+      "headline": "Satya Nadella unveils *groundbreaking* AI laptop with Jensen Huang",
+      "badge": "AI",
+      "slot": "16",
+      "share_groups": [
+        "Microsoft fans",
+        "Nvidia enthusiasts",
+        "AI hardware community"
+      ],
+      "time": "2026-10-07T16:06+00:00",
+      "format": "photo",
+      "facebook": "1397517856769204_122108179119493621",
+      "facebook_photo_id": "122108179083493621"
     }
   ],
   "replied": [],
