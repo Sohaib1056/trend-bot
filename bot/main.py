@@ -10,7 +10,7 @@ from . import ai, config, growth, insights, meta, poster, reel, trends
 # extra safety net on top of the AI's own rules
 BLOCK_WORDS = re.compile(
     r"\b(dead|dies|died|death|killed|kill|murder|shooting|shot|stabb|crash|victim|funeral|obituary|"
-    r"suicide|attack|war|bomb|terror|rape|abuse|arrest|overdose|missing)\b", re.I)
+    r"suicide|attack|war|bomb|terror|rape|abuse|arrest|overdose|missing|protests?|protesters?|riots?|teargas)\b", re.I)
 
 
 def load_state():

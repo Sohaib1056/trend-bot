@@ -195,8 +195,9 @@ def write_posts(candidates, already_posted, n, performance=""):
     raise RuntimeError("AI could not write any post.")
 
 
-def judge_image(img, headline):
+def judge_image(img, headline, broll=False):
     """Ask Gemini (vision) how well a background photo fits the headline and how good it looks.
+    broll=True: a stock video frame used as B-roll, judged on theme and mood, not on showing the exact story.
     Returns (relevance 0-10, quality 0-10), or None if no judge is available."""
     if not config.GEMINI_API_KEY and not config.GROQ_API_KEY:
         return None
@@ -205,9 +206,17 @@ def judge_image(img, headline):
     small.thumbnail((768, 768))
     buf = io.BytesIO()
     small.convert("RGB").save(buf, "JPEG", quality=85)
-    prompt = (f'A Facebook news page will use this photo as the background of a poster with the headline: "{headline}".\n'
-              "Score it like a strict photo editor of a big viral news page.\n"
-              "relevance: 0-10, does the photo clearly match the story (its person, sport, place, product or event)?\n"
+    if broll:
+        task = (f'A frame of stock video footage that a viral news page may use as B-roll in a Reel about: "{headline}".\n'
+                "Stock footage never shows the real people or the exact event; judge it like a video editor.\n"
+                "relevance: 0-10, does it fit the story's theme, setting and mood (e.g. any campus crowd for a student "
+                "story, any stadium for a football story)? Give 0-3 only if it is unrelated, misleading or shows a "
+                "different well-known person.\n")
+    else:
+        task = (f'A Facebook news page will use this photo as the background of a poster with the headline: "{headline}".\n'
+                "Score it like a strict photo editor of a big viral news page.\n"
+                "relevance: 0-10, does the photo clearly match the story (its person, sport, place, product or event)?\n")
+    prompt = (task +
               "quality: 0-10, is it sharp, well lit, professional and eye-catching (not blurry, dull, amateur or cluttered)?\n"
               'Reply JSON only: {"relevance": n, "quality": n, "why": "few words"}')
     b64 = base64.b64encode(buf.getvalue()).decode()

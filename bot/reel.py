@@ -32,6 +32,21 @@ VOICE_AT = 0.3       # narration starts after the hook frame
 END_LEN = 1.8        # follow banner at the end (when there is no voice to time it)
 SUB_Y = 1060         # centre of the subtitles: the middle of the Reels safe zone
 MUSIC_DIR = os.path.join(config.BASE_DIR, "assets", "music")
+# backup footage searches per category, so every Reel gets moving video even when the story is hard to match
+BROLL = {
+    "SPORTS": ["stadium crowd cheering", "sports fans celebrating"],
+    "CELEBRITY": ["red carpet cameras", "paparazzi flash"],
+    "TV & FILM": ["film set camera", "cinema audience"],
+    "MUSIC": ["concert crowd lights", "stage lights singer"],
+    "TECH": ["technology digital", "smartphone screen"],
+    "GAMING": ["gaming setup neon", "video game controller"],
+    "SHOPPING": ["shopping bags city", "online shopping phone"],
+    "ROYALS": ["london buckingham palace", "royal guard london"],
+    "WEATHER": ["storm clouds timelapse", "heavy rain city"],
+    "BUSINESS": ["stock market screen", "city skyline business"],
+    "SCIENCE": ["science laboratory", "space stars galaxy"],
+    "VIRAL": ["city night timelapse", "crowd phones filming"],
+}
 CLIP_DIR = os.path.join(config.OUTPUT_DIR, "clips")
 
 
@@ -54,14 +69,14 @@ def _pixabay_videos(post, want=3):
     from .ai import judge_image
     key = os.getenv("PIXABAY_API_KEY", "").strip()
     queries = [q for q in (post.get("video_queries") or []) if isinstance(q, str) and q.strip()]
-    queries += [post.get("image_query") or ""]
+    queries += [post.get("image_query") or ""] + BROLL.get((post.get("badge") or "").upper(), BROLL["VIRAL"])
     if not key or want <= 0:
         return []
     headline = post["headline"].replace("*", "")
     os.makedirs(CLIP_DIR, exist_ok=True)
     clips, seen, judged = [], set(), 0
     for q in queries:
-        if len(clips) >= want or judged >= 7 or not q.strip():
+        if len(clips) >= want or judged >= 9 or not q.strip():
             continue
         try:
             r = requests.get("https://pixabay.com/api/videos/", timeout=20, params={
@@ -75,7 +90,7 @@ def _pixabay_videos(post, want=3):
                                  h["videos"]["large"].get("height", 0) <= h["videos"]["large"].get("width", 1)))
         taken = 0
         for h in hits[:4]:
-            if len(clips) >= want or judged >= 7 or taken >= 2:
+            if len(clips) >= want or judged >= 9 or taken >= 2:
                 break
             seen.add(h["id"])
             v = h["videos"].get("large") or {}
@@ -85,8 +100,8 @@ def _pixabay_videos(post, want=3):
                 continue
             try:
                 judged += 1
-                score = judge_image(_download(v["thumbnail"]), headline) if v.get("thumbnail") else None
-                if score is not None and (score[0] < 6 or score[1] < 5):
+                score = judge_image(_download(v["thumbnail"]), headline, broll=True) if v.get("thumbnail") else None
+                if score is not None and (score[0] < 5 or score[1] < 5):
                     print(f"[reel] clip {h['id']} for '{q}' rejected by the judge")
                     continue
                 path = os.path.join(CLIP_DIR, f"{h['id']}.mp4")
