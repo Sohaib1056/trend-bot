@@ -71,7 +71,10 @@ Return JSON exactly in this shape:
 def _parse(text):
     text = text.strip()
     text = re.sub(r"^```(?:json)?|```$", "", text, flags=re.M).strip()
-    data = json.loads(text)
+    try:
+        data = json.loads(text)
+    except ValueError:  # model wrote extra words around the JSON: keep the outermost {...}
+        data = json.loads(text[text.index("{"): text.rindex("}") + 1])
     if isinstance(data, list):  # some models return the posts list (or [{"posts": [...]}]) directly
         data = data[0] if len(data) == 1 and isinstance(data[0], dict) and "posts" in data[0] else {"posts": data}
     posts = data.get("posts", [])
@@ -156,36 +159,37 @@ def _groq_models():
         r = requests.get("https://api.groq.com/openai/v1/models",
                          headers={"Authorization": f"Bearer {config.GROQ_API_KEY}"}, timeout=30)
         found = [m["id"] for m in r.json().get("data", []) if m.get("active", True)]
-        found = [m for m in found if not any(w in m.lower() for w in SKIP_WORDS)]
-        # bigger general models first
-        found.sort(key=lambda m: (not any(k in m for k in ("70b", "120b", "versatile", "maverick")), m))
+        # only big general chat models (the list also has speech, guard and tiny models)
+        good = ("gpt-oss-120b", "llama-3.3-70b", "kimi-k2", "qwen3", "llama-4-maverick", "deepseek", "gpt-oss-20b")
+        found = [m for m in found if any(k in m.lower() for k in good) and not any(w in m.lower() for w in SKIP_WORDS)]
+        found.sort(key=lambda m: next(i for i, k in enumerate(good) if k in m.lower()))
         wanted += found
     except Exception as e:
         print(f"[ai] could not list Groq models: {e}")
-    return list(dict.fromkeys(wanted))[:5]
+    return list(dict.fromkeys(wanted))[:4]
 
 
 def _groq(prompt):
     last = None
     for m in _groq_models():
-        r = requests.post(
-            "https://api.groq.com/openai/v1/chat/completions",
-            headers={"Authorization": f"Bearer {config.GROQ_API_KEY}"},
-            json={"model": m, "temperature": 0.8,
-                  "response_format": {"type": "json_object"},
-                  "messages": [{"role": "user", "content": prompt}]},
-            timeout=90,
-        )
-        if r.status_code == 200:
-            print(f"[ai] Groq model used: {m}")
-            return r.json()["choices"][0]["message"]["content"]
-        last = f"Groq {m} HTTP {r.status_code}: {r.text[:200]}"
-        print(f"[ai] {last}")
+        for strict in (True, False):  # strict JSON mode sometimes rejects long answers: retry in plain mode
+            body = {"model": m, "temperature": 0.7, "max_tokens": 6000,
+                    "messages": [{"role": "user", "content": prompt + ("" if strict else "\nReply with the JSON only.")}]}
+            if strict:
+                body["response_format"] = {"type": "json_object"}
+            r = requests.post("https://api.groq.com/openai/v1/chat/completions",
+                              headers={"Authorization": f"Bearer {config.GROQ_API_KEY}"}, json=body, timeout=90)
+            if r.status_code == 200:
+                print(f"[ai] Groq model used: {m}{'' if strict else ' (plain mode)'}")
+                return r.json()["choices"][0]["message"]["content"]
+            last = f"Groq {m} HTTP {r.status_code}: {r.text[:160]}"
+            print(f"[ai] {last}")
+            if "json_validate_failed" not in r.text:
+                break
     raise RuntimeError(last)
 
 
 def write_posts(candidates, already_posted, n, performance=""):
-    prompt = build_prompt(candidates, already_posted, n, performance)
     engines = []
     if config.GEMINI_API_KEY:
         engines.append(_gemini)
@@ -193,13 +197,15 @@ def write_posts(candidates, already_posted, n, performance=""):
         engines.append(_groq)
     if not engines:
         raise RuntimeError("No AI key found. Add GEMINI_API_KEY (or GROQ_API_KEY) in GitHub Secrets.")
-    for engine in engines:
-        try:
-            posts = _parse(engine(prompt))
-            if posts:
-                return posts[:n]
-        except Exception as e:
-            print(f"[ai] {engine.__name__} error: {e}")
+    for size in dict.fromkeys((n, 1)):  # if a long answer fails, ask for a single post
+        prompt = build_prompt(candidates, already_posted, size, performance)
+        for engine in engines:
+            try:
+                posts = _parse(engine(prompt))
+                if posts:
+                    return posts[:size]
+            except Exception as e:
+                print(f"[ai] {engine.__name__} error: {str(e)[:200]}")
     raise RuntimeError("AI could not write any post.")
 
 
