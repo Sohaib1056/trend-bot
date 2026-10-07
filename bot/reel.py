@@ -271,7 +271,8 @@ def _planned_scenes(post, photo, words, duration):
         query = str(s.get("query") or "").strip()
         line = str(s["line"])
         kind = item = None
-        if show == "face" and people:
+        repeat = part == 1 and len(people) < 2  # second half of a long line: don't show the same face again
+        if show == "face" and people and not repeat:
             kind, item = "face", people[faces_used % len(people)]
             faces_used += 1
         if kind is None and query:
@@ -280,11 +281,17 @@ def _planned_scenes(post, photo, words, duration):
             got = clips_cache[query]
             if got:
                 kind, item = "video", got[min(part, len(got) - 1)]
+        if kind is None and not query:  # no search for this line: footage for the story in general
+            if "_story" not in clips_cache:
+                clips_cache["_story"] = _pixabay_videos(post, want=2, seen=seen, max_judge=4)
+            got = clips_cache["_story"]
+            if got:
+                kind, item = "video", got[len(out) % len(got)]
         if kind is None and s.get("ai"):
             im = _cloudflare_image(str(s["ai"]), abs(hash(line)) % 100000)
             if im is not None:
                 kind, item = "photo", im
-        if kind is None and people:
+        if kind is None and people and not repeat:
             kind, item = "face", people[faces_used % len(people)]
             faces_used += 1
         if kind is None:
