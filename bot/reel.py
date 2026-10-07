@@ -31,7 +31,7 @@ MAX_SCENES = 7
 VOICE_AT = 0.3       # narration starts after the hook frame
 END_LEN = 1.8        # follow banner at the end (when there is no voice to time it)
 SUB_Y = 1190         # centre of the subtitles: low in the Reels safe zone, under the face
-FACE_Y = 870         # where a face is placed: between the headline card and the subtitles
+FACE_Y = 720         # where a face is placed: below the logo, above the subtitles
 MUSIC_DIR = os.path.join(config.BASE_DIR, "assets", "music")
 # backup footage searches per category, so every Reel gets moving video even when the story is hard to match
 BROLL = {
@@ -517,7 +517,7 @@ def _frames(post, scenes, exe, duration, chunks, follow_at):
     shade = Image.alpha_composite(_vfade(RW, RH, 0, 360, (0, 0, 0), a0=150, a1=0, power=1),
                                   _vfade(RW, RH, 880, RH, (6, 6, 10), a1=200, power=1.1))
     header = _header_layer(post)
-    title = _title_layer(post)
+
     banner = _follow_banner()
     sub_font = _font("bold", 86)
     flash = Image.new("RGBA", (RW, RH), (255, 255, 255, 255))
@@ -556,16 +556,13 @@ def _frames(post, scenes, exe, duration, chunks, follow_at):
         if not first and since_cut < 0.15:  # white flash on each cut
             frame.alpha_composite(_with_alpha(flash, 0.5 * (1 - since_cut / 0.15)))
         frame.alpha_composite(header)
-        if t < follow_at:
-            frame.alpha_composite(title)  # headline card from the very first frame
+        if t < follow_at:  # no headline card: the footage stays clear, the subtitles tell the story
             for chunk in chunks:
                 if chunk[0][1] <= t < chunk[-1][2] + 0.15:
                     _draw_subtitle(frame, chunk, t, sub_font)
                     break
         else:
-            p = _ease((t - follow_at) / 0.3)
-            frame.alpha_composite(_with_alpha(title, 1 - p))
-            frame.alpha_composite(_with_alpha(banner, p))
+            frame.alpha_composite(_with_alpha(banner, _ease((t - follow_at) / 0.3)))
         frame.alpha_composite(bar.crop((0, 0, max(1, int(RW * (t + 1 / FPS) / duration)), 10)), (0, 0))
         yield frame.convert("RGB").tobytes()
         if i + 1 >= total:
