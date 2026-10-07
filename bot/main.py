@@ -68,9 +68,12 @@ def should_post_now(state):
 def main():
     print(f"== Trend Bot | page: {config.PAGE_NAME} | countries: {config.COUNTRIES} | DRY_RUN={config.DRY_RUN}")
     state = load_state()
-    if not config.DRY_RUN:  # learn from results + answer comments on every run
+    try:  # read-only, so it also runs in test mode
+        insights.update_stats(state)
+    except Exception as e:
+        print(f"[insights] stats skipped: {e}")
+    if not config.DRY_RUN:  # answer comments + daily to-do on every live run
         try:
-            insights.update_stats(state)
             insights.reply_comments(state)
             growth.daily_todo(state)
         except Exception as e:

@@ -29,7 +29,8 @@ Topics are sorted strongest first. "power" = how many people are searching it, b
 in several countries at once. Pick what the general public in the US, UK, Canada and Australia will
 stop scrolling for, react to and share: big-name celebrities, major sports moments, huge movies/TV/music,
 viral moments, major tech launches. Prefer high power and multi-country topics. Avoid niche or local
-stories (small leagues, regional news, people most of the audience has never heard of).
+stories (small leagues, regional news, people most of the audience has never heard of, stars famous mainly
+in India/Asia such as Bollywood or K-drama actors unless they are huge in the US/UK too).
 RULES:
 - Use ONLY facts stated in the headlines/snippets above. Never invent numbers, quotes, scores or claims. If unsure, keep it general.
 - If two snippets disagree (e.g. different rankings or numbers), leave that detail out.

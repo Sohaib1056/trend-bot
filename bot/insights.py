@@ -37,13 +37,15 @@ def _post(path, **data):
 
 
 def _views(obj_id, is_reel):
-    if is_reel:
-        try:
-            data = _get(f"{obj_id}/video_insights", metric="fb_reels_total_plays,post_impressions_unique")
-            vals = {d["name"]: d["values"][0]["value"] for d in data.get("data", [])}
-            return int(vals.get("fb_reels_total_plays") or vals.get("post_impressions_unique") or 0)
-        except Exception:
-            pass
+    if is_reel:  # one metric per call: an unknown metric name fails the whole request
+        for metric in ("fb_reels_total_plays", "blue_reels_play_count", "post_impressions_unique", "total_video_views"):
+            try:
+                data = _get(f"{obj_id}/video_insights", metric=metric)
+                if data.get("data"):
+                    return int(data["data"][0]["values"][0]["value"] or 0)
+            except Exception as e:
+                print(f"[insights] reel {obj_id} {metric}: {e}")
+        return 0
     for metric in VIEW_METRICS:
         try:
             data = _get(f"{obj_id}/insights", metric=metric)
@@ -52,6 +54,18 @@ def _views(obj_id, is_reel):
         except Exception:
             continue
     return 0
+
+
+def _count(obj_id, edge):
+    """Total on an edge (reactions / likes)."""
+    d = _get(obj_id, fields=f"{edge}.summary(total_count).limit(0)")
+    return d.get(edge, {}).get("summary", {}).get("total_count", 0)
+
+
+def _people_comments(obj_id):
+    """Comments by real people (the page's own first comment and replies don't count)."""
+    data = _get(f"{obj_id}/comments", fields="from", filter="stream", limit=100).get("data", [])
+    return sum(1 for c in data if (c.get("from") or {}).get("id") != config.FB_PAGE_ID)
 
 
 def _age_hours(rec):
@@ -76,20 +90,25 @@ def update_stats(state, max_posts=25):
         if rec.get("dry_run") or not oid or _age_hours(rec) > 24 * 7 or done >= max_posts:
             continue
         last = rec.get("stats", {}).get("checked")
+        if "reactions" not in rec.get("stats", {}):  # last check failed -> retry now
+            last = None
         if last and (datetime.now(timezone.utc) - datetime.fromisoformat(last)) < timedelta(hours=3):
             continue
         is_reel = rec.get("format") == "reel"
         st = {"views": _views(oid, is_reel)}
-        try:
-            fields = "reactions.summary(total_count).limit(0),comments.summary(total_count).limit(0)"
-            if not is_reel:
-                fields += ",shares"
-            d = _get(oid, fields=fields)
-            st["reactions"] = d.get("reactions", {}).get("summary", {}).get("total_count", 0)
-            st["comments"] = d.get("comments", {}).get("summary", {}).get("total_count", 0)
-            st["shares"] = d.get("shares", {}).get("count", 0)
-        except Exception as e:
-            print(f"[insights] {rec['key']}: {e}")
+        for name, fn in (("reactions", lambda: _count(oid, "reactions")),
+                         ("comments", lambda: _people_comments(oid)),
+                         ("shares", lambda: 0 if is_reel else _get(oid, fields="shares").get("shares", {}).get("count", 0))):
+            try:
+                st[name] = fn()
+            except Exception as e:
+                if name == "reactions":  # videos may only expose likes
+                    try:
+                        st[name] = _count(oid, "likes")
+                        continue
+                    except Exception:
+                        pass
+                print(f"[insights] {rec['key']} {name}: {e}")
         st["checked"] = datetime.now(timezone.utc).isoformat(timespec="minutes")
         st["score"] = round(score(st), 1)
         rec["stats"] = st
