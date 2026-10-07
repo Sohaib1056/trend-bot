@@ -32,7 +32,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T16:05+00:00",
+        "checked": "2026-10-07T19:05+00:00",
         "score": 1.0
       }
     },
@@ -47,7 +47,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T16:05+00:00",
+        "checked": "2026-10-07T19:05+00:00",
         "score": 0.2
       }
     },
@@ -62,7 +62,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T16:05+00:00",
+        "checked": "2026-10-07T19:05+00:00",
         "score": 0.3
       }
     },
@@ -77,7 +77,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T16:05+00:00",
+        "checked": "2026-10-07T19:05+00:00",
         "score": 0.5
       }
     },
@@ -99,7 +99,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T16:05+00:00",
+        "checked": "2026-10-07T19:05+00:00",
         "score": 0.2
       }
     },
@@ -114,7 +114,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T16:05+00:00",
+        "checked": "2026-10-07T19:05+00:00",
         "score": 0.2
       }
     },
@@ -129,7 +129,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T16:05+00:00",
+        "checked": "2026-10-07T19:05+00:00",
         "score": 0.4
       }
     },
@@ -171,11 +171,11 @@
       "facebook": "1397517856769204_122106806955493621",
       "facebook_photo_id": "122106806925493621",
       "stats": {
-        "views": 11,
+        "views": 12,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T16:05+00:00",
+        "checked": "2026-10-07T19:05+00:00",
         "score": 0.2
       }
     },
@@ -199,7 +199,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T16:05+00:00",
+        "checked": "2026-10-07T19:05+00:00",
         "score": 1.0
       }
     },
@@ -219,12 +219,12 @@
       "facebook": "1397517856769204_122107237065493621",
       "facebook_photo_id": "122107237035493621",
       "stats": {
-        "views": 10,
+        "views": 15,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T16:05+00:00",
-        "score": 0.2
+        "checked": "2026-10-07T19:05+00:00",
+        "score": 0.3
       }
     },
     {
@@ -303,12 +303,12 @@
       "facebook_reel": "2028743817805689",
       "facebook": "2028743817805689",
       "stats": {
-        "views": 169,
+        "views": 182,
         "reactions": 1,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T16:05+00:00",
-        "score": 4.4
+        "checked": "2026-10-07T19:05+00:00",
+        "score": 4.6
       }
     },
     {
@@ -327,12 +327,12 @@
       "facebook": "1397517856769204_122107529733493621",
       "facebook_photo_id": "122107529691493621",
       "stats": {
-        "views": 12,
+        "views": 15,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T16:05+00:00",
-        "score": 0.2
+        "checked": "2026-10-07T19:05+00:00",
+        "score": 0.3
       }
     },
     {
@@ -351,12 +351,12 @@
       "facebook_reel": "2622862774832358",
       "facebook": "2622862774832358",
       "stats": {
-        "views": 71,
+        "views": 84,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T16:05+00:00",
-        "score": 1.4
+        "checked": "2026-10-07T19:05+00:00",
+        "score": 1.7
       }
     },
     {
@@ -375,12 +375,12 @@
       "facebook": "1397517856769204_122107776759493621",
       "facebook_photo_id": "122107776735493621",
       "stats": {
-        "views": 16,
+        "views": 18,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T16:05+00:00",
-        "score": 0.3
+        "checked": "2026-10-07T19:05+00:00",
+        "score": 0.4
       }
     },
     {
@@ -394,12 +394,12 @@
       "format": "photo",
       "facebook": "1397517856769204_122108012253493621",
       "stats": {
-        "views": 5,
+        "views": 11,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T16:05+00:00",
-        "score": 0.1
+        "checked": "2026-10-07T19:05+00:00",
+        "score": 0.2
       }
     },
     {
@@ -491,7 +491,31 @@
       "time": "2026-10-07T16:06+00:00",
       "format": "photo",
       "facebook": "1397517856769204_122108179119493621",
-      "facebook_photo_id": "122108179083493621"
+      "facebook_photo_id": "122108179083493621",
+      "stats": {
+        "views": 6,
+        "reactions": 0,
+        "comments": 0,
+        "shares": 10,
+        "checked": "2026-10-07T19:05+00:00",
+        "score": 50.1
+      }
+    },
+    {
+      "key": "tim-cook-apple-stock-sale",
+      "topic": "Tim Cook Sells $63.8 Million in Apple Stock After Restricted Shares Vest",
+      "headline": "Tim Cook *cashes out* $63.8 million in Apple stock",
+      "badge": "BUSINESS",
+      "slot": "19",
+      "share_groups": [
+        "Apple News and Rumors",
+        "Stock Market Investors",
+        "Tech Enthusiasts Hub"
+      ],
+      "time": "2026-10-07T19:06+00:00",
+      "format": "photo",
+      "facebook": "1397517856769204_122108309955493621",
+      "facebook_photo_id": "122108309925493621"
     }
   ],
   "replied": [],
