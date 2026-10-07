@@ -150,9 +150,6 @@ def main():
             record["dry_run"] = True
             print("[main] DRY_RUN is on -> not uploading. Set DRY_RUN=false to go live.")
         fmt = choose_format(state)
-        if fmt == "reel" and not p.get("_person"):  # Reels stop the scroll with a famous face; none here
-            print("[main] no famous face in this story -> photo post instead of a Reel")
-            fmt = "photo"
         video = None
         if fmt in ("reel", "both") and p.get("_photo") is not None:
             video = reel.make_reel(p, p["_photo"], img.replace(".jpg", ".mp4"))

@@ -67,19 +67,22 @@ def _with_alpha(layer, a):
 
 
 # ------------------------------------------------------------------ footage
-def _pixabay_videos(post, want=3):
-    """Real stock video clips for the story, each checked by the AI judge (via its thumbnail)."""
+def _pixabay_videos(post, want=3, queries=None, context=None, seen=None, max_judge=9):
+    """Real stock video clips for the story, each checked by the AI judge (via its thumbnail).
+    queries/context: search for one scene of the narration and judge the clip against that line."""
     from .ai import judge_image
     key = os.getenv("PIXABAY_API_KEY", "").strip()
-    queries = [q for q in (post.get("video_queries") or []) if isinstance(q, str) and q.strip()]
-    queries += [post.get("image_query") or ""] + BROLL.get((post.get("badge") or "").upper(), BROLL["VIRAL"])
+    if queries is None:
+        queries = [q for q in (post.get("video_queries") or []) if isinstance(q, str) and q.strip()]
+        queries += [post.get("image_query") or ""] + BROLL.get((post.get("badge") or "").upper(), BROLL["VIRAL"])
     if not key or want <= 0:
         return []
-    headline = post["headline"].replace("*", "")
+    headline = context or post["headline"].replace("*", "")
     os.makedirs(CLIP_DIR, exist_ok=True)
-    clips, seen, judged = [], set(), 0
+    clips, judged = [], 0
+    seen = set() if seen is None else seen
     for q in queries:
-        if len(clips) >= want or judged >= 9 or not q.strip():
+        if len(clips) >= want or judged >= max_judge or not q.strip():
             continue
         try:
             r = requests.get("https://pixabay.com/api/videos/", timeout=20, params={
@@ -93,7 +96,7 @@ def _pixabay_videos(post, want=3):
                                  h["videos"]["large"].get("height", 0) <= h["videos"]["large"].get("width", 1)))
         taken = 0
         for h in hits[:4]:
-            if len(clips) >= want or judged >= 9 or taken >= 2:
+            if len(clips) >= want or judged >= max_judge or taken >= 2:
                 break
             seen.add(h["id"])
             v = h["videos"].get("large") or {}
@@ -222,18 +225,80 @@ def _audio_secs(exe, path):
 
 
 # ------------------------------------------------------------------ scenes
-def _scenes(post, photo, count):
-    """Ordered list of ('photo', img) / ('video', (path, duration)) scenes, no picture shown twice in a row."""
+def _people(post, photo, want):
+    """Real photos of the story's famous person, with where the face is: [(img, face_y)]."""
     people = []
     if post.get("_person"):
         from .ai import judge_image
         score = judge_image(photo, post["headline"].replace("*", ""))  # where is the face?
         people.append((photo, score[2] if score else None))
-    extra_people = _person_photos(post, want=min(3, count // 2))
-    people += [(im, face) for im, _, face in extra_people]
-    if extra_people:
-        post["_reel_credits"] = [c for _, c, _ in extra_people]
-    others = ([] if post.get("_person") else [photo]) + [im for im in post.get("_extras", []) if im is not photo]
+        extra_people = _person_photos(post, want=want)
+        people += [(im, face) for im, _, face in extra_people]
+        if extra_people:
+            post["_reel_credits"] = [c for _, c, _ in extra_people]
+    return people
+
+
+MIN_SCENE, MAX_SCENE = 1.0, 3.6  # seconds
+
+
+def _planned_scenes(post, photo, words, duration):
+    """Scenes that follow the narration: the AI split the voiceover into lines and said what to show for each
+    ('face' = the famous person, otherwise a stock-video search). Returns [(kind, item, frames)] or None."""
+    plan = [s for s in (post.get("scenes") or []) if isinstance(s, dict) and str(s.get("line", "")).strip()]
+    if len(plan) < 2 or not words:
+        return None
+    # start time of each line = when its first word is spoken
+    starts, idx = [], 0
+    for s in plan:
+        starts.append(0.0 if not starts else words[min(idx, len(words) - 1)][1])
+        idx += len(str(s["line"]).split())
+    bounds = [(starts[i], starts[i + 1] if i + 1 < len(plan) else duration) for i in range(len(plan))]
+    segs = []  # merge too-short lines into the previous one, split long ones in two
+    for s, (a, b) in zip(plan, bounds):
+        if segs and b - a < MIN_SCENE:
+            segs[-1][2] = b
+            continue
+        if b - a > MAX_SCENE:
+            segs += [[s, a, (a + b) / 2, 0], [s, (a + b) / 2, b, 1]]
+        else:
+            segs.append([s, a, b, 0])
+    people = _people(post, photo, want=3)
+    others = [im for im in post.get("_extras", []) if im is not photo] + ([] if post.get("_person") else [photo])
+    seen, faces_used, clips_cache, out = set(), 0, {}, []
+    for s, a, b, part in segs:
+        show = str(s.get("show", "")).lower()
+        query = str(s.get("query") or "").strip()
+        line = str(s["line"])
+        kind = item = None
+        if show == "face" and people:
+            kind, item = "face", people[faces_used % len(people)]
+            faces_used += 1
+        if kind is None and query:
+            if query not in clips_cache:
+                clips_cache[query] = _pixabay_videos(post, want=2, queries=[query], context=line, seen=seen, max_judge=3)
+            got = clips_cache[query]
+            if got:
+                kind, item = "video", got[min(part, len(got) - 1)]
+        if kind is None and s.get("ai"):
+            im = _cloudflare_image(str(s["ai"]), abs(hash(line)) % 100000)
+            if im is not None:
+                kind, item = "photo", im
+        if kind is None and people:
+            kind, item = "face", people[faces_used % len(people)]
+            faces_used += 1
+        if kind is None:
+            kind, item = "photo", (others[len(out) % len(others)] if others else photo)
+        out.append([kind, item, int(round((b - a) * FPS))])
+        print(f"[reel] {a:4.1f}-{b:4.1f}s {kind:5} for: {line[:60]}")
+    out[-1][2] += int(duration * FPS) - sum(n for _, _, n in out)  # exact total length
+    return [tuple(x) for x in out]
+
+
+def _scenes(post, photo, count):
+    """Ordered list of ('photo', img) / ('video', (path, duration)) scenes, no picture shown twice in a row."""
+    people = _people(post, photo, want=min(3, count // 2))
+    others =([] if post.get("_person") else [photo]) + [im for im in post.get("_extras", []) if im is not photo]
     videos = _pixabay_videos(post, want=min(4, count - len(people)))
     short = count - len(people) - len(videos) - len(others)
     if short > 0:
@@ -450,12 +515,14 @@ def _frames(post, scenes, exe, duration, chunks, follow_at):
     sub_font = _font("bold", 86)
     flash = Image.new("RGBA", (RW, RH), (255, 255, 255, 255))
     bar = _hgradient(RW, 10, [PINK, ORANGE, YELLOW]).convert("RGBA")
-    total = int(duration * FPS)
-    per = total // len(scenes)
+    total = sum(n for _, _, n in scenes)
+    cuts, at = [], 0  # frame index where each scene starts
+    for _, _, n in scenes:
+        cuts.append(at)
+        at += n
 
     def source():
-        for k, (kind, item) in enumerate(scenes):
-            n = per + (total - per * len(scenes) if k == len(scenes) - 1 else 0)
+        for k, (kind, item, n) in enumerate(scenes):
             if kind == "video":
                 try:
                     yield from _video_frames(exe, item[0], item[1], n)
@@ -470,15 +537,16 @@ def _frames(post, scenes, exe, duration, chunks, follow_at):
 
     for i, base in enumerate(source()):
         t = i / FPS
-        since_cut = (i % per) / FPS if i < per * len(scenes) else 99
+        since_cut = (i - max(c for c in cuts if c <= i)) / FPS
+        first = i < cuts[1] if len(cuts) > 1 else True
         frame = base
-        if i >= per and since_cut < 0.25:  # zoom punch on each cut
+        if not first and since_cut < 0.25:  # zoom punch on each cut
             z = 1.0 + 0.08 * (1 - since_cut / 0.25)
             cw, ch = int(RW / z), int(RH / z)
             frame = frame.crop(((RW - cw) // 2, (RH - ch) // 2, (RW + cw) // 2, (RH + ch) // 2)).resize((RW, RH), Image.BILINEAR)
         frame = frame.convert("RGBA")
         frame.alpha_composite(shade)
-        if i >= per and since_cut < 0.15:  # white flash on each cut
+        if not first and since_cut < 0.15:  # white flash on each cut
             frame.alpha_composite(_with_alpha(flash, 0.5 * (1 - since_cut / 0.15)))
         frame.alpha_composite(header)
         if t < follow_at:
@@ -517,8 +585,14 @@ def make_reel(post, photo, path):
         else:
             chunks, duration = [], 4 * SCENE + END_LEN
             follow_at = duration - END_LEN
-        count = max(3, min(MAX_SCENES, round(duration / SCENE)))
-        scenes = _scenes(post, photo, count)
+        words = [w for c in chunks for w in c]
+        scenes = _planned_scenes(post, photo, words, duration)  # visuals that follow what the voice says
+        if not scenes:
+            count = max(3, min(MAX_SCENES, round(duration / SCENE)))
+            plain = _scenes(post, photo, count)
+            per = int(duration * FPS) // len(plain)
+            scenes = [(k, it, per) for k, it in plain]
+            scenes[-1] = (scenes[-1][0], scenes[-1][1], int(duration * FPS) - per * (len(plain) - 1))
         track = _music()
         cmd = [exe, "-y", "-loglevel", "error",
                "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{RW}x{RH}", "-r", str(FPS), "-i", "-"]
