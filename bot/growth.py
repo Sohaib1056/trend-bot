@@ -14,7 +14,7 @@ import requests
 
 from . import config
 
-FOLLOW_LINE = "👉 Follow Hype Atlas for the hottest US & UK trends every day! #HypeAtlas"
+FOLLOW_LINE = "👉 Follow Hype Atlas for the biggest US tech, AI & trending news every day! #HypeAtlas"
 
 
 def post_url(rec):

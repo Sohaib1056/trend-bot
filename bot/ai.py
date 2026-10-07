@@ -12,12 +12,17 @@ THEMES = ["red", "blue", "purple", "orange", "green", "dark", "pink", "teal"]
 def build_prompt(candidates, already_posted, n, performance=""):
     lines = []
     for i, c in enumerate(candidates, 1):
-        lines.append(f"{i}. TOPIC: {c['topic']} | power: {c.get('power', 0):,} | trending in: {c['country']}")
+        star = " | PAGE FOCUS" if c.get("focus") else ""
+        lines.append(f"{i}. TOPIC: {c['topic']} | power: {c.get('power', 0):,} | trending in: {c['country']}{star}")
         for nw in c["news"][:3]:
             lines.append(f"   - {nw['title']} ({nw['source']}): {nw['snippet'][:300]}")
-    politics = ("Skip party politics, elections and politicians." if config.AVOID_POLITICS else "")
+    politics = ("Skip campaign politics (polls, debates, fundraising, local races). World-famous US leaders such as "
+                "Donald Trump ARE allowed when the story is big news: report it neutrally and factually, no opinions, "
+                "no party attacks, no election claims." if config.AVOID_POLITICS else "")
+    from .trends import FOCUS
     return f"""You are the social media manager of a Facebook page and Instagram account called "{config.PAGE_NAME}".
-Page niche: {config.NICHE}. Audience: the general public in the US, UK, Canada and Australia.
+Page focus: the most famous US names in tech, AI and world news - {', '.join(FOCUS)} - and the AI tools
+everyone talks about. Audience: the general public, mainly in the USA.
 
 Below are topics trending RIGHT NOW with related news headlines.
 {chr(10).join(lines)}
@@ -25,6 +30,8 @@ Below are topics trending RIGHT NOW with related news headlines.
 {('WHAT WORKS ON THIS PAGE (learn from it, favour topics like the best ones):' + chr(10) + performance + chr(10) + chr(10)) if performance else ''}Topics already posted recently (do NOT repeat these or close variants): {', '.join(already_posted[-60:]) or 'none'}
 
 TASK: Choose the {n} topic(s) with the BIGGEST mass appeal and write one post for each.
+Topics marked PAGE FOCUS are about the page's core names (big tech, AI, Trump, Elon...): pick those FIRST,
+as long as the story is genuinely interesting (a launch, a big move, money, a clash, a surprising statement).
 Topics are sorted strongest first. "power" = how many people are searching it, boosted when it trends
 in several countries at once. Pick what the general public in the US, UK, Canada and Australia will
 stop scrolling for, react to and share: big-name celebrities, major sports moments, huge movies/TV/music,
@@ -35,14 +42,14 @@ RULES:
 - Use ONLY facts stated in the headlines/snippets above. Never invent numbers, quotes, scores or claims. If unsure, keep it general.
 - If two snippets disagree (e.g. different rankings or numbers), leave that detail out.
 - SKIP: deaths, tragedies, disasters with victims, crime/violence, shootings, war, medical claims, adult content, gambling. {politics}
-- Prefer: entertainment, celebrities (positive/neutral), sports results, tech/gadgets, viral moments, movies/TV, music, lifestyle, science wonders, big sales/events.
+- Prefer: big tech & AI news (OpenAI, Google, Meta, Nvidia, Microsoft, Apple...), famous billionaires and CEOs, new AI tools, world-famous US leaders, then big celebrity/viral stories.
 - English only. Friendly, energetic, not clickbait-lying.
 
 Return JSON exactly in this shape:
 {{"posts": [{{
   "key": "short-lowercase-slug-of-topic",
   "topic": "topic name",
-  "badge": "exactly one of: SPORTS, CELEBRITY, TV & FILM, MUSIC, TECH, GAMING, SHOPPING, ROYALS, WEATHER, VIRAL, BUSINESS, SCIENCE",
+  "badge": "exactly one of: AI, TECH, POLITICS, BUSINESS, CELEBRITY, SPORTS, TV & FILM, MUSIC, GAMING, SHOPPING, VIRAL, SCIENCE",
   "first_comment": "one short, fun question the page itself will comment under the post to spark replies (max 15 words, 1 emoji, e.g. 'Would you watch this? Yes or no? 👇')",
   "share_groups": ["2-3 short Facebook group search terms where fans of this exact topic hang out, e.g. 'Manchester City fans', 'Premier League fans'"],
   "headline": "6-10 words in normal sentence case (NOT all caps), written like the big viral news pages (Pubity, Pop Base): lead with the famous name, use an emotional or surprising angle, and leave a little curiosity while still saying what happened (not vague clickbait). No emoji. Wrap the 1-3 most striking words in *asterisks* for a highlighter, e.g. 'Zoe Saldaña just *turned down* Taylor Sheridan's next big show'",

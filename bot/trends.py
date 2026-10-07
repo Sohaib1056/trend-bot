@@ -1,4 +1,5 @@
 """Collect what is trending right now in English-speaking countries (free, no keys)."""
+import os
 import re
 import xml.etree.ElementTree as ET
 
@@ -91,6 +92,47 @@ def google_news(geo):
     return out[:15]
 
 
+# The page's focus: famous US names in tech, AI and politics. Their latest US news is fetched on every run
+# and anything that mentions them is ranked first. Override with the FOCUS variable (comma separated).
+FOCUS = [t.strip() for t in (os.getenv("FOCUS", "") or (
+    "Donald Trump, Elon Musk, OpenAI, ChatGPT, Sam Altman, Mark Zuckerberg, Meta, Google, Sundar Pichai, "
+    "Nvidia, Jensen Huang, Microsoft, Satya Nadella, Apple, Tim Cook, YouTube, LinkedIn, Amazon, Jeff Bezos, "
+    "Tesla, SpaceX, Gemini AI, AI tools")).split(",") if t.strip()]
+FOCUS_BOOST = 4
+
+
+def focus_news(terms=None, per_term=2):
+    """Latest US Google News for each focus name (last 24 hours)."""
+    out = []
+    for term in terms or FOCUS:
+        try:
+            root = _get("https://news.google.com/rss/search?q=" + requests.utils.quote(f'"{term}" when:1d')
+                        + "&hl=en-US&gl=US&ceid=US:en")
+        except Exception as e:
+            print(f"[trends] focus '{term}' failed: {e}")
+            continue
+        n = 0
+        for item in root.iter():
+            if _local(item.tag) != "item" or n >= per_term:
+                continue
+            title = _clean(_text(item, "title"))
+            src = _text(item, "source")
+            if src and title.endswith(" - " + src):
+                title = title[: -len(" - " + src)]
+            if title:
+                out.append({"topic": title, "traffic": "50K+", "country": "US", "source": "focus",
+                            "news": [{"title": title, "snippet": _clean(_text(item, "description")),
+                                      "source": src, "url": _text(item, "link")}]})
+                n += 1
+    print(f"[trends] focus news: {len(out)} items for {len(terms or FOCUS)} names")
+    return out
+
+
+def _is_focus(m):
+    blob = (m["topic"] + " " + " ".join(n["title"] for n in m["news"])).lower()
+    return any(re.search(r"\b" + re.escape(t.lower()) + r"\b", blob) for t in FOCUS)
+
+
 COUNTRY_WEIGHT = {"US": 1.0, "GB": 0.8, "CA": 0.5, "AU": 0.5}
 
 
@@ -121,15 +163,18 @@ def rank(items):
             m["countries"].append(it["country"])
         w = COUNTRY_WEIGHT.get(it["country"], 0.5)
         m["traffic_sum"] += (traffic_num(it["traffic"]) or 5_000) * w
-        if it["source"] == "google_trends":
-            m["source"] = "google_trends"
+        if it["source"] in ("google_trends", "focus"):
+            m["source"] = it["source"]
         for n in it["news"]:
             if len(m["news"]) < 3 and n["title"] not in {x["title"] for x in m["news"]}:
                 m["news"].append(n)
     out = list(merged.values())
     for m in out:
         multi = 1 + 0.6 * (len(m["countries"]) - 1)
-        m["power"] = int(m["traffic_sum"] * multi * (1.0 if m["source"] == "google_trends" else 0.4))
+        m["power"] = int(m["traffic_sum"] * multi * (1.0 if m["source"] in ("google_trends", "focus") else 0.4))
+        m["focus"] = _is_focus(m)
+        if m["focus"]:
+            m["power"] *= FOCUS_BOOST
         m["country"] = ",".join(m["countries"])
     out.sort(key=lambda m: m["power"], reverse=True)
     return out
@@ -145,4 +190,5 @@ def collect(countries):
                 items.extend(got)
             except Exception as e:  # keep going if one feed fails
                 print(f"[trends] {fn.__name__}({geo}) failed: {e}")
+    items.extend(focus_news())
     return items

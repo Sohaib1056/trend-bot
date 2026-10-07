@@ -39,6 +39,8 @@ BROLL = {
     "TV & FILM": ["film set camera", "cinema audience"],
     "MUSIC": ["concert crowd lights", "stage lights singer"],
     "TECH": ["technology digital", "smartphone screen"],
+    "AI": ["artificial intelligence", "robot technology", "data center servers"],
+    "POLITICS": ["white house washington", "american flag waving", "us capitol"],
     "GAMING": ["gaming setup neon", "video game controller"],
     "SHOPPING": ["shopping bags city", "online shopping phone"],
     "ROYALS": ["london buckingham palace", "royal guard london"],
