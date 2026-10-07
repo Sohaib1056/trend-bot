@@ -88,8 +88,19 @@ def _version(name):
     return float(m.group(1)) if m else 0.0
 
 
+_GEMINI = {"down": False, "models": None}  # once Gemini times out / is out of quota, skip it for the rest of the run
+
+
+def _gemini_failed(e):
+    if isinstance(e, requests.exceptions.Timeout) or "HTTP 429" in str(e):
+        _GEMINI["down"] = True
+        print("[ai] Gemini is slow or out of quota -> using the backups for the rest of this run")
+
+
 def _gemini_models():
     """Configured models first, then whatever flash models this key can actually use (newest first)."""
+    if _GEMINI["models"] is not None:
+        return _GEMINI["models"]
     wanted = [config.GEMINI_MODEL] + config.GEMINI_FALLBACK_MODELS
     try:
         r = requests.get(f"{GEMINI_BASE}/models", params={"pageSize": 200},
@@ -102,19 +113,22 @@ def _gemini_models():
         wanted += found
     except Exception as e:
         print(f"[ai] could not list Gemini models: {e}")
-    return list(dict.fromkeys(wanted))[:6]
+    _GEMINI["models"] = list(dict.fromkeys(wanted))[:4]
+    return _GEMINI["models"]
 
 
 def _gemini(prompt):
     last = None
     for m in _gemini_models():
+        if _GEMINI["down"]:
+            break
         try:
             r = requests.post(
                 f"{GEMINI_BASE}/models/{m}:generateContent",
                 headers={"x-goog-api-key": config.GEMINI_API_KEY, "Content-Type": "application/json"},
                 json={"contents": [{"parts": [{"text": prompt}]}],
                       "generationConfig": {"temperature": 0.8, "responseMimeType": "application/json"}},
-                timeout=90,
+                timeout=45,
             )
             if r.status_code != 200:
                 raise RuntimeError(f"HTTP {r.status_code}: {r.text[:200]}")
@@ -122,7 +136,8 @@ def _gemini(prompt):
             print(f"[ai] Gemini model used: {m}")
             return "".join(p.get("text", "") for p in parts if not p.get("thought"))
         except Exception as e:
-            print(f"[ai] Gemini {m} failed: {e}")
+            print(f"[ai] Gemini {m} failed: {str(e)[:160]}")
+            _gemini_failed(e)
             last = e
     raise RuntimeError(f"All Gemini models failed: {last}")
 
@@ -196,7 +211,9 @@ def judge_image(img, headline):
               "quality: 0-10, is it sharp, well lit, professional and eye-catching (not blurry, dull, amateur or cluttered)?\n"
               'Reply JSON only: {"relevance": n, "quality": n, "why": "few words"}')
     b64 = base64.b64encode(buf.getvalue()).decode()
-    for m in (_gemini_models()[:3] if config.GEMINI_API_KEY else []):
+    for m in (_gemini_models()[:2] if config.GEMINI_API_KEY else []):
+        if _GEMINI["down"]:
+            break
         try:
             r = requests.post(f"{GEMINI_BASE}/models/{m}:generateContent",
                               headers={"x-goog-api-key": config.GEMINI_API_KEY, "Content-Type": "application/json"},
@@ -204,14 +221,15 @@ def judge_image(img, headline):
                                   {"inline_data": {"mime_type": "image/jpeg", "data": b64}},
                                   {"text": prompt}]}],
                                     "generationConfig": {"temperature": 0, "responseMimeType": "application/json"}},
-                              timeout=60)
+                              timeout=25)
             if r.status_code != 200:
-                continue
+                raise RuntimeError(f"HTTP {r.status_code}")
             parts = r.json()["candidates"][0]["content"]["parts"]
             data = json.loads("".join(p.get("text", "") for p in parts if not p.get("thought")))
             return _score(data)
         except Exception as e:
-            print(f"[judge] {m} failed: {e}")
+            print(f"[judge] {m} failed: {str(e)[:120]}")
+            _gemini_failed(e)
     return _groq_judge(b64, prompt) or _cloudflare_judge(b64, prompt)
 
 

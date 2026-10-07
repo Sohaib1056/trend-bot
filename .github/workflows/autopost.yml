@@ -26,7 +26,7 @@ concurrency:
 jobs:
   post:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
 
@@ -60,6 +60,7 @@ jobs:
           DRY_RUN: ${{ (inputs.dry_run == 'true' || inputs.dry_run == 'false') && inputs.dry_run || vars.DRY_RUN }}
           RUN_MODE: ${{ inputs.dry_run }}
           AVOID_POLITICS: ${{ vars.AVOID_POLITICS }}
+          PYTHONUNBUFFERED: "1"  # show log lines live
         run: python -m bot.main
 
       - name: Save posters (download from the run page)
