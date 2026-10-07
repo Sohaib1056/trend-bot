@@ -461,6 +461,21 @@
       "time": "2026-10-07T14:20+00:00",
       "dry_run": true,
       "format": "reel"
+    },
+    {
+      "key": "microsoft-nvidia-ai-laptop",
+      "topic": "Microsoft, Nvidia CEOs to unveil new AI laptop at San Francisco event",
+      "headline": "Satya Nadella and Jensen Huang *unveil* AI laptop",
+      "badge": "TECH",
+      "slot": "",
+      "share_groups": [
+        "AI enthusiasts",
+        "Tech news fans",
+        "Silicon Valley insiders"
+      ],
+      "time": "2026-10-07T15:25+00:00",
+      "dry_run": true,
+      "format": "reel"
     }
   ],
   "replied": [],
