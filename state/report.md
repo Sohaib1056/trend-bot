@@ -1,18 +1,19 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-08 12:05 UTC_
+_Updated 2026-10-08 12:15 UTC_
 
 ```
-Based on the last 20 posts on this page:
-Best categories: TECH (20.9), SHOPPING (10.0), CELEBRITY (9.7)
+Based on the last 21 posts on this page:
+Best categories: TECH (16.9), SHOPPING (10.0), CELEBRITY (9.7)
 Weakest categories: SCIENCE (3.8), SPORTS (3.4)
-Format: reel (27.9, 4 posts), photo (4.4, 16 posts)
-Best posting slots (UTC): 01:00 (30.8), 19:00 (23.8), 12:00 (6.9)
+Format: reel (22.4, 5 posts), photo (4.4, 16 posts)
+Best posting slots (UTC): 01:00 (30.8), 19:00 (23.8), 16:00 (6.2)
 Top posts: Elon Musk gets German backing for Tesla driver aid (40.6) | Elon Musk returns as trillionaire, even after massive SpaceX dip (39.8) | Adam Levine admits he made a mistake on The Voice (21.0)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-08T12:07 | reel | TECH | Mark Zuckerberg charms Trump, steers AI clash with big stakes | 3 | 0 | 0 | 0 | 0.6 |
 | 2026-10-08T07:07 | photo | TECH | Elon Musk slams Indian oligarchs over Starlink delay | 5 | 0 | 0 | 0 | 1.0 |
 | 2026-10-08T01:06 | reel | TECH | Elon Musk gets German backing for Tesla driver aid | 193 | 1 | 0 | 0 | 40.6 |
 | 2026-10-07T23:06 | photo | AI | Mark Zuckerberg backs $1.8 billion AI biology push with Google | 12 | 0 | 0 | 11 | 8.4 |

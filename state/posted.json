@@ -611,7 +611,30 @@
       "time": "2026-10-08T12:07+00:00",
       "format": "reel",
       "facebook_reel": "1097009656353452",
-      "facebook": "1097009656353452"
+      "facebook": "1097009656353452",
+      "stats": {
+        "views": 3,
+        "reactions": 0,
+        "comments": 0,
+        "shares": 0,
+        "checked": "2026-10-08T12:15+00:00",
+        "score": 0.6
+      }
+    },
+    {
+      "key": "lionel-messi-final-appearance",
+      "topic": "Lionel Messi's final international match",
+      "headline": "Lionel Messi ends Argentina career with *goal* and *two assists* in win over Benin",
+      "badge": "SPORTS",
+      "slot": "12",
+      "share_groups": [
+        "Argentina fans",
+        "World Cup fans",
+        "Soccer highlights"
+      ],
+      "time": "2026-10-08T12:16+00:00",
+      "dry_run": true,
+      "format": "reel"
     }
   ],
   "replied": [],
