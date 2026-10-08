@@ -164,15 +164,28 @@ def _news_for(term):
     return None
 
 
-X_JUNK = re.compile(r"\b(good|happy)\s+\w*(morning|night|day|eve|monday|tuesday|wednesday|thursday|friday|saturday|sunday)"
+X_JUNK = re.compile(r"(monday|tuesday|wednesday|thursday|friday|saturday|sunday|weekend|morning|night|\beve\b)"
                     r"|\b(token|coin|crypto|airdrop|nft|giveaway|presale)\b|^\$|^#?(gm|gn)$", re.I)
+X_SOURCES = [  # trend-tracker pages for X (Twitter) US; the first that answers is used
+    ("https://trends24.in/united-states/", r"class=trend-link>([^<]+)</a>"),
+    ("https://getdaytrends.com/united-states/", r'<a[^>]*href="/united-states/trend/[^"]*"[^>]*>([^<]+)</a>'),
+]
 
 
 def x_trends(limit=12):
-    """What is trending on X (Twitter) in the US right now (trends24.in), each with one news item for facts."""
-    html = _get_text("https://trends24.in/united-states/")
+    """What is trending on X (Twitter) in the US right now, each with one news item for facts."""
+    found, last = [], None
+    for url, pattern in X_SOURCES:
+        try:
+            found = re.findall(pattern, _get_text(url))
+            if found:
+                break
+        except Exception as e:
+            last = e
+    if not found:
+        raise RuntimeError(f"no X trend source answered ({last})")
     names = []
-    for n in re.findall(r"class=trend-link>([^<]+)</a>", html):
+    for n in found:
         n = _clean(n)
         if n and n not in names:
             names.append(n)
@@ -239,8 +252,10 @@ def wiki_people(limit=20):
     people = []
     for qid, ent in w.get("entities", {}).items():
         p31 = [c["mainsnak"].get("datavalue", {}).get("value", {}).get("id") for c in ent.get("claims", {}).get("P31", [])]
-        dead = "P570" in ent.get("claims", {})  # date of death: skip (no death stories)
-        if "Q5" in p31 and not dead:
+        claims = ent.get("claims", {})
+        dead = "P570" in claims  # date of death: skip (no death stories)
+        criminal = "P1399" in claims  # 'convicted of': people famous for crimes are not the page's faces
+        if "Q5" in p31 and not dead and not criminal:
             people.append(qids[qid])
     order = {t.replace("_", " "): i for i, t in enumerate(arts)}
     people.sort(key=lambda t: order.get(t, 99))
