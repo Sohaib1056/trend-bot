@@ -635,6 +635,22 @@
       "time": "2026-10-08T12:16+00:00",
       "dry_run": true,
       "format": "reel"
+    },
+    {
+      "key": "trump-meta-spacex-debt",
+      "topic": "Trump bought up to $25 million in Meta and millions in SpaceX debt in August",
+      "headline": "Donald Trump *injects* $25\u202fmillion into Meta, backs SpaceX debt",
+      "badge": "BUSINESS",
+      "slot": "16",
+      "share_groups": [
+        "Trump supporters",
+        "Tech investors",
+        "Finance news fans"
+      ],
+      "time": "2026-10-08T16:06+00:00",
+      "format": "photo",
+      "facebook": "1397517856769204_122109187653493621",
+      "facebook_photo_id": "122109187629493621"
     }
   ],
   "replied": [],
