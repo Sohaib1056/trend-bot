@@ -12,17 +12,20 @@ THEMES = ["red", "blue", "purple", "orange", "green", "dark", "pink", "teal"]
 def build_prompt(candidates, already_posted, n, performance=""):
     lines = []
     for i, c in enumerate(candidates, 1):
-        star = " | PAGE FOCUS" if c.get("focus") else ""
-        lines.append(f"{i}. TOPIC: {c['topic']} | power: {c.get('power', 0):,} | trending in: {c['country']}{star}")
+        star = " | FAMOUS FACE" if c.get("focus") else ""
+        where = (" | buzz: " + "; ".join(c["trends"][:2])) if c.get("trends") else ""
+        lines.append(f"{i}. TOPIC: {c['topic']} | power: {c.get('power', 0):,} | trending in: {c['country']}{star}{where}")
         for nw in c["news"][:3]:
             lines.append(f"   - {nw['title']} ({nw['source']}): {nw['snippet'][:300]}")
     politics = ("Skip campaign politics (polls, debates, fundraising, local races). World-famous US leaders such as "
                 "Donald Trump ARE allowed when the story is big news: report it neutrally and factually, no opinions, "
                 "no party attacks, no election claims." if config.AVOID_POLITICS else "")
-    from .trends import FOCUS
+    from .trends import FOCUS, _TRENDING_PEOPLE
     return f"""You are the social media manager of a Facebook page and Instagram account called "{config.PAGE_NAME}".
-Page focus: the most famous US names in tech, AI and world news - {', '.join(FOCUS)} - and the AI tools
-everyone talks about. Audience: the general public, mainly in the USA.
+Page focus: FAMOUS FACES - the people Americans recognise instantly and talk about: big tech & AI bosses
+({', '.join(FOCUS[:12])}...), world-famous politicians like Trump, and A-list celebrities, athletes and creators.
+People the world is looking up most TODAY: {', '.join(_TRENDING_PEOPLE[:15]) or 'n/a'}.
+Audience: the general public, mainly in the USA.
 
 Below are topics trending RIGHT NOW with related news headlines.
 {chr(10).join(lines)}
@@ -31,8 +34,10 @@ Below are topics trending RIGHT NOW with related news headlines.
 
 TASK: Choose the {n} topic(s) with the BIGGEST mass appeal and write one post for each.
 Stories built around ONE famous face (a person people recognise instantly) get far more views than stories
-about companies or markets: prefer them. Topics marked PAGE FOCUS are about the page's core names (big tech, AI, Trump, Elon...): pick those FIRST,
-as long as the story is genuinely interesting (a launch, a big move, money, a clash, a surprising statement).
+about companies or markets: prefer them. Topics marked FAMOUS FACE involve such a person: pick those FIRST,
+as long as the story is genuinely interesting (a big move, money, a clash, a surprising statement, a launch).
+"buzz" shows where people are talking about it right now (X trends, Reddit top posts, most looked-up people):
+the same story buzzing on several platforms is the strongest pick.
 Topics are sorted strongest first. "power" = how many people are searching it, boosted when it trends
 in several countries at once. Pick what the general public in the US, UK, Canada and Australia will
 stop scrolling for, react to and share: big-name celebrities, major sports moments, huge movies/TV/music,
