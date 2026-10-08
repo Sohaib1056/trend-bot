@@ -674,7 +674,15 @@
       "time": "2026-10-08T19:07+00:00",
       "format": "reel",
       "facebook_reel": "1706612744398346",
-      "facebook": "1706612744398346"
+      "facebook": "1706612744398346",
+      "stats": {
+        "views": 133,
+        "reactions": 2,
+        "comments": 0,
+        "shares": 0,
+        "checked": "2026-10-08T21:18+00:00",
+        "score": 30.6
+      }
     }
   ],
   "replied": [],
