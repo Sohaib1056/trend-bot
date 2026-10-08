@@ -521,7 +521,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-07T20:36+00:00",
+        "checked": "2026-10-08T00:58+00:00",
         "score": 0.0
       }
     },
@@ -539,7 +539,15 @@
       "time": "2026-10-07T23:06+00:00",
       "format": "photo",
       "facebook": "1397517856769204_122108462181493621",
-      "facebook_photo_id": "122108462151493621"
+      "facebook_photo_id": "122108462151493621",
+      "stats": {
+        "views": 0,
+        "reactions": 0,
+        "comments": 0,
+        "shares": 0,
+        "checked": "2026-10-08T00:58+00:00",
+        "score": 0.0
+      }
     }
   ],
   "replied": [],
