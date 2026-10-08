@@ -587,7 +587,15 @@
       "time": "2026-10-08T07:07+00:00",
       "format": "photo",
       "facebook": "1397517856769204_122108831421493621",
-      "facebook_photo_id": "122108831391493621"
+      "facebook_photo_id": "122108831391493621",
+      "stats": {
+        "views": 0,
+        "reactions": 0,
+        "comments": 0,
+        "shares": 0,
+        "checked": "2026-10-08T07:22+00:00",
+        "score": 0.0
+      }
     }
   ],
   "replied": [],
