@@ -27,7 +27,7 @@ from .poster import (COMMONS_SKIP, FREE_LICENSE, MARKER, INK, PAD, PINK, ORANGE,
 RW, RH = 1080, 1920
 FPS = 30
 SCENE = 2.0          # target seconds per scene
-MAX_SCENES = 7
+MAX_SCENES = 9
 VOICE_AT = 0.3       # narration starts after the hook frame
 END_LEN = 1.8        # follow banner at the end (when there is no voice to time it)
 SUB_Y = 1190         # centre of the subtitles: low in the Reels safe zone, under the face
@@ -240,6 +240,7 @@ def _people(post, photo, want):
 
 
 MIN_SCENE, MAX_SCENE = 1.0, 3.6  # seconds
+MIN_REEL = 15.0  # every Reel runs at least 15 seconds
 
 
 def _planned_scenes(post, photo, words, duration):
@@ -585,9 +586,9 @@ def make_reel(post, photo, path):
         if vsecs:
             chunks = _subtitle_timeline(text, vsecs)
             follow_at = next((c[0][1] for c in chunks if c[0][0].lower().startswith("follow")), vsecs - 1.5)
-            duration = vsecs + VOICE_AT + 0.6
+            duration = max(MIN_REEL, vsecs + VOICE_AT + 0.6)
         else:
-            chunks, duration = [], 4 * SCENE + END_LEN
+            chunks, duration = [], MIN_REEL
             follow_at = duration - END_LEN
         words = [w for c in chunks for w in c]
         scenes = _planned_scenes(post, photo, words, duration)  # visuals that follow what the voice says

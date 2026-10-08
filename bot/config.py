@@ -31,13 +31,15 @@ COUNTRIES = [c.strip().upper() for c in (os.getenv("COUNTRIES", "") or "US,GB,CA
 POSTS_PER_RUN = max(1, _int("POSTS_PER_RUN", 1))
 # Posting slots (UTC hours). The workflow wakes up every hour; a scheduled run only posts
 # inside a slot window and only once per slot, so GitHub's late/dropped cron runs are covered.
-POST_SLOTS_UTC = sorted({int(h) for h in (os.getenv("POST_SLOTS", "") or "1,7,12,16,19,23").split(",") if h.strip().isdigit()})
+POST_SLOTS_UTC = sorted({int(h) for h in (os.getenv("POST_SLOTS", "") or "1,3,12,16,19,23").split(",") if h.strip().isdigit()})
 SLOT_WINDOW_HOURS = _int("SLOT_WINDOW_HOURS", 3)
 DRY_RUN = _bool("DRY_RUN", True)            # True = make posters only, do NOT upload
 POST_TO_FACEBOOK = _bool("POST_TO_FACEBOOK", True)
 POST_TO_INSTAGRAM = _bool("POST_TO_INSTAGRAM", True)
 # What each slot posts: "alternate" (Reel, photo, Reel, ...), "reel", "photo" or "both"
-POST_FORMAT = (os.getenv("POST_FORMAT", "") or "alternate").strip().lower()
+POST_FORMAT = (os.getenv("POST_FORMAT", "") or "slots").strip().lower()
+# "slots": photo posts in these slots (US morning + lunch scroll), Reels in all others (US afternoon/evening/prime time)
+PHOTO_SLOTS_UTC = {int(h) for h in (os.getenv("PHOTO_SLOTS", "") or "12,16").split(",") if h.strip().isdigit()}
 # Replies to comments: "off", "preview" (only print suggested replies in the log) or "on"
 AUTO_REPLY = (os.getenv("AUTO_REPLY", "") or "preview").strip().lower()
 FIRST_COMMENT = _bool("FIRST_COMMENT", True)  # page posts a question under each new post

@@ -67,6 +67,9 @@ def should_post_now(state):
 
 def choose_format(state):
     fmt = config.POST_FORMAT
+    if fmt == "slots":  # 2 photos (US morning + lunch) and 4 Reels (afternoon to prime time) a day
+        slot = current_slot(datetime.now(timezone.utc))
+        return "photo" if slot is not None and slot.hour in config.PHOTO_SLOTS_UTC else "reel"
     if fmt == "alternate":
         n = sum(1 for x in state["posted"] if not x.get("dry_run"))
         winner = insights.best_format(state)  # once one format clearly wins, use it 2 of every 3 posts
