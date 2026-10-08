@@ -548,6 +548,22 @@
         "checked": "2026-10-08T00:58+00:00",
         "score": 0.0
       }
+    },
+    {
+      "key": "elon-musk-german-backing",
+      "topic": "Musk welcomes German backing for Tesla driver assistance tech as group chases EU approval",
+      "headline": "Elon Musk gets *German backing* for Tesla driver aid",
+      "badge": "TECH",
+      "slot": "01",
+      "share_groups": [
+        "Tesla owners",
+        "Electric vehicle enthusiasts",
+        "EU tech fans"
+      ],
+      "time": "2026-10-08T01:06+00:00",
+      "format": "reel",
+      "facebook_reel": "1149287334657411",
+      "facebook": "1149287334657411"
     }
   ],
   "replied": [],

@@ -1,18 +1,19 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-07 23:06 UTC_
+_Updated 2026-10-08 01:05 UTC_
 
 ```
-Based on the last 17 posts on this page:
-Best categories: AI (50.1), TECH (2.4), SHOPPING (1.0)
+Based on the last 18 posts on this page:
+Best categories: AI (25.1), TECH (2.4), SHOPPING (1.0)
 Weakest categories: SCIENCE (0.2), BUSINESS (0.0)
-Format: photo (3.8, 14 posts), reel (2.4, 3 posts)
+Format: photo (3.5, 15 posts), reel (2.4, 3 posts)
 Best posting slots (UTC): 16:00 (25.2), 19:00 (2.3), 01:00 (1.7)
 Top posts: Satya Nadella unveils groundbreaking AI laptop with Jensen Huang (50.1) | Elon Musk returns as trillionaire, even after massive SpaceX dip (4.6) | Adam Levine admits he made a mistake on The Voice (1.7)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-07T23:06 | photo | AI | Mark Zuckerberg backs $1.8 billion AI biology push with Google | 0 | 0 | 0 | 0 | 0.0 |
 | 2026-10-07T19:06 | photo | BUSINESS | Tim Cook cashes out $63.8 million in Apple stock | 0 | 0 | 0 | 0 | 0.0 |
 | 2026-10-07T16:06 | photo | AI | Satya Nadella unveils groundbreaking AI laptop with Jensen Huang | 6 | 0 | 0 | 10 | 50.1 |
 | 2026-10-07T12:14 | photo | SCIENCE | Henri Kagan and Kenso Soai just won the Nobel Prize | 11 | 0 | 0 | 0 | 0.2 |
