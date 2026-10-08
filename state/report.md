@@ -1,29 +1,30 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-08 16:05 UTC_
+_Updated 2026-10-08 19:06 UTC_
 
 ```
-Based on the last 21 posts on this page:
-Best categories: TECH (18.8), SHOPPING (10.0), CELEBRITY (9.9)
+Based on the last 22 posts on this page:
+Best categories: TECH (19.2), SHOPPING (10.0), CELEBRITY (10.0)
 Weakest categories: SCIENCE (4.0), SPORTS (3.6)
-Format: reel (24.0, 5 posts), photo (4.7, 16 posts)
-Best posting slots (UTC): 01:00 (32.4), 19:00 (24.1), 23:00 (6.7)
-Top posts: Elon Musk gets German backing for Tesla driver aid (43.4) | Elon Musk returns as trillionaire, even after massive SpaceX dip (40.2) | Adam Levine admits he made a mistake on The Voice (21.4)
+Format: reel (24.5, 5 posts), photo (4.6, 17 posts)
+Best posting slots (UTC): 01:00 (32.9), 19:00 (24.2), 12:00 (6.8)
+Top posts: Elon Musk gets German backing for Tesla driver aid (44.0) | Elon Musk returns as trillionaire, even after massive SpaceX dip (40.4) | Adam Levine admits he made a mistake on The Voice (21.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
-| 2026-10-08T12:07 | reel | TECH | Mark Zuckerberg charms Trump, steers AI clash with big stakes | 25 | 0 | 0 | 0 | 5.0 |
+| 2026-10-08T16:06 | photo | BUSINESS | Donald Trump injects $25 million into Meta, backs SpaceX debt | 1 | 1 | 0 | 0 | 2.2 |
+| 2026-10-08T12:07 | reel | TECH | Mark Zuckerberg charms Trump, steers AI clash with big stakes | 32 | 0 | 0 | 0 | 6.4 |
 | 2026-10-08T07:07 | photo | TECH | Elon Musk slams Indian oligarchs over Starlink delay | 15 | 0 | 0 | 0 | 3.0 |
-| 2026-10-08T01:06 | reel | TECH | Elon Musk gets German backing for Tesla driver aid | 207 | 1 | 0 | 0 | 43.4 |
+| 2026-10-08T01:06 | reel | TECH | Elon Musk gets German backing for Tesla driver aid | 210 | 1 | 0 | 0 | 44.0 |
 | 2026-10-07T23:06 | photo | AI | Mark Zuckerberg backs $1.8 billion AI biology push with Google | 19 | 0 | 0 | 11 | 9.8 |
 | 2026-10-07T19:06 | photo | BUSINESS | Tim Cook cashes out $63.8 million in Apple stock | 10 | 0 | 0 | 10 | 8.0 |
 | 2026-10-07T16:06 | photo | AI | Satya Nadella unveils groundbreaking AI laptop with Jensen Huang | 16 | 0 | 0 | 10 | 9.2 |
 | 2026-10-07T12:14 | photo | SCIENCE | Henri Kagan and Kenso Soai just won the Nobel Prize | 20 | 0 | 0 | 0 | 4.0 |
 | 2026-10-07T07:06 | photo | CELEBRITY | Kiara Advani announces second pregnancy, calls it a blessing | 24 | 0 | 0 | 0 | 4.8 |
-| 2026-10-07T01:06 | reel | CELEBRITY | Adam Levine admits he made a mistake on The Voice | 107 | 0 | 0 | 0 | 21.4 |
+| 2026-10-07T01:06 | reel | CELEBRITY | Adam Levine admits he made a mistake on The Voice | 109 | 0 | 0 | 0 | 21.8 |
 | 2026-10-06T23:06 | photo | SPORTS | Shohei Ohtani bumped to No.5 spot sparks debate | 18 | 0 | 0 | 0 | 3.6 |
-| 2026-10-06T19:06 | reel | TECH | Elon Musk returns as trillionaire, even after massive SpaceX dip | 191 | 1 | 0 | 0 | 40.2 |
+| 2026-10-06T19:06 | reel | TECH | Elon Musk returns as trillionaire, even after massive SpaceX dip | 192 | 1 | 0 | 0 | 40.4 |
 | 2026-10-06T16:05 | photo | CELEBRITY | Michael Douglas opens up about separation from Catherine Zeta‑Jones | 17 | 0 | 0 | 0 | 3.4 |
 | 2026-10-06T12:06 | reel | SHOPPING | ASOS shoppers in meltdown after receiving threatening app notifications | 50 | 0 | 0 | 0 | 10.0 |
 | 2026-10-06T07:09 | photo | TECH | Teenager raises $11 million for screenless AI computer | 12 | 0 | 0 | 0 | 2.4 |
