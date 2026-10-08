@@ -76,8 +76,10 @@ def _age_hours(rec):
 
 
 def score(st):
-    """One engagement number: shares and comments count most, then reactions, then views."""
-    return st.get("reactions", 0) + 3 * st.get("comments", 0) + 5 * st.get("shares", 0) + st.get("views", 0) / 50
+    """One engagement number led by real reach (views). Shares are capped: the page owner shares every post
+    to a few groups by hand, which would otherwise make any post look like a hit."""
+    return (st.get("views", 0) / 5 + 2 * st.get("reactions", 0) + 3 * st.get("comments", 0)
+            + 3 * min(st.get("shares", 0), 2))
 
 
 def update_stats(state, max_posts=25):
@@ -129,6 +131,8 @@ def summary(state):
     recs = [r for r in state["posted"] if r.get("stats") and not r.get("dry_run")]
     if len(recs) < 4:
         return ""
+    for r in recs:  # re-score old posts with the current formula
+        r["stats"]["score"] = round(score(r["stats"]), 1)
     by_cat = _group(recs, lambda r: (r.get("badge") or "").upper())
     by_fmt = _group(recs, lambda r: r.get("format", "photo"))
     by_slot = _group(recs, lambda r: r.get("slot", ""))
@@ -151,6 +155,8 @@ def summary(state):
 def best_format(state):
     """'reel' or 'photo' if one clearly wins (3+ posts each, 30%+ better), else None."""
     recs = [r for r in state["posted"] if r.get("stats") and not r.get("dry_run")]
+    for r in recs:  # compare formats on organic reach only
+        r["stats"]["score"] = round(score(r["stats"]), 1)
     fm = {k: (v, n) for k, v, n in _group(recs, lambda r: r.get("format", "photo"))}
     if "reel" in fm and "photo" in fm and fm["reel"][1] >= 3 and fm["photo"][1] >= 3:
         r, p = fm["reel"][0], fm["photo"][0]
