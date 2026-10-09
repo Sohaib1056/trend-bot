@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-08 23:06 UTC_
+_Updated 2026-10-09 01:05 UTC_
 
 ```
-Based on the last 23 posts on this page:
-Best categories: TECH (21.4), CELEBRITY (10.5), SHOPPING (10.0)
+Based on the last 24 posts on this page:
+Best categories: TECH (21.0), CELEBRITY (10.5), SHOPPING (10.0)
 Weakest categories: SCIENCE (4.0), SPORTS (3.6)
-Format: reel (26.0, 6 posts), photo (4.6, 17 posts)
-Best posting slots (UTC): 01:00 (34.2), 19:00 (26.3), 12:00 (6.9)
-Top posts: Elon Musk gets German backing for Tesla driver aid (45.0) | Elon Musk returns as trillionaire, even after massive SpaceX dip (40.4) | Elon Musk receives National Medal of Science from Trump (30.6)
+Format: reel (25.0, 7 posts), photo (4.6, 17 posts)
+Best posting slots (UTC): 01:00 (34.2), 19:00 (32.2), 12:00 (6.9)
+Top posts: Elon Musk receives National Medal of Science from Trump (48.2) | Elon Musk gets German backing for Tesla driver aid (45.0) | Elon Musk returns as trillionaire, even after massive SpaceX dip (40.4)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
-| 2026-10-08T19:07 | reel | TECH | Elon Musk receives National Medal of Science from Trump | 133 | 2 | 0 | 0 | 30.6 |
+| 2026-10-08T23:06 | reel | TECH | Donald Trump suspends Microsoft from foreign worker green card program | 5 | 0 | 0 | 0 | 1.0 |
+| 2026-10-08T19:07 | reel | TECH | Elon Musk receives National Medal of Science from Trump | 221 | 2 | 0 | 0 | 48.2 |
 | 2026-10-08T16:06 | photo | BUSINESS | Donald Trump injects $25 million into Meta, backs SpaceX debt | 1 | 1 | 0 | 0 | 2.2 |
 | 2026-10-08T12:07 | reel | TECH | Mark Zuckerberg charms Trump, steers AI clash with big stakes | 34 | 0 | 0 | 0 | 6.8 |
 | 2026-10-08T07:07 | photo | TECH | Elon Musk slams Indian oligarchs over Starlink delay | 15 | 0 | 0 | 0 | 3.0 |

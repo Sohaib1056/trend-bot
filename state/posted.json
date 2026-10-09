@@ -676,12 +676,12 @@
       "facebook_reel": "1706612744398346",
       "facebook": "1706612744398346",
       "stats": {
-        "views": 133,
+        "views": 221,
         "reactions": 2,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-08T21:18+00:00",
-        "score": 30.6
+        "checked": "2026-10-09T01:05+00:00",
+        "score": 48.2
       }
     },
     {
@@ -698,7 +698,30 @@
       "time": "2026-10-08T23:06+00:00",
       "format": "reel",
       "facebook_reel": "4539306306215496",
-      "facebook": "4539306306215496"
+      "facebook": "4539306306215496",
+      "stats": {
+        "views": 5,
+        "reactions": 0,
+        "comments": 0,
+        "shares": 0,
+        "checked": "2026-10-09T01:05+00:00",
+        "score": 1.0
+      }
+    },
+    {
+      "key": "lebron-retraction",
+      "topic": "LeBron James Sparks Quick Retraction After ESPN Broadcaster\u2019s Controversial Joel Embiid Claim",
+      "headline": "LeBron James *retracts* after ESPN broadcaster's Joel Embiid claim",
+      "badge": "SPORTS",
+      "slot": "01",
+      "share_groups": [
+        "NBA fans",
+        "LeBron James fans"
+      ],
+      "time": "2026-10-09T01:06+00:00",
+      "format": "reel",
+      "facebook_reel": "1389738052892430",
+      "facebook": "1389738052892430"
     }
   ],
   "replied": [],
