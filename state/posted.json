@@ -32,7 +32,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-09T02:08+00:00",
+        "checked": "2026-10-09T16:10+00:00",
         "score": 10.4
       }
     },
@@ -47,7 +47,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-09T12:05+00:00",
+        "checked": "2026-10-09T16:10+00:00",
         "score": 1.8
       }
     },
@@ -794,7 +794,15 @@
       "time": "2026-10-09T16:07+00:00",
       "format": "photo",
       "facebook": "1397517856769204_122109717987493621",
-      "facebook_photo_id": "122109717957493621"
+      "facebook_photo_id": "122109717957493621",
+      "stats": {
+        "views": 0,
+        "reactions": 0,
+        "comments": 0,
+        "shares": 0,
+        "checked": "2026-10-09T16:10+00:00",
+        "score": 0.0
+      }
     }
   ],
   "replied": [],
