@@ -1,31 +1,32 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-09 03:05 UTC_
+_Updated 2026-10-09 12:06 UTC_
 
 ```
-Based on the last 25 posts on this page:
-Best categories: TECH (21.0), CELEBRITY (11.0), SHOPPING (10.0)
-Weakest categories: SCIENCE (4.0), SPORTS (1.8)
-Format: reel (22.1, 8 posts), photo (4.6, 17 posts)
-Best posting slots (UTC): 19:00 (32.2), 01:00 (23.3), 12:00 (7.1)
-Top posts: Elon Musk receives National Medal of Science from Trump (48.2) | Elon Musk gets German backing for Tesla driver aid (45.0) | Elon Musk returns as trillionaire, even after massive SpaceX dip (40.4)
+Based on the last 26 posts on this page:
+Best categories: TECH (30.4), CELEBRITY (11.8), SHOPPING (10.0)
+Weakest categories: SPORTS (5.3), SCIENCE (4.0)
+Format: reel (31.2, 9 posts), photo (5.1, 17 posts)
+Best posting slots (UTC): 19:00 (54.4), 01:00 (26.5), 03:00 (20.6)
+Top posts: Elon Musk receives National Medal of Science from Trump (114.8) | Elon Musk gets German backing for Tesla driver aid (45.2) | Elon Musk returns as trillionaire, even after massive SpaceX dip (40.4)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
-| 2026-10-09T01:06 | reel | SPORTS | LeBron James retracts after ESPN broadcaster's Joel Embiid claim | 0 | 0 | 0 | 0 | 0.0 |
-| 2026-10-08T23:06 | reel | TECH | Donald Trump suspends Microsoft from foreign worker green card program | 5 | 0 | 0 | 0 | 1.0 |
-| 2026-10-08T19:07 | reel | TECH | Elon Musk receives National Medal of Science from Trump | 221 | 2 | 0 | 0 | 48.2 |
-| 2026-10-08T16:06 | photo | BUSINESS | Donald Trump injects $25 million into Meta, backs SpaceX debt | 1 | 1 | 0 | 0 | 2.2 |
-| 2026-10-08T12:07 | reel | TECH | Mark Zuckerberg charms Trump, steers AI clash with big stakes | 36 | 0 | 0 | 0 | 7.2 |
-| 2026-10-08T07:07 | photo | TECH | Elon Musk slams Indian oligarchs over Starlink delay | 15 | 0 | 0 | 0 | 3.0 |
-| 2026-10-08T01:06 | reel | TECH | Elon Musk gets German backing for Tesla driver aid | 215 | 1 | 0 | 0 | 45.0 |
+| 2026-10-09T03:06 | reel | TECH | Elon Musk's SpaceX just crushed major phone stocks | 103 | 0 | 0 | 0 | 20.6 |
+| 2026-10-09T01:06 | reel | SPORTS | LeBron James retracts after ESPN broadcaster's Joel Embiid claim | 35 | 0 | 0 | 0 | 7.0 |
+| 2026-10-08T23:06 | reel | TECH | Donald Trump suspends Microsoft from foreign worker green card program | 41 | 0 | 0 | 0 | 8.2 |
+| 2026-10-08T19:07 | reel | TECH | Elon Musk receives National Medal of Science from Trump | 504 | 7 | 0 | 0 | 114.8 |
+| 2026-10-08T16:06 | photo | BUSINESS | Donald Trump injects $25 million into Meta, backs SpaceX debt | 15 | 1 | 0 | 9 | 11.0 |
+| 2026-10-08T12:07 | reel | TECH | Mark Zuckerberg charms Trump, steers AI clash with big stakes | 39 | 0 | 0 | 0 | 7.8 |
+| 2026-10-08T07:07 | photo | TECH | Elon Musk slams Indian oligarchs over Starlink delay | 17 | 0 | 0 | 0 | 3.4 |
+| 2026-10-08T01:06 | reel | TECH | Elon Musk gets German backing for Tesla driver aid | 216 | 1 | 0 | 0 | 45.2 |
 | 2026-10-07T23:06 | photo | AI | Mark Zuckerberg backs $1.8 billion AI biology push with Google | 19 | 0 | 0 | 11 | 9.8 |
 | 2026-10-07T19:06 | photo | BUSINESS | Tim Cook cashes out $63.8 million in Apple stock | 10 | 0 | 0 | 10 | 8.0 |
 | 2026-10-07T16:06 | photo | AI | Satya Nadella unveils groundbreaking AI laptop with Jensen Huang | 16 | 0 | 0 | 10 | 9.2 |
 | 2026-10-07T12:14 | photo | SCIENCE | Henri Kagan and Kenso Soai just won the Nobel Prize | 20 | 0 | 0 | 0 | 4.0 |
 | 2026-10-07T07:06 | photo | CELEBRITY | Kiara Advani announces second pregnancy, calls it a blessing | 24 | 0 | 0 | 0 | 4.8 |
-| 2026-10-07T01:06 | reel | CELEBRITY | Adam Levine admits he made a mistake on The Voice | 124 | 0 | 0 | 0 | 24.8 |
+| 2026-10-07T01:06 | reel | CELEBRITY | Adam Levine admits he made a mistake on The Voice | 136 | 0 | 0 | 0 | 27.2 |
 | 2026-10-06T23:06 | photo | SPORTS | Shohei Ohtani bumped to No.5 spot sparks debate | 18 | 0 | 0 | 0 | 3.6 |
 | 2026-10-06T19:06 | reel | TECH | Elon Musk returns as trillionaire, even after massive SpaceX dip | 192 | 1 | 0 | 0 | 40.4 |
 | 2026-10-06T16:05 | photo | CELEBRITY | Michael Douglas opens up about separation from Catherine Zeta‑Jones | 17 | 0 | 0 | 0 | 3.4 |
