@@ -146,10 +146,49 @@ def summary(state):
         lines.append("Format: " + ", ".join(f"{k} ({v:.1f}, {n} posts)" for k, v, n in by_fmt))
     if by_slot:
         lines.append("Best posting slots (UTC): " + ", ".join(f"{k}:00 ({v:.1f})" for k, v, n in by_slot[:3]))
+    faces = face_stats(state)
+    if faces:
+        lines.append("Best faces on this page (avg views per post): "
+                     + ", ".join(f"{f} {v:.0f} ({n} posts)" for f, _, v, n in faces[:6])
+                     + ". Prefer the top faces; faces with low numbers only for very big news.")
     lines.append("Top posts: " + " | ".join(f"{r['headline'].replace('*', '')} ({r['stats']['score']})" for r in top))
     text = "\n".join(lines)
     _write_report(recs, text)
     return text
+
+
+def _face_of(rec):
+    """The famous person a post was about (stored since 2026-10-09, guessed from the headline for older posts)."""
+    if rec.get("face"):
+        return rec["face"]
+    from .trends import FACES, FOCUS
+    text = rec.get("headline", "").replace("*", "").lower()
+    names = [n for n in FOCUS + FACES if " " in n and not n.lower().endswith((" ai", " tools"))]
+    hits = sorted((text.find(n.lower()), n) for n in names if n.lower() in text)
+    return hits[0][1] if hits else ""
+
+
+def face_stats(state):
+    """[(face, avg score, avg views, posts)] best first: which famous faces work on THIS page."""
+    g = defaultdict(list)
+    for r in state["posted"]:
+        if r.get("stats") and not r.get("dry_run") and _face_of(r):
+            g[_face_of(r)].append(r["stats"])
+    rows = [(f, sum(score(s) for s in v) / len(v), sum(s.get("views", 0) for s in v) / len(v), len(v))
+            for f, v in g.items()]
+    return sorted(rows, key=lambda x: -x[1])
+
+
+def star_face(state):
+    """The page's best-performing face (needs 2+ posts), else Elon Musk."""
+    return next((f for f, _, _, n in face_stats(state) if n >= 2), "Elon Musk")
+
+
+def best_slot(state):
+    """The posting slot (UTC hour) with the best results (needs 2+ posts), else 19."""
+    recs = [r for r in state["posted"] if r.get("stats") and not r.get("dry_run") and r.get("slot")]
+    rows = [(k, v, n) for k, v, n in _group(recs, lambda r: r.get("slot", "")) if n >= 2]
+    return int(rows[0][0]) if rows else 19
 
 
 def best_format(state):

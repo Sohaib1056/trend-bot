@@ -9,14 +9,14 @@ from . import config
 THEMES = ["red", "blue", "purple", "orange", "green", "dark", "pink", "teal"]
 
 
-def build_prompt(candidates, already_posted, n, performance=""):
+def build_prompt(candidates, already_posted, n, performance="", special=""):
     lines = []
     for i, c in enumerate(candidates, 1):
         star = " | FAMOUS FACE" if c.get("focus") else ""
         where = (" | buzz: " + "; ".join(c["trends"][:2])) if c.get("trends") else ""
         lines.append(f"{i}. TOPIC: {c['topic']} | power: {c.get('power', 0):,} | trending in: {c['country']}{star}{where}")
         for nw in c["news"][:3]:
-            lines.append(f"   - {nw['title']} ({nw['source']}): {nw['snippet'][:300]}")
+            lines.append(f"   - {nw['title']} ({nw['source']}): {nw['snippet'][:900 if nw.get('source') == 'Wikipedia' else 300]}")
     politics = ("Skip campaign politics (polls, debates, fundraising, local races). World-famous US leaders such as "
                 "Donald Trump ARE allowed when the story is big news: report it neutrally and factually, no opinions, "
                 "no party attacks, no election claims." if config.AVOID_POLITICS else "")
@@ -32,7 +32,7 @@ Below are topics trending RIGHT NOW with related news headlines.
 
 {('WHAT WORKS ON THIS PAGE (learn from it, favour topics like the best ones):' + chr(10) + performance + chr(10) + chr(10)) if performance else ''}Topics already posted recently (do NOT repeat these or close variants): {', '.join(already_posted[-60:]) or 'none'}
 
-TASK: Choose the {n} topic(s) with the BIGGEST mass appeal and write one post for each.
+{special}TASK: Choose the {n} topic(s) with the BIGGEST mass appeal and write one post for each.
 Stories built around ONE famous face (a person people recognise instantly) get far more views than stories
 about companies or markets: prefer them. Topics marked FAMOUS FACE involve such a person: pick those FIRST,
 as long as the story is genuinely interesting (a big move, money, a clash, a surprising statement, a launch).
@@ -66,7 +66,7 @@ Return JSON exactly in this shape:
   "caption": "80-140 words. First line = strong hook with 1-2 emojis. Short paragraphs. Explain what happened using only given facts. End with a question to drive comments, then a short share nudge like 'Send this to a friend who needs to see it 👀'.",
   "hashtags": ["10 to 15 hashtags without #, mix of broad popular tags and topic-specific tags"],
   "image_query": "2-4 words for a vibrant, eye-catching, professional stock photo that captures the excitement or emotion of the story, not a dull literal object (e.g. 'online shopping sale' not 'cardboard boxes', 'football stadium crowd' not 'football'). No person names.",
-  "voiceover": "the Reel narration, read aloud by an energetic US news voice: 40-50 words (the Reel must run at least 15 seconds), 5-6 SHORT punchy spoken sentences (max 10 words each, so the visuals can change often). Open with a hook that names the famous person/thing, then the key fact (only given facts). Plain words, no emoji, no hashtags, no asterisks. Do NOT end with a follow request (added automatically). Each sentence should say something that can be SHOWN (the person, a place, an object, an action).",
+  "voiceover": "the Reel narration, read aloud by an energetic US news voice: 40-50 words (the Reel must run at least 15 seconds), 5-6 SHORT punchy spoken sentences (max 10 words each, so the visuals can change often). Open with a hook that names the famous person/thing, then the key fact (only given facts). Plain words, no emoji, no hashtags, no asterisks. End with ONE short direct question the viewer can answer in a word in the comments (e.g. 'Is he right? Comment yes or no!'). Do NOT add a follow request (added automatically). Each sentence should say something that can be SHOWN (the person, a place, an object, an action).",
   "scenes": [{{"line": "the exact words of ONE sentence or phrase of the voiceover, in order, together covering the whole voiceover (5-7 lines)", "show": "face (show the famous person) or video (stock footage)", "query": "for video: 2-4 word stock video search that shows exactly what this line says (e.g. 'rocket launch', 'stock market crash screen', 'robot hand typing'); no person names", "ai": "one-sentence photorealistic AI image of what this line says, as a backup (no real person's face, no text)"}}],
   "video_queries": ["2-3 searches (2-3 words each) for real stock VIDEO footage showing the story's action and mood, for fast cuts in a Reel, e.g. tennis upset -> 'tennis match', 'stadium crowd cheering'; app hack -> 'smartphone notification', 'shocked woman phone'. No person names."],
   "theme": "one of {THEMES}"
@@ -195,7 +195,7 @@ def _groq(prompt):
     raise RuntimeError(last)
 
 
-def write_posts(candidates, already_posted, n, performance=""):
+def write_posts(candidates, already_posted, n, performance="", special=""):
     engines = []
     if config.GEMINI_API_KEY:
         engines.append(_gemini)
@@ -204,7 +204,7 @@ def write_posts(candidates, already_posted, n, performance=""):
     if not engines:
         raise RuntimeError("No AI key found. Add GEMINI_API_KEY (or GROQ_API_KEY) in GitHub Secrets.")
     for size in dict.fromkeys((n, 1)):  # if a long answer fails, ask for a single post
-        prompt = build_prompt(candidates, already_posted, size, performance)
+        prompt = build_prompt(candidates, already_posted, size, performance, special)
         for engine in engines:
             try:
                 posts = _parse(engine(prompt))

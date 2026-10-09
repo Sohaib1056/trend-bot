@@ -123,7 +123,27 @@ def main():
     if performance:
         print("[insights] " + performance.replace("\n", "\n[insights] "))
     # a couple of spares, so one skipped post doesn't leave the slot empty
-    posts = ai.write_posts(candidates, already, config.POSTS_PER_RUN + 2, performance)
+    special, facts_topic = "", ""
+    slot_now = current_slot(datetime.now(timezone.utc))
+    if choose_format(state) == "reel" and slot_now is not None and slot_now.hour == insights.best_slot(state):
+        # the page's best slot always gets a Reel about its best-performing face: fresh news, else facts & stats
+        star = insights.star_face(state)
+        facts_topic = norm(f"{star} facts")
+        pool = [c for c in candidates if star.lower() in
+                (c["topic"] + " " + " ".join(n["title"] for n in c["news"])).lower()][:6]
+        try:
+            pool.append(trends.person_facts(star))
+        except Exception as e:
+            print(f"[main] facts for {star} failed: {e}")
+        if pool:
+            candidates = pool
+            special = (f"PEAK SLOT: this post MUST be about {star}, the face that performs best on this page. "
+                       f"If a fresh news topic about {star} is listed, use it. Otherwise write a FACTS & STATS Reel "
+                       f"from the '{star} facts' topic (e.g. 'X wild facts about {star}', 'how rich is ...'): set "
+                       f"topic to exactly '{star} facts', and use ONLY numbers and facts stated in the text. "
+                       f"wiki_title must be '{star}'.\n\n")
+            print(f"[main] star slot {slot_now:%H}:00 UTC -> Reel about {star} ({len(pool)} topics)")
+    posts = ai.write_posts(candidates, already, config.POSTS_PER_RUN + 2, performance, special)
 
     if choose_format(state) == "reel":  # a Reel is due: stories about a famous person first
         posts.sort(key=lambda p: not p.get("wiki_title"))
@@ -131,7 +151,12 @@ def main():
     for p in posts:
         if made >= config.POSTS_PER_RUN:
             break
-        if p["key"] in done_keys or norm(p.get("topic", "")) in done_topics or BLOCK_WORDS.search(p["headline"] + " " + p["caption"]):
+        if facts_topic and norm(p.get("topic", "")) == facts_topic:  # facts Reels may repeat: one per day
+            p["key"] = f"{p['key'][:40]}-{datetime.now(timezone.utc):%Y%m%d}"
+        elif p["key"] in done_keys or norm(p.get("topic", "")) in done_topics:
+            print(f"[main] skipping {p['key']} (already posted)")
+            continue
+        if p["key"] in done_keys or BLOCK_WORDS.search(p["headline"] + " " + p["caption"]):
             print(f"[main] skipping {p['key']}")
             continue
         stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M")
@@ -147,6 +172,7 @@ def main():
         slot = current_slot(datetime.now(timezone.utc))
         record = {"key": p["key"], "topic": p.get("topic", ""), "headline": p["headline"],
                   "badge": p.get("badge", ""), "slot": f"{slot:%H}" if slot else "",
+                  "face": p.get("wiki_title", "") if p.get("_person") else "",
                   "share_groups": p.get("share_groups", [])[:3],
                   "time": datetime.now(timezone.utc).isoformat(timespec="minutes")}
         if config.DRY_RUN:

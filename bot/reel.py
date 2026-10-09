@@ -299,6 +299,9 @@ def _planned_scenes(post, photo, words, duration):
             kind, item = "photo", (others[len(out) % len(others)] if others else photo)
         out.append([kind, item, int(round((b - a) * FPS))])
         print(f"[reel] {a:4.1f}-{b:4.1f}s {kind:5} for: {line[:60]}")
+    if people and out[0][0] != "face":  # a Reel about a famous person always opens on their face
+        out[0][0], out[0][1] = "face", people[0]
+        print("[reel] first scene -> the face")
     out[-1][2] += int(duration * FPS) - sum(n for _, _, n in out)  # exact total length
     return [tuple(x) for x in out]
 

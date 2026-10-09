@@ -263,6 +263,23 @@ def wiki_people(limit=20):
     return people[:limit]
 
 
+def person_facts(name):
+    """A 'facts & stats' topic about a famous person: Wikipedia summary + their latest news, for the star slot."""
+    news = []
+    try:
+        r = requests.get("https://en.wikipedia.org/api/rest_v1/page/summary/" + requests.utils.quote(name.replace(" ", "_")),
+                         headers={"User-Agent": "HypeAtlasBot/1.0 (facebook.com/hypeatlasnews)"}, timeout=20).json()
+        if r.get("extract"):
+            news.append({"title": f"{name} (Wikipedia)", "snippet": r["extract"][:900], "source": "Wikipedia",
+                         "url": (r.get("content_urls") or {}).get("desktop", {}).get("page", "")})
+    except Exception as e:
+        print(f"[trends] Wikipedia summary for {name} failed: {e}")
+    for it in focus_news([name], per_term=3):
+        news += it["news"]
+    return {"topic": f"{name} facts", "traffic": "", "country": "US", "source": "focus", "news": news[:4],
+            "power": 1, "focus": True, "trends": ["the page's best-performing face"], "countries": ["US"]}
+
+
 def _is_focus(m):
     blob = (m["topic"] + " " + " ".join(n["title"] for n in m["news"])).lower()
     return any(re.search(r"\b" + re.escape(t.lower()) + r"\b", blob) for t in FOCUS + FACES + _TRENDING_PEOPLE)
