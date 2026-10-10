@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-10 01:05 UTC_
+_Updated 2026-10-10 03:06 UTC_
 
 ```
-Based on the last 30 posts on this page:
-Best categories: TECH (26.8), CELEBRITY (12.3), SHOPPING (10.0)
+Based on the last 31 posts on this page:
+Best categories: TECH (26.9), CELEBRITY (12.5), SHOPPING (10.0)
 Weakest categories: SPORTS (5.8), SCIENCE (4.0)
-Format: reel (27.8, 11 posts), photo (5.4, 19 posts)
-Best posting slots (UTC): 19:00 (44.9), 01:00 (27.3), 03:00 (21.4)
-Best faces on this page (avg views per post): Elon Musk 161 (7 posts), Donald Trump 26 (3 posts), Satya Nadella 16 (1 posts), Mark Zuckerberg 22 (3 posts), Tim Cook 10 (1 posts), LeBron James 40 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
-Top posts: Elon Musk receives National Medal of Science from Trump (126.4) | Elon Musk gets German backing for Tesla driver aid (45.2) | Elon Musk returns as trillionaire, even after massive SpaceX dip (40.6)
+Format: reel (25.9, 12 posts), photo (5.4, 19 posts)
+Best posting slots (UTC): 19:00 (45.1), 01:00 (21.4), 03:00 (21.4)
+Best faces on this page (avg views per post): Elon Musk 162 (7 posts), Satya Nadella 16 (1 posts), Mark Zuckerberg 22 (3 posts), Donald Trump 23 (4 posts), Tim Cook 10 (1 posts), LeBron James 40 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Top posts: Elon Musk receives National Medal of Science from Trump (127.2) | Elon Musk gets German backing for Tesla driver aid (45.2) | Elon Musk returns as trillionaire, even after massive SpaceX dip (40.6)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-10T01:06 | reel | BUSINESS | Donald Trump buys $5 million in SpaceX bonds before big order | 16 | 0 | 0 | 0 | 3.2 |
 | 2026-10-09T23:08 | reel | BUSINESS | Elon Musk report reveals woman rejected $40 million payout | 20 | 0 | 0 | 0 | 4.0 |
 | 2026-10-09T19:07 | reel | TECH | Elon Musk's SpaceX surge sends AT&T, Verizon, T‑Mobile shares plunging | 22 | 0 | 0 | 0 | 4.4 |
 | 2026-10-09T16:07 | photo | TECH | Mark Zuckerberg launches Meta’s new AI Agent amid industry buzz | 5 | 0 | 0 | 10 | 7.0 |
@@ -21,7 +22,7 @@ Top posts: Elon Musk receives National Medal of Science from Trump (126.4) | Elo
 | 2026-10-09T03:06 | reel | TECH | Elon Musk's SpaceX just crushed major phone stocks | 107 | 0 | 0 | 0 | 21.4 |
 | 2026-10-09T01:06 | reel | SPORTS | LeBron James retracts after ESPN broadcaster's Joel Embiid claim | 40 | 0 | 0 | 0 | 8.0 |
 | 2026-10-08T23:06 | reel | TECH | Donald Trump suspends Microsoft from foreign worker green card program | 45 | 0 | 0 | 0 | 9.0 |
-| 2026-10-08T19:07 | reel | TECH | Elon Musk receives National Medal of Science from Trump | 552 | 8 | 0 | 0 | 126.4 |
+| 2026-10-08T19:07 | reel | TECH | Elon Musk receives National Medal of Science from Trump | 556 | 8 | 0 | 0 | 127.2 |
 | 2026-10-08T16:06 | photo | BUSINESS | Donald Trump injects $25 million into Meta, backs SpaceX debt | 19 | 1 | 0 | 9 | 11.8 |
 | 2026-10-08T12:07 | reel | TECH | Mark Zuckerberg charms Trump, steers AI clash with big stakes | 41 | 0 | 0 | 0 | 8.2 |
 | 2026-10-08T07:07 | photo | TECH | Elon Musk slams Indian oligarchs over Starlink delay | 17 | 0 | 0 | 0 | 3.4 |
@@ -31,7 +32,7 @@ Top posts: Elon Musk receives National Medal of Science from Trump (126.4) | Elo
 | 2026-10-07T16:06 | photo | AI | Satya Nadella unveils groundbreaking AI laptop with Jensen Huang | 16 | 0 | 0 | 10 | 9.2 |
 | 2026-10-07T12:14 | photo | SCIENCE | Henri Kagan and Kenso Soai just won the Nobel Prize | 20 | 0 | 0 | 0 | 4.0 |
 | 2026-10-07T07:06 | photo | CELEBRITY | Kiara Advani announces second pregnancy, calls it a blessing | 24 | 0 | 0 | 0 | 4.8 |
-| 2026-10-07T01:06 | reel | CELEBRITY | Adam Levine admits he made a mistake on The Voice | 144 | 0 | 0 | 0 | 28.8 |
+| 2026-10-07T01:06 | reel | CELEBRITY | Adam Levine admits he made a mistake on The Voice | 147 | 0 | 0 | 0 | 29.4 |
 | 2026-10-06T23:06 | photo | SPORTS | Shohei Ohtani bumped to No.5 spot sparks debate | 18 | 0 | 0 | 0 | 3.6 |
 | 2026-10-06T19:06 | reel | TECH | Elon Musk returns as trillionaire, even after massive SpaceX dip | 193 | 1 | 0 | 0 | 40.6 |
 | 2026-10-06T16:05 | photo | CELEBRITY | Michael Douglas opens up about separation from Catherine Zeta‑Jones | 17 | 0 | 0 | 0 | 3.4 |
