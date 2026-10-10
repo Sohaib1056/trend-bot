@@ -32,7 +32,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-09T20:52+00:00",
+        "checked": "2026-10-10T00:48+00:00",
         "score": 10.4
       }
     },
@@ -47,7 +47,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-09T20:52+00:00",
+        "checked": "2026-10-10T00:48+00:00",
         "score": 1.8
       }
     },
@@ -800,7 +800,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 10,
-        "checked": "2026-10-09T20:52+00:00",
+        "checked": "2026-10-10T00:48+00:00",
         "score": 7.0
       }
     },
@@ -821,12 +821,12 @@
       "facebook_reel": "959578553339220",
       "facebook": "959578553339220",
       "stats": {
-        "views": 8,
+        "views": 22,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-09T20:52+00:00",
-        "score": 1.6
+        "checked": "2026-10-10T00:48+00:00",
+        "score": 4.4
       }
     },
     {
@@ -844,7 +844,15 @@
       "time": "2026-10-09T23:08+00:00",
       "format": "reel",
       "facebook_reel": "1091485227207807",
-      "facebook": "1091485227207807"
+      "facebook": "1091485227207807",
+      "stats": {
+        "views": 20,
+        "reactions": 0,
+        "comments": 0,
+        "shares": 0,
+        "checked": "2026-10-10T00:48+00:00",
+        "score": 4.0
+      }
     }
   ],
   "replied": [],
