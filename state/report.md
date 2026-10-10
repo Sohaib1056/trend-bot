@@ -1,20 +1,21 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-09 23:06 UTC_
+_Updated 2026-10-10 01:05 UTC_
 
 ```
-Based on the last 29 posts on this page:
-Best categories: TECH (26.5), CELEBRITY (12.3), SHOPPING (10.0)
+Based on the last 30 posts on this page:
+Best categories: TECH (26.8), CELEBRITY (12.3), SHOPPING (10.0)
 Weakest categories: SPORTS (5.8), SCIENCE (4.0)
-Format: reel (29.9, 10 posts), photo (5.4, 19 posts)
-Best posting slots (UTC): 19:00 (44.1), 01:00 (27.3), 03:00 (21.4)
-Best faces on this page (avg views per post): Elon Musk 182 (6 posts), Donald Trump 26 (3 posts), Satya Nadella 16 (1 posts), Mark Zuckerberg 22 (3 posts), Tim Cook 10 (1 posts), LeBron James 40 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (27.8, 11 posts), photo (5.4, 19 posts)
+Best posting slots (UTC): 19:00 (44.9), 01:00 (27.3), 03:00 (21.4)
+Best faces on this page (avg views per post): Elon Musk 161 (7 posts), Donald Trump 26 (3 posts), Satya Nadella 16 (1 posts), Mark Zuckerberg 22 (3 posts), Tim Cook 10 (1 posts), LeBron James 40 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk receives National Medal of Science from Trump (126.4) | Elon Musk gets German backing for Tesla driver aid (45.2) | Elon Musk returns as trillionaire, even after massive SpaceX dip (40.6)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
-| 2026-10-09T19:07 | reel | TECH | Elon Musk's SpaceX surge sends AT&T, Verizon, T‑Mobile shares plunging | 8 | 0 | 0 | 0 | 1.6 |
+| 2026-10-09T23:08 | reel | BUSINESS | Elon Musk report reveals woman rejected $40 million payout | 20 | 0 | 0 | 0 | 4.0 |
+| 2026-10-09T19:07 | reel | TECH | Elon Musk's SpaceX surge sends AT&T, Verizon, T‑Mobile shares plunging | 22 | 0 | 0 | 0 | 4.4 |
 | 2026-10-09T16:07 | photo | TECH | Mark Zuckerberg launches Meta’s new AI Agent amid industry buzz | 5 | 0 | 0 | 10 | 7.0 |
 | 2026-10-09T12:07 | photo | POLITICS | Donald Trump labels AI critics ‘the enemy’ | 13 | 0 | 0 | 10 | 8.6 |
 | 2026-10-09T03:06 | reel | TECH | Elon Musk's SpaceX just crushed major phone stocks | 107 | 0 | 0 | 0 | 21.4 |

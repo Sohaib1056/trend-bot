@@ -853,6 +853,23 @@
         "checked": "2026-10-10T00:48+00:00",
         "score": 4.0
       }
+    },
+    {
+      "key": "trump-spacex-bonds",
+      "topic": "Trump purchased up to $5 million of SpaceX bonds days before major space order",
+      "headline": "Donald Trump buys *$5\u202fmillion* in SpaceX bonds before big order",
+      "badge": "BUSINESS",
+      "slot": "01",
+      "face": "Donald Trump",
+      "share_groups": [
+        "Trump supporters",
+        "SpaceX enthusiasts",
+        "Wall Street investors"
+      ],
+      "time": "2026-10-10T01:06+00:00",
+      "format": "reel",
+      "facebook_reel": "1836830820968484",
+      "facebook": "1836830820968484"
     }
   ],
   "replied": [],
