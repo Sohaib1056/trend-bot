@@ -47,7 +47,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-11T03:05+00:00",
+        "checked": "2026-10-11T14:39+00:00",
         "score": 1.8
       }
     },
@@ -62,7 +62,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-11T03:05+00:00",
+        "checked": "2026-10-11T14:39+00:00",
         "score": 3.0
       }
     },
@@ -77,7 +77,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-11T03:05+00:00",
+        "checked": "2026-10-11T14:39+00:00",
         "score": 4.8
       }
     },
@@ -99,7 +99,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-11T03:05+00:00",
+        "checked": "2026-10-11T14:39+00:00",
         "score": 1.8
       }
     },
@@ -114,7 +114,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-11T03:05+00:00",
+        "checked": "2026-10-11T14:39+00:00",
         "score": 1.6
       }
     },
@@ -129,7 +129,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-11T03:05+00:00",
+        "checked": "2026-10-11T14:39+00:00",
         "score": 3.6
       }
     },
@@ -175,7 +175,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-11T03:05+00:00",
+        "checked": "2026-10-11T14:39+00:00",
         "score": 2.4
       }
     },
@@ -195,12 +195,12 @@
       "facebook_reel": "1143204774702997",
       "facebook": "1143204774702997",
       "stats": {
-        "views": 50,
+        "views": 51,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-11T03:05+00:00",
-        "score": 10.0
+        "checked": "2026-10-11T14:39+00:00",
+        "score": 10.2
       }
     },
     {
@@ -219,12 +219,12 @@
       "facebook": "1397517856769204_122107237065493621",
       "facebook_photo_id": "122107237035493621",
       "stats": {
-        "views": 17,
+        "views": 20,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-11T03:05+00:00",
-        "score": 3.4
+        "checked": "2026-10-11T14:39+00:00",
+        "score": 4.0
       }
     },
     {
@@ -303,12 +303,12 @@
       "facebook_reel": "2028743817805689",
       "facebook": "2028743817805689",
       "stats": {
-        "views": 193,
+        "views": 200,
         "reactions": 1,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-11T03:05+00:00",
-        "score": 40.6
+        "checked": "2026-10-11T14:39+00:00",
+        "score": 42.0
       }
     },
     {
@@ -327,12 +327,12 @@
       "facebook": "1397517856769204_122107529733493621",
       "facebook_photo_id": "122107529691493621",
       "stats": {
-        "views": 18,
+        "views": 19,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-11T01:51+00:00",
-        "score": 3.6
+        "checked": "2026-10-11T14:39+00:00",
+        "score": 3.8
       }
     },
     {
@@ -351,12 +351,12 @@
       "facebook_reel": "2622862774832358",
       "facebook": "2622862774832358",
       "stats": {
-        "views": 187,
+        "views": 230,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-11T01:51+00:00",
-        "score": 37.4
+        "checked": "2026-10-11T14:39+00:00",
+        "score": 46.0
       }
     },
     {
@@ -1068,7 +1068,31 @@
       "time": "2026-10-11T12:07+00:00",
       "format": "photo",
       "facebook": "1397517856769204_122110677783493621",
-      "facebook_photo_id": "122110677759493621"
+      "facebook_photo_id": "122110677759493621",
+      "stats": {
+        "views": 9,
+        "reactions": 0,
+        "comments": 0,
+        "shares": 0,
+        "checked": "2026-10-11T14:39+00:00",
+        "score": 1.8
+      }
+    },
+    {
+      "key": "elon-musk-enemies-case",
+      "topic": "Elon Musk\u2019s Enemies Make His Best Case",
+      "headline": "Elon Musk *faces fierce criticism* as rivals question his empire",
+      "badge": "TECH",
+      "slot": "12",
+      "face": "Elon Musk",
+      "share_groups": [
+        "Elon Musk fans",
+        "Tech news community",
+        "Musk critics"
+      ],
+      "time": "2026-10-11T14:41+00:00",
+      "dry_run": true,
+      "format": "reel"
     }
   ],
   "replied": [

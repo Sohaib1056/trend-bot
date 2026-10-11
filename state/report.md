@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-11 12:06 UTC_
+_Updated 2026-10-11 14:40 UTC_
 
 ```
-Based on the last 38 posts on this page:
-Best categories: TECH (46.7), CELEBRITY (23.8), BUSINESS (13.5)
-Weakest categories: AI (9.8), SCIENCE (4.2)
-Format: reel (41.4, 17 posts), photo (6.1, 21 posts)
-Best posting slots (UTC): 19:00 (92.6), 01:00 (23.2), 03:00 (16.1)
-Best faces on this page (avg views per post): Elon Musk 274 (8 posts), Donald Trump 31 (5 posts), Sundar Pichai 19 (1 posts), Satya Nadella 17 (1 posts), Mark Zuckerberg 27 (3 posts), LeBron James 44 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
-Top posts: Elon Musk receives National Medal of Science from Trump (351.8) | Elon Musk faces backlash after ex-wife reveals family claim (51.4) | Elon Musk gets German backing for Tesla driver aid (45.8)
+Based on the last 39 posts on this page:
+Best categories: TECH (46.9), CELEBRITY (25.3), BUSINESS (13.5)
+Weakest categories: SPORTS (8.2), SCIENCE (4.2)
+Format: reel (42.0, 17 posts), photo (6.0, 22 posts)
+Best posting slots (UTC): 19:00 (92.9), 01:00 (25.0), 03:00 (16.1)
+Best faces on this page (avg views per post): Elon Musk 275 (8 posts), Donald Trump 31 (5 posts), Sundar Pichai 19 (1 posts), Satya Nadella 17 (1 posts), Mark Zuckerberg 27 (3 posts), LeBron James 44 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Top posts: Elon Musk receives National Medal of Science from Trump (351.8) | Elon Musk faces backlash after ex-wife reveals family claim (51.4) | Adam Levine admits he made a mistake on The Voice (46.0)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-11T12:07 | photo | SPORTS | Kyrie Irving makes comeback in China preseason, sparking NBA buzz | 9 | 0 | 0 | 0 | 1.8 |
 | 2026-10-11T03:07 | reel | SPORTS | Arch Manning delivers big strikes in Texas vs Oklahoma clash | 91 | 0 | 0 | 0 | 18.2 |
 | 2026-10-11T01:06 | reel | CELEBRITY | Nicolas Cage rejects Amazon AI waiver, risks Spider‑Noir role | 86 | 0 | 0 | 0 | 17.2 |
 | 2026-10-10T23:07 | reel | CELEBRITY | Nicolas Cage refuses AI waiver and walks from Amazon project | 142 | 0 | 0 | 0 | 28.4 |
@@ -39,11 +40,11 @@ Top posts: Elon Musk receives National Medal of Science from Trump (351.8) | Elo
 | 2026-10-07T16:06 | photo | AI | Satya Nadella unveils groundbreaking AI laptop with Jensen Huang | 17 | 0 | 0 | 10 | 9.4 |
 | 2026-10-07T12:14 | photo | SCIENCE | Henri Kagan and Kenso Soai just won the Nobel Prize | 21 | 0 | 0 | 0 | 4.2 |
 | 2026-10-07T07:06 | photo | CELEBRITY | Kiara Advani announces second pregnancy, calls it a blessing | 25 | 0 | 0 | 0 | 5.0 |
-| 2026-10-07T01:06 | reel | CELEBRITY | Adam Levine admits he made a mistake on The Voice | 187 | 0 | 0 | 0 | 37.4 |
-| 2026-10-06T23:06 | photo | SPORTS | Shohei Ohtani bumped to No.5 spot sparks debate | 18 | 0 | 0 | 0 | 3.6 |
-| 2026-10-06T19:06 | reel | TECH | Elon Musk returns as trillionaire, even after massive SpaceX dip | 193 | 1 | 0 | 0 | 40.6 |
-| 2026-10-06T16:05 | photo | CELEBRITY | Michael Douglas opens up about separation from Catherine Zeta‑Jones | 17 | 0 | 0 | 0 | 3.4 |
-| 2026-10-06T12:06 | reel | SHOPPING | ASOS shoppers in meltdown after receiving threatening app notifications | 50 | 0 | 0 | 0 | 10.0 |
+| 2026-10-07T01:06 | reel | CELEBRITY | Adam Levine admits he made a mistake on The Voice | 230 | 0 | 0 | 0 | 46.0 |
+| 2026-10-06T23:06 | photo | SPORTS | Shohei Ohtani bumped to No.5 spot sparks debate | 19 | 0 | 0 | 0 | 3.8 |
+| 2026-10-06T19:06 | reel | TECH | Elon Musk returns as trillionaire, even after massive SpaceX dip | 200 | 1 | 0 | 0 | 42.0 |
+| 2026-10-06T16:05 | photo | CELEBRITY | Michael Douglas opens up about separation from Catherine Zeta‑Jones | 20 | 0 | 0 | 0 | 4.0 |
+| 2026-10-06T12:06 | reel | SHOPPING | ASOS shoppers in meltdown after receiving threatening app notifications | 51 | 0 | 0 | 0 | 10.2 |
 | 2026-10-06T07:09 | photo | TECH | Teenager raises $11 million for screenless AI computer | 12 | 0 | 0 | 0 | 2.4 |
 | 2026-10-06T00:48 | photo |  | Is YouTube TV Still Worth Your Money? | 18 | 0 | 0 | 0 | 3.6 |
 | 2026-10-05T18:26 | photo |  | France Faces Belgium In Massive Football Clash | 8 | 0 | 0 | 0 | 1.6 |
