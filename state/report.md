@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-11 19:13 UTC_
+_Updated 2026-10-11 21:05 UTC_
 
 ```
-Based on the last 39 posts on this page:
-Best categories: TECH (56.9), CELEBRITY (25.7), BUSINESS (13.9)
+Based on the last 40 posts on this page:
+Best categories: TECH (52.1), CELEBRITY (26.2), BUSINESS (13.9)
 Weakest categories: AI (10.1), SCIENCE (4.2)
-Format: reel (48.9, 17 posts), photo (6.3, 22 posts)
-Best posting slots (UTC): 19:00 (115.0), 01:00 (25.2), 03:00 (18.3)
-Best faces on this page (avg views per post): Elon Musk 312 (8 posts), Donald Trump 34 (5 posts), Sundar Pichai 22 (1 posts), Satya Nadella 18 (1 posts), Mark Zuckerberg 28 (3 posts), LeBron James 45 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
-Top posts: Elon Musk receives National Medal of Science from Trump (460.4) | Elon Musk faces backlash after ex-wife reveals family claim (52.6) | Adam Levine admits he made a mistake on The Voice (46.0)
+Format: reel (46.4, 18 posts), photo (6.3, 22 posts)
+Best posting slots (UTC): 19:00 (95.9), 01:00 (25.8), 03:00 (18.3)
+Best faces on this page (avg views per post): Elon Musk 278 (9 posts), Donald Trump 34 (5 posts), Sundar Pichai 22 (1 posts), Satya Nadella 18 (1 posts), Mark Zuckerberg 28 (3 posts), LeBron James 45 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Top posts: Elon Musk receives National Medal of Science from Trump (460.4) | Elon Musk faces backlash after ex-wife reveals family claim (52.6) | Adam Levine admits he made a mistake on The Voice (49.0)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-11T19:13 | reel | TECH | Elon Musk reaches an unprecedented $1.1 trillion net worth | 0 | 0 | 0 | 0 | 0.0 |
 | 2026-10-11T12:07 | photo | SPORTS | Kyrie Irving makes comeback in China preseason, sparking NBA buzz | 20 | 0 | 0 | 0 | 4.0 |
 | 2026-10-11T03:07 | reel | SPORTS | Arch Manning delivers big strikes in Texas vs Oklahoma clash | 122 | 0 | 0 | 0 | 24.4 |
 | 2026-10-11T01:06 | reel | CELEBRITY | Nicolas Cage rejects Amazon AI waiver, risks Spider‑Noir role | 90 | 0 | 0 | 0 | 18.0 |
@@ -40,9 +41,9 @@ Top posts: Elon Musk receives National Medal of Science from Trump (460.4) | Elo
 | 2026-10-07T16:06 | photo | AI | Satya Nadella unveils groundbreaking AI laptop with Jensen Huang | 18 | 0 | 0 | 10 | 9.6 |
 | 2026-10-07T12:14 | photo | SCIENCE | Henri Kagan and Kenso Soai just won the Nobel Prize | 21 | 0 | 0 | 0 | 4.2 |
 | 2026-10-07T07:06 | photo | CELEBRITY | Kiara Advani announces second pregnancy, calls it a blessing | 25 | 0 | 0 | 0 | 5.0 |
-| 2026-10-07T01:06 | reel | CELEBRITY | Adam Levine admits he made a mistake on The Voice | 230 | 0 | 0 | 0 | 46.0 |
+| 2026-10-07T01:06 | reel | CELEBRITY | Adam Levine admits he made a mistake on The Voice | 245 | 0 | 0 | 0 | 49.0 |
 | 2026-10-06T23:06 | photo | SPORTS | Shohei Ohtani bumped to No.5 spot sparks debate | 19 | 0 | 0 | 0 | 3.8 |
-| 2026-10-06T19:06 | reel | TECH | Elon Musk returns as trillionaire, even after massive SpaceX dip | 200 | 1 | 0 | 0 | 42.0 |
+| 2026-10-06T19:06 | reel | TECH | Elon Musk returns as trillionaire, even after massive SpaceX dip | 201 | 1 | 0 | 0 | 42.2 |
 | 2026-10-06T16:05 | photo | CELEBRITY | Michael Douglas opens up about separation from Catherine Zeta‑Jones | 20 | 0 | 0 | 0 | 4.0 |
 | 2026-10-06T12:06 | reel | SHOPPING | ASOS shoppers in meltdown after receiving threatening app notifications | 51 | 0 | 0 | 0 | 10.2 |
 | 2026-10-06T07:09 | photo | TECH | Teenager raises $11 million for screenless AI computer | 12 | 0 | 0 | 0 | 2.4 |
