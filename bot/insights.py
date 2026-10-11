@@ -231,26 +231,49 @@ def first_comment(obj_id, text):
         print(f"[insights] first comment failed: {e}")
 
 
-def _reply_text(post_headline, comment):
-    prompt = (f'You manage the Facebook page "{config.PAGE_NAME}". A follower commented on our post '
-              f'"{post_headline}":\n"{comment}"\n\n'
-              "Write ONE short, warm, natural reply (max 20 words, max 1 emoji) that keeps the conversation going. "
+def _reply_batch(post_headline, comments):
+    """Short replies for up to ~20 comments in ONE AI call (saves the free AI quota). {comment id: reply}.
+    A reply of "SKIP" means: don't answer (spam, abuse, money requests...)."""
+    lines = "\n".join(f'{n}. "{text[:300]}"' for n, (_, text) in enumerate(comments, 1))
+    prompt = (f'You manage the Facebook page "{config.PAGE_NAME}". People commented on our post "{post_headline}":\n'
+              f"{lines}\n\n"
+              "Write ONE short, warm, natural reply for EACH comment (max 12 words, max 1 emoji). Make every reply "
+              "different and specific to that comment; if it asks a question, answer briefly from the post only. "
               "Do not add new facts, do not argue, no politics, no links. "
-              'If the comment is spam, abusive, hateful, sexual or asks for money/personal info, reply exactly "SKIP". '
-              'Return JSON: {"reply": "..."}')
+              'For spam, abuse, hate, sexual content or requests for money/personal info, the reply is exactly "SKIP". '
+              'Return JSON: {"replies": [{"n": 1, "reply": "..."}, ...]}')
     for engine in (ai._gemini, ai._groq):
         try:
-            data = json.loads(engine(prompt))
-            if isinstance(data, list):
-                data = data[0]
-            return (data.get("reply") or "").strip()
-        except Exception:
-            continue
-    return ""
+            data = ai._parse_json(engine(prompt))
+            items = data.get("replies", data) if isinstance(data, dict) else data
+            out = {}
+            for it in items:
+                n = int(it.get("n", 0))
+                if 1 <= n <= len(comments) and str(it.get("reply", "")).strip():
+                    out[comments[n - 1][0]] = str(it["reply"]).strip()
+            if out:
+                return out
+        except Exception as e:
+            print(f"[reply] AI batch failed ({getattr(engine, '__name__', 'ai')}): {str(e)[:120]}")
+    return {}
 
 
-def reply_comments(state, max_replies=10):
-    """AUTO_REPLY=preview only prints the replies it would send; on = actually reply."""
+def _all_comments(obj_id, cap=2000):
+    """Every top-level comment on a post (follows Facebook's pages of 100)."""
+    data = _get(f"{obj_id}/comments", fields="id,message,from", filter="toplevel", limit=100)
+    out = data.get("data", [])
+    nxt = (data.get("paging") or {}).get("next")
+    while nxt and len(out) < cap:
+        page = requests.get(nxt, timeout=30).json()
+        out += page.get("data", [])
+        nxt = (page.get("paging") or {}).get("next")
+    return out
+
+
+def reply_comments(state, max_replies=300, batch=20, gap=1.2):
+    """Answers EVERY new comment on posts from the last 7 days (a short, different reply each), up to max_replies
+    per run (the bot runs every hour). AUTO_REPLY=preview only prints the replies; on = actually reply."""
+    import time
     mode = config.AUTO_REPLY
     if mode == "off" or not (config.FB_PAGE_ID and config.FB_PAGE_TOKEN):
         return
@@ -258,31 +281,42 @@ def reply_comments(state, max_replies=10):
     sent = 0
     for rec in reversed(state["posted"]):
         oid = rec.get("facebook")
-        if rec.get("dry_run") or not oid or _age_hours(rec) > 72:
+        if rec.get("dry_run") or not oid or _age_hours(rec) > 24 * 7 or sent >= max_replies:
             continue
         try:
-            comments = _get(f"{oid}/comments", fields="id,message,from", filter="toplevel", limit=25).get("data", [])
+            comments = _all_comments(oid)
         except Exception as e:
             print(f"[insights] comments for {rec['key']}: {e}")
             continue
-        for c in comments:
+        new = [(c["id"], c["message"]) for c in comments if c["id"] not in replied and c.get("message")
+               and (c.get("from") or {}).get("id") != config.FB_PAGE_ID]
+        for k in range(0, len(new), batch):
             if sent >= max_replies:
                 break
-            if c["id"] in replied or (c.get("from") or {}).get("id") == config.FB_PAGE_ID or not c.get("message"):
-                continue
-            reply = _reply_text(rec["headline"].replace("*", ""), c["message"][:500])
-            if not reply or reply.upper() == "SKIP":
-                replied.add(c["id"])
-                continue
-            if mode == "on" and not config.DRY_RUN:
-                try:
-                    _post(f"{c['id']}/comments", message=reply)
-                    replied.add(c["id"])
-                    print(f"[reply] '{c['message'][:50]}' -> '{reply}'")
+            chunk = new[k:k + batch]
+            replies = _reply_batch(rec["headline"].replace("*", ""), chunk)
+            for cid, text in chunk:
+                reply = replies.get(cid, "")
+                if not reply:
+                    continue  # AI gave nothing: try again next run
+                if reply.upper().strip('". ') == "SKIP":
+                    replied.add(cid)
+                    continue
+                if mode == "on" and not config.DRY_RUN:
+                    try:
+                        _post(f"{cid}/comments", message=reply)
+                        replied.add(cid)
+                        sent += 1
+                        print(f"[reply] '{text[:50]}' -> '{reply}'")
+                        time.sleep(gap)  # gentle pace, so Facebook doesn't see a burst
+                    except Exception as e:
+                        print(f"[reply] failed: {e}")
+                        if "limit" in str(e).lower() or "spam" in str(e).lower():
+                            state["replied"] = list(replied)[-20000:]
+                            return  # Facebook asked us to slow down: continue next hour
+                else:
+                    print(f"[reply preview] '{text[:50]}' -> '{reply}'")
                     sent += 1
-                except Exception as e:
-                    print(f"[reply] failed: {e}")
-            else:
-                print(f"[reply preview] '{c['message'][:50]}' -> '{reply}'")
-                sent += 1
-    state["replied"] = list(replied)[-2000:]
+    if sent:
+        print(f"[reply] answered {sent} comment(s) this run")
+    state["replied"] = list(replied)[-20000:]

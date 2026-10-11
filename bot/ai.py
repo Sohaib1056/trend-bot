@@ -74,6 +74,15 @@ Return JSON exactly in this shape:
 """
 
 
+def _parse_json(text):
+    """JSON from a model answer: strips ``` fences and any words around the outermost {...}."""
+    text = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.M).strip()
+    try:
+        return json.loads(text)
+    except ValueError:
+        return json.loads(text[text.index("{"): text.rindex("}") + 1])
+
+
 def _parse(text):
     text = text.strip()
     text = re.sub(r"^```(?:json)?|```$", "", text, flags=re.M).strip()
