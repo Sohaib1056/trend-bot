@@ -32,7 +32,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-10T23:05+00:00",
+        "checked": "2026-10-11T03:05+00:00",
         "score": 10.4
       }
     },
@@ -47,7 +47,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-10T23:05+00:00",
+        "checked": "2026-10-11T03:05+00:00",
         "score": 1.8
       }
     },
@@ -62,7 +62,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-10T23:05+00:00",
+        "checked": "2026-10-11T03:05+00:00",
         "score": 3.0
       }
     },
@@ -77,7 +77,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-10T23:05+00:00",
+        "checked": "2026-10-11T03:05+00:00",
         "score": 4.8
       }
     },
@@ -99,7 +99,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-10T23:05+00:00",
+        "checked": "2026-10-11T03:05+00:00",
         "score": 1.8
       }
     },
@@ -114,7 +114,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-10T23:05+00:00",
+        "checked": "2026-10-11T03:05+00:00",
         "score": 1.6
       }
     },
@@ -129,7 +129,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-10T23:05+00:00",
+        "checked": "2026-10-11T03:05+00:00",
         "score": 3.6
       }
     },
@@ -175,7 +175,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-10T23:05+00:00",
+        "checked": "2026-10-11T03:05+00:00",
         "score": 2.4
       }
     },
@@ -199,7 +199,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-10T23:05+00:00",
+        "checked": "2026-10-11T03:05+00:00",
         "score": 10.0
       }
     },
@@ -223,7 +223,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-10T23:05+00:00",
+        "checked": "2026-10-11T03:05+00:00",
         "score": 3.4
       }
     },
@@ -307,7 +307,7 @@
         "reactions": 1,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-10T22:29+00:00",
+        "checked": "2026-10-11T03:05+00:00",
         "score": 40.6
       }
     },
@@ -1028,8 +1028,28 @@
         "checked": "2026-10-11T01:51+00:00",
         "score": 0.4
       }
+    },
+    {
+      "key": "arch-manning-highlights",
+      "topic": "Texas vs. Oklahoma highlights: Arch Manning lands big strikes vs. Sooners",
+      "headline": "Arch Manning delivers *big strikes* in Texas vs Oklahoma clash",
+      "badge": "SPORTS",
+      "slot": "03",
+      "face": "",
+      "share_groups": [
+        "College football fans",
+        "Texas Longhorns fans",
+        "Oklahoma Sooners fans"
+      ],
+      "time": "2026-10-11T03:07+00:00",
+      "format": "reel",
+      "facebook_reel": "1157455016604984",
+      "facebook": "1157455016604984"
     }
   ],
-  "replied": [],
-  "todo_date": "2026-10-10"
+  "replied": [
+    "122109273135493621_1639040331004328",
+    "122109273135493621_2314995329252451"
+  ],
+  "todo_date": "2026-10-11"
 }

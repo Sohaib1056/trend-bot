@@ -1,21 +1,22 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-11 01:05 UTC_
+_Updated 2026-10-11 03:06 UTC_
 
 ```
-Based on the last 36 posts on this page:
-Best categories: TECH (27.4), CELEBRITY (20.6), BUSINESS (12.7)
+Based on the last 37 posts on this page:
+Best categories: TECH (28.3), CELEBRITY (19.3), BUSINESS (12.7)
 Weakest categories: SPORTS (5.8), SCIENCE (4.0)
-Format: reel (28.7, 15 posts), photo (5.8, 21 posts)
-Best posting slots (UTC): 19:00 (47.4), 01:00 (23.6), 23:00 (14.6)
-Best faces on this page (avg views per post): Elon Musk 183 (8 posts), Satya Nadella 16 (1 posts), Donald Trump 26 (5 posts), Mark Zuckerberg 24 (3 posts), Tim Cook 10 (1 posts), LeBron James 40 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
-Top posts: Elon Musk receives National Medal of Science from Trump (143.2) | Elon Musk gets German backing for Tesla driver aid (45.4) | Elon Musk returns as trillionaire, even after massive SpaceX dip (40.6)
+Format: reel (28.4, 16 posts), photo (5.8, 21 posts)
+Best posting slots (UTC): 19:00 (51.5), 01:00 (19.5), 23:00 (14.6)
+Best faces on this page (avg views per post): Elon Musk 194 (8 posts), Satya Nadella 16 (1 posts), Donald Trump 26 (5 posts), Mark Zuckerberg 24 (3 posts), Tim Cook 10 (1 posts), LeBron James 40 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Top posts: Elon Musk receives National Medal of Science from Trump (153.4) | Elon Musk gets German backing for Tesla driver aid (45.4) | Elon Musk faces backlash after ex-wife reveals family claim (45.4)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-11T01:06 | reel | CELEBRITY | Nicolas Cage rejects Amazon AI waiver, risks Spider‑Noir role | 2 | 0 | 0 | 0 | 0.4 |
 | 2026-10-10T23:07 | reel | CELEBRITY | Nicolas Cage refuses AI waiver and walks from Amazon project | 122 | 0 | 0 | 0 | 24.4 |
-| 2026-10-10T19:07 | reel | CELEBRITY | Elon Musk faces backlash after ex-wife reveals family claim | 166 | 1 | 0 | 0 | 35.2 |
+| 2026-10-10T19:07 | reel | CELEBRITY | Elon Musk faces backlash after ex-wife reveals family claim | 217 | 1 | 0 | 0 | 45.4 |
 | 2026-10-10T16:07 | photo | POLITICS | Donald Trump faces backlash over Russia diesel deal | 12 | 0 | 0 | 10 | 8.4 |
 | 2026-10-10T12:06 | photo | AI | Sundar Pichai reveals Gemini reached 950 million users as cloud booms | 9 | 0 | 0 | 10 | 7.8 |
 | 2026-10-10T03:07 | reel | TECH | Sam Altman urges new Renaissance amid AI industrial revolution | 37 | 0 | 0 | 0 | 7.4 |
@@ -27,7 +28,7 @@ Top posts: Elon Musk receives National Medal of Science from Trump (143.2) | Elo
 | 2026-10-09T03:06 | reel | TECH | Elon Musk's SpaceX just crushed major phone stocks | 107 | 0 | 0 | 0 | 21.4 |
 | 2026-10-09T01:06 | reel | SPORTS | LeBron James retracts after ESPN broadcaster's Joel Embiid claim | 40 | 0 | 0 | 0 | 8.0 |
 | 2026-10-08T23:06 | reel | TECH | Donald Trump suspends Microsoft from foreign worker green card program | 52 | 0 | 0 | 0 | 10.4 |
-| 2026-10-08T19:07 | reel | TECH | Elon Musk receives National Medal of Science from Trump | 586 | 13 | 0 | 0 | 143.2 |
+| 2026-10-08T19:07 | reel | TECH | Elon Musk receives National Medal of Science from Trump | 627 | 14 | 0 | 0 | 153.4 |
 | 2026-10-08T16:06 | photo | BUSINESS | Donald Trump injects $25 million into Meta, backs SpaceX debt | 19 | 1 | 0 | 9 | 11.8 |
 | 2026-10-08T12:07 | reel | TECH | Mark Zuckerberg charms Trump, steers AI clash with big stakes | 42 | 0 | 0 | 0 | 8.4 |
 | 2026-10-08T07:07 | photo | TECH | Elon Musk slams Indian oligarchs over Starlink delay | 17 | 0 | 0 | 0 | 3.4 |
@@ -37,7 +38,7 @@ Top posts: Elon Musk receives National Medal of Science from Trump (143.2) | Elo
 | 2026-10-07T16:06 | photo | AI | Satya Nadella unveils groundbreaking AI laptop with Jensen Huang | 16 | 0 | 0 | 10 | 9.2 |
 | 2026-10-07T12:14 | photo | SCIENCE | Henri Kagan and Kenso Soai just won the Nobel Prize | 20 | 0 | 0 | 0 | 4.0 |
 | 2026-10-07T07:06 | photo | CELEBRITY | Kiara Advani announces second pregnancy, calls it a blessing | 24 | 0 | 0 | 0 | 4.8 |
-| 2026-10-07T01:06 | reel | CELEBRITY | Adam Levine admits he made a mistake on The Voice | 175 | 0 | 0 | 0 | 35.0 |
+| 2026-10-07T01:06 | reel | CELEBRITY | Adam Levine admits he made a mistake on The Voice | 187 | 0 | 0 | 0 | 37.4 |
 | 2026-10-06T23:06 | photo | SPORTS | Shohei Ohtani bumped to No.5 spot sparks debate | 18 | 0 | 0 | 0 | 3.6 |
 | 2026-10-06T19:06 | reel | TECH | Elon Musk returns as trillionaire, even after massive SpaceX dip | 193 | 1 | 0 | 0 | 40.6 |
 | 2026-10-06T16:05 | photo | CELEBRITY | Michael Douglas opens up about separation from Catherine Zeta‑Jones | 17 | 0 | 0 | 0 | 3.4 |
