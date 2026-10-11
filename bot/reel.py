@@ -363,7 +363,7 @@ def _people(post, photo, want):
 
 
 MIN_SCENE, MAX_SCENE = 1.0, 3.6  # seconds
-MIN_REEL = 15.0  # every Reel runs at least 15 seconds
+REEL_LEN = 15.0  # every Reel runs exactly 15 seconds
 
 
 def _planned_scenes(post, photo, words, duration):
@@ -712,12 +712,19 @@ def make_reel(post, photo, path):
         voice = path.replace(".mp4", "-voice.mp3")
         text = _voice_text(post)
         vsecs = _audio_secs(exe, voice) if _tts(text, voice) else 0.0
+        fit = REEL_LEN - VOICE_AT - 0.5  # the voice must end just before the 15s mark
+        if vsecs > fit:  # a little long: speak a touch faster (max 1.15x, still easy to follow) to keep 15s
+            fast = voice.replace(".mp3", "-fit.mp3")
+            subprocess.run([exe, "-y", "-loglevel", "error", "-i", voice, "-filter:a",
+                            f"atempo={min(1.15, vsecs / fit):.3f}", "-b:a", "160k", fast], check=True)
+            os.replace(fast, voice)
+            vsecs = _audio_secs(exe, voice)
         if vsecs:
             chunks = _subtitle_timeline(text, vsecs)
             follow_at = next((c[0][1] for c in chunks if c[0][0].lower().startswith("follow")), vsecs - 1.5)
-            duration = max(MIN_REEL, vsecs + VOICE_AT + 0.6)
+            duration = max(REEL_LEN, vsecs + VOICE_AT + 0.5)  # 15s; a second longer only if the voice can't fit
         else:
-            chunks, duration = [], MIN_REEL
+            chunks, duration = [], REEL_LEN
             follow_at = duration - END_LEN
         words = [w for c in chunks for w in c]
         scenes = _planned_scenes(post, photo, words, duration)  # visuals that follow what the voice says

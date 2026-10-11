@@ -160,7 +160,7 @@ def main():
     # a couple of spares, so one skipped post doesn't leave the slot empty
     special, facts_topic = "", ""
     slot_now = current_slot(datetime.now(timezone.utc))
-    if choose_format(state) == "reel" and slot_now is not None and slot_now.hour == insights.best_slot(state):
+    if choose_format(state) == "reel" and slot_now is not None and slot_now.hour in config.STAR_SLOTS_UTC:
         # the page's best slot always gets a Reel about its best-performing face: fresh news, else facts & stats
         star = insights.star_face(state)
         facts_topic = norm(f"{star} facts")
@@ -186,8 +186,8 @@ def main():
     for p in posts:
         if made >= config.POSTS_PER_RUN:
             break
-        if facts_topic and norm(p.get("topic", "")) == facts_topic:  # facts Reels may repeat: one per day
-            p["key"] = f"{p['key'][:40]}-{datetime.now(timezone.utc):%Y%m%d}"
+        if facts_topic and norm(p.get("topic", "")) == facts_topic:  # facts Reels may repeat: one per slot
+            p["key"] = f"{p['key'][:40]}-{datetime.now(timezone.utc):%Y%m%d%H}"
         elif p["key"] in done_keys or norm(p.get("topic", "")) in done_topics:
             print(f"[main] skipping {p['key']} (already posted)")
             continue
