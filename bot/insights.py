@@ -270,7 +270,7 @@ def _all_comments(obj_id, cap=2000):
     return out
 
 
-def reply_comments(state, max_replies=300, batch=20, gap=1.2):
+def reply_comments(state, max_replies=100, batch=20, gap=1.2):
     """Answers EVERY new comment on posts from the last 7 days (a short, different reply each), up to max_replies
     per run (the bot runs every hour). AUTO_REPLY=preview only prints the replies; on = actually reply."""
     import time
