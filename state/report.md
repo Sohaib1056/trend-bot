@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-10 23:06 UTC_
+_Updated 2026-10-11 01:05 UTC_
 
 ```
-Based on the last 35 posts on this page:
-Best categories: TECH (27.4), CELEBRITY (19.6), BUSINESS (12.7)
+Based on the last 36 posts on this page:
+Best categories: TECH (27.4), CELEBRITY (20.6), BUSINESS (12.7)
 Weakest categories: SPORTS (5.8), SCIENCE (4.0)
-Format: reel (29.0, 14 posts), photo (5.8, 21 posts)
-Best posting slots (UTC): 19:00 (47.4), 01:00 (23.6), 03:00 (14.4)
+Format: reel (28.7, 15 posts), photo (5.8, 21 posts)
+Best posting slots (UTC): 19:00 (47.4), 01:00 (23.6), 23:00 (14.6)
 Best faces on this page (avg views per post): Elon Musk 183 (8 posts), Satya Nadella 16 (1 posts), Donald Trump 26 (5 posts), Mark Zuckerberg 24 (3 posts), Tim Cook 10 (1 posts), LeBron James 40 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk receives National Medal of Science from Trump (143.2) | Elon Musk gets German backing for Tesla driver aid (45.4) | Elon Musk returns as trillionaire, even after massive SpaceX dip (40.6)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-10T23:07 | reel | CELEBRITY | Nicolas Cage refuses AI waiver and walks from Amazon project | 122 | 0 | 0 | 0 | 24.4 |
 | 2026-10-10T19:07 | reel | CELEBRITY | Elon Musk faces backlash after ex-wife reveals family claim | 166 | 1 | 0 | 0 | 35.2 |
 | 2026-10-10T16:07 | photo | POLITICS | Donald Trump faces backlash over Russia diesel deal | 12 | 0 | 0 | 10 | 8.4 |
 | 2026-10-10T12:06 | photo | AI | Sundar Pichai reveals Gemini reached 950 million users as cloud booms | 9 | 0 | 0 | 10 | 7.8 |

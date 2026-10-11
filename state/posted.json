@@ -994,7 +994,32 @@
       "time": "2026-10-10T23:07+00:00",
       "format": "reel",
       "facebook_reel": "1842951493387460",
-      "facebook": "1842951493387460"
+      "facebook": "1842951493387460",
+      "stats": {
+        "views": 122,
+        "reactions": 0,
+        "comments": 0,
+        "shares": 0,
+        "checked": "2026-10-11T01:05+00:00",
+        "score": 24.4
+      }
+    },
+    {
+      "key": "nicolas-cage-ai-waiver",
+      "topic": "Nicolas Cage refuses AI waiver for Amazon's Spider-Noir",
+      "headline": "Nicolas Cage *rejects* Amazon AI waiver, risks Spider\u2011Noir role",
+      "badge": "CELEBRITY",
+      "slot": "01",
+      "face": "",
+      "share_groups": [
+        "Amazon Prime Video fans",
+        "Reddit technology community",
+        "Celebrity gossip fans"
+      ],
+      "time": "2026-10-11T01:06+00:00",
+      "format": "reel",
+      "facebook_reel": "1643780590478472",
+      "facebook": "1643780590478472"
     }
   ],
   "replied": [],
