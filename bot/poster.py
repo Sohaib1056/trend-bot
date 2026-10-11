@@ -16,6 +16,7 @@ import io
 import os
 import random
 import re
+import time
 import urllib.parse
 from datetime import datetime, timezone
 
@@ -197,9 +198,15 @@ def _handle():
 
 # ---------------------------------------------------------- image sources
 def _download(url, headers=None, timeout=60):
-    r = requests.get(url, headers=headers or {}, timeout=timeout)
-    r.raise_for_status()
-    return Image.open(io.BytesIO(r.content)).convert("RGB")
+    for attempt in range(3):  # Wikimedia answers 429 'too many requests' at busy times: wait and retry
+        r = requests.get(url, headers=headers or {}, timeout=timeout)
+        if r.status_code in (429, 503) and attempt < 2:
+            wait = min(int(r.headers.get("Retry-After", "0") or 0) or 3 * (attempt + 1), 8)
+            print(f"[poster] {r.status_code} from {url.split('/')[2]}, retrying in {wait}s")
+            time.sleep(wait)
+            continue
+        r.raise_for_status()
+        return Image.open(io.BytesIO(r.content)).convert("RGB")
 
 
 def _ai_image(prompt, seed):
@@ -286,6 +293,8 @@ def _pixabay_photos(query, limit=3):
     return out
 
 
+BROWSER_UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                            "Chrome/126.0 Safari/537.36"}
 WIKI_UA = {"User-Agent": "HypeAtlasBot/1.0 (facebook.com/hypeatlasnews)"}
 FREE_LICENSE = ("cc by", "cc0", "public domain", "pd", "cc-by", "ogl")  # OGL = UK Open Government Licence
 
@@ -326,9 +335,11 @@ def _wikimedia_photo(title):
         if not _is_person(info.get("wikibase_item")):
             raise RuntimeError("not a person (only real photos of people are used)")
         q = requests.get("https://en.wikipedia.org/w/api.php", headers=WIKI_UA, timeout=20, params={
-            "action": "query", "format": "json", "prop": "imageinfo", "iiprop": "extmetadata",
-            "titles": "File:" + fname}).json()
-        meta = next(iter(q["query"]["pages"].values()))["imageinfo"][0]["extmetadata"]
+            "action": "query", "format": "json", "prop": "imageinfo", "iiprop": "extmetadata|url",
+            "iiurlwidth": 1280, "titles": "File:" + fname}).json()
+        ii = next(iter(q["query"]["pages"].values()))["imageinfo"][0]
+        meta = ii["extmetadata"]
+        src = ii.get("thumburl") or src  # a 1280px copy: lighter, and far less often rate-limited than the original
         lic = meta.get("LicenseShortName", {}).get("value", "")
         if not lic.lower().startswith(FREE_LICENSE) or "non-free" in lic.lower() or "fair use" in lic.lower():
             raise RuntimeError(f"license not free: {lic}")
@@ -339,6 +350,58 @@ def _wikimedia_photo(title):
     except Exception as e:
         print(f"[poster] Wikimedia photo for '{title}' not used: {e}")
         return None, None
+
+
+def _wm_thumb(url, width):
+    """A resized copy of a Wikimedia Commons file (lighter and less often rate-limited than the original)."""
+    m = re.match(r"(https://upload\.wikimedia\.org/wikipedia/commons)/(\w)/(\w\w)/([^/?]+)$", url)
+    if not m or width < 200:
+        return url
+    base, a, ab, name = m.groups()
+    return f"{base}/thumb/{a}/{ab}/{name}/{width}px-{name}"
+
+
+def openverse_person(name, headline, want=1, skip=()):
+    """Free-licensed photos of a famous person from Openverse (Flickr, Wikimedia and more; no key needed).
+    Only photos whose title/tags name the person and where the judge sees a face. Returns [(img, credit, face_y)]."""
+    from .ai import judge_image
+    if not name:
+        return []
+    try:
+        r = requests.get("https://api.openverse.org/v1/images/", headers=WIKI_UA, timeout=30, params={
+            "q": name, "license_type": "commercial", "page_size": 20})
+        results = r.json().get("results", [])
+    except Exception as e:
+        print(f"[poster] Openverse search for '{name}' failed: {e}")
+        return []
+    last = name.split()[-1].lower()
+    good = [x for x in results if last in (x.get("title", "") + " " + " ".join(t.get("name", "") for t in x.get("tags") or [])).lower()
+            and min(x.get("width") or 0, x.get("height") or 0) >= 600 and x.get("url") not in skip]
+    good.sort(key=lambda x: (x.get("source") == "wikimedia", (x.get("width") or 0) > (x.get("height") or 0)))
+    out, judged = [], 0
+    for x in good:
+        if len(out) >= want or judged >= 5:
+            break
+        url = x["url"]
+        if x.get("source") == "wikimedia":
+            if (x.get("width") or 0) > 1280:  # Wikimedia serves only standard thumbnail sizes
+                url = _wm_thumb(url, 1280)
+        try:
+            # Wikimedia wants a descriptive bot User-Agent; Flickr refuses those and wants a browser one
+            im = _download(url, WIKI_UA if x.get("source") == "wikimedia" else BROWSER_UA)
+            judged += 1
+            score = judge_image(im, headline)
+            if score is not None and (score[0] < 5 or score[1] < 5 or (len(score) > 2 and score[2] is None)):
+                print(f"[poster] Openverse photo '{x.get('title', '')[:40]}' rejected (no clear face / off-topic)")
+                continue
+            lic = x.get("license", "")
+            lic = "public domain" if lic in ("cc0", "pdm") else f"CC {lic.upper()} {x.get('license_version', '')}".strip()
+            credit = f"📷 Photo: {(x.get('creator') or 'unknown')[:40]}, {lic}, via {x.get('source', 'Openverse').title()}"
+            out.append((im, credit, score[2] if score and len(score) > 2 else None))
+            print(f"[poster] Openverse photo of {name}: {x.get('title', '')[:50]} ({x.get('source')}, {lic})")
+        except Exception as e:
+            print(f"[poster] Openverse photo failed: {e}")
+    return out
 
 
 COMMONS_SKIP = re.compile(r"logo|map|flag|diagram|chart|icon|seal|coat.of.arms|screenshot|signature|poster|banner|svg", re.I)
@@ -356,7 +419,7 @@ def _commons_photo(query):
             r = requests.get("https://commons.wikimedia.org/w/api.php", headers=WIKI_UA, timeout=25, params={
                 "action": "query", "format": "json", "generator": "search", "gsrnamespace": 6,
                 "gsrsearch": f"{q} filetype:bitmap", "gsrlimit": 25,
-                "prop": "imageinfo", "iiprop": "url|size|extmetadata", "iiurlwidth": 1600})
+                "prop": "imageinfo", "iiprop": "url|size|extmetadata", "iiurlwidth": 1280})
             pages = sorted((r.json().get("query") or {}).get("pages", {}).values(), key=lambda p: p.get("index", 99))
             for p in pages:
                 ii = (p.get("imageinfo") or [{}])[0]
@@ -401,6 +464,10 @@ def get_background(post):
     from .ai import judge_image
     post["_extras"] = []  # other good images, reused as extra scenes in the Reel
     real, credit = _wikimedia_photo(post.get("wiki_title"))
+    if real is None and post.get("wiki_title"):  # Wikipedia had no usable photo (or was busy): try Openverse
+        got = openverse_person(post["wiki_title"], post["headline"].replace("*", ""))
+        if got:
+            real, credit, _ = got[0]
     if real is not None:
         post["_credit"] = credit
         post["_person"] = True

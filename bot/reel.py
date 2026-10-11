@@ -21,7 +21,7 @@ from PIL import Image, ImageDraw, ImageFilter
 
 from . import config
 from .poster import (COMMONS_SKIP, FREE_LICENSE, MARKER, INK, PAD, PINK, ORANGE, YELLOW, WHITE, WIKI_UA,
-                     _cloudflare_image, _cover, _download, _enhance, _fit, _font, _hgradient, _logo,
+                     _cloudflare_image, _cover, _download, _enhance, _fit, _font, _hgradient, _logo, openverse_person,
                      _paste_rounded, _tokens, _vfade)
 
 RW, RH = 1080, 1920
@@ -121,7 +121,82 @@ def _pixabay_videos(post, want=3, queries=None, context=None, seen=None, max_jud
                 print(f"[reel] clip {h['id']} for '{q}' ({v.get('width')}x{v.get('height')}, {h.get('duration')}s)")
             except Exception as e:
                 print(f"[reel] clip {h.get('id')} failed: {e}")
+    for q in queries:  # Pixabay short: public-domain NASA footage (space stories) and free Wikimedia Commons videos
+        if len(clips) >= want or not q.strip():
+            continue
+        if SPACE.search(q + " " + headline):
+            clips += _nasa_videos(q, want - len(clips), headline, seen)
+        if len(clips) < want:
+            clips += _commons_videos(q, want - len(clips), headline, seen)
     return clips
+
+
+SPACE = re.compile(r"\b(space|rocket|launch|nasa|starship|spacex|mars|moon|orbit|astronaut|satellite|starlink|iss)\b", re.I)
+
+
+def _judge_clip(thumb_url, context, headers=None):
+    from .ai import judge_image
+    try:
+        score = judge_image(_download(thumb_url, headers), context, broll=True)
+    except Exception:
+        return True  # no thumbnail to check: accept
+    return score is None or (score[0] >= 5 and score[1] >= 5)
+
+
+def _nasa_videos(q, want, context, seen):
+    """NASA image & video library (public domain). Streamed straight from NASA, skipping the opening titles."""
+    out = []
+    try:
+        items = requests.get("https://images-api.nasa.gov/search", params={"q": q, "media_type": "video"},
+                             timeout=20).json()["collection"]["items"]
+    except Exception as e:
+        print(f"[reel] NASA search failed: {e}")
+        return out
+    for it in items[:6]:
+        if len(out) >= want:
+            break
+        nid = (it.get("data") or [{}])[0].get("nasa_id", "")
+        if not nid or nid in seen:
+            continue
+        seen.add(nid)
+        try:
+            files = [f.replace(" ", "%20").replace("http://", "https://")
+                     for f in requests.get(it["href"].replace(" ", "%20"), timeout=20).json()]
+            mp4 = next((f for f in files if f.endswith("~mobile.mp4")), None) or next((f for f in files if f.endswith("~small.mp4")), None)
+            thumb = next((f for f in files if f.endswith("~small.jpg") or f.endswith("~thumb.jpg")), None)
+            if mp4 and (not thumb or _judge_clip(thumb, context)):
+                out.append((mp4, 60, 12.0))
+                print(f"[reel] NASA clip for '{q}': {nid}")
+        except Exception as e:
+            print(f"[reel] NASA clip {nid} failed: {e}")
+    return out
+
+
+def _commons_videos(q, want, context, seen):
+    """Free-licensed videos on Wikimedia Commons, streamed from Commons."""
+    out = []
+    try:
+        r = requests.get("https://commons.wikimedia.org/w/api.php", headers=WIKI_UA, timeout=25, params={
+            "action": "query", "format": "json", "generator": "search", "gsrnamespace": 6,
+            "gsrsearch": f"{q} filetype:video", "gsrlimit": 10,
+            "prop": "imageinfo", "iiprop": "url|size|extmetadata", "iiurlwidth": 640})
+        pages = sorted((r.json().get("query") or {}).get("pages", {}).values(), key=lambda p: p.get("index", 99))
+    except Exception as e:
+        print(f"[reel] Commons video search failed: {e}")
+        return out
+    for p in pages:
+        if len(out) >= want:
+            break
+        ii = (p.get("imageinfo") or [{}])[0]
+        lic = ii.get("extmetadata", {}).get("LicenseShortName", {}).get("value", "")
+        if not ii.get("url") or ii["url"] in seen or not lic.lower().startswith(FREE_LICENSE) or ii.get("size", 0) > 300e6:
+            continue
+        seen.add(ii["url"])
+        if ii.get("thumburl") and not _judge_clip(ii["thumburl"], context, WIKI_UA):
+            continue
+        out.append((ii["url"], 30, 1.0))
+        print(f"[reel] Commons video for '{q}': {p.get('title', '')[:60]} ({lic})")
+    return out
 
 
 def _person_photos(post, want=3):
@@ -136,11 +211,11 @@ def _person_photos(post, want=3):
         r = requests.get("https://commons.wikimedia.org/w/api.php", headers=WIKI_UA, timeout=25, params={
             "action": "query", "format": "json", "generator": "search", "gsrnamespace": 6,
             "gsrsearch": f'"{name}" filetype:bitmap', "gsrlimit": 30,
-            "prop": "imageinfo", "iiprop": "url|size|extmetadata", "iiurlwidth": 1600})
+            "prop": "imageinfo", "iiprop": "url|size|extmetadata", "iiurlwidth": 1280})
         pages = sorted((r.json().get("query") or {}).get("pages", {}).values(), key=lambda p: p.get("index", 99))
     except Exception as e:
         print(f"[reel] Commons search for '{name}' failed: {e}")
-        return []
+        pages = []
     for p in pages:
         if len(out) >= want or judged >= 5:
             break
@@ -161,10 +236,13 @@ def _person_photos(post, want=3):
                 print(f"[reel] photo {title[:50]} rejected by the judge")
                 continue
             artist = re.sub(r"<[^>]+>", "", meta.get("Artist", {}).get("value", "")).strip()[:40] or "Wikimedia Commons"
-            out.append((im, f"{artist}, {lic}", score[2] if score else None))
+            out.append((im, f"{artist}, {lic}, via Wikimedia Commons", score[2] if score else None))
             print(f"[reel] extra photo of {name}: {title[:60]}")
         except Exception as e:
             print(f"[reel] photo {title[:40]} failed: {e}")
+    if len(out) < want:  # Commons busy or short: more free photos from Openverse (Flickr etc.)
+        for im, credit, face in openverse_person(name, post["headline"].replace("*", ""), want - len(out)):
+            out.append((im, credit.replace("📷 Photo: ", ""), face))
     return out
 
 
@@ -188,14 +266,59 @@ def _voice_text(post):
     return f"{text} Follow Hype Atlas for more!"
 
 
+KOKORO_FILES = "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/"
+
+
+def _kokoro(text, path):
+    """Kokoro: free, open-source voice that runs on the GitHub runner itself (no key, no limit).
+    Installed and downloaded (~340 MB) only when it is needed."""
+    import sys
+    try:
+        import kokoro_onnx  # noqa: F401
+    except ImportError:
+        subprocess.run([sys.executable, "-m", "pip", "install", "-q", "kokoro-onnx", "soundfile"], check=True, timeout=600)
+    import soundfile
+    from kokoro_onnx import Kokoro
+    cache = os.path.join(os.path.expanduser("~"), ".cache", "kokoro")
+    os.makedirs(cache, exist_ok=True)
+    for name in ("kokoro-v1.0.onnx", "voices-v1.0.bin"):
+        target = os.path.join(cache, name)
+        if not os.path.exists(target):
+            with requests.get(KOKORO_FILES + name, stream=True, timeout=120) as r:
+                r.raise_for_status()
+                with open(target + ".part", "wb") as f:
+                    for chunk in r.iter_content(1 << 20):
+                        f.write(chunk)
+            os.replace(target + ".part", target)
+    voice = Kokoro(os.path.join(cache, "kokoro-v1.0.onnx"), os.path.join(cache, "voices-v1.0.bin"))
+    samples, rate = voice.create(text, voice=os.getenv("KOKORO_VOICE", "af_heart"), speed=1.05, lang="en-us")
+    wav = path.rsplit(".", 1)[0] + ".wav"
+    soundfile.write(wav, samples, rate)
+    import imageio_ffmpeg
+    subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-y", "-loglevel", "error", "-i", wav, "-b:a", "160k", path], check=True)
+    return True
+
+
 def _tts(text, path):
-    """Cloudflare Workers AI text-to-speech (same free account as the images). Returns True on success."""
+    """Voiceover: Cloudflare Workers AI (Deepgram Aura) first, then Kokoro (free, unlimited, runs locally),
+    then Cloudflare MeloTTS. VOICE_ENGINE=kokoro puts Kokoro first. Returns True on success."""
     acc, tok = os.getenv("CF_ACCOUNT_ID", "").strip(), os.getenv("CF_API_TOKEN", "").strip()
-    if not acc or not tok:
-        return False
     base = f"https://api.cloudflare.com/client/v4/accounts/{acc}/ai/run/"
-    for model, body in (("@cf/deepgram/aura-1", {"text": text, "speaker": os.getenv("VOICE", "asteria"), "encoding": "mp3"}),
-                        ("@cf/myshell-ai/melotts", {"prompt": text, "lang": "en"})):
+    engines = [("@cf/deepgram/aura-1", {"text": text, "speaker": os.getenv("VOICE", "asteria"), "encoding": "mp3"}),
+               ("kokoro", None), ("@cf/myshell-ai/melotts", {"prompt": text, "lang": "en"})]
+    if os.getenv("VOICE_ENGINE", "").strip().lower() == "kokoro":
+        engines.insert(0, engines.pop(1))
+    for model, body in engines:
+        if model == "kokoro":
+            try:
+                _kokoro(text, path)
+                print(f"[reel] voiceover by Kokoro: \"{text}\"")
+                return True
+            except Exception as e:
+                print(f"[reel] voice Kokoro failed: {e}")
+            continue
+        if not acc or not tok:
+            continue
         try:
             r = requests.post(base + model, headers={"Authorization": f"Bearer {tok}"}, json=body, timeout=90)
             if r.status_code != 200:
@@ -334,10 +457,13 @@ def _scenes(post, photo, count):
     return scenes
 
 
-def _video_frames(exe, path, duration, n):
-    """Yields n RGB frames of the clip, cropped to fill 1080x1920 (last frame held if the clip is short)."""
-    start = 1.0 if duration >= 5 else 0.0  # skip slow fade-ins
-    cmd = [exe, "-loglevel", "error", "-ss", str(start), "-i", path, "-an",
+def _video_frames(exe, path, duration, n, start=None):
+    """Yields n RGB frames of the clip (a file or a URL to stream), cropped to fill 1080x1920
+    (last frame held if the clip is short)."""
+    if start is None:
+        start = 1.0 if duration >= 5 else 0.0  # skip slow fade-ins
+    net = ["-rw_timeout", "30000000"] if path.startswith("http") else []  # give up on a stalled stream after 30s
+    cmd = [exe, "-loglevel", "error", *net, "-ss", str(start), "-i", path, "-an",
            "-vf", f"scale={RW}:{RH}:force_original_aspect_ratio=increase,crop={RW}:{RH},fps={FPS},eq=contrast=1.06:saturation=1.15",
            "-frames:v", str(n), "-f", "rawvideo", "-pix_fmt", "rgb24", "-"]
     proc = subprocess.Popen(cmd, stdout=subprocess.PIPE)
@@ -536,7 +662,7 @@ def _frames(post, scenes, exe, duration, chunks, follow_at):
         for k, (kind, item, n) in enumerate(scenes):
             if kind == "video":
                 try:
-                    yield from _video_frames(exe, item[0], item[1], n)
+                    yield from _video_frames(exe, item[0], item[1], n, item[2] if len(item) > 2 else None)
                     continue
                 except Exception as e:
                     print(f"[reel] {e} -> using the photo instead")

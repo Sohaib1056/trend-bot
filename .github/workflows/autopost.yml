@@ -19,6 +19,11 @@ on:
         type: choice
         options: ["default", "reel", "photo"]
         default: "default"
+      voice:
+        description: "Voice for this run (default = Cloudflare, kokoro = free open-source voice, for testing)"
+        type: choice
+        options: ["default", "kokoro"]
+        default: "default"
 
 permissions:
   contents: write
@@ -67,6 +72,7 @@ jobs:
           AVOID_POLITICS: ${{ vars.AVOID_POLITICS }}
           POST_FORMAT: ${{ (inputs.format == 'reel' || inputs.format == 'photo') && inputs.format || vars.POST_FORMAT }}
           PYTHONUNBUFFERED: "1"  # show log lines live
+          VOICE_ENGINE: ${{ inputs.voice == 'kokoro' && 'kokoro' || '' }}
         run: python -m bot.main
 
       - name: Save posters (download from the run page)

@@ -65,6 +65,37 @@ def should_post_now(state):
     return True
 
 
+STOP = set("the a an and or of to in on for with from at by as is are was be after over amid new his her their its "
+           "says said just will about into this that than more most".split())
+
+
+def _words(text):
+    return {w for w in re.findall(r"[a-z0-9]+", text.lower()) if len(w) > 2 and w not in STOP}
+
+
+def recent_duplicate(text, face, state, hours=48):
+    """Same person + same story posted in the last 2 days (wording may differ), e.g. 'Nicolas Cage refuses AI
+    waiver' vs 'Nicolas Cage rejects Amazon AI waiver'. Returns the old headline or ''."""
+    now = datetime.now(timezone.utc)
+    name = _words(face or "")
+    mine = _words(text) - name
+    for r in state["posted"]:
+        if r.get("dry_run"):
+            continue
+        try:
+            if now - datetime.fromisoformat(r["time"]) > timedelta(hours=hours):
+                continue
+        except Exception:
+            continue
+        old_text = r.get("topic", "") + " " + r.get("headline", "")
+        theirs = _words(old_text) - name
+        same_person = bool(name) and name <= _words(old_text)
+        common = mine & theirs
+        if (same_person and len(common) >= 2) or len(common) >= 4:
+            return r.get("headline", "").replace("*", "")
+    return ""
+
+
 def choose_format(state):
     fmt = config.POST_FORMAT
     if fmt == "slots":  # 2 photos (US morning + lunch) and 4 Reels (afternoon to prime time) a day
@@ -107,6 +138,10 @@ def main():
         t = norm(it["topic"])
         blob = it["topic"] + " " + " ".join(n["title"] + " " + n["snippet"] for n in it["news"])
         if not t or t in seen or t in done_topics or BLOCK_WORDS.search(blob):
+            continue
+        dup = recent_duplicate(it["topic"] + " " + " ".join(n["title"] for n in it["news"][:1]), "", state)
+        if dup:
+            print(f"[main] already covered recently: {it['topic'][:60]} (~ {dup[:50]})")
             continue
         seen.add(t)
         candidates.append(it)
@@ -156,11 +191,17 @@ def main():
         elif p["key"] in done_keys or norm(p.get("topic", "")) in done_topics:
             print(f"[main] skipping {p['key']} (already posted)")
             continue
+        dup = "" if facts_topic and norm(p.get("topic", "")) == facts_topic else             recent_duplicate(p.get("topic", "") + " " + p["headline"], p.get("wiki_title", ""), state)
+        if dup:
+            print(f"[main] skipping {p['key']}: same story as '{dup[:60]}'")
+            continue
         if p["key"] in done_keys or BLOCK_WORDS.search(p["headline"] + " " + p["caption"]):
             print(f"[main] skipping {p['key']}")
             continue
         stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M")
         img = poster.make_poster(p, os.path.join(config.OUTPUT_DIR, f"{stamp}-{p['key']}.jpg"))
+        if p.get("wiki_title") and not p.get("_person"):
+            print(f"[main] warning: no free photo of {p['wiki_title']} found anywhere, posting with the best other image")
         tags = [h for h in p["hashtags"] if h.lower() != "hypeatlas"]
         caption = p["caption"].strip() + "\n\n" + growth.FOLLOW_LINE + "\n\n" + " ".join("#" + h for h in tags)
         if p.get("_credit"):  # photo licence requires attribution; kept off the poster, in the caption
@@ -184,7 +225,7 @@ def main():
             video = reel.make_reel(p, p["_photo"], img.replace(".jpg", ".mp4"))
         record["format"] = "reel" if video and fmt == "reel" else ("both" if video and fmt == "both" else "photo")
         if video and p.get("_reel_credits"):  # extra photos used in the Reel need attribution too
-            caption += "\n📷 Also: " + "; ".join(p["_reel_credits"]) + ", via Wikimedia Commons"
+            caption += "\n📷 Also: " + "; ".join(p["_reel_credits"])
         print(f"[main] format: {record['format']}")
         res = {}
         if config.DRY_RUN:
