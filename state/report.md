@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-12 03:06 UTC_
+_Updated 2026-10-12 04:06 UTC_
 
 ```
-Based on the last 43 posts on this page:
-Best categories: TECH (52.0), CELEBRITY (26.6), BUSINESS (13.9)
+Based on the last 44 posts on this page:
+Best categories: TECH (52.0), CELEBRITY (26.8), BUSINESS (11.4)
 Weakest categories: POLITICS (7.2), SCIENCE (4.2)
-Format: reel (47.0, 20 posts), photo (6.0, 23 posts)
-Best posting slots (UTC): 19:00 (110.9), 01:00 (21.8), 03:00 (18.7)
-Best faces on this page (avg views per post): Elon Musk 260 (11 posts), Sundar Pichai 22 (1 posts), Satya Nadella 18 (1 posts), Mark Zuckerberg 28 (3 posts), LeBron James 45 (1 posts), Donald Trump 28 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
-Top posts: Elon Musk receives National Medal of Science from Trump (543.8) | Elon Musk faces backlash after ex-wife reveals family claim (53.0) | Adam Levine admits he made a mistake on The Voice (50.6)
+Format: reel (44.9, 21 posts), photo (6.0, 23 posts)
+Best posting slots (UTC): 19:00 (110.9), 01:00 (22.0), 23:00 (16.0)
+Best faces on this page (avg views per post): Elon Musk 239 (12 posts), Sundar Pichai 22 (1 posts), Satya Nadella 18 (1 posts), Mark Zuckerberg 28 (3 posts), LeBron James 45 (1 posts), Donald Trump 28 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
+Top posts: Elon Musk receives National Medal of Science from Trump (543.8) | Elon Musk faces backlash after ex-wife reveals family claim (53.0) | Adam Levine admits he made a mistake on The Voice (51.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-12T03:06 | reel | BUSINESS | Elon Musk becomes first trillionaire with $1.1 trillion net worth | 7 | 0 | 0 | 0 | 1.4 |
 | 2026-10-12T02:06 | photo | POLITICS | Mike Tyson backs Donald Trump in surprising endorsement | 0 | 0 | 0 | 0 | 0.0 |
 | 2026-10-12T01:06 | reel | TECH | Elon Musk vows affordable Starlink in India before Jio IPO | 0 | 0 | 0 | 0 | 0.0 |
 | 2026-10-11T21:06 | reel | TECH | Elon Musk faces critics in high‑stakes showdown | 62 | 0 | 0 | 0 | 12.4 |
@@ -44,7 +45,7 @@ Top posts: Elon Musk receives National Medal of Science from Trump (543.8) | Elo
 | 2026-10-07T16:06 | photo | AI | Satya Nadella unveils groundbreaking AI laptop with Jensen Huang | 18 | 0 | 0 | 10 | 9.6 |
 | 2026-10-07T12:14 | photo | SCIENCE | Henri Kagan and Kenso Soai just won the Nobel Prize | 21 | 0 | 0 | 0 | 4.2 |
 | 2026-10-07T07:06 | photo | CELEBRITY | Kiara Advani announces second pregnancy, calls it a blessing | 25 | 0 | 0 | 0 | 5.0 |
-| 2026-10-07T01:06 | reel | CELEBRITY | Adam Levine admits he made a mistake on The Voice | 253 | 0 | 0 | 0 | 50.6 |
+| 2026-10-07T01:06 | reel | CELEBRITY | Adam Levine admits he made a mistake on The Voice | 259 | 0 | 0 | 0 | 51.8 |
 | 2026-10-06T23:06 | photo | SPORTS | Shohei Ohtani bumped to No.5 spot sparks debate | 19 | 0 | 0 | 0 | 3.8 |
 | 2026-10-06T19:06 | reel | TECH | Elon Musk returns as trillionaire, even after massive SpaceX dip | 201 | 1 | 0 | 0 | 42.2 |
 | 2026-10-06T16:05 | photo | CELEBRITY | Michael Douglas opens up about separation from Catherine Zeta‑Jones | 20 | 0 | 0 | 0 | 4.0 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk receives National Medal of Science from Trump (543.8) | Elo
 | 2026-10-06T00:48 | photo |  | Is YouTube TV Still Worth Your Money? | 18 | 0 | 0 | 0 | 3.6 |
 | 2026-10-05T18:26 | photo |  | France Faces Belgium In Massive Football Clash | 8 | 0 | 0 | 0 | 1.6 |
 | 2026-10-05T09:01 | photo |  | Alcaraz Advances After Shapovalov Pulls Out, Final Secured | 9 | 0 | 0 | 0 | 1.8 |
-| 2026-10-05T01:59 | photo |  | HBO CEO Gives Glowing Review To Harry Potter Series | 24 | 0 | 0 | 0 | 4.8 |

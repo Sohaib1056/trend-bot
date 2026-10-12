@@ -99,7 +99,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-12T01:05+00:00",
+        "checked": "2026-10-12T04:05+00:00",
         "score": 1.8
       }
     },
@@ -114,7 +114,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-12T01:05+00:00",
+        "checked": "2026-10-12T04:05+00:00",
         "score": 1.6
       }
     },
@@ -129,7 +129,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-12T01:05+00:00",
+        "checked": "2026-10-12T04:05+00:00",
         "score": 3.6
       }
     },
@@ -175,7 +175,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-12T01:05+00:00",
+        "checked": "2026-10-12T04:05+00:00",
         "score": 2.4
       }
     },
@@ -199,7 +199,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-12T01:05+00:00",
+        "checked": "2026-10-12T04:05+00:00",
         "score": 10.2
       }
     },
@@ -223,7 +223,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-12T01:05+00:00",
+        "checked": "2026-10-12T04:05+00:00",
         "score": 4.0
       }
     },
@@ -307,7 +307,7 @@
         "reactions": 1,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-12T01:05+00:00",
+        "checked": "2026-10-12T04:05+00:00",
         "score": 42.2
       }
     },
@@ -331,7 +331,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-12T01:05+00:00",
+        "checked": "2026-10-12T04:05+00:00",
         "score": 3.8
       }
     },
@@ -351,12 +351,12 @@
       "facebook_reel": "2622862774832358",
       "facebook": "2622862774832358",
       "stats": {
-        "views": 253,
+        "views": 259,
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-12T01:05+00:00",
-        "score": 50.6
+        "checked": "2026-10-12T04:05+00:00",
+        "score": 51.8
       }
     },
     {
@@ -379,7 +379,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-12T01:05+00:00",
+        "checked": "2026-10-12T04:05+00:00",
         "score": 5.0
       }
     },
@@ -398,7 +398,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-12T01:05+00:00",
+        "checked": "2026-10-12T04:05+00:00",
         "score": 4.2
       }
     },
@@ -497,7 +497,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 10,
-        "checked": "2026-10-12T01:05+00:00",
+        "checked": "2026-10-12T04:05+00:00",
         "score": 9.6
       }
     },
@@ -521,7 +521,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 10,
-        "checked": "2026-10-11T23:40+00:00",
+        "checked": "2026-10-12T04:05+00:00",
         "score": 8.6
       }
     },
@@ -1208,18 +1208,43 @@
       "time": "2026-10-12T03:06+00:00",
       "format": "reel",
       "facebook_reel": "1094709629839621",
-      "facebook": "1094709629839621"
+      "facebook": "1094709629839621",
+      "stats": {
+        "views": 7,
+        "reactions": 0,
+        "comments": 0,
+        "shares": 0,
+        "checked": "2026-10-12T04:05+00:00",
+        "score": 1.4
+      }
+    },
+    {
+      "key": "sam-altman-singularity",
+      "topic": "OpenAI CEO Sam Altman claims AI singularity has arrived: 'Awesome for the world'",
+      "headline": "Sam Altman claims AI singularity *has officially arrived*",
+      "badge": "AI",
+      "slot": "04",
+      "face": "Sam Altman",
+      "share_groups": [
+        "OpenAI & ChatGPT Community",
+        "Artificial Intelligence & Tech News",
+        "Silicon Valley Tech Insiders"
+      ],
+      "time": "2026-10-12T04:06+00:00",
+      "format": "photo",
+      "facebook": "1397517856769204_122110995975493621",
+      "facebook_photo_id": "122110995945493621"
     }
   ],
   "replied": [
-    "122109273135493621_3250493951808718",
     "122109273135493621_1413873080316444",
-    "122109273135493621_2139328979997147",
-    "122109273135493621_3600938640081623",
-    "122109273135493621_1407824354797558",
     "122109273135493621_1035553339499415",
+    "122109273135493621_1407824354797558",
+    "122109273135493621_1639040331004328",
     "122109273135493621_2314995329252451",
-    "122109273135493621_1639040331004328"
+    "122109273135493621_3600938640081623",
+    "122109273135493621_3250493951808718",
+    "122109273135493621_2139328979997147"
   ],
   "todo_date": "2026-10-12"
 }
