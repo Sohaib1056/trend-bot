@@ -1,30 +1,31 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-12 02:05 UTC_
+_Updated 2026-10-12 03:06 UTC_
 
 ```
-Based on the last 42 posts on this page:
-Best categories: TECH (49.0), CELEBRITY (26.6), BUSINESS (13.9)
-Weakest categories: AI (10.1), SCIENCE (4.2)
-Format: reel (44.9, 20 posts), photo (6.3, 22 posts)
-Best posting slots (UTC): 19:00 (105.3), 01:00 (21.8), 03:00 (18.4)
-Best faces on this page (avg views per post): Elon Musk 246 (11 posts), Donald Trump 34 (5 posts), Sundar Pichai 22 (1 posts), Satya Nadella 18 (1 posts), Mark Zuckerberg 28 (3 posts), LeBron James 45 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
-Top posts: Elon Musk receives National Medal of Science from Trump (512.6) | Elon Musk faces backlash after ex-wife reveals family claim (53.0) | Adam Levine admits he made a mistake on The Voice (50.6)
+Based on the last 43 posts on this page:
+Best categories: TECH (52.0), CELEBRITY (26.6), BUSINESS (13.9)
+Weakest categories: POLITICS (7.2), SCIENCE (4.2)
+Format: reel (47.0, 20 posts), photo (6.0, 23 posts)
+Best posting slots (UTC): 19:00 (110.9), 01:00 (21.8), 03:00 (18.7)
+Best faces on this page (avg views per post): Elon Musk 260 (11 posts), Sundar Pichai 22 (1 posts), Satya Nadella 18 (1 posts), Mark Zuckerberg 28 (3 posts), LeBron James 45 (1 posts), Donald Trump 28 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
+Top posts: Elon Musk receives National Medal of Science from Trump (543.8) | Elon Musk faces backlash after ex-wife reveals family claim (53.0) | Adam Levine admits he made a mistake on The Voice (50.6)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-12T02:06 | photo | POLITICS | Mike Tyson backs Donald Trump in surprising endorsement | 0 | 0 | 0 | 0 | 0.0 |
 | 2026-10-12T01:06 | reel | TECH | Elon Musk vows affordable Starlink in India before Jio IPO | 0 | 0 | 0 | 0 | 0.0 |
-| 2026-10-11T21:06 | reel | TECH | Elon Musk faces critics in high‑stakes showdown | 20 | 0 | 0 | 0 | 4.0 |
-| 2026-10-11T19:13 | reel | TECH | Elon Musk reaches an unprecedented $1.1 trillion net worth | 19 | 0 | 0 | 0 | 3.8 |
+| 2026-10-11T21:06 | reel | TECH | Elon Musk faces critics in high‑stakes showdown | 62 | 0 | 0 | 0 | 12.4 |
+| 2026-10-11T19:13 | reel | TECH | Elon Musk reaches an unprecedented $1.1 trillion net worth | 33 | 0 | 0 | 0 | 6.6 |
 | 2026-10-11T12:07 | photo | SPORTS | Kyrie Irving makes comeback in China preseason, sparking NBA buzz | 20 | 0 | 0 | 0 | 4.0 |
-| 2026-10-11T03:07 | reel | SPORTS | Arch Manning delivers big strikes in Texas vs Oklahoma clash | 123 | 0 | 0 | 0 | 24.6 |
-| 2026-10-11T01:06 | reel | CELEBRITY | Nicolas Cage rejects Amazon AI waiver, risks Spider‑Noir role | 90 | 0 | 0 | 0 | 18.0 |
+| 2026-10-11T03:07 | reel | SPORTS | Arch Manning delivers big strikes in Texas vs Oklahoma clash | 126 | 0 | 0 | 0 | 25.2 |
+| 2026-10-11T01:06 | reel | CELEBRITY | Nicolas Cage rejects Amazon AI waiver, risks Spider‑Noir role | 91 | 0 | 0 | 0 | 18.2 |
 | 2026-10-10T23:07 | reel | CELEBRITY | Nicolas Cage refuses AI waiver and walks from Amazon project | 144 | 0 | 0 | 0 | 28.8 |
 | 2026-10-10T19:07 | reel | CELEBRITY | Elon Musk faces backlash after ex-wife reveals family claim | 255 | 1 | 0 | 0 | 53.0 |
 | 2026-10-10T16:07 | photo | POLITICS | Donald Trump faces backlash over Russia diesel deal | 28 | 0 | 0 | 10 | 11.6 |
 | 2026-10-10T12:06 | photo | AI | Sundar Pichai reveals Gemini reached 950 million users as cloud booms | 22 | 0 | 0 | 10 | 10.4 |
-| 2026-10-10T03:07 | reel | TECH | Sam Altman urges new Renaissance amid AI industrial revolution | 43 | 0 | 0 | 0 | 8.6 |
+| 2026-10-10T03:07 | reel | TECH | Sam Altman urges new Renaissance amid AI industrial revolution | 44 | 0 | 0 | 0 | 8.8 |
 | 2026-10-10T01:06 | reel | BUSINESS | Donald Trump buys $5 million in SpaceX bonds before big order | 35 | 0 | 0 | 0 | 7.0 |
 | 2026-10-09T23:08 | reel | BUSINESS | Elon Musk report reveals woman rejected $40 million payout | 130 | 0 | 0 | 0 | 26.0 |
 | 2026-10-09T19:07 | reel | TECH | Elon Musk's SpaceX surge sends AT&T, Verizon, T‑Mobile shares plunging | 57 | 0 | 0 | 0 | 11.4 |
@@ -33,7 +34,7 @@ Top posts: Elon Musk receives National Medal of Science from Trump (512.6) | Elo
 | 2026-10-09T03:06 | reel | TECH | Elon Musk's SpaceX just crushed major phone stocks | 110 | 0 | 0 | 0 | 22.0 |
 | 2026-10-09T01:06 | reel | SPORTS | LeBron James retracts after ESPN broadcaster's Joel Embiid claim | 45 | 0 | 0 | 0 | 9.0 |
 | 2026-10-08T23:06 | reel | TECH | Donald Trump suspends Microsoft from foreign worker green card program | 55 | 0 | 0 | 0 | 11.0 |
-| 2026-10-08T19:07 | reel | TECH | Elon Musk receives National Medal of Science from Trump | 1678 | 75 | 9 | 0 | 512.6 |
+| 2026-10-08T19:07 | reel | TECH | Elon Musk receives National Medal of Science from Trump | 1779 | 79 | 10 | 0 | 543.8 |
 | 2026-10-08T16:06 | photo | BUSINESS | Donald Trump injects $25 million into Meta, backs SpaceX debt | 31 | 1 | 0 | 9 | 14.2 |
 | 2026-10-08T12:07 | reel | TECH | Mark Zuckerberg charms Trump, steers AI clash with big stakes | 44 | 0 | 0 | 0 | 8.8 |
 | 2026-10-08T07:07 | photo | TECH | Elon Musk slams Indian oligarchs over Starlink delay | 18 | 0 | 0 | 0 | 3.6 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk receives National Medal of Science from Trump (512.6) | Elo
 | 2026-10-05T18:26 | photo |  | France Faces Belgium In Massive Football Clash | 8 | 0 | 0 | 0 | 1.6 |
 | 2026-10-05T09:01 | photo |  | Alcaraz Advances After Shapovalov Pulls Out, Final Secured | 9 | 0 | 0 | 0 | 1.8 |
 | 2026-10-05T01:59 | photo |  | HBO CEO Gives Glowing Review To Harry Potter Series | 24 | 0 | 0 | 0 | 4.8 |
-| 2026-10-04T23:07 | photo |  | Erling Haaland Limps Off In Huge Injury Scare | 15 | 0 | 0 | 0 | 3.0 |
