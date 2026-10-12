@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-12 01:06 UTC_
+_Updated 2026-10-12 02:05 UTC_
 
 ```
-Based on the last 41 posts on this page:
-Best categories: TECH (52.8), CELEBRITY (26.6), BUSINESS (13.9)
+Based on the last 42 posts on this page:
+Best categories: TECH (49.0), CELEBRITY (26.6), BUSINESS (13.9)
 Weakest categories: AI (10.1), SCIENCE (4.2)
-Format: reel (47.2, 19 posts), photo (6.3, 22 posts)
-Best posting slots (UTC): 19:00 (105.3), 01:00 (26.1), 03:00 (18.4)
-Best faces on this page (avg views per post): Elon Musk 271 (10 posts), Donald Trump 34 (5 posts), Sundar Pichai 22 (1 posts), Satya Nadella 18 (1 posts), Mark Zuckerberg 28 (3 posts), LeBron James 45 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (44.9, 20 posts), photo (6.3, 22 posts)
+Best posting slots (UTC): 19:00 (105.3), 01:00 (21.8), 03:00 (18.4)
+Best faces on this page (avg views per post): Elon Musk 246 (11 posts), Donald Trump 34 (5 posts), Sundar Pichai 22 (1 posts), Satya Nadella 18 (1 posts), Mark Zuckerberg 28 (3 posts), LeBron James 45 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk receives National Medal of Science from Trump (512.6) | Elon Musk faces backlash after ex-wife reveals family claim (53.0) | Adam Levine admits he made a mistake on The Voice (50.6)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-12T01:06 | reel | TECH | Elon Musk vows affordable Starlink in India before Jio IPO | 0 | 0 | 0 | 0 | 0.0 |
 | 2026-10-11T21:06 | reel | TECH | Elon Musk faces critics in high‑stakes showdown | 20 | 0 | 0 | 0 | 4.0 |
 | 2026-10-11T19:13 | reel | TECH | Elon Musk reaches an unprecedented $1.1 trillion net worth | 19 | 0 | 0 | 0 | 3.8 |
 | 2026-10-11T12:07 | photo | SPORTS | Kyrie Irving makes comeback in China preseason, sparking NBA buzz | 20 | 0 | 0 | 0 | 4.0 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk receives National Medal of Science from Trump (512.6) | Elo
 | 2026-10-05T09:01 | photo |  | Alcaraz Advances After Shapovalov Pulls Out, Final Secured | 9 | 0 | 0 | 0 | 1.8 |
 | 2026-10-05T01:59 | photo |  | HBO CEO Gives Glowing Review To Harry Potter Series | 24 | 0 | 0 | 0 | 4.8 |
 | 2026-10-04T23:07 | photo |  | Erling Haaland Limps Off In Huge Injury Scare | 15 | 0 | 0 | 0 | 3.0 |
-| 2026-10-04T20:10 | photo |  | Seahawks And Chargers Clash In Week 4 | 9 | 0 | 0 | 0 | 1.8 |
