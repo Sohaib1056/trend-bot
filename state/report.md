@@ -1,12 +1,12 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-13 04:06 UTC_
+_Updated 2026-10-13 05:00 UTC_
 
 ```
-Based on the last 50 posts on this page:
-Best categories: BUSINESS (110.6), TECH (81.0), CELEBRITY (31.2)
+Based on the last 51 posts on this page:
+Best categories: BUSINESS (110.6), TECH (81.0), POLITICS (26.9)
 Weakest categories: AI (11.2), SCIENCE (4.2)
-Format: reel (95.0, 25 posts), photo (6.7, 25 posts)
+Format: reel (95.0, 25 posts), photo (6.4, 26 posts)
 Best posting slots (UTC): 03:00 (170.7), 19:00 (147.7), 21:00 (97.1)
 Best faces on this page (avg views per post): Elon Musk 405 (16 posts), LeBron James 46 (1 posts), Sam Altman 42 (2 posts), Donald Trump 34 (6 posts), Sundar Pichai 25 (1 posts), Mark Zuckerberg 21 (4 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk receives National Medal of Science from Trump (791.8) | Elon Musk becomes first trillionaire with $1.1 trillion net worth (780.2) | Elon Musk faces critics in high‑stakes showdown (157.4)
@@ -14,6 +14,7 @@ Top posts: Elon Musk receives National Medal of Science from Trump (791.8) | Elo
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-13T04:10 | photo | CELEBRITY | Dan Levy slams Shane Gillis over controversial SNL monologue | 0 | 0 | 0 | 0 | 0.0 |
 | 2026-10-13T03:07 | reel | BUSINESS | Elon Musk hits trillionaire status with $1.1 trillion net worth | 2 | 0 | 0 | 0 | 0.4 |
 | 2026-10-13T02:08 | photo | TECH | Mark Zuckerberg puts Meta on AI frontier against OpenAI | 0 | 0 | 0 | 10 | 6.0 |
 | 2026-10-13T01:07 | reel | BUSINESS | Elon Musk cements status as world's wealthiest person since 2025 | 7 | 0 | 0 | 0 | 1.4 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk receives National Medal of Science from Trump (791.8) | Elo
 | 2026-10-07T07:06 | photo | CELEBRITY | Kiara Advani announces second pregnancy, calls it a blessing | 25 | 0 | 0 | 0 | 5.0 |
 | 2026-10-07T01:06 | reel | CELEBRITY | Adam Levine admits he made a mistake on The Voice | 283 | 1 | 1 | 0 | 61.6 |
 | 2026-10-06T23:06 | photo | SPORTS | Shohei Ohtani bumped to No.5 spot sparks debate | 19 | 0 | 0 | 0 | 3.8 |
-| 2026-10-06T19:06 | reel | TECH | Elon Musk returns as trillionaire, even after massive SpaceX dip | 203 | 2 | 1 | 0 | 47.6 |

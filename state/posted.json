@@ -1383,7 +1383,31 @@
       "time": "2026-10-13T04:10+00:00",
       "format": "photo",
       "facebook": "1397517856769204_122111544153493621",
-      "facebook_photo_id": "122111544117493621"
+      "facebook_photo_id": "122111544117493621",
+      "stats": {
+        "views": 0,
+        "reactions": 0,
+        "comments": 0,
+        "shares": 0,
+        "checked": "2026-10-13T05:00+00:00",
+        "score": 0.0
+      }
+    },
+    {
+      "key": "ilhan-omar-home-search",
+      "topic": "Federal agents searched Rep. Ilhan Omar\u2019s home as part of criminal investigation, AP sources say",
+      "headline": "Ilhan Omar's home *searched* in federal criminal probe",
+      "badge": "POLITICS",
+      "slot": "04",
+      "face": "Ilhan Omar",
+      "share_groups": [
+        "Ilhan Omar supporters",
+        "US politics fans",
+        "Congress news groups"
+      ],
+      "time": "2026-10-13T05:01+00:00",
+      "dry_run": true,
+      "format": "reel"
     }
   ],
   "replied": [
