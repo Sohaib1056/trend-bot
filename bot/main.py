@@ -167,6 +167,10 @@ def main():
     # a couple of spares, so one skipped post doesn't leave the slot empty
     special, facts_topic, star = "", "", ""
     slot_now = current_slot(datetime.now(timezone.utc))
+    if slot_now is None and config.DRY_RUN:  # test run between slots: behave like the next slot
+        now = datetime.now(timezone.utc).replace(minute=0, second=0, microsecond=0)
+        slot_now = next(now + timedelta(hours=k) for k in range(1, 25) if (now + timedelta(hours=k)).hour in config.POST_SLOTS_UTC)
+        print(f"[main] test run: acting as the {slot_now:%H}:00 UTC slot")
     star_slots = set(config.STAR_SLOTS_UTC)
     all_star = datetime.now(timezone.utc) < config.ALL_STAR_UNTIL
     if all_star:  # owner's request: every post (Reels and photos) about the star for now
