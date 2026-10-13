@@ -168,9 +168,10 @@ def main():
     special, facts_topic, star = "", "", ""
     slot_now = current_slot(datetime.now(timezone.utc))
     star_slots = set(config.STAR_SLOTS_UTC)
-    if datetime.now(timezone.utc) < config.ALL_STAR_UNTIL:  # owner's request: every Reel about the star for now
-        star_slots |= set(config.POST_SLOTS_UTC) - set(config.PHOTO_SLOTS_UTC)
-    if choose_format(state) == "reel" and slot_now is not None and slot_now.hour in star_slots:
+    all_star = datetime.now(timezone.utc) < config.ALL_STAR_UNTIL
+    if all_star:  # owner's request: every post (Reels and photos) about the star for now
+        star_slots |= set(config.POST_SLOTS_UTC)
+    if (all_star or choose_format(state) == "reel") and slot_now is not None and slot_now.hour in star_slots:
         # the page's best slot always gets a Reel about its best-performing face: fresh news, else facts & stats
         star = insights.star_face(state)
         facts_topic = norm(f"{star} facts")
@@ -185,7 +186,7 @@ def main():
             recent = [r["headline"].replace("*", "") for r in live if star.lower() in r.get("headline", "").lower()][-30:]
             special = (f"PEAK SLOT: this post MUST be about {star}, the face that performs best on this page. "
                        f"If a fresh news topic about {star} is listed, use it. Otherwise write a FACTS & STATS Reel "
-                       f"from the '{star} facts' topic (e.g. 'X wild facts about {star}', 'how rich is ...'): set "
+                       f"(or photo post) from the '{star} facts' topic (e.g. 'X wild facts about {star}', 'his wildest records'): set "
                        f"topic to exactly '{star} facts', and use ONLY numbers and facts stated in the text. "
                        f"wiki_title must be '{star}'.\n"
                        f"The page already posted these {star} stories. NEVER repeat any of them or their main fact "
