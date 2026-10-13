@@ -372,6 +372,7 @@ def _wikimedia_photo(title, hint="", _resolved=False):
             raise RuntimeError(f"license not free: {lic}")
         artist = re.sub(r"<[^>]+>", "", meta.get("Artist", {}).get("value", "")).strip()[:40] or "Wikimedia Commons"
         im = _download(src, WIKI_UA)
+        im.info["wm_file"] = fname  # so the Reel doesn't show a cropped copy of this same photo again
         print(f"[poster] background: Wikimedia photo of '{title}' ({lic})")
         return im, f"📷 Photo: {artist}, {lic}, via Wikimedia Commons"
     except Exception as e:

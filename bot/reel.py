@@ -201,7 +201,12 @@ def _commons_videos(q, want, context, seen):
     return out
 
 
-def _person_photos(post, want=3):
+def _base_file(title):
+    """'File:X, official portrait (cropped).jpg' and 'X, official portrait.jpg' are the same picture."""
+    return re.sub(r"\s*\([^)]*\)|\.\w+$|^file:", "", title.lower().replace("_", " ")).strip()
+
+
+def _person_photos(post, want=3, used=()):
     """More real photos of the person in the story (Wikimedia Commons, free licences only), checked by the judge."""
     from .ai import judge_image
     name = (post.get("wiki_title") or "").strip()
@@ -209,6 +214,7 @@ def _person_photos(post, want=3):
         return []
     last = name.split()[-1].lower()
     out, judged = [], 0
+    used = {_base_file(u) for u in used if u}
     try:
         r = requests.get("https://commons.wikimedia.org/w/api.php", headers=WIKI_UA, timeout=25, params={
             "action": "query", "format": "json", "generator": "search", "gsrnamespace": 6,
@@ -224,6 +230,8 @@ def _person_photos(post, want=3):
         title, ii = p.get("title", ""), (p.get("imageinfo") or [{}])[0]
         if last not in title.lower() or not title.lower().endswith((".jpg", ".jpeg")) or COMMONS_SKIP.search(title):
             continue
+        if _base_file(title) in used:  # a crop of a photo already in the Reel
+            continue
         if min(ii.get("width", 0), ii.get("height", 0)) < 900:
             continue
         meta = ii.get("extmetadata", {})
@@ -238,6 +246,7 @@ def _person_photos(post, want=3):
                 print(f"[reel] photo {title[:50]} rejected by the judge")
                 continue
             artist = re.sub(r"<[^>]+>", "", meta.get("Artist", {}).get("value", "")).strip()[:40] or "Wikimedia Commons"
+            used.add(_base_file(title))
             out.append((im, f"{artist}, {lic}, via Wikimedia Commons", score[2] if score else None))
             print(f"[reel] extra photo of {name}: {title[:60]}")
         except Exception as e:
@@ -367,7 +376,7 @@ def _people(post, photo, want):
         from .ai import judge_image
         score = judge_image(photo, post["headline"].replace("*", ""))  # where is the face?
         people.append((photo, score[2] if score else None))
-        extra_people = _person_photos(post, want=want)
+        extra_people = _person_photos(post, want=want, used=[photo.info.get("wm_file", "")])
         people += [(im, face) for im, _, face in extra_people]
         if extra_people:
             post["_reel_credits"] = [c for _, c, _ in extra_people]
