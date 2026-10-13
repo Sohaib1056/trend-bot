@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-13 02:07 UTC_
+_Updated 2026-10-13 03:07 UTC_
 
 ```
-Based on the last 48 posts on this page:
-Best categories: BUSINESS (126.4), TECH (86.4), CELEBRITY (31.1)
+Based on the last 49 posts on this page:
+Best categories: BUSINESS (126.4), TECH (81.0), CELEBRITY (31.1)
 Weakest categories: AI (11.2), SCIENCE (4.2)
-Format: reel (98.4, 24 posts), photo (6.7, 24 posts)
+Format: reel (98.4, 24 posts), photo (6.7, 25 posts)
 Best posting slots (UTC): 03:00 (213.3), 19:00 (145.8), 21:00 (97.1)
-Best faces on this page (avg views per post): Elon Musk 429 (15 posts), LeBron James 46 (1 posts), Sam Altman 42 (2 posts), Donald Trump 34 (6 posts), Mark Zuckerberg 28 (3 posts), Sundar Pichai 25 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 429 (15 posts), LeBron James 46 (1 posts), Sam Altman 42 (2 posts), Donald Trump 34 (6 posts), Sundar Pichai 25 (1 posts), Mark Zuckerberg 21 (4 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk receives National Medal of Science from Trump (791.8) | Elon Musk becomes first trillionaire with $1.1 trillion net worth (780.2) | Elon Musk faces critics in high‑stakes showdown (157.4)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-13T02:08 | photo | TECH | Mark Zuckerberg puts Meta on AI frontier against OpenAI | 0 | 0 | 0 | 10 | 6.0 |
 | 2026-10-13T01:07 | reel | BUSINESS | Elon Musk cements status as world's wealthiest person since 2025 | 7 | 0 | 0 | 0 | 1.4 |
 | 2026-10-12T21:08 | reel | BUSINESS | Elon Musk commands Tesla and SpaceX as world's richest leader | 159 | 1 | 1 | 0 | 36.8 |
 | 2026-10-12T19:08 | reel | POLITICS | Elon Musk drops $276 million into GOP midterms, igniting clash | 259 | 6 | 1 | 0 | 66.8 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk receives National Medal of Science from Trump (791.8) | Elo
 | 2026-10-06T23:06 | photo | SPORTS | Shohei Ohtani bumped to No.5 spot sparks debate | 19 | 0 | 0 | 0 | 3.8 |
 | 2026-10-06T19:06 | reel | TECH | Elon Musk returns as trillionaire, even after massive SpaceX dip | 203 | 2 | 1 | 0 | 47.6 |
 | 2026-10-06T16:05 | photo | CELEBRITY | Michael Douglas opens up about separation from Catherine Zeta‑Jones | 20 | 0 | 0 | 0 | 4.0 |
-| 2026-10-06T12:06 | reel | SHOPPING | ASOS shoppers in meltdown after receiving threatening app notifications | 53 | 1 | 1 | 0 | 15.6 |
