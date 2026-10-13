@@ -1,29 +1,30 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-13 01:07 UTC_
+_Updated 2026-10-13 02:07 UTC_
 
 ```
-Based on the last 47 posts on this page:
-Best categories: BUSINESS (98.5), TECH (76.9), CELEBRITY (31.1)
+Based on the last 48 posts on this page:
+Best categories: BUSINESS (126.4), TECH (86.4), CELEBRITY (31.1)
 Weakest categories: AI (11.2), SCIENCE (4.2)
-Format: reel (84.2, 23 posts), photo (6.7, 24 posts)
-Best posting slots (UTC): 03:00 (143.7), 19:00 (135.9), 21:00 (59.0)
-Best faces on this page (avg views per post): Elon Musk 385 (14 posts), LeBron James 46 (1 posts), Sam Altman 42 (2 posts), Donald Trump 34 (6 posts), Mark Zuckerberg 28 (3 posts), Sundar Pichai 25 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
-Top posts: Elon Musk receives National Medal of Science from Trump (723.2) | Elon Musk becomes first trillionaire with $1.1 trillion net worth (502.0) | Elon Musk faces critics in high‑stakes showdown (95.0)
+Format: reel (98.4, 24 posts), photo (6.7, 24 posts)
+Best posting slots (UTC): 03:00 (213.3), 19:00 (145.8), 21:00 (97.1)
+Best faces on this page (avg views per post): Elon Musk 429 (15 posts), LeBron James 46 (1 posts), Sam Altman 42 (2 posts), Donald Trump 34 (6 posts), Mark Zuckerberg 28 (3 posts), Sundar Pichai 25 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Top posts: Elon Musk receives National Medal of Science from Trump (791.8) | Elon Musk becomes first trillionaire with $1.1 trillion net worth (780.2) | Elon Musk faces critics in high‑stakes showdown (157.4)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
-| 2026-10-12T21:08 | reel | BUSINESS | Elon Musk commands Tesla and SpaceX as world's richest leader | 90 | 1 | 1 | 0 | 23.0 |
+| 2026-10-13T01:07 | reel | BUSINESS | Elon Musk cements status as world's wealthiest person since 2025 | 7 | 0 | 0 | 0 | 1.4 |
+| 2026-10-12T21:08 | reel | BUSINESS | Elon Musk commands Tesla and SpaceX as world's richest leader | 159 | 1 | 1 | 0 | 36.8 |
 | 2026-10-12T19:08 | reel | POLITICS | Elon Musk drops $276 million into GOP midterms, igniting clash | 259 | 6 | 1 | 0 | 66.8 |
-| 2026-10-12T04:06 | photo | AI | Sam Altman claims AI singularity has officially arrived | 39 | 0 | 0 | 10 | 13.8 |
-| 2026-10-12T03:06 | reel | BUSINESS | Elon Musk becomes first trillionaire with $1.1 trillion net worth | 1270 | 94 | 20 | 0 | 502.0 |
+| 2026-10-12T04:06 | photo | AI | Sam Altman claims AI singularity has officially arrived | 40 | 0 | 0 | 10 | 14.0 |
+| 2026-10-12T03:06 | reel | BUSINESS | Elon Musk becomes first trillionaire with $1.1 trillion net worth | 1861 | 150 | 36 | 0 | 780.2 |
 | 2026-10-12T02:06 | photo | POLITICS | Mike Tyson backs Donald Trump in surprising endorsement | 29 | 0 | 0 | 0 | 5.8 |
-| 2026-10-12T01:06 | reel | TECH | Elon Musk vows affordable Starlink in India before Jio IPO | 95 | 2 | 1 | 0 | 26.0 |
-| 2026-10-11T21:06 | reel | TECH | Elon Musk faces critics in high‑stakes showdown | 330 | 10 | 3 | 0 | 95.0 |
-| 2026-10-11T19:13 | reel | TECH | Elon Musk reaches an unprecedented $1.1 trillion net worth | 102 | 3 | 1 | 0 | 29.4 |
+| 2026-10-12T01:06 | reel | TECH | Elon Musk vows affordable Starlink in India before Jio IPO | 96 | 2 | 1 | 0 | 26.2 |
+| 2026-10-11T21:06 | reel | TECH | Elon Musk faces critics in high‑stakes showdown | 512 | 20 | 5 | 0 | 157.4 |
+| 2026-10-11T19:13 | reel | TECH | Elon Musk reaches an unprecedented $1.1 trillion net worth | 106 | 3 | 1 | 0 | 30.2 |
 | 2026-10-11T12:07 | photo | SPORTS | Kyrie Irving makes comeback in China preseason, sparking NBA buzz | 35 | 0 | 0 | 0 | 7.0 |
-| 2026-10-11T03:07 | reel | SPORTS | Arch Manning delivers big strikes in Texas vs Oklahoma clash | 133 | 1 | 1 | 0 | 31.6 |
+| 2026-10-11T03:07 | reel | SPORTS | Arch Manning delivers big strikes in Texas vs Oklahoma clash | 134 | 1 | 1 | 0 | 31.8 |
 | 2026-10-11T01:06 | reel | CELEBRITY | Nicolas Cage rejects Amazon AI waiver, risks Spider‑Noir role | 92 | 1 | 1 | 0 | 23.4 |
 | 2026-10-10T23:07 | reel | CELEBRITY | Nicolas Cage refuses AI waiver and walks from Amazon project | 147 | 1 | 1 | 0 | 34.4 |
 | 2026-10-10T19:07 | reel | CELEBRITY | Elon Musk faces backlash after ex-wife reveals family claim | 259 | 2 | 1 | 0 | 58.8 |
@@ -37,8 +38,8 @@ Top posts: Elon Musk receives National Medal of Science from Trump (723.2) | Elo
 | 2026-10-09T12:07 | photo | POLITICS | Donald Trump labels AI critics ‘the enemy’ | 20 | 0 | 0 | 10 | 10.0 |
 | 2026-10-09T03:06 | reel | TECH | Elon Musk's SpaceX just crushed major phone stocks | 111 | 1 | 1 | 0 | 27.2 |
 | 2026-10-09T01:06 | reel | SPORTS | LeBron James retracts after ESPN broadcaster's Joel Embiid claim | 46 | 1 | 1 | 0 | 14.2 |
-| 2026-10-08T23:06 | reel | TECH | Donald Trump suspends Microsoft from foreign worker green card program | 60 | 1 | 1 | 0 | 17.0 |
-| 2026-10-08T19:07 | reel | TECH | Elon Musk receives National Medal of Science from Trump | 2246 | 116 | 14 | 0 | 723.2 |
+| 2026-10-08T23:06 | reel | TECH | Donald Trump suspends Microsoft from foreign worker green card program | 61 | 1 | 1 | 0 | 17.2 |
+| 2026-10-08T19:07 | reel | TECH | Elon Musk receives National Medal of Science from Trump | 2434 | 130 | 15 | 0 | 791.8 |
 | 2026-10-08T16:06 | photo | BUSINESS | Donald Trump injects $25 million into Meta, backs SpaceX debt | 31 | 1 | 0 | 9 | 14.2 |
 | 2026-10-08T12:07 | reel | TECH | Mark Zuckerberg charms Trump, steers AI clash with big stakes | 45 | 1 | 1 | 0 | 14.0 |
 | 2026-10-08T07:07 | photo | TECH | Elon Musk slams Indian oligarchs over Starlink delay | 18 | 0 | 0 | 0 | 3.6 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk receives National Medal of Science from Trump (723.2) | Elo
 | 2026-10-06T19:06 | reel | TECH | Elon Musk returns as trillionaire, even after massive SpaceX dip | 203 | 2 | 1 | 0 | 47.6 |
 | 2026-10-06T16:05 | photo | CELEBRITY | Michael Douglas opens up about separation from Catherine Zeta‑Jones | 20 | 0 | 0 | 0 | 4.0 |
 | 2026-10-06T12:06 | reel | SHOPPING | ASOS shoppers in meltdown after receiving threatening app notifications | 53 | 1 | 1 | 0 | 15.6 |
-| 2026-10-06T07:09 | photo | TECH | Teenager raises $11 million for screenless AI computer | 12 | 0 | 0 | 0 | 2.4 |
