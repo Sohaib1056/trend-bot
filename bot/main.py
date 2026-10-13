@@ -199,19 +199,35 @@ def main():
                        f"records, habits...): "
                        f"{' | '.join(recent) or 'none'}\n\n")
             print(f"[main] star slot {slot_now:%H}:00 UTC -> Reel about {star} ({len(pool)} topics)")
-    posts = ai.write_posts(candidates, already, config.POSTS_PER_RUN + 2, performance, special)
+    def star_only(new):
+        """Star slots: only posts about the star (with the star's face), e.g. no faceless 'DOGE records' story."""
+        if not star:
+            return new
+        keep = []
+        for q in new:
+            if q.get("wiki_title") != star and star.lower() in (q["headline"] + " " + q.get("topic", "")).lower():
+                q["wiki_title"] = star
+            if q.get("wiki_title") == star:
+                keep.append(q)
+            else:
+                print(f"[main] star slot: dropping '{q['headline'][:60]}' (not about {star})")
+        return keep
+
+    posts = star_only(ai.write_posts(candidates, already, config.POSTS_PER_RUN + 2, performance, special))
 
     posts.sort(key=lambda p: not p.get("wiki_title"))  # stories about a famous person first
-    made, i, faceless, repeats = 0, 0, [], []
+    made, i, faceless, repeats, retries = 0, 0, [], [], 0
     while made < config.POSTS_PER_RUN:
         if i < len(posts):
             p = posts[i]
             i += 1
-        elif star and repeats and not faceless and len(posts) < 12:  # all repeats: ask the AI for new angles once more
-            print(f"[main] every {star} story was a repeat -> asking the AI for new ones")
-            posts += ai.write_posts(candidates, already, config.POSTS_PER_RUN + 2, performance, special +
-                                    "REJECTED because the page already told these stories - do something else: " +
-                                    " | ".join(repeats) + "\n\n")
+        elif star and retries < 2:  # no usable star post yet: ask the AI again (the facts topic always works)
+            retries += 1
+            print(f"[main] no new {star} post yet -> asking the AI again ({retries}/2)")
+            posts += star_only(ai.write_posts(candidates, already, config.POSTS_PER_RUN + 2, performance, special +
+                                              f"Every post MUST be about {star} (wiki_title '{star}'). " +
+                                              ("REJECTED because the page already told these stories - do something "
+                                               "else: " + " | ".join(repeats) if repeats else "") + "\n\n"))
             repeats = []
             continue
         elif faceless:  # no story had a real photo of its person: post the best one anyway (never skip a slot)
