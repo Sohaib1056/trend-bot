@@ -102,12 +102,12 @@ def _pixabay_videos(post, want=3, queries=None, context=None, seen=None, max_jud
             v = h["videos"].get("large") or {}
             if not v.get("url") or v.get("width", 0) < 1280:
                 v = h["videos"].get("medium") or {}
-            if not v.get("url"):
+            if not v.get("url") or max(v.get("width", 0), v.get("height", 0)) < 1280:  # soft, low-res clips look cheap
                 continue
             try:
                 judged += 1
                 score = judge_image(_download(v["thumbnail"]), headline, broll=True) if v.get("thumbnail") else None
-                if score is not None and (score[0] < 5 or score[1] < 5):
+                if score is not None and (score[0] < 5 or score[1] < 6):
                     print(f"[reel] clip {h['id']} for '{q}' rejected by the judge")
                     continue
                 path = os.path.join(CLIP_DIR, f"{h['id']}.mp4")
@@ -140,7 +140,7 @@ def _judge_clip(thumb_url, context, headers=None):
         score = judge_image(_download(thumb_url, headers), context, broll=True)
     except Exception:
         return True  # no thumbnail to check: accept
-    return score is None or (score[0] >= 5 and score[1] >= 5)
+    return score is None or (score[0] >= 5 and score[1] >= 6)
 
 
 def _nasa_videos(q, want, context, seen):
@@ -162,7 +162,7 @@ def _nasa_videos(q, want, context, seen):
         try:
             files = [f.replace(" ", "%20").replace("http://", "https://")
                      for f in requests.get(it["href"].replace(" ", "%20"), timeout=20).json()]
-            mp4 = next((f for f in files if f.endswith("~mobile.mp4")), None) or next((f for f in files if f.endswith("~small.mp4")), None)
+            mp4 = next((f for f in files for size in ("~medium.mp4", "~large.mp4", "~mobile.mp4") if f.endswith(size)), None)
             thumb = next((f for f in files if f.endswith("~small.jpg") or f.endswith("~thumb.jpg")), None)
             if mp4 and (not thumb or _judge_clip(thumb, context)):
                 out.append((mp4, 60, 12.0))
@@ -190,6 +190,8 @@ def _commons_videos(q, want, context, seen):
         ii = (p.get("imageinfo") or [{}])[0]
         lic = ii.get("extmetadata", {}).get("LicenseShortName", {}).get("value", "")
         if not ii.get("url") or ii["url"] in seen or not lic.lower().startswith(FREE_LICENSE) or ii.get("size", 0) > 300e6:
+            continue
+        if min(ii.get("width", 0), ii.get("height", 0)) < 720:  # HD only
             continue
         seen.add(ii["url"])
         if ii.get("thumburl") and not _judge_clip(ii["thumburl"], context, WIKI_UA):
@@ -244,6 +246,16 @@ def _person_photos(post, want=3):
         for im, credit, face in openverse_person(name, post["headline"].replace("*", ""), want - len(out)):
             out.append((im, credit.replace("📷 Photo: ", ""), face))
     return out
+
+
+def _good_still(im, line):
+    """Every scene must look good: an AI picture is used only if the judge rates it sharp and fitting."""
+    from .ai import judge_image
+    score = judge_image(im, line, broll=True)
+    if score is not None and (score[0] < 5 or score[1] < 7):
+        print(f"[reel] AI picture for '{line[:40]}' rejected by the judge (quality {score[1]})")
+        return False
+    return True
 
 
 def _ai_images(post, n):
@@ -413,7 +425,7 @@ def _planned_scenes(post, photo, words, duration):
                 kind, item = "video", got[len(out) % len(got)]
         if kind is None and s.get("ai"):
             im = _cloudflare_image(str(s["ai"]), abs(hash(line)) % 100000)
-            if im is not None:
+            if im is not None and _good_still(im, line):
                 kind, item = "photo", im
         if kind is None and people and not repeat:
             kind, item = "face", people[faces_used % len(people)]

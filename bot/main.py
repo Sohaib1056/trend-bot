@@ -69,11 +69,16 @@ STOP = set("the a an and or of to in on for with from at by as is are was be aft
            "says said just will about into this that than more most".split())
 
 
+# words that tell the same story in other words ('richest' = 'trillionaire' = 'net worth')
+SAME = {w: "wealth" for w in ("rich", "richer", "richest", "wealth", "wealthy", "wealthiest", "trillion", "trillionaire",
+                              "billion", "billionaire", "net", "worth", "fortune")}
+
+
 def _words(text):
-    return {w for w in re.findall(r"[a-z0-9]+", text.lower()) if len(w) > 2 and w not in STOP}
+    return {SAME.get(w, w) for w in re.findall(r"[a-z0-9]+", text.lower()) if len(w) > 2 and w not in STOP}
 
 
-def recent_duplicate(text, face, state, hours=48):
+def recent_duplicate(text, face, state, hours=48, min_common=2, must=""):
     """Same person + same story posted in the last 2 days (wording may differ), e.g. 'Nicolas Cage refuses AI
     waiver' vs 'Nicolas Cage rejects Amazon AI waiver'. Returns the old headline or ''."""
     now = datetime.now(timezone.utc)
@@ -91,7 +96,9 @@ def recent_duplicate(text, face, state, hours=48):
         theirs = _words(old_text) - name
         same_person = bool(name) and name <= _words(old_text)
         common = mine & theirs
-        if (same_person and len(common) >= 2) or len(common) >= 4:
+        if must and must not in common:
+            continue
+        if (same_person and len(common) >= min_common) or len(common) >= 4:
             return r.get("headline", "").replace("*", "")
     return ""
 
@@ -158,7 +165,7 @@ def main():
     if performance:
         print("[insights] " + performance.replace("\n", "\n[insights] "))
     # a couple of spares, so one skipped post doesn't leave the slot empty
-    special, facts_topic = "", ""
+    special, facts_topic, star = "", "", ""
     slot_now = current_slot(datetime.now(timezone.utc))
     star_slots = set(config.STAR_SLOTS_UTC)
     if datetime.now(timezone.utc) < config.ALL_STAR_UNTIL:  # owner's request: every Reel about the star for now
@@ -175,40 +182,67 @@ def main():
             print(f"[main] facts for {star} failed: {e}")
         if pool:
             candidates = pool
-            recent = [r["headline"].replace("*", "") for r in live if star.lower() in r.get("headline", "").lower()][-8:]
+            recent = [r["headline"].replace("*", "") for r in live if star.lower() in r.get("headline", "").lower()][-30:]
             special = (f"PEAK SLOT: this post MUST be about {star}, the face that performs best on this page. "
                        f"If a fresh news topic about {star} is listed, use it. Otherwise write a FACTS & STATS Reel "
                        f"from the '{star} facts' topic (e.g. 'X wild facts about {star}', 'how rich is ...'): set "
                        f"topic to exactly '{star} facts', and use ONLY numbers and facts stated in the text. "
                        f"wiki_title must be '{star}'.\n"
-                       f"The page already posted these {star} stories - pick a clearly DIFFERENT story or different "
-                       f"facts/angle (money, companies, rockets, cars, AI, family, records...): "
+                       f"The page already posted these {star} stories. NEVER repeat any of them or their main fact "
+                       f"(e.g. if net worth / richest / trillionaire is listed, do not use it again). Pick a clearly "
+                       f"NEW story, or new facts from a different area (rockets, cars, AI, X, Neuralink, childhood, "
+                       f"records, habits...): "
                        f"{' | '.join(recent) or 'none'}\n\n")
             print(f"[main] star slot {slot_now:%H}:00 UTC -> Reel about {star} ({len(pool)} topics)")
     posts = ai.write_posts(candidates, already, config.POSTS_PER_RUN + 2, performance, special)
 
-    if choose_format(state) == "reel":  # a Reel is due: stories about a famous person first
-        posts.sort(key=lambda p: not p.get("wiki_title"))
-    made = 0
-    for p in posts:
-        if made >= config.POSTS_PER_RUN:
+    posts.sort(key=lambda p: not p.get("wiki_title"))  # stories about a famous person first
+    made, i, faceless, repeats = 0, 0, [], []
+    while made < config.POSTS_PER_RUN:
+        if i < len(posts):
+            p = posts[i]
+            i += 1
+        elif star and repeats and not faceless and len(posts) < 12:  # all repeats: ask the AI for new angles once more
+            print(f"[main] every {star} story was a repeat -> asking the AI for new ones")
+            posts += ai.write_posts(candidates, already, config.POSTS_PER_RUN + 2, performance, special +
+                                    "REJECTED because the page already told these stories - do something else: " +
+                                    " | ".join(repeats) + "\n\n")
+            repeats = []
+            continue
+        elif faceless:  # no story had a real photo of its person: post the best one anyway (never skip a slot)
+            p = faceless.pop(0)
+            print(f"[main] no story with a real face photo -> posting '{p['headline'][:60]}' with its best image")
+        else:
             break
-        if facts_topic and norm(p.get("topic", "")) == facts_topic:  # facts Reels may repeat: one per slot
-            p["key"] = f"{p['key'][:40]}-{datetime.now(timezone.utc):%Y%m%d%H}"
-        elif p["key"] in done_keys or norm(p.get("topic", "")) in done_topics:
-            print(f"[main] skipping {p['key']} (already posted)")
-            continue
-        dup = "" if facts_topic and norm(p.get("topic", "")) == facts_topic else             recent_duplicate(p.get("topic", "") + " " + p["headline"], p.get("wiki_title", ""), state)
-        if dup:
-            print(f"[main] skipping {p['key']}: same story as '{dup[:60]}'")
-            continue
-        if p["key"] in done_keys or BLOCK_WORDS.search(p["headline"] + " " + p["caption"]):
-            print(f"[main] skipping {p['key']}")
-            continue
-        stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M")
-        img = poster.make_poster(p, os.path.join(config.OUTPUT_DIR, f"{stamp}-{p['key']}.jpg"))
-        if p.get("wiki_title") and not p.get("_person"):
-            print(f"[main] warning: no free photo of {p['wiki_title']} found anywhere, posting with the best other image")
+        if p.get("_img"):
+            img = p["_img"]
+        else:
+            facts = facts_topic and norm(p.get("topic", "")) == facts_topic
+            if facts:  # facts Reels may repeat the topic (one per slot), never the same facts
+                p["key"] = f"{p['key'][:40]}-{datetime.now(timezone.utc):%Y%m%d%H}"
+            elif p["key"] in done_keys or norm(p.get("topic", "")) in done_topics:
+                print(f"[main] skipping {p['key']} (already posted)")
+                continue
+            face = p.get("wiki_title", "")
+            dup = recent_duplicate(p["headline"] if facts else p.get("topic", "") + " " + p["headline"], face, state)
+            if not dup and star and face == star:  # star Reels: no story or theme the page already told
+                dup = (recent_duplicate(p["headline"], face, state, hours=24 * 7, min_common=1, must="wealth") if "wealth" in _words(p["headline"])
+                       else recent_duplicate(p["headline"], face, state, hours=24 * 60, min_common=3))
+            if dup:
+                print(f"[main] skipping {p['key']}: same story as '{dup[:60]}'")
+                repeats.append(p["headline"].replace("*", ""))
+                continue
+            if p["key"] in done_keys or BLOCK_WORDS.search(p["headline"] + " " + p["caption"]):
+                print(f"[main] skipping {p['key']}")
+                continue
+            stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M")
+            img = poster.make_poster(p, os.path.join(config.OUTPUT_DIR, f"{stamp}-{p['key']}.jpg"))
+            p["_img"] = img
+            if not p.get("_person"):  # owner's rule: the picture must show the person -> try the next story first
+                print(f"[main] no real photo of {p.get('wiki_title') or 'a famous person'} for '{p['headline'][:50]}' "
+                      f"-> trying the next story first")
+                faceless.append(p)
+                continue
         tags = [h for h in p["hashtags"] if h.lower() != "hypeatlas"]
         caption = p["caption"].strip() + "\n\n" + growth.FOLLOW_LINE + "\n\n" + " ".join("#" + h for h in tags)
         if p.get("_credit"):  # photo licence requires attribution; kept off the poster, in the caption

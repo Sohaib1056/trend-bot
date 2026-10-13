@@ -312,7 +312,30 @@ def _is_person(qid):
         return False
 
 
-def _wikimedia_photo(title):
+ROLE_HINT = {"CELEBRITY": "actor", "TV & FILM": "actor", "MUSIC": "singer", "SPORTS": "athlete",
+             "POLITICS": "politician", "BUSINESS": "businessman", "TECH": "businessman", "AI": "businessman"}
+
+
+def _resolve_person(title, hint=""):
+    """'Dan Levy' is a list of several people on Wikipedia: find the page of the one meant (e.g. 'Dan Levy (Canadian
+    actor)') with a Wikipedia search. Returns the page title or None."""
+    last = title.split()[-1].lower()
+    try:
+        hits = requests.get("https://en.wikipedia.org/w/api.php", headers=WIKI_UA, timeout=20, params={
+            "action": "query", "list": "search", "format": "json", "srlimit": 6,
+            "srsearch": f"{title} {hint}".strip()}).json()["query"]["search"]
+    except Exception as e:
+        print(f"[poster] Wikipedia search for '{title}' failed: {e}")
+        return None
+    for h in hits:
+        t = h["title"]
+        if last in t.lower() and t.lower() != title.lower() and "disambiguation" not in t.lower():
+            print(f"[poster] '{title}' is a list of people on Wikipedia -> using '{t}'")
+            return t
+    return None
+
+
+def _wikimedia_photo(title, hint="", _resolved=False):
     """Real photo of the person/team/film from Wikipedia, only if freely licensed. Returns (img, credit)."""
     if not title:
         return None, None
@@ -320,6 +343,10 @@ def _wikimedia_photo(title):
         r = requests.get("https://en.wikipedia.org/api/rest_v1/page/summary/" + urllib.parse.quote(title.replace(" ", "_")),
                          headers=WIKI_UA, timeout=20)
         info = r.json()
+        if info.get("type") == "disambiguation" and not _resolved:
+            page = _resolve_person(title, hint)
+            if page:
+                return _wikimedia_photo(page, hint, _resolved=True)
         src = ((info.get("originalimage") or {}).get("source") or "").split("?", 1)[0]
         if r.status_code != 200 or not src or info.get("type") == "disambiguation":
             raise RuntimeError("no page image")
@@ -463,7 +490,7 @@ def get_background(post):
     by the AI image judge (relevance to the headline + photo quality)."""
     from .ai import judge_image
     post["_extras"] = []  # other good images, reused as extra scenes in the Reel
-    real, credit = _wikimedia_photo(post.get("wiki_title"))
+    real, credit = _wikimedia_photo(post.get("wiki_title"), ROLE_HINT.get((post.get("badge") or "").upper(), ""))
     if real is None and post.get("wiki_title"):  # Wikipedia had no usable photo (or was busy): try Openverse
         got = openverse_person(post["wiki_title"], post["headline"].replace("*", ""))
         if got:
