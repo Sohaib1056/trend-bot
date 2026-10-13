@@ -66,7 +66,7 @@ def should_post_now(state):
 
 
 STOP = set("the a an and or of to in on for with from at by as is are was be after over amid new his her their its "
-           "says said just will about into this that than more most".split())
+           "says said just will about into this that than more most facts fact wild first again big top shocking huge".split())
 
 
 # words that tell the same story in other words ('richest' = 'trillionaire' = 'net worth')
