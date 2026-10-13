@@ -223,7 +223,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-13T04:05+00:00",
+        "checked": "2026-10-13T12:37+00:00",
         "score": 4.0
       }
     },
@@ -303,12 +303,12 @@
       "facebook_reel": "2028743817805689",
       "facebook": "2028743817805689",
       "stats": {
-        "views": 203,
+        "views": 205,
         "reactions": 2,
         "comments": 1,
         "shares": 0,
-        "checked": "2026-10-13T04:05+00:00",
-        "score": 47.6
+        "checked": "2026-10-13T12:37+00:00",
+        "score": 48.0
       }
     },
     {
@@ -331,7 +331,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-13T04:05+00:00",
+        "checked": "2026-10-13T12:37+00:00",
         "score": 3.8
       }
     },
@@ -351,12 +351,12 @@
       "facebook_reel": "2622862774832358",
       "facebook": "2622862774832358",
       "stats": {
-        "views": 283,
+        "views": 289,
         "reactions": 1,
         "comments": 1,
         "shares": 0,
-        "checked": "2026-10-13T04:05+00:00",
-        "score": 61.6
+        "checked": "2026-10-13T12:37+00:00",
+        "score": 62.8
       }
     },
     {
@@ -379,7 +379,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-13T04:05+00:00",
+        "checked": "2026-10-13T12:37+00:00",
         "score": 5.0
       }
     },
@@ -398,7 +398,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-13T04:05+00:00",
+        "checked": "2026-10-13T12:37+00:00",
         "score": 4.2
       }
     },
@@ -497,7 +497,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 10,
-        "checked": "2026-10-13T04:05+00:00",
+        "checked": "2026-10-13T12:37+00:00",
         "score": 9.6
       }
     },
@@ -521,7 +521,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 10,
-        "checked": "2026-10-13T04:05+00:00",
+        "checked": "2026-10-13T12:37+00:00",
         "score": 8.6
       }
     },
@@ -545,7 +545,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 11,
-        "checked": "2026-10-13T04:05+00:00",
+        "checked": "2026-10-13T12:37+00:00",
         "score": 10.4
       }
     },
@@ -565,12 +565,12 @@
       "facebook_reel": "1149287334657411",
       "facebook": "1149287334657411",
       "stats": {
-        "views": 222,
+        "views": 223,
         "reactions": 2,
         "comments": 1,
         "shares": 0,
-        "checked": "2026-10-13T04:05+00:00",
-        "score": 51.4
+        "checked": "2026-10-13T12:37+00:00",
+        "score": 51.6
       }
     },
     {
@@ -593,7 +593,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 0,
-        "checked": "2026-10-13T04:05+00:00",
+        "checked": "2026-10-13T12:37+00:00",
         "score": 3.6
       }
     },
@@ -617,7 +617,7 @@
         "reactions": 1,
         "comments": 1,
         "shares": 0,
-        "checked": "2026-10-13T04:05+00:00",
+        "checked": "2026-10-13T12:37+00:00",
         "score": 14.0
       }
     },
@@ -656,7 +656,7 @@
         "reactions": 1,
         "comments": 0,
         "shares": 9,
-        "checked": "2026-10-13T03:05+00:00",
+        "checked": "2026-10-13T12:37+00:00",
         "score": 14.2
       }
     },
@@ -676,12 +676,12 @@
       "facebook_reel": "1706612744398346",
       "facebook": "1706612744398346",
       "stats": {
-        "views": 2530,
-        "reactions": 140,
-        "comments": 17,
+        "views": 2718,
+        "reactions": 158,
+        "comments": 19,
         "shares": 0,
-        "checked": "2026-10-13T05:06+00:00",
-        "score": 837.0
+        "checked": "2026-10-13T12:37+00:00",
+        "score": 916.6
       }
     },
     {
@@ -700,12 +700,12 @@
       "facebook_reel": "4539306306215496",
       "facebook": "4539306306215496",
       "stats": {
-        "views": 65,
+        "views": 67,
         "reactions": 1,
         "comments": 1,
         "shares": 0,
-        "checked": "2026-10-13T05:06+00:00",
-        "score": 18.0
+        "checked": "2026-10-13T12:37+00:00",
+        "score": 18.4
       }
     },
     {
@@ -727,7 +727,7 @@
         "reactions": 1,
         "comments": 1,
         "shares": 0,
-        "checked": "2026-10-13T05:06+00:00",
+        "checked": "2026-10-13T12:37+00:00",
         "score": 14.4
       }
     },
@@ -751,7 +751,7 @@
         "reactions": 1,
         "comments": 1,
         "shares": 0,
-        "checked": "2026-10-13T05:06+00:00",
+        "checked": "2026-10-13T12:37+00:00",
         "score": 27.2
       }
     },
@@ -1424,6 +1424,22 @@
       "time": "2026-10-13T05:07+00:00",
       "dry_run": true,
       "format": "reel"
+    },
+    {
+      "key": "musk-chip-stocks-china",
+      "topic": "Elon Musk just nailed it on why chip stocks like Micron and Sandisk are being drilled on surprising news out of China",
+      "headline": "Elon Musk *slams* chip stocks over China surprise",
+      "badge": "BUSINESS",
+      "slot": "",
+      "face": "Elon Musk",
+      "share_groups": [
+        "Tech investors",
+        "Wall Street traders",
+        "Chip stock enthusiasts"
+      ],
+      "time": "2026-10-13T12:39+00:00",
+      "dry_run": true,
+      "format": "photo"
     }
   ],
   "replied": [
