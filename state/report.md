@@ -1,14 +1,14 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-14 03:08 UTC_
+_Updated 2026-10-14 04:07 UTC_
 
 ```
 Based on the last 54 posts on this page:
-Best categories: BUSINESS (483.4), TECH (316.2), POLITICS (42.9)
+Best categories: BUSINESS (483.4), TECH (317.2), POLITICS (44.4)
 Weakest categories: AI (15.2), SCIENCE (4.2)
-Format: reel (339.7, 28 posts), photo (9.4, 26 posts)
-Best posting slots (UTC): 21:00 (1761.9), 03:00 (461.3), 19:00 (179.3)
-Best faces on this page (avg views per post): Elon Musk 1246 (19 posts), Sam Altman 57 (2 posts), Mark Zuckerberg 40 (4 posts), LeBron James 53 (1 posts), Sundar Pichai 30 (1 posts), Donald Trump 40 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (340.6, 28 posts), photo (9.4, 26 posts)
+Best posting slots (UTC): 21:00 (1761.9), 03:00 (461.3), 19:00 (182.3)
+Best faces on this page (avg views per post): Elon Musk 1249 (19 posts), Sam Altman 57 (2 posts), Mark Zuckerberg 40 (4 posts), LeBron James 53 (1 posts), Sundar Pichai 30 (1 posts), Donald Trump 40 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk faces critics in high‑stakes showdown (3364.2) | Elon Musk commands Tesla and SpaceX as world's richest leader (1852.6) | Elon Musk becomes first trillionaire with $1.1 trillion net worth (1474.6)
 ```
 
@@ -16,7 +16,7 @@ Top posts: Elon Musk faces critics in high‑stakes showdown (3364.2) | Elon Mus
 |---|---|---|---|---|---|---|---|---|
 | 2026-10-14T01:09 | reel | POLITICS | Elon Musk was a former public official | 18 | 3 | 0 | 0 | 9.6 |
 | 2026-10-13T21:09 | reel | BUSINESS | Elon Musk's record-breaking $366m political spend shocks US | 219 | 8 | 3 | 0 | 68.8 |
-| 2026-10-13T19:28 | reel | POLITICS | Supreme Court reviews Elon Musk DOGE records | 286 | 8 | 2 | 0 | 79.2 |
+| 2026-10-13T19:28 | reel | POLITICS | Supreme Court reviews Elon Musk DOGE records | 302 | 11 | 2 | 0 | 88.4 |
 | 2026-10-13T04:10 | photo | CELEBRITY | Dan Levy slams Shane Gillis over controversial SNL monologue | 79 | 1 | 0 | 0 | 17.8 |
 | 2026-10-13T03:07 | reel | BUSINESS | Elon Musk hits trillionaire status with $1.1 trillion net worth | 1911 | 148 | 24 | 0 | 750.2 |
 | 2026-10-13T02:08 | photo | TECH | Mark Zuckerberg puts Meta on AI frontier against OpenAI | 69 | 4 | 2 | 10 | 33.8 |
@@ -45,7 +45,7 @@ Top posts: Elon Musk faces critics in high‑stakes showdown (3364.2) | Elon Mus
 | 2026-10-09T03:06 | reel | TECH | Elon Musk's SpaceX just crushed major phone stocks | 112 | 2 | 1 | 0 | 29.4 |
 | 2026-10-09T01:06 | reel | SPORTS | LeBron James retracts after ESPN broadcaster's Joel Embiid claim | 53 | 2 | 1 | 0 | 17.6 |
 | 2026-10-08T23:06 | reel | TECH | Donald Trump suspends Microsoft from foreign worker green card program | 74 | 2 | 1 | 0 | 21.8 |
-| 2026-10-08T19:07 | reel | TECH | Elon Musk receives National Medal of Science from Trump | 2972 | 183 | 21 | 0 | 1023.4 |
+| 2026-10-08T19:07 | reel | TECH | Elon Musk receives National Medal of Science from Trump | 3006 | 187 | 21 | 0 | 1038.2 |
 | 2026-10-08T16:06 | photo | BUSINESS | Donald Trump injects $25 million into Meta, backs SpaceX debt | 31 | 1 | 0 | 9 | 14.2 |
 | 2026-10-08T12:07 | reel | TECH | Mark Zuckerberg charms Trump, steers AI clash with big stakes | 51 | 2 | 1 | 0 | 17.2 |
 | 2026-10-08T07:07 | photo | TECH | Elon Musk slams Indian oligarchs over Starlink delay | 18 | 0 | 0 | 0 | 3.6 |
