@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-14 19:07 UTC_
+_Updated 2026-10-14 21:07 UTC_
 
 ```
-Based on the last 54 posts on this page:
-Best categories: BUSINESS (560.5), TECH (373.0), POLITICS (126.0)
+Based on the last 55 posts on this page:
+Best categories: BUSINESS (560.5), TECH (351.0), POLITICS (126.0)
 Weakest categories: AI (15.3), SCIENCE (4.2)
-Format: reel (412.7, 28 posts), photo (9.6, 26 posts)
-Best posting slots (UTC): 21:00 (2188.5), 03:00 (499.4), 19:00 (191.3)
-Best faces on this page (avg views per post): Elon Musk 1507 (19 posts), Sam Altman 58 (2 posts), Mark Zuckerberg 44 (4 posts), LeBron James 55 (1 posts), Sundar Pichai 31 (1 posts), Donald Trump 42 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (399.2, 29 posts), photo (9.6, 26 posts)
+Best posting slots (UTC): 21:00 (2188.5), 03:00 (499.4), 19:00 (172.4)
+Best faces on this page (avg views per post): Elon Musk 1436 (20 posts), Sam Altman 58 (2 posts), Mark Zuckerberg 44 (4 posts), LeBron James 55 (1 posts), Sundar Pichai 31 (1 posts), Donald Trump 42 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk faces critics in high‑stakes showdown (4141.8) | Elon Musk commands Tesla and SpaceX as world's richest leader (2274.0) | Elon Musk becomes first trillionaire with $1.1 trillion net worth (1548.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-14T19:07 | reel | TECH | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims | 99 | 1 | 0 | 0 | 21.8 |
 | 2026-10-14T01:09 | reel | POLITICS | Elon Musk was a former public official | 1195 | 102 | 13 | 0 | 482.0 |
 | 2026-10-13T21:09 | reel | BUSINESS | Elon Musk's record-breaking $366m political spend shocks US | 389 | 30 | 4 | 0 | 149.8 |
 | 2026-10-13T19:28 | reel | POLITICS | Supreme Court reviews Elon Musk DOGE records | 367 | 13 | 2 | 0 | 105.4 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk faces critics in high‑stakes showdown (4141.8) | Elon Mus
 | 2026-10-07T23:06 | photo | AI | Mark Zuckerberg backs $1.8 billion AI biology push with Google | 22 | 0 | 0 | 11 | 10.4 |
 | 2026-10-07T19:06 | photo | BUSINESS | Tim Cook cashes out $63.8 million in Apple stock | 13 | 0 | 0 | 10 | 8.6 |
 | 2026-10-07T16:06 | photo | AI | Satya Nadella unveils groundbreaking AI laptop with Jensen Huang | 18 | 0 | 0 | 10 | 9.6 |
-| 2026-10-07T12:14 | photo | SCIENCE | Henri Kagan and Kenso Soai just won the Nobel Prize | 21 | 0 | 0 | 0 | 4.2 |
