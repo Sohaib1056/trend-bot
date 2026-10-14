@@ -1,6 +1,7 @@
 """Collect what is trending right now in English-speaking countries (free, no keys)."""
 import os
 import re
+from datetime import datetime, timezone
 import xml.etree.ElementTree as ET
 
 import requests
@@ -274,6 +275,24 @@ def person_facts(name):
                          "url": (r.get("content_urls") or {}).get("desktop", {}).get("page", "")})
     except Exception as e:
         print(f"[trends] Wikipedia summary for {name} failed: {e}")
+    try:  # a different part of their life each slot (rockets, cars, childhood...), so facts posts don't repeat
+        pages = requests.get("https://en.wikipedia.org/w/api.php", timeout=20, params={
+            "action": "query", "format": "json", "prop": "extracts", "explaintext": 1, "redirects": 1, "titles": name},
+            headers={"User-Agent": "HypeAtlasBot/1.0 (facebook.com/hypeatlasnews)"}).json()["query"]["pages"]
+        text = next(iter(pages.values())).get("extract", "")
+        parts = re.split(r"\n==+ *([^=\n]+?) *==+\n", text)
+        sections = [(parts[i].strip(), parts[i + 1].strip()) for i in range(1, len(parts) - 1, 2)
+                    if len(parts[i + 1].strip()) > 400 and not re.search(
+                        r"reference|see also|note|bibliograph|external|further|legal|lawsuit|controvers|criticism|"
+                        r"politic|views|death|illness|health|accusation|epstein|salute|marriage|relationship|international", parts[i], re.I)]
+        if sections:
+            now = datetime.now(timezone.utc)
+            title, body = sections[(now.timetuple().tm_yday * 24 + now.hour) % len(sections)]
+            news.insert(0, {"title": f"{name}: {title} (Wikipedia)", "snippet": body[:1200], "source": "Wikipedia",
+                            "url": ""})
+            print(f"[trends] facts angle for {name}: {title}")
+    except Exception as e:
+        print(f"[trends] Wikipedia sections for {name} failed: {e}")
     for it in focus_news([name], per_term=3):
         news += it["news"]
     return {"topic": f"{name} facts", "traffic": "", "country": "US", "source": "focus", "news": news[:4],

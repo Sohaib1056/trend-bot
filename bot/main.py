@@ -69,6 +69,11 @@ STOP = set("the a an and or of to in on for with from at by as is are was be aft
            "says said just will about into this that than more most facts fact wild first again big top shocking huge".split())
 
 
+# if the star has nothing new: only faces as big as the star (people stop, like, share and follow for them)
+BIG_FACES = ["Donald Trump", "Mark Zuckerberg", "Jeff Bezos", "Bill Gates", "Sam Altman", "Jensen Huang", "Taylor Swift",
+             "Cristiano Ronaldo", "Lionel Messi", "LeBron James", "Kim Kardashian", "Dwayne Johnson", "MrBeast",
+             "Barack Obama", "Rihanna", "Oprah Winfrey", "Tom Cruise", "Kylie Jenner"]
+
 # words that tell the same story in other words ('richest' = 'trillionaire' = 'net worth')
 SAME = {w: "wealth" for w in ("rich", "richer", "richest", "wealth", "wealthy", "wealthiest", "trillion", "trillionaire",
                               "billion", "billionaire", "net", "worth", "fortune")}
@@ -165,7 +170,7 @@ def main():
     if performance:
         print("[insights] " + performance.replace("\n", "\n[insights] "))
     # a couple of spares, so one skipped post doesn't leave the slot empty
-    special, facts_topic, star = "", "", ""
+    special, facts_topic, star, all_candidates = "", "", "", candidates
     slot_now = current_slot(datetime.now(timezone.utc))
     if slot_now is None and config.DRY_RUN:  # test run between slots: behave like the next slot
         now = datetime.now(timezone.utc).replace(minute=0, second=0, microsecond=0)
@@ -229,6 +234,25 @@ def main():
                                               ("REJECTED because the page already told these stories - do something "
                                                "else: " + " | ".join(repeats) if repeats else "") + "\n\n"))
             repeats = []
+            continue
+        elif star and not faceless:  # still nothing new about the star: another world-famous face, not an empty slot
+            print(f"[main] no new {star} story today -> a post about another world-famous face instead")
+            star = ""
+            big = [c for c in all_candidates if any(f.lower() in (c["topic"] + " " + " ".join(
+                n["title"] for n in c["news"])).lower() for f in BIG_FACES)][:6]
+            now = datetime.now(timezone.utc)
+            alt = BIG_FACES[(now.timetuple().tm_yday * 24 + now.hour) % len(BIG_FACES)]
+            try:
+                big.append(trends.person_facts(alt))
+            except Exception as e:
+                print(f"[main] facts for {alt} failed: {e}")
+            facts_topic = norm(f"{alt} facts")
+            new = ai.write_posts(big, already, config.POSTS_PER_RUN + 2, performance,
+                                 f"This post MUST be about ONE of these world-famous people: {', '.join(BIG_FACES)}. "
+                                 f"wiki_title must be exactly that person's name as written here. If no fresh news "
+                                 f"topic about them is listed, write a FACTS & STATS post from the '{alt} facts' topic "
+                                 f"(set topic to exactly '{alt} facts'), using ONLY facts stated in the text.\n\n")
+            posts += [q for q in new if q.get("wiki_title") in BIG_FACES]
             continue
         elif faceless:  # no story had a real photo of its person: post the best one anyway (never skip a slot)
             p = faceless.pop(0)

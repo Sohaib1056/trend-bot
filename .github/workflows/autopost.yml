@@ -39,6 +39,8 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main   # latest state, not the commit at trigger time (a queued run must see the post the run before it made)
 
       - uses: actions/setup-python@v5
         with:
