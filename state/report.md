@@ -1,41 +1,42 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-13 21:08 UTC_
+_Updated 2026-10-14 01:09 UTC_
 
 ```
-Based on the last 52 posts on this page:
-Best categories: BUSINESS (424.5), TECH (258.3), POLITICS (39.4)
-Weakest categories: AI (14.9), SCIENCE (4.2)
-Format: reel (293.3, 26 posts), photo (9.1, 26 posts)
-Best posting slots (UTC): 21:00 (1943.3), 03:00 (383.3), 19:00 (169.2)
-Best faces on this page (avg views per post): Elon Musk 1092 (17 posts), Sam Altman 56 (2 posts), LeBron James 53 (1 posts), Mark Zuckerberg 37 (4 posts), Sundar Pichai 27 (1 posts), Donald Trump 40 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
-Top posts: Elon Musk faces critics in high‑stakes showdown (2526.2) | Elon Musk commands Tesla and SpaceX as world's richest leader (1360.4) | Elon Musk becomes first trillionaire with $1.1 trillion net worth (1351.6)
+Based on the last 53 posts on this page:
+Best categories: BUSINESS (436.6), TECH (290.6), POLITICS (49.5)
+Weakest categories: AI (15.2), SCIENCE (4.2)
+Format: reel (322.1, 27 posts), photo (9.4, 26 posts)
+Best posting slots (UTC): 21:00 (1549.9), 03:00 (428.6), 19:00 (179.0)
+Best faces on this page (avg views per post): Elon Musk 1198 (18 posts), Sam Altman 57 (2 posts), Mark Zuckerberg 40 (4 posts), LeBron James 53 (1 posts), Sundar Pichai 30 (1 posts), Donald Trump 40 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
+Top posts: Elon Musk faces critics in high‑stakes showdown (2983.6) | Elon Musk commands Tesla and SpaceX as world's richest leader (1646.0) | Elon Musk becomes first trillionaire with $1.1 trillion net worth (1429.0)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
-| 2026-10-13T19:28 | reel | POLITICS | Supreme Court reviews Elon Musk DOGE records | 127 | 3 | 1 | 0 | 34.4 |
-| 2026-10-13T04:10 | photo | CELEBRITY | Dan Levy slams Shane Gillis over controversial SNL monologue | 67 | 1 | 0 | 0 | 15.4 |
-| 2026-10-13T03:07 | reel | BUSINESS | Elon Musk hits trillionaire status with $1.1 trillion net worth | 1251 | 94 | 15 | 0 | 483.2 |
-| 2026-10-13T02:08 | photo | TECH | Mark Zuckerberg puts Meta on AI frontier against OpenAI | 57 | 4 | 2 | 10 | 31.4 |
-| 2026-10-13T01:07 | reel | BUSINESS | Elon Musk cements status as world's wealthiest person since 2025 | 300 | 23 | 3 | 0 | 115.0 |
-| 2026-10-12T21:08 | reel | BUSINESS | Elon Musk commands Tesla and SpaceX as world's richest leader | 3162 | 286 | 52 | 0 | 1360.4 |
-| 2026-10-12T19:08 | reel | POLITICS | Elon Musk drops $276 million into GOP midterms, igniting clash | 355 | 21 | 3 | 0 | 122.0 |
-| 2026-10-12T04:06 | photo | AI | Sam Altman claims AI singularity has officially arrived | 61 | 1 | 1 | 10 | 23.2 |
-| 2026-10-12T03:06 | reel | BUSINESS | Elon Musk becomes first trillionaire with $1.1 trillion net worth | 3153 | 272 | 59 | 0 | 1351.6 |
-| 2026-10-12T02:06 | photo | POLITICS | Mike Tyson backs Donald Trump in surprising endorsement | 38 | 1 | 1 | 0 | 12.6 |
+| 2026-10-13T21:09 | reel | BUSINESS | Elon Musk's record-breaking $366m political spend shocks US | 35 | 2 | 3 | 0 | 20.0 |
+| 2026-10-13T19:28 | reel | POLITICS | Supreme Court reviews Elon Musk DOGE records | 286 | 8 | 2 | 0 | 79.2 |
+| 2026-10-13T04:10 | photo | CELEBRITY | Dan Levy slams Shane Gillis over controversial SNL monologue | 78 | 1 | 0 | 0 | 17.6 |
+| 2026-10-13T03:07 | reel | BUSINESS | Elon Musk hits trillionaire status with $1.1 trillion net worth | 1625 | 125 | 19 | 0 | 632.0 |
+| 2026-10-13T02:08 | photo | TECH | Mark Zuckerberg puts Meta on AI frontier against OpenAI | 67 | 4 | 2 | 10 | 33.4 |
+| 2026-10-13T01:07 | reel | BUSINESS | Elon Musk cements status as world's wealthiest person since 2025 | 308 | 23 | 3 | 0 | 116.6 |
+| 2026-10-12T21:08 | reel | BUSINESS | Elon Musk commands Tesla and SpaceX as world's richest leader | 4040 | 347 | 48 | 0 | 1646.0 |
+| 2026-10-12T19:08 | reel | POLITICS | Elon Musk drops $276 million into GOP midterms, igniting clash | 365 | 21 | 4 | 0 | 127.0 |
+| 2026-10-12T04:06 | photo | AI | Sam Altman claims AI singularity has officially arrived | 64 | 1 | 1 | 10 | 23.8 |
+| 2026-10-12T03:06 | reel | BUSINESS | Elon Musk becomes first trillionaire with $1.1 trillion net worth | 3400 | 286 | 59 | 0 | 1429.0 |
+| 2026-10-12T02:06 | photo | POLITICS | Mike Tyson backs Donald Trump in surprising endorsement | 41 | 1 | 1 | 0 | 13.2 |
 | 2026-10-12T01:06 | reel | TECH | Elon Musk vows affordable Starlink in India before Jio IPO | 108 | 7 | 2 | 0 | 41.6 |
-| 2026-10-11T21:06 | reel | TECH | Elon Musk faces critics in high‑stakes showdown | 6041 | 560 | 66 | 0 | 2526.2 |
-| 2026-10-11T19:13 | reel | TECH | Elon Musk reaches an unprecedented $1.1 trillion net worth | 122 | 6 | 3 | 0 | 45.4 |
+| 2026-10-11T21:06 | reel | TECH | Elon Musk faces critics in high‑stakes showdown | 7258 | 667 | 66 | 0 | 2983.6 |
+| 2026-10-11T19:13 | reel | TECH | Elon Musk reaches an unprecedented $1.1 trillion net worth | 130 | 7 | 3 | 0 | 49.0 |
 | 2026-10-11T12:07 | photo | SPORTS | Kyrie Irving makes comeback in China preseason, sparking NBA buzz | 38 | 0 | 0 | 0 | 7.6 |
 | 2026-10-11T03:07 | reel | SPORTS | Arch Manning delivers big strikes in Texas vs Oklahoma clash | 142 | 2 | 1 | 0 | 35.4 |
 | 2026-10-11T01:06 | reel | CELEBRITY | Nicolas Cage rejects Amazon AI waiver, risks Spider‑Noir role | 97 | 2 | 1 | 0 | 26.4 |
 | 2026-10-10T23:07 | reel | CELEBRITY | Nicolas Cage refuses AI waiver and walks from Amazon project | 153 | 2 | 1 | 0 | 37.6 |
-| 2026-10-10T19:07 | reel | CELEBRITY | Elon Musk faces backlash after ex-wife reveals family claim | 268 | 5 | 2 | 0 | 69.6 |
-| 2026-10-10T16:07 | photo | POLITICS | Donald Trump faces backlash over Russia diesel deal | 33 | 1 | 1 | 10 | 17.6 |
-| 2026-10-10T12:06 | photo | AI | Sundar Pichai reveals Gemini reached 950 million users as cloud booms | 27 | 1 | 1 | 10 | 16.4 |
+| 2026-10-10T19:07 | reel | CELEBRITY | Elon Musk faces backlash after ex-wife reveals family claim | 273 | 6 | 2 | 0 | 72.6 |
+| 2026-10-10T16:07 | photo | POLITICS | Donald Trump faces backlash over Russia diesel deal | 34 | 1 | 1 | 10 | 17.8 |
+| 2026-10-10T12:06 | photo | AI | Sundar Pichai reveals Gemini reached 950 million users as cloud booms | 30 | 1 | 1 | 10 | 17.0 |
 | 2026-10-10T03:07 | reel | TECH | Sam Altman urges new Renaissance amid AI industrial revolution | 50 | 2 | 1 | 0 | 17.0 |
-| 2026-10-10T01:06 | reel | BUSINESS | Donald Trump buys $5 million in SpaceX bonds before big order | 40 | 3 | 2 | 0 | 20.0 |
+| 2026-10-10T01:06 | reel | BUSINESS | Donald Trump buys $5 million in SpaceX bonds before big order | 41 | 3 | 2 | 0 | 20.2 |
 | 2026-10-09T23:08 | reel | BUSINESS | Elon Musk report reveals woman rejected $40 million payout | 139 | 3 | 3 | 0 | 42.8 |
 | 2026-10-09T19:07 | reel | TECH | Elon Musk's SpaceX surge sends AT&T, Verizon, T‑Mobile shares plunging | 60 | 3 | 2 | 0 | 24.0 |
 | 2026-10-09T16:07 | photo | TECH | Mark Zuckerberg launches Meta’s new AI Agent amid industry buzz | 18 | 0 | 0 | 10 | 9.6 |
@@ -43,7 +44,7 @@ Top posts: Elon Musk faces critics in high‑stakes showdown (2526.2) | Elon Mus
 | 2026-10-09T03:06 | reel | TECH | Elon Musk's SpaceX just crushed major phone stocks | 112 | 2 | 1 | 0 | 29.4 |
 | 2026-10-09T01:06 | reel | SPORTS | LeBron James retracts after ESPN broadcaster's Joel Embiid claim | 53 | 2 | 1 | 0 | 17.6 |
 | 2026-10-08T23:06 | reel | TECH | Donald Trump suspends Microsoft from foreign worker green card program | 74 | 2 | 1 | 0 | 21.8 |
-| 2026-10-08T19:07 | reel | TECH | Elon Musk receives National Medal of Science from Trump | 2918 | 179 | 20 | 0 | 1001.6 |
+| 2026-10-08T19:07 | reel | TECH | Elon Musk receives National Medal of Science from Trump | 2972 | 183 | 21 | 0 | 1023.4 |
 | 2026-10-08T16:06 | photo | BUSINESS | Donald Trump injects $25 million into Meta, backs SpaceX debt | 31 | 1 | 0 | 9 | 14.2 |
 | 2026-10-08T12:07 | reel | TECH | Mark Zuckerberg charms Trump, steers AI clash with big stakes | 51 | 2 | 1 | 0 | 17.2 |
 | 2026-10-08T07:07 | photo | TECH | Elon Musk slams Indian oligarchs over Starlink delay | 18 | 0 | 0 | 0 | 3.6 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk faces critics in high‑stakes showdown (2526.2) | Elon Mus
 | 2026-10-07T16:06 | photo | AI | Satya Nadella unveils groundbreaking AI laptop with Jensen Huang | 18 | 0 | 0 | 10 | 9.6 |
 | 2026-10-07T12:14 | photo | SCIENCE | Henri Kagan and Kenso Soai just won the Nobel Prize | 21 | 0 | 0 | 0 | 4.2 |
 | 2026-10-07T07:06 | photo | CELEBRITY | Kiara Advani announces second pregnancy, calls it a blessing | 25 | 0 | 0 | 0 | 5.0 |
-| 2026-10-07T01:06 | reel | CELEBRITY | Adam Levine admits he made a mistake on The Voice | 307 | 2 | 1 | 0 | 68.4 |
