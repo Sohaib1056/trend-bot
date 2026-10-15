@@ -33,6 +33,13 @@ def check_connection():
                   f"but FB_PAGE_ID is {config.FB_PAGE_ID}. Use the Page token, not the user token.")
             return False
         print(f"[meta] Facebook connected OK: page '{me.get('name')}'")
+        if config.POST_TO_INSTAGRAM and config.IG_USER_ID:
+            try:
+                r = requests.get(_url(config.IG_USER_ID), timeout=30,
+                                 params={"fields": "username", "access_token": config.FB_PAGE_TOKEN})
+                print(f"[meta] Instagram connected OK: @{_check(r, 'Instagram check').get('username')}")
+            except Exception as e:
+                print(f"[meta] Instagram NOT connected: {e}")
         return True
     except Exception as e:
         print(f"[meta] {e}")
