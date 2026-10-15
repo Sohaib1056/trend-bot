@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-15 19:11 UTC_
+_Updated 2026-10-15 21:09 UTC_
 
 ```
-Based on the last 60 posts on this page:
-Best categories: BUSINESS (523.2), TECH (288.1), POLITICS (163.7)
+Based on the last 61 posts on this page:
+Best categories: BUSINESS (477.3), TECH (288.1), POLITICS (163.7)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (361.8, 32 posts), photo (16.0, 28 posts)
-Best posting slots (UTC): 21:00 (1392.0), 03:00 (329.7), 19:00 (266.7)
-Best faces on this page (avg views per post): Elon Musk 711 (25 posts), Sam Altman 66 (2 posts), Mark Zuckerberg 46 (4 posts), LeBron James 57 (1 posts), Sundar Pichai 34 (1 posts), Donald Trump 46 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (351.4, 33 posts), photo (16.0, 28 posts)
+Best posting slots (UTC): 21:00 (1392.0), 03:00 (329.7), 19:00 (241.9)
+Best faces on this page (avg views per post): Elon Musk 686 (26 posts), Sam Altman 66 (2 posts), Mark Zuckerberg 46 (4 posts), LeBron James 57 (1 posts), Sundar Pichai 34 (1 posts), Donald Trump 46 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk faces critics in high‑stakes showdown (2308.0) | Elon Musk’s Boring Company plans 150 mph underground cars (1816.4) | Elon Musk commands Tesla and SpaceX as world's richest leader (1271.0)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-15T19:11 | reel | BUSINESS | Elon Musk's Tesla teases next‑gen Roadster after a decade of delays | 64 | 3 | 0 | 0 | 18.8 |
 | 2026-10-15T04:07 | photo | CELEBRITY | Elon Musk became US citizen in 2002, moved to Texas | 215 | 26 | 4 | 12 | 113.0 |
 | 2026-10-15T03:07 | reel | POLITICS | Elon Musk slams Donald Trump over alleged Epstein ties | 437 | 22 | 2 | 0 | 137.4 |
 | 2026-10-15T02:06 | photo | POLITICS | Elon Musk blames Trump over Ukrainian satellite restrictions | 180 | 11 | 1 | 10 | 67.0 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk faces critics in high‑stakes showdown (2308.0) | Elon Mus
 | 2026-10-08T23:06 | reel | TECH | Donald Trump suspends Microsoft from foreign worker green card program | 90 | 2 | 1 | 0 | 25.0 |
 | 2026-10-08T19:07 | reel | TECH | Elon Musk receives National Medal of Science from Trump | 3211 | 207 | 28 | 0 | 1140.2 |
 | 2026-10-08T16:06 | photo | BUSINESS | Donald Trump injects $25 million into Meta, backs SpaceX debt | 31 | 1 | 0 | 9 | 14.2 |
-| 2026-10-08T12:07 | reel | TECH | Mark Zuckerberg charms Trump, steers AI clash with big stakes | 57 | 2 | 1 | 0 | 18.4 |
