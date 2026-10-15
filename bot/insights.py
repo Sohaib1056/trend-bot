@@ -184,6 +184,32 @@ def star_face(state):
     return next((f for f, _, _, n in face_stats(state) if n >= 2), "Elon Musk")
 
 
+def star_angles(state, star, top=6, bottom=4):
+    """What worked for the star on this page: the best and worst of their posts (at least a day old, so every post
+    had time to collect views), for the AI to pick angles people stop, like, comment and share for."""
+    now = datetime.now(timezone.utc)
+    rows = []
+    for r in state["posted"]:
+        st = r.get("stats")
+        if not st or r.get("dry_run") or _face_of(r) != star:
+            continue
+        try:
+            if now - datetime.fromisoformat(r["time"]) < timedelta(hours=20):
+                continue
+        except Exception:
+            continue
+        rows.append((score(st), f"{r['headline'].replace('*', '')} ({r.get('format', 'post')}: "
+                                f"{st.get('views', 0)} views, {st.get('reactions', 0)} likes, "
+                                f"{st.get('comments', 0)} comments)"))
+    if len(rows) < 4:
+        return ""
+    rows.sort(key=lambda x: -x[0])
+    return (f"{star} posts that did BEST here (people stopped, liked, commented, shared): "
+            + " | ".join(t for _, t in rows[:top])
+            + f"\n{star} posts that did WORST here (avoid these kinds of angles): "
+            + " | ".join(t for _, t in rows[-bottom:]) + "\n")
+
+
 def best_slot(state):
     """The posting slot (UTC hour) with the best results (needs 2+ posts), else 19."""
     recs = [r for r in state["posted"] if r.get("stats") and not r.get("dry_run") and r.get("slot")]

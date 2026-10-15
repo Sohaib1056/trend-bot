@@ -69,6 +69,9 @@ STOP = set("the a an and or of to in on for with from at by as is are was be aft
            "says said just will about into this that than more most facts fact wild first again big top shocking huge".split())
 
 
+# words Facebook's rules penalise (sexual, slurs, profanity): such wording is never posted
+RISKY = re.compile(r"\b(sex|sexual|sexually|porn|nude|naked|traffick\w*|p[a]?edophil\w*|molest\w*|grooming|incest|fuck\w*|shit\w*|bitch\w*|bastard|whore|slut|retard\w*)\b", re.I)
+
 # if the star has nothing new: only faces as big as the star (people stop, like, share and follow for them)
 BIG_FACES = ["Donald Trump", "Mark Zuckerberg", "Jeff Bezos", "Bill Gates", "Sam Altman", "Jensen Huang", "Taylor Swift",
              "Cristiano Ronaldo", "Lionel Messi", "LeBron James", "Kim Kardashian", "Dwayne Johnson", "MrBeast",
@@ -184,8 +187,22 @@ def main():
         # the page's best slot always gets a Reel about its best-performing face: fresh news, else facts & stats
         star = insights.star_face(state)
         facts_topic = norm(f"{star} facts")
-        pool = [c for c in candidates if star.lower() in
-                (c["topic"] + " " + " ".join(n["title"] for n in c["news"])).lower()][:6]
+        terms = [t.lower() for t in trends.STAR_TERMS.get(star, [star])]
+        about = lambda c: any(t in (c["topic"] + " " + " ".join(n["title"] for n in c["news"])).lower() for t in terms)
+        pool = [c for c in candidates if about(c)]
+        try:  # more sources: Google News for the star and their companies + their fan communities on Reddit
+            seen_topics = {norm(c["topic"]) for c in pool}
+            for c in trends.rank(trends.star_sources(star)):
+                blob = c["topic"] + " " + " ".join(n["title"] + " " + n.get("snippet", "") for n in c["news"])
+                if (norm(c["topic"]) in seen_topics or norm(c["topic"]) in done_topics or BLOCK_WORDS.search(blob)
+                        or recent_duplicate(c["topic"], "", state)):
+                    continue
+                seen_topics.add(norm(c["topic"]))
+                pool.append(c)
+        except Exception as e:
+            print(f"[main] extra sources for {star} failed: {e}")
+        pool.sort(key=lambda c: -len(c.get("trends") or []))  # buzzing on several platforms first
+        pool = pool[:10]
         try:
             pool.append(trends.person_facts(star))
         except Exception as e:
@@ -199,10 +216,14 @@ def main():
                        f"topic to exactly '{star} facts', and use ONLY numbers and facts stated in the text. "
                        f"wiki_title must be '{star}'.\n"
                        f"The page already posted these {star} stories. NEVER repeat any of them or their main fact "
-                       f"(e.g. if net worth / richest / trillionaire is listed, do not use it again). Pick a clearly "
+                       f"(e.g. the same net worth figure again). A NEW angle on money or power is fine. Pick a clearly "
                        f"NEW story, or new facts from a different area (rockets, cars, AI, X, Neuralink, childhood, "
                        f"records, habits...): "
-                       f"{' | '.join(recent) or 'none'}\n\n")
+                       f"{' | '.join(recent) or 'none'}\n"
+                       f"{insights.star_angles(state, star)}"
+                       f"Choose the story most likely to make people STOP scrolling, like, comment, share and follow: "
+                       f"the kind of angle that did best above (personality, power, money, a clash, a shock move), "
+                       f"never the kind that did worst. Stories buzzing on several platforms are the strongest.\n\n")
             print(f"[main] star slot {slot_now:%H}:00 UTC -> Reel about {star} ({len(pool)} topics)")
     def star_only(new):
         """Star slots: only posts about the star (with the star's face), e.g. no faceless 'DOGE records' story."""
@@ -271,13 +292,14 @@ def main():
             face = p.get("wiki_title", "")
             dup = recent_duplicate(p["headline"] if facts else p.get("topic", "") + " " + p["headline"], face, state)
             if not dup and star and face == star:  # star Reels: no story or theme the page already told
-                dup = (recent_duplicate(p["headline"], face, state, hours=24 * 7, min_common=1, must="wealth") if "wealth" in _words(p["headline"])
+                dup = (recent_duplicate(p["headline"], face, state, hours=72, min_common=1, must="wealth") if "wealth" in _words(p["headline"])
                        else recent_duplicate(p["headline"], face, state, hours=24 * 60, min_common=3))
             if dup:
                 print(f"[main] skipping {p['key']}: same story as '{dup[:60]}'")
                 repeats.append(p["headline"].replace("*", ""))
                 continue
-            if p["key"] in done_keys or BLOCK_WORDS.search(p["headline"] + " " + p["caption"]):
+            words = p["headline"] + " " + p["caption"] + " " + str(p.get("voiceover", ""))
+            if p["key"] in done_keys or BLOCK_WORDS.search(p["headline"] + " " + p["caption"]) or RISKY.search(words):
                 print(f"[main] skipping {p['key']}")
                 continue
             stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M")

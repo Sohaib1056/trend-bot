@@ -49,6 +49,7 @@ RULES:
 - If two snippets disagree (e.g. different rankings or numbers), leave that detail out.
 - SKIP: deaths, tragedies, disasters with victims, crime/violence, shootings, war, medical claims, adult content, gambling. {politics}
 - Prefer: big tech & AI news (OpenAI, Google, Meta, Nvidia, Microsoft, Apple...), famous billionaires and CEOs, new AI tools, world-famous US leaders, then big celebrity/viral stories.
+- FACEBOOK-SAFE WORDING: clashes, feuds and scandals are allowed (people love them), but word them safely: say who claims it ('Musk claims', 'according to reports'), never state an accusation as fact, no sexual, graphic or violent words, no profanity, insults or slurs, no medical or money-making promises.
 - English only. Friendly, energetic, not clickbait-lying.
 
 Return JSON exactly in this shape:
@@ -63,10 +64,10 @@ Return JSON exactly in this shape:
   "wiki_title": "exact English Wikipedia article title of the ONE main famous PERSON in the story (e.g. 'Sam Altman', 'Jensen Huang', 'Donald Trump'). If the story is about a company or product, use its famous leader ONLY if the snippets name them. Empty string only if no famous person is involved. Stories with a famous face do much better, so prefer them.",
   "image_prompt": "one vivid sentence describing a professional, photorealistic, high-contrast scene that explains the story at a glance - its actual subject matter (its sport, venue, objects, setting - e.g. tennis upset -> a tennis racket on a clay court under stadium lights; TV casting news -> a film set with a director's chair and cameras), with the main subject large in the upper half of the frame (no text, no real person's face, no logos)",
   "template": "one of viral, breaking, frame (viral = celebrity/entertainment/viral moments, breaking = news/sports/events, frame = tech/lifestyle/products)",
-  "caption": "80-140 words. First line = strong hook with 1-2 emojis. Short paragraphs. Explain what happened using only given facts. End with a question to drive comments, then a short share nudge like 'Send this to a friend who needs to see it 👀'.",
+  "caption": "80-140 words. First line = strong hook with 1-2 emojis. Short paragraphs. Explain what happened using only given facts. End with ONE natural question to spark comments. No engagement bait (Facebook cuts the reach of posts that say 'share this', 'tag a friend', 'like if', 'send this to a friend', 'comment YES').",
   "hashtags": ["10 to 15 hashtags without #, mix of broad popular tags and topic-specific tags"],
   "image_query": "2-4 words for a vibrant, eye-catching, professional stock photo that captures the excitement or emotion of the story, not a dull literal object (e.g. 'online shopping sale' not 'cardboard boxes', 'football stadium crowd' not 'football'). No person names.",
-  "voiceover": "the Reel narration, read aloud by an energetic US news voice: 30-34 words (the Reel is exactly 15 seconds), 4-5 SHORT punchy spoken sentences (max 10 words each, so the visuals can change often). Open with a hook that names the famous person/thing, then the key fact (only given facts). Plain words, no emoji, no hashtags, no asterisks. End with ONE short direct question the viewer can answer in a word in the comments (e.g. 'Is he right? Comment yes or no!'). Do NOT add a follow request (added automatically). Each sentence should say something that can be SHOWN (the person, a place, an object, an action).",
+  "voiceover": "the Reel narration, read aloud by an energetic US news voice: 30-34 words (the Reel is exactly 15 seconds), 4-5 SHORT punchy spoken sentences (max 10 words each, so the visuals can change often). Open with a hook that names the famous person/thing, then the key fact (only given facts). Plain words, no emoji, no hashtags, no asterisks. End with ONE short direct question the viewer can answer in a word in the comments (e.g. 'Is he right?' or 'Would you buy one?'). Do NOT add a follow request (added automatically). Each sentence should say something that can be SHOWN (the person, a place, an object, an action).",
   "scenes": [{{"line": "the exact words of ONE sentence or phrase of the voiceover, in order, together covering the whole voiceover (4-6 lines)", "show": "face (show the famous person) or video (stock footage)", "query": "for video: 2-4 word stock video search that shows exactly what this line says (e.g. 'rocket launch', 'stock market crash screen', 'robot hand typing'); no person names", "ai": "one-sentence photorealistic AI image of what this line says, as a backup (no real person's face, no text)"}}],
   "video_queries": ["2-3 searches (2-3 words each) for real stock VIDEO footage showing the story's action and mood, for fast cuts in a Reel, e.g. tennis upset -> 'tennis match', 'stadium crowd cheering'; app hack -> 'smartphone notification', 'shocked woman phone'. No person names."],
   "theme": "one of {THEMES}"
@@ -99,10 +100,15 @@ def _parse(text):
             continue
         p["hashtags"] = [h.strip().lstrip("#").replace(" ", "") for h in p.get("hashtags", []) if h.strip()][:15]
         p["caption"] = p["caption"].replace("*", "")  # Facebook shows asterisks literally
+        p["caption"] = BAIT.sub("", p["caption"]).strip()  # engagement bait gets a post's reach cut
         p["theme"] = p.get("theme") if p.get("theme") in THEMES else "red"
         p["key"] = re.sub(r"[^a-z0-9-]+", "-", p["key"].lower()).strip("-")[:60]
         good.append(p)
     return good
+
+
+# "share this / tag a friend / like if..." sentences: Facebook demotes engagement bait
+BAIT = re.compile(r"[^.!?\n]*\b(send this to|share this|tag (a|your) friends?|like if|comment yes|smash (that|the) like)\b[^.!?\n]*[.!?]*[ \t]*(?:\S*[^\x00-\x7f]\S*)?", re.I)
 
 
 GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta"

@@ -211,9 +211,9 @@ def x_trends(limit=12):
 REDDIT = "https://www.reddit.com/r/news+technology+entertainment+popculturechat+Fauxmoi+nottheonion+movies+nba+nfl/top/.rss?t=day&limit=25"
 
 
-def reddit_top(limit=15):
+def reddit_top(limit=15, url=REDDIT):
     """Today's top posts in Reddit's big news/tech/celebrity communities (may be rate-limited: then skipped)."""
-    root = ET.fromstring(_get_text(REDDIT).encode())
+    root = ET.fromstring(_get_text(url).encode())
     out = []
     for rank, entry in enumerate(e for e in root.iter() if _local(e.tag) == "entry"):
         title = _clean(_text(entry, "title"))
@@ -225,6 +225,26 @@ def reddit_top(limit=15):
                                   "url": ""}], "trend": f"Reddit r/{sub} top #{rank + 1}"})
     print(f"[trends] Reddit: {len(out)} items")
     return out
+
+
+# the star's world: news about their companies counts too, and the fan communities show what fans talk about
+STAR_TERMS = {"Elon Musk": ["Elon Musk", "Tesla", "SpaceX", "Starlink", "xAI Grok", "Neuralink", "Cybertruck", "Optimus robot"]}
+STAR_SUBS = {"Elon Musk": "elonmusk+teslamotors+SpaceX+spacex+TeslaLounge+starlink"}
+
+
+def star_sources(star):
+    """Fresh material about the star from several places: Google News for them and their companies, and today's
+    top posts in their fan communities on Reddit. X trends and Reddit's big subs are already in the normal topics."""
+    items = focus_news(STAR_TERMS.get(star, [star]), per_term=3)
+    for it in items:
+        it["trend"] = "Google News (last 24h)"
+    if star in STAR_SUBS:
+        try:
+            items += reddit_top(8, f"https://www.reddit.com/r/{STAR_SUBS[star]}/top/.rss?t=day&limit=15")
+        except Exception as e:
+            print(f"[trends] Reddit fan communities for {star} failed: {e}")
+    print(f"[trends] {len(items)} fresh items about {star} and their world")
+    return items
 
 
 def wiki_people(limit=20):
