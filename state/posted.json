@@ -617,7 +617,7 @@
         "reactions": 2,
         "comments": 1,
         "shares": 0,
-        "checked": "2026-10-15T04:05+00:00",
+        "checked": "2026-10-15T08:26+00:00",
         "score": 18.4
       }
     },
@@ -656,7 +656,7 @@
         "reactions": 1,
         "comments": 0,
         "shares": 9,
-        "checked": "2026-10-15T04:05+00:00",
+        "checked": "2026-10-15T08:26+00:00",
         "score": 14.2
       }
     },
@@ -676,12 +676,12 @@
       "facebook_reel": "1706612744398346",
       "facebook": "1706612744398346",
       "stats": {
-        "views": 3147,
-        "reactions": 198,
+        "views": 3156,
+        "reactions": 199,
         "comments": 25,
         "shares": 0,
-        "checked": "2026-10-15T04:05+00:00",
-        "score": 1100.4
+        "checked": "2026-10-15T08:26+00:00",
+        "score": 1104.2
       }
     },
     {
@@ -704,7 +704,7 @@
         "reactions": 2,
         "comments": 1,
         "shares": 0,
-        "checked": "2026-10-15T04:05+00:00",
+        "checked": "2026-10-15T08:26+00:00",
         "score": 24.6
       }
     },
@@ -727,7 +727,7 @@
         "reactions": 2,
         "comments": 1,
         "shares": 0,
-        "checked": "2026-10-15T04:05+00:00",
+        "checked": "2026-10-15T08:26+00:00",
         "score": 18.0
       }
     },
@@ -751,7 +751,7 @@
         "reactions": 2,
         "comments": 1,
         "shares": 0,
-        "checked": "2026-10-15T04:05+00:00",
+        "checked": "2026-10-15T08:26+00:00",
         "score": 29.8
       }
     },
@@ -775,7 +775,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 10,
-        "checked": "2026-10-15T04:05+00:00",
+        "checked": "2026-10-15T08:26+00:00",
         "score": 10.4
       }
     },
@@ -800,7 +800,7 @@
         "reactions": 0,
         "comments": 0,
         "shares": 10,
-        "checked": "2026-10-15T04:05+00:00",
+        "checked": "2026-10-15T08:25+00:00",
         "score": 9.6
       }
     },
@@ -825,7 +825,7 @@
         "reactions": 3,
         "comments": 2,
         "shares": 0,
-        "checked": "2026-10-15T04:05+00:00",
+        "checked": "2026-10-15T08:25+00:00",
         "score": 25.0
       }
     },
@@ -850,7 +850,7 @@
         "reactions": 3,
         "comments": 3,
         "shares": 0,
-        "checked": "2026-10-15T04:05+00:00",
+        "checked": "2026-10-15T08:25+00:00",
         "score": 43.4
       }
     },
@@ -875,7 +875,7 @@
         "reactions": 3,
         "comments": 2,
         "shares": 0,
-        "checked": "2026-10-15T02:05+00:00",
+        "checked": "2026-10-15T08:25+00:00",
         "score": 20.6
       }
     },
@@ -900,7 +900,7 @@
         "reactions": 2,
         "comments": 1,
         "shares": 0,
-        "checked": "2026-10-15T01:27+00:00",
+        "checked": "2026-10-15T08:25+00:00",
         "score": 17.2
       }
     },
@@ -925,7 +925,7 @@
         "reactions": 1,
         "comments": 1,
         "shares": 10,
-        "checked": "2026-10-15T01:27+00:00",
+        "checked": "2026-10-15T08:25+00:00",
         "score": 17.2
       }
     },
@@ -946,12 +946,12 @@
       "facebook": "1397517856769204_122110252611493621",
       "facebook_photo_id": "122110252587493621",
       "stats": {
-        "views": 0,
+        "views": 34,
         "reactions": 1,
         "comments": 1,
         "shares": 10,
-        "checked": "2026-10-15T01:27+00:00",
-        "score": 11.0
+        "checked": "2026-10-15T08:25+00:00",
+        "score": 17.8
       }
     },
     {
@@ -971,12 +971,12 @@
       "facebook_reel": "1794123371712879",
       "facebook": "1794123371712879",
       "stats": {
-        "views": 279,
+        "views": 280,
         "reactions": 6,
         "comments": 2,
         "shares": 0,
-        "checked": "2026-10-15T01:27+00:00",
-        "score": 73.8
+        "checked": "2026-10-15T08:25+00:00",
+        "score": 74.0
       }
     },
     {
@@ -1664,6 +1664,22 @@
         "checked": "2026-10-15T07:24+00:00",
         "score": 40.4
       }
+    },
+    {
+      "key": "tesla-spacx-possible-deal",
+      "topic": "Tesla-SpaceX Deal News Possible This Year, Barclays Analyst Says",
+      "headline": "Barclays predicts *Tesla* and *SpaceX* could merge this year",
+      "badge": "BUSINESS",
+      "slot": "",
+      "face": "Elon Musk",
+      "share_groups": [
+        "Tesla Owners Club",
+        "Stock Market Trends",
+        "Investing for Beginners"
+      ],
+      "time": "2026-10-15T08:27+00:00",
+      "dry_run": true,
+      "format": "photo"
     }
   ],
   "replied": [
