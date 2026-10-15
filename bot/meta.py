@@ -66,12 +66,12 @@ def photo_public_url(photo_id):
     return max(images, key=lambda i: i.get("width", 0))["source"]
 
 
-def post_instagram(image_url, caption):
-    r = requests.post(_url(f"{config.IG_USER_ID}/media"),
-                      data={"image_url": image_url, "caption": caption, "access_token": config.FB_PAGE_TOKEN},
+def _ig_publish(data, what, tries=20, gap=5):
+    """Instagram: create a media container, wait until Instagram has processed it, publish. Returns media id."""
+    r = requests.post(_url(f"{config.IG_USER_ID}/media"), data={**data, "access_token": config.FB_PAGE_TOKEN},
                       timeout=60)
-    creation_id = _check(r, "Instagram container")["id"]
-    for _ in range(20):  # wait until Instagram has processed the image
+    creation_id = _check(r, f"Instagram {what} container")["id"]
+    for _ in range(tries):
         s = requests.get(_url(creation_id), params={"fields": "status_code", "access_token": config.FB_PAGE_TOKEN},
                          timeout=30).json()
         status = s.get("status_code")
@@ -79,10 +79,20 @@ def post_instagram(image_url, caption):
             break
         if status == "ERROR":
             raise RuntimeError(f"Instagram processing error: {s}")
-        time.sleep(5)
+        time.sleep(gap)
     r = requests.post(_url(f"{config.IG_USER_ID}/media_publish"),
                       data={"creation_id": creation_id, "access_token": config.FB_PAGE_TOKEN}, timeout=60)
-    return _check(r, "Instagram publish")["id"]
+    return _check(r, f"Instagram {what} publish")["id"]
+
+
+def post_instagram(image_url, caption):
+    return _ig_publish({"image_url": image_url, "caption": caption}, "photo")
+
+
+def post_instagram_reel(video_url, caption):
+    """The same Reel on Instagram (from the public mp4 of the Facebook Reel); also shown in the profile grid."""
+    return _ig_publish({"media_type": "REELS", "video_url": video_url, "caption": caption, "share_to_feed": "true"},
+                       "Reel", tries=40, gap=8)
 
 
 def video_source(video_id):

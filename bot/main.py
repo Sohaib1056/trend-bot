@@ -342,6 +342,15 @@ def main():
             try:
                 record["facebook_reel"] = record["facebook"] = meta.publish_reel(video, caption)
                 res = {"facebook": record["facebook"]}
+                if config.POST_TO_INSTAGRAM and config.IG_USER_ID:  # same Reel on Instagram
+                    try:
+                        src = meta.video_source(record["facebook"])
+                        if not src:
+                            raise RuntimeError("no public video URL from Facebook yet")
+                        record["instagram"] = res["instagram"] = meta.post_instagram_reel(src, caption)
+                        print(f"[meta] Instagram Reel posted: {record['instagram']}")
+                    except Exception as e:
+                        print(f"[meta] Instagram Reel failed: {e}")
             except Exception as e:  # reel upload failed -> fall back to the photo post
                 print(f"[main] Reel failed ({e}) -> posting the photo instead")
                 record["format"] = "photo"
