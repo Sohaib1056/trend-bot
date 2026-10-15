@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-15 02:06 UTC_
+_Updated 2026-10-15 03:07 UTC_
 
 ```
-Based on the last 57 posts on this page:
-Best categories: BUSINESS (524.5), TECH (362.4), POLITICS (150.9)
+Based on the last 58 posts on this page:
+Best categories: BUSINESS (524.5), TECH (362.4), POLITICS (130.8)
 Weakest categories: AI (12.8), SCIENCE (4.2)
-Format: reel (390.9, 31 posts), photo (9.4, 26 posts)
+Format: reel (390.9, 31 posts), photo (9.5, 27 posts)
 Best posting slots (UTC): 21:00 (1717.0), 03:00 (505.0), 19:00 (179.1)
-Best faces on this page (avg views per post): Elon Musk 1380 (22 posts), Sam Altman 60 (2 posts), Mark Zuckerberg 44 (4 posts), LeBron James 55 (1 posts), Sundar Pichai 31 (1 posts), Donald Trump 38 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 1320 (23 posts), Sam Altman 60 (2 posts), Mark Zuckerberg 44 (4 posts), LeBron James 55 (1 posts), Sundar Pichai 31 (1 posts), Donald Trump 38 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk faces critics in high‑stakes showdown (4271.6) | Elon Musk commands Tesla and SpaceX as world's richest leader (2363.8) | Elon Musk becomes first trillionaire with $1.1 trillion net worth (1558.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-15T02:06 | photo | POLITICS | Elon Musk blames Trump over Ukrainian satellite restrictions | 12 | 1 | 0 | 10 | 10.4 |
 | 2026-10-15T01:15 | reel | AI | Elon Musk's Grokipedia cited blacklisted sources amid AI backlash | 9 | 0 | 0 | 0 | 1.8 |
 | 2026-10-14T21:08 | reel | BUSINESS | Elon Musk’s Boring Company plans 150 mph underground cars | 277 | 7 | 1 | 0 | 72.4 |
 | 2026-10-14T19:07 | reel | TECH | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims | 265 | 3 | 0 | 0 | 59.0 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk faces critics in high‑stakes showdown (4271.6) | Elon Mus
 | 2026-10-08T12:07 | reel | TECH | Mark Zuckerberg charms Trump, steers AI clash with big stakes | 57 | 2 | 1 | 0 | 18.4 |
 | 2026-10-08T07:07 | photo | TECH | Elon Musk slams Indian oligarchs over Starlink delay | 18 | 0 | 0 | 0 | 3.6 |
 | 2026-10-08T01:06 | reel | TECH | Elon Musk gets German backing for Tesla driver aid | 230 | 3 | 1 | 0 | 55.0 |
-| 2026-10-07T23:06 | photo | AI | Mark Zuckerberg backs $1.8 billion AI biology push with Google | 22 | 0 | 0 | 11 | 10.4 |
