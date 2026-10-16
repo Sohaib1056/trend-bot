@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-16 01:08 UTC_
+_Updated 2026-10-16 02:07 UTC_
 
 ```
-Based on the last 62 posts on this page:
-Best categories: BUSINESS (555.4), TECH (321.1), POLITICS (170.5)
+Based on the last 63 posts on this page:
+Best categories: BUSINESS (555.4), TECH (303.0), POLITICS (170.5)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (384.6, 34 posts), photo (19.0, 28 posts)
+Format: reel (374.0, 35 posts), photo (19.0, 28 posts)
 Best posting slots (UTC): 21:00 (1292.1), 03:00 (334.9), 19:00 (290.9)
-Best faces on this page (avg views per post): Elon Musk 793 (27 posts), Sam Altman 67 (2 posts), Mark Zuckerberg 48 (4 posts), LeBron James 57 (1 posts), Sundar Pichai 34 (1 posts), Donald Trump 47 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 767 (28 posts), Sam Altman 67 (2 posts), Mark Zuckerberg 48 (4 posts), LeBron James 57 (1 posts), Sundar Pichai 34 (1 posts), Donald Trump 47 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (2622.6) | Elon Musk faces critics in high‑stakes showdown (2360.0) | Elon Musk commands Tesla and SpaceX as world's richest leader (1274.0)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-16T01:08 | reel | TECH | Elon Musk’s SpaceX launches classified payload for Space Force | 71 | 0 | 0 | 0 | 14.2 |
 | 2026-10-15T21:10 | reel | AI | Elon Musk uses AI to buy Lego, bot cancels | 53 | 4 | 0 | 0 | 18.6 |
 | 2026-10-15T19:11 | reel | BUSINESS | Elon Musk's Tesla teases next‑gen Roadster after a decade of delays | 80 | 6 | 0 | 0 | 28.0 |
 | 2026-10-15T04:07 | photo | CELEBRITY | Elon Musk became US citizen in 2002, moved to Texas | 334 | 38 | 8 | 13 | 172.8 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (2622.6) 
 | 2026-10-09T03:06 | reel | TECH | Elon Musk's SpaceX just crushed major phone stocks | 114 | 2 | 1 | 0 | 29.8 |
 | 2026-10-09T01:06 | reel | SPORTS | LeBron James retracts after ESPN broadcaster's Joel Embiid claim | 57 | 2 | 1 | 0 | 18.4 |
 | 2026-10-08T23:06 | reel | TECH | Donald Trump suspends Microsoft from foreign worker green card program | 90 | 2 | 1 | 0 | 25.0 |
-| 2026-10-08T19:07 | reel | TECH | Elon Musk receives National Medal of Science from Trump | 3211 | 207 | 28 | 0 | 1140.2 |
