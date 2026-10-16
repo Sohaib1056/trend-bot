@@ -1,15 +1,15 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-16 21:07 UTC_
+_Updated 2026-10-16 22:51 UTC_
 
 ```
 Based on the last 67 posts on this page:
-Best categories: BUSINESS (630.3), TECH (388.1), POLITICS (179.2)
+Best categories: BUSINESS (630.3), TECH (388.5), POLITICS (179.2)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (478.1, 37 posts), photo (35.3, 30 posts)
-Best posting slots (UTC): 21:00 (1575.7), 19:00 (492.5), 03:00 (310.3)
+Format: reel (478.3, 37 posts), photo (35.3, 30 posts)
+Best posting slots (UTC): 21:00 (1577.3), 19:00 (492.5), 03:00 (310.3)
 Best faces on this page (avg views per post): Elon Musk 1084 (32 posts), Sam Altman 69 (2 posts), Mark Zuckerberg 50 (4 posts), LeBron James 57 (1 posts), Sundar Pichai 35 (1 posts), Donald Trump 48 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
-Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (3362.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (2800.4) | Elon Musk faces critics in high‑stakes showdown (2456.0)
+Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (3362.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (2800.4) | Elon Musk faces critics in high‑stakes showdown (2464.0)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
@@ -40,8 +40,8 @@ Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (3362.2) 
 | 2026-10-12T03:06 | reel | BUSINESS | Elon Musk becomes first trillionaire with $1.1 trillion net worth | 0 | 342 | 59 | 0 | 861.0 |
 | 2026-10-12T02:06 | photo | POLITICS | Mike Tyson backs Donald Trump in surprising endorsement | 57 | 1 | 1 | 0 | 16.4 |
 | 2026-10-12T01:06 | reel | TECH | Elon Musk vows affordable Starlink in India before Jio IPO | 124 | 10 | 2 | 0 | 50.8 |
-| 2026-10-11T21:06 | reel | TECH | Elon Musk faces critics in high‑stakes showdown | 0 | 1129 | 66 | 0 | 2456.0 |
-| 2026-10-11T19:13 | reel | TECH | Elon Musk reaches an unprecedented $1.1 trillion net worth | 171 | 12 | 4 | 0 | 70.2 |
+| 2026-10-11T21:06 | reel | TECH | Elon Musk faces critics in high‑stakes showdown | 0 | 1133 | 66 | 0 | 2464.0 |
+| 2026-10-11T19:13 | reel | TECH | Elon Musk reaches an unprecedented $1.1 trillion net worth | 172 | 12 | 4 | 0 | 70.4 |
 | 2026-10-11T12:07 | photo | SPORTS | Kyrie Irving makes comeback in China preseason, sparking NBA buzz | 46 | 0 | 0 | 0 | 9.2 |
 | 2026-10-11T03:07 | reel | SPORTS | Arch Manning delivers big strikes in Texas vs Oklahoma clash | 156 | 2 | 1 | 0 | 38.2 |
 | 2026-10-11T01:06 | reel | CELEBRITY | Nicolas Cage rejects Amazon AI waiver, risks Spider‑Noir role | 105 | 2 | 1 | 0 | 28.0 |
