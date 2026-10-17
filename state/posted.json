@@ -2048,6 +2048,22 @@
       "time": "2026-10-17T07:58+00:00",
       "dry_run": true,
       "format": "reel"
+    },
+    {
+      "key": "elon-musk-facts-2026101708",
+      "topic": "Elon Musk facts",
+      "headline": "Elon Musk invests *$100\u202fmillion* in Neuralink to merge brain and AI",
+      "badge": "BUSINESS",
+      "slot": "",
+      "face": "Elon Musk",
+      "share_groups": [
+        "Elon Musk fans",
+        "Tesla owners",
+        "SpaceX enthusiasts"
+      ],
+      "time": "2026-10-17T08:07+00:00",
+      "dry_run": true,
+      "format": "reel"
     }
   ],
   "replied": [
