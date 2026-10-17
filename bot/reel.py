@@ -416,7 +416,8 @@ def _people(post, photo, want):
 
 
 MIN_SCENE, MAX_SCENE = 1.0, 3.6  # seconds
-REEL_LEN = 15.0  # every Reel runs exactly 15 seconds
+REEL_LEN = 15.0  # Reels run 15 seconds...
+MAX_LEN = 17.0   # ...or up to 17 when the full story needs it (owner's rule)
 
 
 def _planned_scenes(post, photo, words, duration):
@@ -774,32 +775,34 @@ def make_reel(post, photo, path):
         voice = path.replace(".mp4", "-voice.mp3")
         text = _voice_text(post)
         vsecs = _audio_secs(exe, voice) if _tts(text, voice) else 0.0
-        fit = REEL_LEN - VOICE_AT - 0.5  # the voice must end just before the 15s mark
-        for _ in range(3):  # far too long even when spoken 1.15x faster: say less (the Reel stays exactly 15s)
-            if not vsecs or vsecs <= fit * 1.15:
-                break
+        # 15s normally; up to 17s when the full story needs it, so the main point is always said clearly
+        fit15, fit17, tempo = REEL_LEN - VOICE_AT - 0.5, MAX_LEN - VOICE_AT - 0.5, 1.1
+        for _ in range(3):
             parts = re.split(r"(?<=[.!?])\s+", text.strip())
+            if not vsecs or vsecs <= fit15 * tempo:
+                break
             if parts and parts[-1].lower().startswith("follow"):
                 parts = parts[:-1]  # the follow banner on screen already says it
-            elif len(parts) > 3:
-                parts = parts[:-3] + parts[-2:]  # drop a middle sentence, keep the hook and the closing question
+            elif vsecs > fit17 * tempo and len(parts) > 3:
+                parts = parts[:-3] + parts[-2:]  # still too long for 17s: drop a middle sentence, keep hook + question
             else:
                 break
             text = " ".join(parts)
             post["scenes"] = [s for s in (post.get("scenes") or []) if isinstance(s, dict)
                               and str(s.get("line", "")).strip()[:25] in text]  # keep scenes in step with the voice
-            print(f"[reel] voice {vsecs:.1f}s is too long for 15s -> shorter narration")
+            print(f"[reel] voice {vsecs:.1f}s is too long -> shorter narration")
             vsecs = _audio_secs(exe, voice) if _tts(text, voice) else 0.0
-        if vsecs > fit:  # a little long: speak a touch faster (max 1.15x, still easy to follow) to keep 15s
+        fit = fit15 if vsecs <= fit15 * tempo else fit17
+        if vsecs > fit:  # a little long: speak a touch faster (max 1.1x, still clear)
             fast = voice.replace(".mp3", "-fit.mp3")
             subprocess.run([exe, "-y", "-loglevel", "error", "-i", voice, "-filter:a",
-                            f"atempo={min(1.15, vsecs / fit):.3f}", "-b:a", "160k", fast], check=True)
+                            f"atempo={min(tempo, vsecs / fit):.3f}", "-b:a", "160k", fast], check=True)
             os.replace(fast, voice)
             vsecs = _audio_secs(exe, voice)
         if vsecs:
             chunks = _subtitle_timeline(text, vsecs)
             follow_at = next((c[0][1] for c in chunks if c[0][0].lower().startswith("follow")), vsecs - 1.5)
-            duration = max(REEL_LEN, vsecs + VOICE_AT + 0.5)  # 15s; a second longer only if the voice can't fit
+            duration = min(MAX_LEN, max(REEL_LEN, vsecs + VOICE_AT + 0.5))  # 15s, at most 17s
         else:
             chunks, duration = [], REEL_LEN
             follow_at = duration - END_LEN
