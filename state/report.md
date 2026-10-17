@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-17 01:07 UTC_
+_Updated 2026-10-17 02:07 UTC_
 
 ```
-Based on the last 68 posts on this page:
-Best categories: BUSINESS (606.6), TECH (423.6), AI (208.4)
+Based on the last 69 posts on this page:
+Best categories: BUSINESS (606.6), TECH (403.3), AI (208.4)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (494.0, 38 posts), photo (40.3, 30 posts)
-Best posting slots (UTC): 21:00 (1371.5), 19:00 (551.9), 03:00 (314.6)
-Best faces on this page (avg views per post): Elon Musk 1165 (33 posts), Sam Altman 69 (2 posts), Mark Zuckerberg 50 (4 posts), LeBron James 57 (1 posts), Sundar Pichai 35 (1 posts), Donald Trump 48 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
-Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (3441.8) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (3157.6) | Elon Musk faces critics in high‑stakes showdown (2464.0)
+Format: reel (481.8, 39 posts), photo (40.3, 30 posts)
+Best posting slots (UTC): 21:00 (1374.5), 19:00 (551.9), 03:00 (314.6)
+Best faces on this page (avg views per post): Elon Musk 1131 (34 posts), Sam Altman 69 (2 posts), Mark Zuckerberg 50 (4 posts), LeBron James 57 (1 posts), Sundar Pichai 35 (1 posts), Donald Trump 48 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
+Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (3441.8) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (3157.6) | Elon Musk faces critics in high‑stakes showdown (2482.0)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-17T01:08 | reel | TECH | Elon Musk unveils record‑breaking flying Tesla car in high‑speed demo | 0 | 0 | 0 | 0 | 0.0 |
 | 2026-10-16T22:52 | reel | BUSINESS | Elon Musk's Tesla faces court block on self‑driving claims | 265 | 3 | 0 | 0 | 59.0 |
 | 2026-10-16T19:10 | reel | TECH | Elon Musk unveils air‑borne Roadster, igniting tech clash | 1419 | 28 | 1 | 0 | 342.8 |
 | 2026-10-16T04:08 | photo | BUSINESS | Elon Musk may merge SpaceX and Tesla, AI clash | 1041 | 57 | 18 | 15 | 382.2 |
@@ -41,7 +42,7 @@ Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (3441.8) 
 | 2026-10-12T03:06 | reel | BUSINESS | Elon Musk becomes first trillionaire with $1.1 trillion net worth | 0 | 345 | 59 | 0 | 867.0 |
 | 2026-10-12T02:06 | photo | POLITICS | Mike Tyson backs Donald Trump in surprising endorsement | 57 | 1 | 1 | 0 | 16.4 |
 | 2026-10-12T01:06 | reel | TECH | Elon Musk vows affordable Starlink in India before Jio IPO | 124 | 10 | 2 | 0 | 50.8 |
-| 2026-10-11T21:06 | reel | TECH | Elon Musk faces critics in high‑stakes showdown | 0 | 1133 | 66 | 0 | 2464.0 |
+| 2026-10-11T21:06 | reel | TECH | Elon Musk faces critics in high‑stakes showdown | 0 | 1142 | 66 | 0 | 2482.0 |
 | 2026-10-11T19:13 | reel | TECH | Elon Musk reaches an unprecedented $1.1 trillion net worth | 172 | 12 | 4 | 0 | 70.4 |
 | 2026-10-11T12:07 | photo | SPORTS | Kyrie Irving makes comeback in China preseason, sparking NBA buzz | 46 | 0 | 0 | 0 | 9.2 |
 | 2026-10-11T03:07 | reel | SPORTS | Arch Manning delivers big strikes in Texas vs Oklahoma clash | 156 | 2 | 1 | 0 | 38.2 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (3441.8) 
 | 2026-10-10T03:07 | reel | TECH | Sam Altman urges new Renaissance amid AI industrial revolution | 57 | 2 | 1 | 0 | 18.4 |
 | 2026-10-10T01:06 | reel | BUSINESS | Donald Trump buys $5 million in SpaceX bonds before big order | 48 | 3 | 2 | 0 | 21.6 |
 | 2026-10-09T23:08 | reel | BUSINESS | Elon Musk report reveals woman rejected $40 million payout | 148 | 3 | 3 | 0 | 44.6 |
-| 2026-10-09T19:07 | reel | TECH | Elon Musk's SpaceX surge sends AT&T, Verizon, T‑Mobile shares plunging | 69 | 3 | 2 | 0 | 25.8 |
