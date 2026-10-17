@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-17 19:06 UTC_
+_Updated 2026-10-17 21:05 UTC_
 
 ```
-Based on the last 72 posts on this page:
-Best categories: BUSINESS (636.0), TECH (442.8), AI (240.7)
+Based on the last 73 posts on this page:
+Best categories: BUSINESS (636.0), TECH (426.5), AI (240.7)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (528.1, 40 posts), photo (62.5, 32 posts)
-Best posting slots (UTC): 21:00 (1509.8), 19:00 (646.3), 03:00 (300.4)
-Best faces on this page (avg views per post): Elon Musk 1244 (37 posts), Sam Altman 71 (2 posts), Mark Zuckerberg 51 (4 posts), LeBron James 57 (1 posts), Donald Trump 49 (6 posts), Sundar Pichai 35 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (516.8, 41 posts), photo (62.5, 32 posts)
+Best posting slots (UTC): 21:00 (1509.8), 19:00 (598.0), 03:00 (300.4)
+Best faces on this page (avg views per post): Elon Musk 1217 (38 posts), Sam Altman 71 (2 posts), Mark Zuckerberg 51 (4 posts), LeBron James 57 (1 posts), Donald Trump 49 (6 posts), Sundar Pichai 35 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (3977.8) | Elon Musk’s Boring Company plans 150 mph underground cars (3872.0) | Elon Musk faces critics in high‑stakes showdown (2606.0)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-17T19:07 | reel | TECH | Elon Musk claims Neuralink link, patient sends surprising reply | 218 | 10 | 1 | 0 | 66.6 |
 | 2026-10-17T06:58 | photo | BUSINESS | Elon Musk invested $6.35 million in 2004, became majority shareholder and board chairman | 627 | 60 | 15 | 16 | 296.4 |
 | 2026-10-17T03:06 | reel | TECH | Elon Musk's wild tech shocks investors with flying Teslas | 538 | 13 | 1 | 0 | 136.6 |
 | 2026-10-17T02:08 | photo | TECH | Elon Musk's Tesla patents touch‑sensitive robot skin, hints at human‑like feel | 342 | 23 | 4 | 14 | 132.4 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (3
 | 2026-10-10T23:07 | reel | CELEBRITY | Nicolas Cage refuses AI waiver and walks from Amazon project | 164 | 2 | 1 | 0 | 39.8 |
 | 2026-10-10T19:07 | reel | CELEBRITY | Elon Musk faces backlash after ex-wife reveals family claim | 301 | 7 | 2 | 0 | 80.2 |
 | 2026-10-10T16:07 | photo | POLITICS | Donald Trump faces backlash over Russia diesel deal | 39 | 1 | 1 | 10 | 18.8 |
-| 2026-10-10T12:06 | photo | AI | Sundar Pichai reveals Gemini reached 950 million users as cloud booms | 35 | 1 | 1 | 10 | 18.0 |
