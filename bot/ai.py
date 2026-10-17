@@ -1,6 +1,8 @@
 """Ask a free AI (Gemini, with optional Groq backup) to pick topics and write posts."""
 import json
+import os
 import re
+import time
 
 import requests
 
@@ -210,23 +212,62 @@ def _groq(prompt):
     raise RuntimeError(last)
 
 
+def _light(prompt):
+    """Small, fast Groq model with its own (much bigger) rate limit: for short jobs like comment replies,
+    so they never use up the quota the posts need."""
+    if not config.GROQ_API_KEY:
+        raise RuntimeError("no Groq key")
+    r = requests.post("https://api.groq.com/openai/v1/chat/completions", timeout=60,
+                      headers={"Authorization": f"Bearer {config.GROQ_API_KEY}"},
+                      json={"model": "llama-3.1-8b-instant", "temperature": 0.7, "max_tokens": 2000,
+                            "response_format": {"type": "json_object"},
+                            "messages": [{"role": "user", "content": prompt}]})
+    if r.status_code != 200:
+        raise RuntimeError(f"Groq light HTTP {r.status_code}: {r.text[:120]}")
+    return r.json()["choices"][0]["message"]["content"]
+
+
+def _cloudflare_text(prompt):
+    """Last backup writer: Cloudflare Workers AI (free daily allowance, separate from Gemini and Groq)."""
+    acc, tok = os.getenv("CF_ACCOUNT_ID", "").strip(), os.getenv("CF_API_TOKEN", "").strip()
+    if not acc or not tok:
+        raise RuntimeError("no Cloudflare keys")
+    r = requests.post(f"https://api.cloudflare.com/client/v4/accounts/{acc}/ai/run/@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+                      headers={"Authorization": f"Bearer {tok}"}, timeout=120,
+                      json={"messages": [{"role": "user", "content": prompt + "\nReply with the JSON only."}],
+                            "max_tokens": 6000, "temperature": 0.7})
+    if r.status_code != 200:
+        raise RuntimeError(f"Cloudflare HTTP {r.status_code}: {r.text[:120]}")
+    out = (r.json().get("result") or {}).get("response")
+    if isinstance(out, (dict, list)):
+        out = json.dumps(out)
+    print("[ai] Cloudflare model used: llama-3.3-70b")
+    return out or ""
+
+
 def write_posts(candidates, already_posted, n, performance="", special=""):
     engines = []
     if config.GEMINI_API_KEY:
         engines.append(_gemini)
     if config.GROQ_API_KEY:
         engines.append(_groq)
+    if os.getenv("CF_ACCOUNT_ID") and os.getenv("CF_API_TOKEN"):
+        engines.append(_cloudflare_text)
     if not engines:
         raise RuntimeError("No AI key found. Add GEMINI_API_KEY (or GROQ_API_KEY) in GitHub Secrets.")
-    for size in dict.fromkeys((n, 1)):  # if a long answer fails, ask for a single post
-        prompt = build_prompt(candidates, already_posted, size, performance, special)
-        for engine in engines:
-            try:
-                posts = _parse(engine(prompt))
-                if posts:
-                    return posts[:size]
-            except Exception as e:
-                print(f"[ai] {engine.__name__} error: {str(e)[:200]}")
+    for attempt in range(2):
+        if attempt:  # every engine busy (per-minute limits): wait for the limits to reset, then once more
+            print("[ai] all AI engines busy -> waiting 65 s and trying again")
+            time.sleep(65)
+        for size in dict.fromkeys((n, 1)):  # if a long answer fails, ask for a single post
+            prompt = build_prompt(candidates, already_posted, size, performance, special)
+            for engine in engines:
+                try:
+                    posts = _parse(engine(prompt))
+                    if posts:
+                        return posts[:size]
+                except Exception as e:
+                    print(f"[ai] {engine.__name__} error: {str(e)[:200]}")
     raise RuntimeError("AI could not write any post.")
 
 
@@ -341,3 +382,21 @@ def _cloudflare_judge(b64, prompt):
     except Exception as e:
         print(f"[judge] Cloudflare vision failed: {e}")
         return None
+
+
+def same_story(headline, recent):
+    """Is this the same story as one the page already posted, even in other words ('teases next-gen Roadster' =
+    'unveils flying Tesla car')? Asks the small AI. Returns the old headline, or '' (also when the AI is busy)."""
+    if not recent:
+        return ""
+    lines = "\n".join(f"{i}. {h}" for i, h in enumerate(recent, 1))
+    prompt = (f'NEW headline: "{headline}"\n\nHeadlines already posted:\n{lines}\n\n'
+              "Is the NEW headline about the SAME news event or the same product/announcement as one of the posted "
+              "ones (even if worded differently)? Different events about the same person are NOT the same. "
+              'Reply JSON: {"same": 0} if none, or {"same": n} with the number of the matching headline.')
+    try:
+        n = int(_parse_json(_light(prompt)).get("same", 0) or 0)
+    except Exception as e:
+        print(f"[ai] same-story check skipped: {str(e)[:100]}")
+        return ""
+    return recent[n - 1] if 1 <= n <= len(recent) else ""

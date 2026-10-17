@@ -268,7 +268,7 @@ def _reply_batch(post_headline, comments):
               "Do not add new facts, do not argue, no politics, no links. "
               'For spam, abuse, hate, sexual content or requests for money/personal info, the reply is exactly "SKIP". '
               'Return JSON: {"replies": [{"n": 1, "reply": "..."}, ...]}')
-    for engine in (ai._gemini, ai._groq):
+    for engine in (ai._light, ai._groq):  # never Gemini: its small daily quota is kept for the posts
         try:
             data = ai._parse_json(engine(prompt))
             items = data.get("replies", data) if isinstance(data, dict) else data

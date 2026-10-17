@@ -126,6 +126,18 @@ def choose_format(state):
     return fmt
 
 
+def engage(state):
+    """Live runs: answer comments and the daily growth to-do."""
+    if config.DRY_RUN:
+        return
+    try:
+        insights.reply_comments(state)
+        growth.daily_todo(state)
+    except Exception as e:
+        print(f"[insights] skipped: {e}")
+    save_state(state)
+
+
 def main():
     print(f"== Trend Bot | page: {config.PAGE_NAME} | countries: {config.COUNTRIES} | DRY_RUN={config.DRY_RUN}")
     state = load_state()
@@ -133,14 +145,8 @@ def main():
         insights.update_stats(state)
     except Exception as e:
         print(f"[insights] stats skipped: {e}")
-    if not config.DRY_RUN:  # answer comments + daily to-do on every live run
-        try:
-            insights.reply_comments(state)
-            growth.daily_todo(state)
-        except Exception as e:
-            print(f"[insights] skipped: {e}")
-        save_state(state)
     if not should_post_now(state):
+        engage(state)  # between slots: answer comments + daily to-do
         return 0
     meta.check_connection()
     live = [p for p in state["posted"] if not p.get("dry_run")]  # test runs must not use up topics
@@ -294,6 +300,11 @@ def main():
             if not dup and star and face == star:  # star Reels: no story or theme the page already told
                 dup = (recent_duplicate(p["headline"], face, state, hours=72, min_common=1, must="wealth") if "wealth" in _words(p["headline"])
                        else recent_duplicate(p["headline"], face, state, hours=24 * 60, min_common=3))
+            if not dup and face:  # same story in other words ('teases Roadster' = 'unveils flying Tesla')
+                since = datetime.now(timezone.utc) - timedelta(days=4)
+                told = [r["headline"].replace("*", "") for r in live if r.get("face") == face
+                        and datetime.fromisoformat(r["time"]) > since][-20:]
+                dup = ai.same_story(p["headline"].replace("*", ""), told)
             if dup:
                 print(f"[main] skipping {p['key']}: same story as '{dup[:60]}'")
                 repeats.append(p["headline"].replace("*", ""))
@@ -344,10 +355,7 @@ def main():
                 res = {"facebook": record["facebook"]}
                 if config.POST_TO_INSTAGRAM and config.IG_USER_ID:  # same Reel on Instagram
                     try:
-                        src = meta.video_source(record["facebook"])
-                        if not src:
-                            raise RuntimeError("no public video URL from Facebook yet")
-                        record["instagram"] = res["instagram"] = meta.post_instagram_reel(src, caption)
+                        record["instagram"] = res["instagram"] = meta.post_instagram_reel(video, caption)
                         print(f"[meta] Instagram Reel posted: {record['instagram']}")
                     except Exception as e:
                         print(f"[meta] Instagram Reel failed: {e}")
@@ -387,6 +395,7 @@ def main():
 
     save_state(state)
     print(f"== Done. {made} post(s) made.")
+    engage(state)  # after posting, so comment replies never use up the AI quota the post needs
     return 0
 
 

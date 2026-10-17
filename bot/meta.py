@@ -73,14 +73,11 @@ def photo_public_url(photo_id):
     return max(images, key=lambda i: i.get("width", 0))["source"]
 
 
-def _ig_publish(data, what, tries=20, gap=5):
-    """Instagram: create a media container, wait until Instagram has processed it, publish. Returns media id."""
-    r = requests.post(_url(f"{config.IG_USER_ID}/media"), data={**data, "access_token": config.FB_PAGE_TOKEN},
-                      timeout=60)
-    creation_id = _check(r, f"Instagram {what} container")["id"]
+def _ig_wait_publish(creation_id, what, tries=20, gap=5):
+    """Wait until Instagram has processed a media container, then publish it. Returns media id."""
     for _ in range(tries):
-        s = requests.get(_url(creation_id), params={"fields": "status_code", "access_token": config.FB_PAGE_TOKEN},
-                         timeout=30).json()
+        s = requests.get(_url(creation_id), timeout=30,
+                         params={"fields": "status_code,status", "access_token": config.FB_PAGE_TOKEN}).json()
         status = s.get("status_code")
         if status == "FINISHED":
             break
@@ -92,14 +89,31 @@ def _ig_publish(data, what, tries=20, gap=5):
     return _check(r, f"Instagram {what} publish")["id"]
 
 
+def _ig_publish(data, what, tries=20, gap=5):
+    """Instagram: create a media container, wait until Instagram has processed it, publish. Returns media id."""
+    r = requests.post(_url(f"{config.IG_USER_ID}/media"), data={**data, "access_token": config.FB_PAGE_TOKEN},
+                      timeout=60)
+    return _ig_wait_publish(_check(r, f"Instagram {what} container")["id"], what, tries, gap)
+
+
 def post_instagram(image_url, caption):
     return _ig_publish({"image_url": image_url, "caption": caption}, "photo")
 
 
-def post_instagram_reel(video_url, caption):
-    """The same Reel on Instagram (from the public mp4 of the Facebook Reel); also shown in the profile grid."""
-    return _ig_publish({"media_type": "REELS", "video_url": video_url, "caption": caption, "share_to_feed": "true"},
-                       "Reel", tries=40, gap=8)
+def post_instagram_reel(video_path, caption):
+    """The same Reel on Instagram, uploaded straight from the file (Instagram could not fetch the Facebook copy);
+    also shown in the profile grid."""
+    r = requests.post(_url(f"{config.IG_USER_ID}/media"), timeout=60, data={
+        "media_type": "REELS", "upload_type": "resumable", "caption": caption, "share_to_feed": "true",
+        "access_token": config.FB_PAGE_TOKEN})
+    creation_id = _check(r, "Instagram Reel container")["id"]
+    with open(video_path, "rb") as f:
+        body = f.read()
+    r = requests.post(f"https://rupload.facebook.com/ig-api-upload/{config.GRAPH_VERSION}/{creation_id}", data=body,
+                      timeout=300, headers={"Authorization": f"OAuth {config.FB_PAGE_TOKEN}", "offset": "0",
+                                            "file_size": str(len(body))})
+    _check(r, "Instagram Reel upload")
+    return _ig_wait_publish(creation_id, "Reel", tries=40, gap=8)
 
 
 def video_source(video_id):
