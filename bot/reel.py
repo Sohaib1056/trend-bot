@@ -449,6 +449,9 @@ def _planned_scenes(post, photo, words, duration):
         line = str(s["line"])
         kind = item = None
         repeat = part == 1 and len(people) < 2  # second half of a long line: don't show the same face again
+        if s is segs[-1][0] and people:  # the closing question: the person's face, not an abstract clip
+            show = "face"
+            repeat = repeat and len(out) > 0 and out[-1][0] == "face"
         if show == "face" and people and not repeat:
             kind, item = "face", people[faces_used % len(people)]
             faces_used += 1
