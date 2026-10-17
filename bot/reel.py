@@ -775,6 +775,21 @@ def make_reel(post, photo, path):
         text = _voice_text(post)
         vsecs = _audio_secs(exe, voice) if _tts(text, voice) else 0.0
         fit = REEL_LEN - VOICE_AT - 0.5  # the voice must end just before the 15s mark
+        for _ in range(3):  # far too long even when spoken 1.15x faster: say less (the Reel stays exactly 15s)
+            if not vsecs or vsecs <= fit * 1.15:
+                break
+            parts = re.split(r"(?<=[.!?])\s+", text.strip())
+            if parts and parts[-1].lower().startswith("follow"):
+                parts = parts[:-1]  # the follow banner on screen already says it
+            elif len(parts) > 3:
+                parts = parts[:-3] + parts[-2:]  # drop a middle sentence, keep the hook and the closing question
+            else:
+                break
+            text = " ".join(parts)
+            post["scenes"] = [s for s in (post.get("scenes") or []) if isinstance(s, dict)
+                              and str(s.get("line", "")).strip()[:25] in text]  # keep scenes in step with the voice
+            print(f"[reel] voice {vsecs:.1f}s is too long for 15s -> shorter narration")
+            vsecs = _audio_secs(exe, voice) if _tts(text, voice) else 0.0
         if vsecs > fit:  # a little long: speak a touch faster (max 1.15x, still easy to follow) to keep 15s
             fast = voice.replace(".mp3", "-fit.mp3")
             subprocess.run([exe, "-y", "-loglevel", "error", "-i", voice, "-filter:a",
