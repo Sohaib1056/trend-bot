@@ -21,7 +21,8 @@ from PIL import Image, ImageDraw, ImageFilter
 
 from . import config
 from .poster import (COMMONS_SKIP, FREE_LICENSE, MARKER, INK, PAD, PINK, ORANGE, YELLOW, WHITE, WIKI_UA,
-                     _cloudflare_image, _cover, _download, _enhance, _fit, _font, _hgradient, _logo, openverse_person,
+                     BROWSER_UA, _cloudflare_image, _cover, _download, _enhance, _fit, _font, _hgradient, _logo,
+                     _wm_thumb, openverse_person,
                      _paste_rounded, _tokens, _vfade)
 
 RW, RH = 1080, 1920
@@ -107,7 +108,7 @@ def _pixabay_videos(post, want=3, queries=None, context=None, seen=None, max_jud
             try:
                 judged += 1
                 score = judge_image(_download(v["thumbnail"]), headline, broll=True) if v.get("thumbnail") else None
-                if score is not None and (score[0] < 5 or score[1] < 6):
+                if score is not None and (score[0] < (6 if context else 5) or score[1] < 6):  # a line's clip must fit it
                     print(f"[reel] clip {h['id']} for '{q}' rejected by the judge")
                     continue
                 path = os.path.join(CLIP_DIR, f"{h['id']}.mp4")
@@ -255,6 +256,37 @@ def _person_photos(post, want=3, used=()):
         for im, credit, face in openverse_person(name, post["headline"].replace("*", ""), want - len(out)):
             out.append((im, credit.replace("📷 Photo: ", ""), face))
     return out
+
+
+def _real_photo(query, line, seen):
+    """A real, free-licensed photo (Openverse: Flickr, Wikimedia...) of the exact thing a line names, e.g. 'Tesla
+    Roadster' or 'Falcon 9 launch'; the judge must find it on-topic and good-looking. Returns (img, credit) or None."""
+    from .ai import judge_image
+    try:
+        r = requests.get("https://api.openverse.org/v1/images/", headers=WIKI_UA, timeout=30, params={
+            "q": query, "license_type": "commercial", "page_size": 20})
+        results = r.json().get("results", [])
+    except Exception as e:
+        print(f"[reel] Openverse search for '{query}' failed: {e}")
+        return None
+    good = [x for x in results if min(x.get("width") or 0, x.get("height") or 0) >= 900 and x.get("url") not in seen
+            and not COMMONS_SKIP.search(x.get("title") or "")]
+    for x in good[:3]:
+        seen.add(x["url"])
+        url = _wm_thumb(x["url"], 1280) if x.get("source") == "wikimedia" and (x.get("width") or 0) > 1280 else x["url"]
+        try:
+            im = _download(url, WIKI_UA if x.get("source") == "wikimedia" else BROWSER_UA)
+            score = judge_image(im, line)
+            if score is not None and (score[0] < 6 or score[1] < 6):
+                print(f"[reel] photo for '{query}' rejected by the judge")
+                continue
+            lic = x.get("license", "")
+            lic = "public domain" if lic in ("cc0", "pdm") else f"CC {lic.upper()} {x.get('license_version', '')}".strip()
+            print(f"[reel] real photo for '{query}': {(x.get('title') or '')[:50]} ({x.get('source')})")
+            return im, f"{(x.get('creator') or 'unknown')[:40]}, {lic}, via {(x.get('source') or 'Openverse').title()}"
+        except Exception as e:
+            print(f"[reel] photo for '{query}' failed: {e}")
+    return None
 
 
 def _good_still(im, line):
@@ -410,7 +442,7 @@ def _planned_scenes(post, photo, words, duration):
             segs.append([s, a, b, 0])
     people = _people(post, photo, want=3)
     others = [im for im in post.get("_extras", []) if im is not photo] + ([] if post.get("_person") else [photo])
-    seen, faces_used, clips_cache, out = set(), 0, {}, []
+    seen, faces_used, clips_cache, out, stills, credits = set(), 0, {}, [], {}, []
     for s, a, b, part in segs:
         show = str(s.get("show", "")).lower()
         query = str(s.get("query") or "").strip()
@@ -432,17 +464,26 @@ def _planned_scenes(post, photo, words, duration):
             got = clips_cache["_story"]
             if got:
                 kind, item = "video", got[len(out) % len(got)]
-        if kind is None and s.get("ai"):
-            im = _cloudflare_image(str(s["ai"]), abs(hash(line)) % 100000)
-            if im is not None and _good_still(im, line):
-                kind, item = "photo", im
-        if kind is None and people and not repeat:
+        if kind is None:  # a REAL photo of the thing this line names (no AI pictures: they look fake)
+            q = str(s.get("photo") or query).strip()
+            if q and q not in stills:
+                stills[q] = _real_photo(q, line, seen)
+            if stills.get(q):
+                kind, item = "photo", stills[q][0]
+                credits.append(stills[q][1])
+        if kind is None:  # footage already found for another line of this story (a different clip than the last)
+            pool = [c for got in clips_cache.values() for c in got if not out or c is not out[-1][1]]
+            if pool:
+                kind, item = "video", pool[len(out) % len(pool)]
+        if kind is None and people:
             kind, item = "face", people[faces_used % len(people)]
             faces_used += 1
         if kind is None:
             kind, item = "photo", (others[len(out) % len(others)] if others else photo)
         out.append([kind, item, int(round((b - a) * FPS))])
         print(f"[reel] {a:4.1f}-{b:4.1f}s {kind:5} for: {line[:60]}")
+    if credits:  # real photos used need attribution in the caption
+        post["_reel_credits"] = list(dict.fromkeys((post.get("_reel_credits") or []) + credits))
     if people and out[0][0] != "face":  # a Reel about a famous person always opens on their face
         out[0][0], out[0][1] = "face", people[0]
         print("[reel] first scene -> the face")
@@ -455,9 +496,6 @@ def _scenes(post, photo, count):
     people = _people(post, photo, want=min(3, count // 2))
     others =([] if post.get("_person") else [photo]) + [im for im in post.get("_extras", []) if im is not photo]
     videos = _pixabay_videos(post, want=min(4, count - len(people)))
-    short = count - len(people) - len(videos) - len(others)
-    if short > 0:
-        others += _ai_images(post, min(3, short))
     scenes = []
     if people:  # a real face is the strongest hook
         scenes.append(("face", people.pop(0)))

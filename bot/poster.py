@@ -512,7 +512,7 @@ def get_background(post):
         rel, qual = score[:2]
         total = rel * 2 + qual
         print(f"[poster] candidate from {source}: score {total:.0f}/30")
-        if rel >= 6 and qual >= 6 and credit is None:  # no-attribution images only
+        if rel >= 6 and qual >= 6 and credit is None and source != "AI image":  # real no-attribution photos only (reused in Reels)
             post["_extras"].append(im)
         if rel >= 7 and qual >= 6:
             post["_credit"] = credit
