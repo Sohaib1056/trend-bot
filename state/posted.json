@@ -2032,6 +2032,22 @@
       "time": "2026-10-17T07:52+00:00",
       "dry_run": true,
       "format": "reel"
+    },
+    {
+      "key": "elon-musk-facts-2026101707",
+      "topic": "Elon Musk facts",
+      "headline": "Elon Musk *built* SolarCity, then *sold* it for $2\u202fbillion",
+      "badge": "BUSINESS",
+      "slot": "",
+      "face": "Elon Musk",
+      "share_groups": [
+        "Tesla owners",
+        "Solar energy enthusiasts",
+        "Tech investors"
+      ],
+      "time": "2026-10-17T07:58+00:00",
+      "dry_run": true,
+      "format": "reel"
     }
   ],
   "replied": [
