@@ -1,23 +1,24 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-18 03:06 UTC_
+_Updated 2026-10-18 04:06 UTC_
 
 ```
-Based on the last 76 posts on this page:
-Best categories: BUSINESS (659.4), TECH (407.3), AI (247.6)
+Based on the last 77 posts on this page:
+Best categories: BUSINESS (660.2), TECH (408.9), AI (247.6)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (508.7, 43 posts), photo (68.5, 33 posts)
-Best posting slots (UTC): 21:00 (1345.6), 19:00 (615.5), 04:00 (313.5)
-Best faces on this page (avg views per post): Elon Musk 1186 (41 posts), Sam Altman 72 (2 posts), Mark Zuckerberg 51 (4 posts), LeBron James 57 (1 posts), Donald Trump 49 (6 posts), Sundar Pichai 35 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
-Top posts: Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (4151.0) | Elon Musk’s Boring Company plans 150 mph underground cars (4047.2) | Elon Musk faces critics in high‑stakes showdown (2640.0)
+Format: reel (501.1, 44 posts), photo (68.5, 33 posts)
+Best posting slots (UTC): 21:00 (1357.6), 19:00 (616.8), 04:00 (313.5)
+Best faces on this page (avg views per post): Elon Musk 1167 (42 posts), Sam Altman 72 (2 posts), Mark Zuckerberg 51 (4 posts), LeBron James 57 (1 posts), Donald Trump 49 (6 posts), Sundar Pichai 35 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Top posts: Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (4151.0) | Elon Musk’s Boring Company plans 150 mph underground cars (4047.2) | Elon Musk faces critics in high‑stakes showdown (2662.0)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-18T03:07 | reel | POLITICS | Elon Musk's Starlink restricted in Ukraine, Zelensky warns clash | 163 | 8 | 4 | 0 | 60.6 |
 | 2026-10-18T02:06 | photo | TECH | Elon Musk's wildest innovations: maps to flying cars | 17 | 6 | 5 | 10 | 36.4 |
 | 2026-10-18T01:06 | reel | TECH | Elon Musk teases Optimus Prime after China unveils 13‑foot robot | 88 | 2 | 0 | 0 | 21.6 |
-| 2026-10-17T21:06 | reel | CELEBRITY | Elon Musk global journey from South Africa to trillion‑dollar empire | 331 | 13 | 3 | 0 | 101.2 |
-| 2026-10-17T19:07 | reel | TECH | Elon Musk claims Neuralink link, patient sends surprising reply | 274 | 12 | 1 | 0 | 81.8 |
+| 2026-10-17T21:06 | reel | CELEBRITY | Elon Musk global journey from South Africa to trillion‑dollar empire | 500 | 25 | 4 | 0 | 162.0 |
+| 2026-10-17T19:07 | reel | TECH | Elon Musk claims Neuralink link, patient sends surprising reply | 316 | 16 | 1 | 0 | 98.2 |
 | 2026-10-17T06:58 | photo | BUSINESS | Elon Musk invested $6.35 million in 2004, became majority shareholder and board chairman | 1039 | 77 | 19 | 16 | 424.8 |
 | 2026-10-17T03:06 | reel | TECH | Elon Musk's wild tech shocks investors with flying Teslas | 552 | 15 | 1 | 0 | 143.4 |
 | 2026-10-17T02:08 | photo | TECH | Elon Musk's Tesla patents touch‑sensitive robot skin, hints at human‑like feel | 529 | 32 | 4 | 14 | 187.8 |
@@ -43,14 +44,13 @@ Top posts: Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (4
 | 2026-10-13T03:07 | reel | BUSINESS | Elon Musk hits trillionaire status with $1.1 trillion net worth | 2505 | 217 | 36 | 0 | 1043.0 |
 | 2026-10-13T02:08 | photo | TECH | Mark Zuckerberg puts Meta on AI frontier against OpenAI | 105 | 6 | 2 | 10 | 45.0 |
 | 2026-10-13T01:07 | reel | BUSINESS | Elon Musk cements status as world's wealthiest person since 2025 | 367 | 27 | 5 | 0 | 142.4 |
-| 2026-10-12T21:08 | reel | BUSINESS | Elon Musk commands Tesla and SpaceX as world's richest leader | 0 | 603 | 49 | 0 | 1353.0 |
+| 2026-10-12T21:08 | reel | BUSINESS | Elon Musk commands Tesla and SpaceX as world's richest leader | 0 | 605 | 48 | 0 | 1354.0 |
 | 2026-10-12T19:08 | reel | POLITICS | Elon Musk drops $276 million into GOP midterms, igniting clash | 390 | 25 | 4 | 0 | 140.0 |
 | 2026-10-12T04:06 | photo | AI | Sam Altman claims AI singularity has officially arrived | 86 | 2 | 1 | 10 | 30.2 |
-| 2026-10-12T03:06 | reel | BUSINESS | Elon Musk becomes first trillionaire with $1.1 trillion net worth | 0 | 357 | 59 | 0 | 891.0 |
+| 2026-10-12T03:06 | reel | BUSINESS | Elon Musk becomes first trillionaire with $1.1 trillion net worth | 0 | 362 | 59 | 0 | 901.0 |
 | 2026-10-12T02:06 | photo | POLITICS | Mike Tyson backs Donald Trump in surprising endorsement | 63 | 2 | 1 | 0 | 19.6 |
 | 2026-10-12T01:06 | reel | TECH | Elon Musk vows affordable Starlink in India before Jio IPO | 127 | 10 | 2 | 0 | 51.4 |
-| 2026-10-11T21:06 | reel | TECH | Elon Musk faces critics in high‑stakes showdown | 0 | 1221 | 66 | 0 | 2640.0 |
+| 2026-10-11T21:06 | reel | TECH | Elon Musk faces critics in high‑stakes showdown | 0 | 1232 | 66 | 0 | 2662.0 |
 | 2026-10-11T19:13 | reel | TECH | Elon Musk reaches an unprecedented $1.1 trillion net worth | 174 | 12 | 4 | 0 | 70.8 |
 | 2026-10-11T12:07 | photo | SPORTS | Kyrie Irving makes comeback in China preseason, sparking NBA buzz | 49 | 0 | 0 | 0 | 9.8 |
 | 2026-10-11T03:07 | reel | SPORTS | Arch Manning delivers big strikes in Texas vs Oklahoma clash | 160 | 2 | 1 | 0 | 39.0 |
-| 2026-10-11T01:06 | reel | CELEBRITY | Nicolas Cage rejects Amazon AI waiver, risks Spider‑Noir role | 107 | 2 | 1 | 0 | 28.4 |
