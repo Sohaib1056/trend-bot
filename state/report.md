@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-18 01:06 UTC_
+_Updated 2026-10-18 02:05 UTC_
 
 ```
-Based on the last 74 posts on this page:
-Best categories: BUSINESS (649.7), TECH (435.4), AI (245.0)
+Based on the last 75 posts on this page:
+Best categories: BUSINESS (649.7), TECH (418.2), AI (245.0)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (515.2, 42 posts), photo (67.0, 32 posts)
+Format: reel (503.7, 43 posts), photo (67.0, 32 posts)
 Best posting slots (UTC): 21:00 (1331.1), 19:00 (608.8), 03:00 (302.7)
-Best faces on this page (avg views per post): Elon Musk 1224 (39 posts), Sam Altman 72 (2 posts), Mark Zuckerberg 51 (4 posts), LeBron James 57 (1 posts), Donald Trump 49 (6 posts), Sundar Pichai 35 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 1196 (40 posts), Sam Altman 72 (2 posts), Mark Zuckerberg 51 (4 posts), LeBron James 57 (1 posts), Donald Trump 49 (6 posts), Sundar Pichai 35 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (4074.0) | Elon Musk’s Boring Company plans 150 mph underground cars (3959.2) | Elon Musk faces critics in high‑stakes showdown (2640.0)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-18T01:06 | reel | TECH | Elon Musk teases Optimus Prime after China unveils 13‑foot robot | 88 | 2 | 0 | 0 | 21.6 |
 | 2026-10-17T21:06 | reel | CELEBRITY | Elon Musk global journey from South Africa to trillion‑dollar empire | 331 | 13 | 3 | 0 | 101.2 |
 | 2026-10-17T19:07 | reel | TECH | Elon Musk claims Neuralink link, patient sends surprising reply | 274 | 12 | 1 | 0 | 81.8 |
 | 2026-10-17T06:58 | photo | BUSINESS | Elon Musk invested $6.35 million in 2004, became majority shareholder and board chairman | 895 | 68 | 17 | 16 | 372.0 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (4
 | 2026-10-11T03:07 | reel | SPORTS | Arch Manning delivers big strikes in Texas vs Oklahoma clash | 160 | 2 | 1 | 0 | 39.0 |
 | 2026-10-11T01:06 | reel | CELEBRITY | Nicolas Cage rejects Amazon AI waiver, risks Spider‑Noir role | 107 | 2 | 1 | 0 | 28.4 |
 | 2026-10-10T23:07 | reel | CELEBRITY | Nicolas Cage refuses AI waiver and walks from Amazon project | 164 | 2 | 1 | 0 | 39.8 |
-| 2026-10-10T19:07 | reel | CELEBRITY | Elon Musk faces backlash after ex-wife reveals family claim | 301 | 7 | 2 | 0 | 80.2 |
