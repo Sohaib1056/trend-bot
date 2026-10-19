@@ -101,27 +101,33 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
      - `trends.person_facts`: a different Wikipedia section each slot.
    - The prompt also gets `insights.star_angles` (the best and worst star posts), so the AI copies winning angles
      (money, power, clashes, shock moves) and avoids losing ones (stock-market and India angles).
-6. **AI writes posts** (`ai.write_posts`).
+6. **Real facts** (`main.add_facts` → `trends.article_facts`): the top 4 topics get Bing News reports from several
+   outlets plus one full article (read with trafilatura). Google News RSS only gives headlines, so before this the AI
+   wrote whole Reels from one line.
+7. **AI writes posts** (`ai.write_posts`).
    - Order: Gemini → Groq → Cloudflare Llama 3.3. If all are busy, wait 65 s and try once more.
    - Each post: headline (PERSONALITY + MONEY + CLASH formula), caption, hashtags, wiki_title, a 30-36 word
-     voiceover, scenes `[{line, show: face|video, query, photo}]`, video_queries and first_comment.
-7. **Checks per post**:
+     voiceover (HOOK max 8 words → STORY in concrete facts → TWIST → question; no vague filler), scenes `[{line, show: face|video, query, photo}]`, video_queries and first_comment.
+8. **Checks per post**:
    - `star_only`: must be about the star.
    - Duplicate checks:
      - Word-overlap check, with a synonym map ("richest" = "trillionaire" = "net worth" → wealth theme, at most once
        per 72 h).
      - 60-day check for star stories.
      - **AI same-story check** (`ai.same_story`, 4-day window per face).
+   - **AI editor** (`ai.edit_reel`, Reels only, max 3 per slot): scores hook, clarity, sense and facts (the lowest
+     counts). Under 8/10 it has the script rewritten once; still under 8 → try the next story; if no story reaches 8,
+     post the best-scored one (never an empty slot).
    - Wording checks: `BLOCK_WORDS`, `RISKY` (sexual words, slurs, profanity) and `BAIT` (engagement bait removed
      from captions).
    - If every star idea is a repeat: ask the AI 2 more times, then post about another huge face (`main.BIG_FACES`:
      Trump, Zuckerberg, Bezos, Gates, Altman, Huang, Taylor Swift, Ronaldo, Messi, LeBron, Kim K, The Rock, MrBeast,
      Obama, Rihanna, Oprah, Tom Cruise, Kylie Jenner). The slot is never left empty.
-8. **Poster** (`poster.make_poster`).
+9. **Poster** (`poster.make_poster`).
    - The real photo of the person comes from Wikipedia, then Commons, then Openverse.
    - Wikipedia name lists such as "Dan Levy" are resolved with a search plus a role hint.
    - A story with no face photo is tried last.
-9. **Reel** (`reel.make_reel`), 1080×1920, 30 fps.
+10. **Reel** (`reel.make_reel`), 1080×1920, 30 fps.
    - **Voice**: Cloudflare Deepgram Aura (asteria) → Kokoro (local, free) → MeloTTS.
    - **Length**: 15 s normally, up to 17 s (`MAX_LEN`) so the whole point is said. Max speed-up 1.1×. The spoken
      follow line is dropped first, and a middle sentence only if the voice is over 17 s.
@@ -132,16 +138,17 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
      - Otherwise a **real** photo of the named thing (Openverse, judged), then another clip of the story, then the
        face.
      - **No AI images.**
-   - Subtitles in the safe zone (Facebook covers the bottom ~35%), a follow banner and music from `assets/music`.
-10. **Publish** (`meta.py`).
+   - No headline text on top (owner's choice); word-by-word subtitles under the face (`SUB_Y=1225`, face at
+     `FACE_Y=720`), in the safe zone (Facebook covers the bottom ~35%), a follow banner and music from `assets/music`.
+11. **Publish** (`meta.py`).
     - Facebook Reel (`video_reels`) or photo.
     - **Instagram**: the same Reel via resumable upload from the file (`rupload.facebook.com`), and photos via
       `image_url`.
     - The bot then writes its first comment.
     - If the Reel upload fails, it posts the photo instead.
-11. Save the record to `state/posted.json` (key, topic, headline, badge, slot, face, format and post IDs). The workflow
+12. Save the record to `state/posted.json` (key, topic, headline, badge, slot, face, format and post IDs). The workflow
     commits the state with `pull --rebase -X theirs` and retries.
-12. `engage()` **after** posting:
+13. `engage()` **after** posting:
     - Replies to every comment on posts from the last 7 days, max 100 per run.
     - Replies use the small Groq model `llama-3.1-8b-instant`, so they never use up the quota the posts need.
     - Sends the daily growth to-do (a GitHub issue assigned to the owner; e-mail with share links and USA groups).
@@ -152,8 +159,8 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
 |---|---|
 | `bot/main.py` | Orchestration, slots, star logic, duplicate checks, fallbacks, publishing, records |
 | `bot/config.py` | Env settings, slots, `ALL_STAR_UNTIL`, `GRAPH_VERSION` (v23.0) |
-| `bot/trends.py` | All topic sources: FOCUS/FACES lists, `star_sources`, `person_facts`, `x_trends`, `reddit_top`, `wiki_people`, `rank` |
-| `bot/ai.py` | Prompt, Gemini/Groq/Cloudflare writers, `_light`, `same_story`, `judge_image` (Gemini → Groq vision → Cloudflare llama-4-scout), `BAIT` |
+| `bot/trends.py` | All topic sources: FOCUS/FACES lists, `star_sources`, `person_facts`, `article_facts` (Bing News + full article), `x_trends`, `reddit_top`, `wiki_people`, `rank` |
+| `bot/ai.py` | Prompt, Gemini/Groq/Cloudflare writers, `_light`, `same_story`, `edit_reel` (AI editor), `judge_image` (Gemini → Groq vision → Cloudflare llama-4-scout), `BAIT` |
 | `bot/poster.py` | Photo search (Wikipedia/Commons/Openverse), poster templates (default "card"), downloads with 429 retry |
 | `bot/reel.py` | Reel rendering (PIL + imageio-ffmpeg), TTS, scene planning, stock video sources |
 | `bot/meta.py` | Graph API: connection check (FB + IG), photo, Reel and Instagram publish |
@@ -216,7 +223,11 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
   - No AI images in Reels; closing question shows the face.
   - Reels 15-17 s.
 - **10-19**: Photo slot moved from 10:05 PM ET (02 UTC) to 7:05 PM ET (23 UTC).
-- **10-20**: New 6:05 PM ET (22 UTC) trending Reel slot: the hottest topic across all platforms.
+- **10-20**:
+  - New 6:05 PM ET (22 UTC) trending Reel slot: the hottest topic across all platforms.
+  - Better Reels (owner: "no hook, no sense, no content"): real article facts, hook → story → twist → question
+    script, AI editor with rewrite, subtitles lower. Pushed without a GitHub dry run (owner's call): check the
+    first runs' logs for `[facts]` and `[editor]` lines.
 
 ## 9. Known gotchas (for whoever edits the code)
 
@@ -252,7 +263,8 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
 
 ## 11. How to test or operate
 
-- **Dry run**: GitHub → Actions → Trend Auto Post → Run workflow → Dry run = true, format = reel/photo. Dry runs
+- **Dry run**: GitHub → Actions → Trend Auto Post → Run workflow → Dry run = true, format = reel/photo. The workflow
+  checks out the branch it runs on, so new code can be dry-run from a test branch ("Use workflow from") before main. Dry runs
   between slots act as the next slot. They post nothing and don't use up topics.
 - **Live single post**: Dry run = false (posts immediately; get the owner's OK first).
 - **Check results**: `state/report.md` and `state/posted.json` (pull the repo), or the run logs.
