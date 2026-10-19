@@ -126,6 +126,25 @@ def choose_format(state):
     return fmt
 
 
+def add_facts(cands, n=4):
+    """The strongest topics get the real reporting (several outlets + one full article), so the AI writes from
+    facts and not from a single headline. Facts topics already carry their Wikipedia text."""
+    for c in cands[:n]:
+        if "facts" not in c and not any(x.get("source") == "Wikipedia" for x in c["news"]):
+            c["facts"] = trends.article_facts(c["news"][0]["title"] if c["news"] else c["topic"])
+
+
+def facts_for(p, cands):
+    """Everything the bot knows about the post's topic, as text for the AI editor."""
+    mine = set(norm(p.get("topic", "") + " " + p["headline"].replace("*", "")).split())
+    best = max(cands, key=lambda c: len(mine & set(norm(c["topic"] + " " + " ".join(
+        n["title"] for n in c["news"])).split())), default=None)
+    if not best:
+        return ""
+    items = best["news"][:3] + (best.get("facts") or [])
+    return "\n".join(f"- {n['title']}: {n.get('snippet', '')[:1200]}" for n in items)
+
+
 def engage(state):
     """Live runs: answer comments and the daily growth to-do."""
     if config.DRY_RUN:
@@ -254,15 +273,18 @@ def main():
                 print(f"[main] star slot: dropping '{q['headline'][:60]}' (not about {star})")
         return keep
 
+    add_facts(candidates)
+    known = candidates + all_candidates  # what the AI editor checks the scripts against
     posts = star_only(ai.write_posts(candidates, already, config.POSTS_PER_RUN + 2, performance, special))
 
     posts.sort(key=lambda p: not p.get("wiki_title"))  # stories about a famous person first
     made, i, faceless, repeats, retries = 0, 0, [], [], 0
+    weak, edits = [], 0  # scripts the editor scored under 8, how many scripts it checked
     while made < config.POSTS_PER_RUN:
         if i < len(posts):
             p = posts[i]
             i += 1
-        elif star and retries < 2:  # no usable star post yet: ask the AI again (the facts topic always works)
+        elif star and retries < 2 and not weak:  # no usable star post yet: ask the AI again (the facts topic always works)
             retries += 1
             print(f"[main] no new {star} post yet -> asking the AI again ({retries}/2)")
             posts += star_only(ai.write_posts(candidates, already, config.POSTS_PER_RUN + 2, performance, special +
@@ -271,6 +293,10 @@ def main():
                                                "else: " + " | ".join(repeats) if repeats else "") + "\n\n"))
             repeats = []
             continue
+        elif weak:  # no script scored 8+: post the best-scored one (never an empty slot)
+            weak.sort(key=lambda x: -x[0])
+            score, p = weak.pop(0)
+            print(f"[main] no script scored 8+ -> posting the best one ({score:.0f}/10): {p['headline'][:60]}")
         elif star and not faceless:  # still nothing new about the star: another world-famous face, not an empty slot
             print(f"[main] no new {star} story today -> a post about another world-famous face instead")
             star = ""
@@ -283,6 +309,8 @@ def main():
             except Exception as e:
                 print(f"[main] facts for {alt} failed: {e}")
             facts_topic = norm(f"{alt} facts")
+            add_facts(big)
+            known += big
             new = ai.write_posts(big, already, config.POSTS_PER_RUN + 2, performance,
                                  f"This post MUST be about ONE of these world-famous people: {', '.join(BIG_FACES)}. "
                                  f"wiki_title must be exactly that person's name as written here. If no fresh news "
@@ -318,6 +346,14 @@ def main():
                 print(f"[main] skipping {p['key']}: same story as '{dup[:60]}'")
                 repeats.append(p["headline"].replace("*", ""))
                 continue
+            if choose_format(state) == "reel" and not p.get("_edited") and edits < 3:
+                # a strict AI editor scores the script (hook, clarity, sense, facts) and gets weak ones rewritten
+                p["_edited"], edits = True, edits + 1
+                score, p = ai.edit_reel(p, facts_for(p, known))
+                if score is not None and score < 8:
+                    print(f"[main] editor: weak script ({score:.0f}/10) -> trying the next story first")
+                    weak.append((score, p))
+                    continue
             words = p["headline"] + " " + p["caption"] + " " + str(p.get("voiceover", ""))
             if p["key"] in done_keys or BLOCK_WORDS.search(p["headline"] + " " + p["caption"]) or RISKY.search(words):
                 print(f"[main] skipping {p['key']}")

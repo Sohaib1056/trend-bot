@@ -1,6 +1,6 @@
 """Fast-cut vertical Reel (1080x1920), built like the big viral news pages:
 
-  0.0s  hook: the famous face (or the best footage) + a white headline card at the top, on screen from frame 1
+  0.0s  hook: the famous face (or the best footage) + the big headline at the top, on screen for the whole Reel
   every ~2s a new scene, never the same picture twice in a row: several real photos of the person (Wikimedia
         Commons, free licences), real moving stock footage (Pixabay videos) and AI images, all checked by the
         AI judge, with a white flash + zoom punch on every cut
@@ -32,7 +32,7 @@ MAX_SCENES = 9
 VOICE_AT = 0.3       # narration starts after the hook frame
 END_LEN = 1.8        # follow banner at the end (when there is no voice to time it)
 SUB_Y = 1190         # centre of the subtitles: low in the Reels safe zone, under the face
-FACE_Y = 720         # where a face is placed: below the logo, above the subtitles
+FACE_Y = 850         # where a face is placed: below the hook headline, above the subtitles
 MUSIC_DIR = os.path.join(config.BASE_DIR, "assets", "music")
 # backup footage searches per category, so every Reel gets moving video even when the story is hard to match
 BROLL = {
@@ -611,40 +611,22 @@ def _header_layer(post):
     return layer
 
 
-def _title_layer(post):
-    """White headline card at the top (brand look of the posters), keywords marked with the highlighter."""
+def _hook_layer(post):
+    """The headline in big bold capitals under the logo, keywords in yellow, on screen for the whole Reel, so a
+    scroller sees in the first second what the story is (like the big viral news pages)."""
     probe = ImageDraw.Draw(Image.new("RGB", (10, 10)))
-    x0, top = PAD - 30, 372
-    max_w = RW - 2 * x0 - 60
-    f, lines, lh = _fit(probe, _tokens(post["headline"], upper=False), max_w, 400,
-                        big=76, small=48, max_lines=4, lh_ratio=1.2)
-    h = lh * len(lines) + 56
+    top, max_w = 372, RW - 2 * PAD
+    f, lines, lh = _fit(probe, _tokens(post["headline"]), max_w, 300, big=84, small=52, max_lines=3, lh_ratio=1.12)
     layer = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
-    d.rounded_rectangle([x0 + 6, top + 8, RW - x0 + 6, top + h + 8], radius=26, fill=(0, 0, 0, 110))
-    d.rounded_rectangle([x0, top, RW - x0, top + h], radius=26, fill=WHITE)
     space = d.textlength(" ", font=f)
-    asc, desc = f.getmetrics()
-    y = top + 26
+    y = top
     for line in lines:
-        pos, x = [], x0 + 30
-        for word, hl in line:
-            ww = d.textlength(word, font=f)
-            pos.append((x, ww, word, hl))
+        widths = [d.textlength(w, font=f) for w, _ in line]
+        x = (RW - sum(widths) - space * (len(line) - 1)) / 2
+        for (word, hl), ww in zip(line, widths):
+            d.text((x, y), word, font=f, fill=YELLOW if hl else WHITE, stroke_width=6, stroke_fill=(0, 0, 0))
             x += ww + space
-        i = 0
-        while i < len(pos):  # one highlighter stroke per run of keywords
-            if pos[i][3]:
-                j = i
-                while j + 1 < len(pos) and pos[j + 1][3]:
-                    j += 1
-                d.rounded_rectangle([pos[i][0] - 8, y + asc * 0.18, pos[j][0] + pos[j][1] + 8, y + asc + desc * 0.25],
-                                    radius=8, fill=MARKER)
-                i = j + 1
-            else:
-                i += 1
-        for px, ww, word, hl in pos:
-            d.text((px, y), word, font=f, fill=INK)
         y += lh
     return layer
 
@@ -707,9 +689,10 @@ def _follow_banner():
 
 
 def _frames(post, scenes, exe, duration, chunks, follow_at):
-    shade = Image.alpha_composite(_vfade(RW, RH, 0, 360, (0, 0, 0), a0=150, a1=0, power=1),
+    shade = Image.alpha_composite(_vfade(RW, RH, 0, 720, (0, 0, 0), a0=190, a1=0, power=0.8),
                                   _vfade(RW, RH, 880, RH, (6, 6, 10), a1=200, power=1.1))
     header = _header_layer(post)
+    hook = _hook_layer(post)
 
     banner = _follow_banner()
     sub_font = _font("bold", 86)
@@ -749,7 +732,8 @@ def _frames(post, scenes, exe, duration, chunks, follow_at):
         if not first and since_cut < 0.15:  # white flash on each cut
             frame.alpha_composite(_with_alpha(flash, 0.5 * (1 - since_cut / 0.15)))
         frame.alpha_composite(header)
-        if t < follow_at:  # no headline card: the footage stays clear, the subtitles tell the story
+        frame.alpha_composite(hook)
+        if t < follow_at:  # the subtitles tell the story under the hook headline
             for chunk in chunks:
                 if chunk[0][1] <= t < chunk[-1][2] + 0.15:
                     _draw_subtitle(frame, chunk, t, sub_font)
