@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-19 01:06 UTC_
+_Updated 2026-10-19 02:05 UTC_
 
 ```
-Based on the last 80 posts on this page:
-Best categories: BUSINESS (663.1), POLITICS (571.9), TECH (450.4)
+Based on the last 81 posts on this page:
+Best categories: BUSINESS (628.2), POLITICS (573.0), TECH (450.4)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (615.0, 46 posts), photo (85.9, 34 posts)
+Format: reel (602.1, 47 posts), photo (85.9, 34 posts)
 Best posting slots (UTC): 21:00 (1419.9), 03:00 (668.9), 19:00 (622.8)
-Best faces on this page (avg views per post): Elon Musk 1494 (45 posts), Sam Altman 72 (2 posts), Mark Zuckerberg 51 (4 posts), LeBron James 57 (1 posts), Donald Trump 49 (6 posts), Sundar Pichai 35 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 1462 (46 posts), Sam Altman 72 (2 posts), Mark Zuckerberg 51 (4 posts), LeBron James 57 (1 posts), Donald Trump 49 (6 posts), Sundar Pichai 35 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (5467.0) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (4639.2) | Elon Musk's Starlink restricted in Ukraine, Zelensky warns clash (3515.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-19T01:07 | reel | BUSINESS | Elon Musk slashes $80,000 child support after NDA refusal | 2 | 0 | 0 | 0 | 0.4 |
 | 2026-10-18T21:06 | reel | BUSINESS | Elon Musk serves worst financial advice, internet erupts with memes | 228 | 6 | 2 | 0 | 63.6 |
 | 2026-10-18T19:07 | reel | BUSINESS | Elon Musk boosts Micron stock, sparking bullish clash with investors | 313 | 15 | 1 | 0 | 95.6 |
 | 2026-10-18T04:07 | photo | BUSINESS | Elon Musk's SpaceX buys spectrum boosting AST SpaceMobile stock | 507 | 31 | 7 | 11 | 190.4 |
@@ -40,7 +41,7 @@ Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (5467.0) 
 | 2026-10-15T01:15 | reel | AI | Elon Musk's Grokipedia cited blacklisted sources amid AI backlash | 1111 | 93 | 10 | 0 | 438.2 |
 | 2026-10-14T21:08 | reel | BUSINESS | Elon Musk’s Boring Company plans 150 mph underground cars | 13355 | 1296 | 68 | 0 | 5467.0 |
 | 2026-10-14T19:07 | reel | TECH | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims | 11146 | 1124 | 54 | 0 | 4639.2 |
-| 2026-10-14T01:09 | reel | POLITICS | Elon Musk was a former public official | 2382 | 216 | 39 | 0 | 1025.4 |
+| 2026-10-14T01:09 | reel | POLITICS | Elon Musk was a former public official | 2400 | 219 | 39 | 0 | 1035.0 |
 | 2026-10-13T21:09 | reel | BUSINESS | Elon Musk's record-breaking $366m political spend shocks US | 503 | 40 | 6 | 0 | 198.6 |
 | 2026-10-13T19:28 | reel | POLITICS | Supreme Court reviews Elon Musk DOGE records | 437 | 22 | 3 | 0 | 140.4 |
 | 2026-10-13T04:10 | photo | CELEBRITY | Dan Levy slams Shane Gillis over controversial SNL monologue | 125 | 3 | 2 | 0 | 37.0 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (5467.0) 
 | 2026-10-12T03:06 | reel | BUSINESS | Elon Musk becomes first trillionaire with $1.1 trillion net worth | 0 | 372 | 59 | 0 | 921.0 |
 | 2026-10-12T02:06 | photo | POLITICS | Mike Tyson backs Donald Trump in surprising endorsement | 64 | 2 | 1 | 0 | 19.8 |
 | 2026-10-12T01:06 | reel | TECH | Elon Musk vows affordable Starlink in India before Jio IPO | 128 | 10 | 2 | 0 | 51.6 |
-| 2026-10-11T21:06 | reel | TECH | Elon Musk faces critics in high‑stakes showdown | 0 | 1251 | 66 | 0 | 2700.0 |
