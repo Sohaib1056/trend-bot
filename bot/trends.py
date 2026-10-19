@@ -284,6 +284,46 @@ def wiki_people(limit=20):
     return people[:limit]
 
 
+def article_facts(query, want=4, bodies=1):
+    """The real reporting behind a headline, so the AI writes from facts and not from one line: Bing News summaries
+    from several outlets (numbers, quotes, dates) plus the full text of the first article that can be read.
+    Google News RSS only gives headlines. Returns news items like the other sources ([] if nothing found)."""
+    import html
+    import urllib.parse as up
+    try:
+        r = requests.get("https://www.bing.com/news/search", headers=BROWSER_UA, timeout=20,
+                         params={"q": query, "format": "rss", "qft": 'interval="7"'})
+        root = ET.fromstring(r.content)
+    except Exception as e:
+        print(f"[facts] Bing News failed for '{query[:50]}': {e}")
+        return []
+    out, read = [], 0
+    for item in root.iter("item"):
+        if len(out) >= want:
+            break
+        title, link = _clean(_text(item, "title")), _text(item, "link")
+        summary = _clean(html.unescape(_text(item, "description")))
+        url = up.parse_qs(up.urlparse(link).query).get("url", [link])[0]
+        source = up.urlparse(url).netloc.replace("www.", "")
+        if not title or not summary:
+            continue
+        body = ""
+        if read < bodies:
+            try:
+                import trafilatura
+                page = requests.get(url, headers=BROWSER_UA, timeout=15)
+                body = (trafilatura.extract(page.text) or "") if page.status_code == 200 else ""
+                if len(body) > 300:
+                    read += 1
+                else:
+                    body = ""
+            except Exception as e:
+                print(f"[facts] could not read {source}: {str(e)[:80]}")
+        out.append({"title": title, "snippet": (body or summary)[:1500], "source": source, "article": True})
+    print(f"[facts] {len(out)} reports ({read} full article) for: {query[:60]}")
+    return out
+
+
 def person_facts(name):
     """A 'facts & stats' topic about a famous person: Wikipedia summary + their latest news, for the star slot."""
     news = []

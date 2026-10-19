@@ -40,7 +40,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main   # latest state, not the commit at trigger time (a queued run must see the post the run before it made)
+          # latest state of the branch, not the commit at trigger time (a queued run must see the post the run
+          # before it made); scheduled and cron-job.org runs are on main, a test branch can be dry-run from the Actions tab
+          ref: ${{ github.ref_name }}
 
       - uses: actions/setup-python@v5
         with:
