@@ -1,6 +1,6 @@
 """Fast-cut vertical Reel (1080x1920), built like the big viral news pages:
 
-  0.0s  hook: the famous face (or the best footage) + the big headline at the top, on screen for the whole Reel
+  0.0s  hook: the famous face (or the best footage) and the first spoken line as subtitles (no headline on top)
   every ~2s a new scene, never the same picture twice in a row: several real photos of the person (Wikimedia
         Commons, free licences), real moving stock footage (Pixabay videos) and AI images, all checked by the
         AI judge, with a white flash + zoom punch on every cut
@@ -31,8 +31,8 @@ SCENE = 2.0          # target seconds per scene
 MAX_SCENES = 9
 VOICE_AT = 0.3       # narration starts after the hook frame
 END_LEN = 1.8        # follow banner at the end (when there is no voice to time it)
-SUB_Y = 1190         # centre of the subtitles: low in the Reels safe zone, under the face
-FACE_Y = 850         # where a face is placed: below the hook headline, above the subtitles
+SUB_Y = 1225         # centre of the subtitles: low in the Reels safe zone, under the face (owner: a bit lower)
+FACE_Y = 720         # where a face is placed: below the logo, above the subtitles
 MUSIC_DIR = os.path.join(config.BASE_DIR, "assets", "music")
 # backup footage searches per category, so every Reel gets moving video even when the story is hard to match
 BROLL = {
@@ -611,26 +611,6 @@ def _header_layer(post):
     return layer
 
 
-def _hook_layer(post):
-    """The headline in big bold capitals under the logo, keywords in yellow, on screen for the whole Reel, so a
-    scroller sees in the first second what the story is (like the big viral news pages)."""
-    probe = ImageDraw.Draw(Image.new("RGB", (10, 10)))
-    top, max_w = 372, RW - 2 * PAD
-    f, lines, lh = _fit(probe, _tokens(post["headline"]), max_w, 300, big=84, small=52, max_lines=3, lh_ratio=1.12)
-    layer = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
-    d = ImageDraw.Draw(layer)
-    space = d.textlength(" ", font=f)
-    y = top
-    for line in lines:
-        widths = [d.textlength(w, font=f) for w, _ in line]
-        x = (RW - sum(widths) - space * (len(line) - 1)) / 2
-        for (word, hl), ww in zip(line, widths):
-            d.text((x, y), word, font=f, fill=YELLOW if hl else WHITE, stroke_width=6, stroke_fill=(0, 0, 0))
-            x += ww + space
-        y += lh
-    return layer
-
-
 def _subtitle_timeline(text, secs):
     """Word timings for the narration (estimated from word length + pauses), grouped in chunks of <= 3 words."""
     words = text.split()
@@ -689,10 +669,9 @@ def _follow_banner():
 
 
 def _frames(post, scenes, exe, duration, chunks, follow_at):
-    shade = Image.alpha_composite(_vfade(RW, RH, 0, 720, (0, 0, 0), a0=190, a1=0, power=0.8),
+    shade = Image.alpha_composite(_vfade(RW, RH, 0, 360, (0, 0, 0), a0=150, a1=0, power=1),
                                   _vfade(RW, RH, 880, RH, (6, 6, 10), a1=200, power=1.1))
     header = _header_layer(post)
-    hook = _hook_layer(post)
 
     banner = _follow_banner()
     sub_font = _font("bold", 86)
@@ -732,8 +711,7 @@ def _frames(post, scenes, exe, duration, chunks, follow_at):
         if not first and since_cut < 0.15:  # white flash on each cut
             frame.alpha_composite(_with_alpha(flash, 0.5 * (1 - since_cut / 0.15)))
         frame.alpha_composite(header)
-        frame.alpha_composite(hook)
-        if t < follow_at:  # the subtitles tell the story under the hook headline
+        if t < follow_at:  # no headline on top (owner's choice): the footage stays clear, the subtitles tell the story
             for chunk in chunks:
                 if chunk[0][1] <= t < chunk[-1][2] + 0.15:
                     _draw_subtitle(frame, chunk, t, sub_font)

@@ -65,7 +65,7 @@ Return JSON exactly in this shape:
   "badge": "exactly one of: AI, TECH, POLITICS, BUSINESS, CELEBRITY, SPORTS, TV & FILM, MUSIC, GAMING, SHOPPING, VIRAL, SCIENCE",
   "first_comment": "one short, fun question the page itself will comment under the post to spark replies (max 15 words, 1 emoji, e.g. 'Would you watch this? Yes or no? 👇')",
   "share_groups": ["2-3 short Facebook group search terms where fans of this exact topic hang out, e.g. 'Manchester City fans', 'Premier League fans'"],
-  "headline": "6-10 words in normal sentence case (NOT all caps). It is the poster title AND the big hook text on top of the Reel for the whole video, so on its own it must say what happened and make people stop scrolling; written like the big viral news pages (Pubity, Pop Base). Use the PERSONALITY + MONEY + CLASH formula: lead with the famous person's name (not the company), then the most dramatic true angle - a big dollar figure, a rivalry or clash (X vs Y, slams, fires back, warns), a shock move or a surprising statement - and leave a little curiosity while still saying what happened (never invent or exaggerate). No emoji. Wrap the 1-3 most striking words in *asterisks* for a highlighter, e.g. 'Elon Musk just *fired back* at Sam Altman over OpenAI', 'Jensen Huang's fortune *jumps $20 billion* in one day'",
+  "headline": "6-10 words in normal sentence case (NOT all caps). It is the poster title and the Reel title, so on its own it must say what happened and make people stop scrolling; written like the big viral news pages (Pubity, Pop Base). Use the PERSONALITY + MONEY + CLASH formula: lead with the famous person's name (not the company), then the most dramatic true angle - a big dollar figure, a rivalry or clash (X vs Y, slams, fires back, warns), a shock move or a surprising statement - and leave a little curiosity while still saying what happened (never invent or exaggerate). No emoji. Wrap the 1-3 most striking words in *asterisks* for a highlighter, e.g. 'Elon Musk just *fired back* at Sam Altman over OpenAI', 'Jensen Huang's fortune *jumps $20 billion* in one day'",
   "subtext": "max 14 words, one supporting line for the poster with the key fact",
   "wiki_title": "exact English Wikipedia article title of the ONE main famous PERSON in the story (e.g. 'Sam Altman', 'Jensen Huang', 'Donald Trump'). If the story is about a company or product, use its famous leader ONLY if the snippets name them. Empty string only if no famous person is involved. Stories with a famous face do much better, so prefer them.",
   "image_prompt": "one vivid sentence describing a professional, photorealistic, high-contrast scene that explains the story at a glance - its actual subject matter (its sport, venue, objects, setting - e.g. tennis upset -> a tennis racket on a clay court under stadium lights; TV casting news -> a film set with a director's chair and cameras), with the main subject large in the upper half of the frame (no text, no real person's face, no logos)",
@@ -422,10 +422,10 @@ def _ask(prompt):
 def _review(post, facts):
     prompt = (f"You are the strict editor of a viral US news page (like Pubity or Pop Base). Score this 15-second "
               f"Reel script.\n\nFACTS (the only true information):\n{facts}\n\nREEL:\n"
-              f"on-screen headline (shown big for the whole video): {post['headline'].replace('*', '')}\n"
+              f"headline: {post['headline'].replace('*', '')}\n"
               f"narration: {post.get('voiceover', '')}\n\n"
               "Score 0-10 each, be harsh (8 = as good as the best viral pages):\n"
-              "hook: do the headline and the first sentence make a scroller STOP within 2 seconds (a shocking true "
+              "hook: does the first spoken sentence (also shown as subtitles) make a scroller STOP within 2 seconds (a shocking true "
               "fact, a big number, a clash, a famous name)?\n"
               "clarity: would a viewer who never heard of this story fully understand what happened and why it matters?\n"
               "sense: does every sentence make sense, follow from the one before, and carry a real fact (no vague "
