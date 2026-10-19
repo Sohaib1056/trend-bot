@@ -1,21 +1,22 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-19 22:06 UTC_
+_Updated 2026-10-19 23:06 UTC_
 
 ```
-Based on the last 86 posts on this page:
-Best categories: POLITICS (709.8), BUSINESS (631.0), TECH (448.5)
+Based on the last 87 posts on this page:
+Best categories: POLITICS (641.5), BUSINESS (635.2), TECH (450.7)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (634.2, 50 posts), photo (97.6, 36 posts)
-Best posting slots (UTC): 21:00 (1393.8), 03:00 (764.6), 19:00 (607.9)
-Best faces on this page (avg views per post): Elon Musk 1535 (51 posts), Sam Altman 72 (2 posts), Mark Zuckerberg 51 (4 posts), LeBron James 57 (1 posts), Donald Trump 49 (6 posts), Sundar Pichai 35 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
-Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (6325.0) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (4990.4) | Elon Musk's Starlink restricted in Ukraine, Zelensky warns clash (4738.0)
+Format: reel (625.4, 51 posts), photo (97.6, 36 posts)
+Best posting slots (UTC): 21:00 (1398.0), 03:00 (764.6), 19:00 (616.0)
+Best faces on this page (avg views per post): Elon Musk 1543 (51 posts), Sam Altman 72 (2 posts), Mark Zuckerberg 51 (4 posts), Donald Trump 59 (7 posts), LeBron James 57 (1 posts), Sundar Pichai 35 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (6363.0) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5053.4) | Elon Musk's Starlink restricted in Ukraine, Zelensky warns clash (4738.0)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-19T22:07 | reel | POLITICS | Donald Trump urges New Mexico to rename as New America | 114 | 2 | 0 | 0 | 26.8 |
 | 2026-10-19T21:07 | reel | BUSINESS | Elon Musk sudden split confirmed by partner | 86 | 6 | 2 | 0 | 35.2 |
-| 2026-10-19T19:07 | reel | BUSINESS | Elon Musk To Give Every Child In America A SpaceX Share | 9 | 1 | 0 | 0 | 3.8 |
+| 2026-10-19T19:07 | reel | BUSINESS | Elon Musk To Give Every Child In America A SpaceX Share | 118 | 9 | 4 | 0 | 53.6 |
 | 2026-10-19T04:06 | photo | TECH | Elon Musk launches showroom FSD trials with 5 crucial details | 328 | 32 | 12 | 16 | 171.6 |
 | 2026-10-19T03:07 | reel | TECH | Elon Musk’s flying Roadster stuns critics, sparks illusion debate | 719 | 102 | 12 | 0 | 383.8 |
 | 2026-10-19T02:06 | photo | TECH | Elon Musk wants new Tesla Roadster to top 380 MPH | 546 | 44 | 18 | 18 | 257.2 |
@@ -41,16 +42,15 @@ Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (6325.0) 
 | 2026-10-15T21:10 | reel | AI | Elon Musk uses AI to buy Lego, bot cancels | 2766 | 255 | 34 | 0 | 1165.2 |
 | 2026-10-15T19:11 | reel | BUSINESS | Elon Musk's Tesla teases next‑gen Roadster after a decade of delays | 2959 | 161 | 20 | 0 | 973.8 |
 | 2026-10-15T04:07 | photo | CELEBRITY | Elon Musk became US citizen in 2002, moved to Texas | 1331 | 101 | 23 | 17 | 543.2 |
-| 2026-10-15T03:07 | reel | POLITICS | Elon Musk slams Donald Trump over alleged Epstein ties | 522 | 27 | 4 | 0 | 170.4 |
+| 2026-10-15T03:07 | reel | POLITICS | Elon Musk slams Donald Trump over alleged Epstein ties | 523 | 27 | 4 | 0 | 170.6 |
 | 2026-10-15T02:06 | photo | POLITICS | Elon Musk blames Trump over Ukrainian satellite restrictions | 307 | 14 | 3 | 11 | 104.4 |
-| 2026-10-15T01:15 | reel | AI | Elon Musk's Grokipedia cited blacklisted sources amid AI backlash | 1127 | 95 | 10 | 0 | 445.4 |
-| 2026-10-14T21:08 | reel | BUSINESS | Elon Musk’s Boring Company plans 150 mph underground cars | 15635 | 1497 | 68 | 0 | 6325.0 |
-| 2026-10-14T19:07 | reel | TECH | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims | 12002 | 1214 | 54 | 0 | 4990.4 |
-| 2026-10-14T01:09 | reel | POLITICS | Elon Musk was a former public official | 2427 | 221 | 39 | 0 | 1044.4 |
+| 2026-10-15T01:15 | reel | AI | Elon Musk's Grokipedia cited blacklisted sources amid AI backlash | 1133 | 97 | 10 | 0 | 450.6 |
+| 2026-10-14T21:08 | reel | BUSINESS | Elon Musk’s Boring Company plans 150 mph underground cars | 15795 | 1500 | 68 | 0 | 6363.0 |
+| 2026-10-14T19:07 | reel | TECH | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims | 12157 | 1230 | 54 | 0 | 5053.4 |
+| 2026-10-14T01:09 | reel | POLITICS | Elon Musk was a former public official | 2428 | 221 | 39 | 0 | 1044.6 |
 | 2026-10-13T21:09 | reel | BUSINESS | Elon Musk's record-breaking $366m political spend shocks US | 520 | 42 | 7 | 0 | 209.0 |
 | 2026-10-13T19:28 | reel | POLITICS | Supreme Court reviews Elon Musk DOGE records | 440 | 22 | 3 | 0 | 141.0 |
 | 2026-10-13T04:10 | photo | CELEBRITY | Dan Levy slams Shane Gillis over controversial SNL monologue | 125 | 3 | 2 | 0 | 37.0 |
 | 2026-10-13T03:07 | reel | BUSINESS | Elon Musk hits trillionaire status with $1.1 trillion net worth | 2519 | 218 | 36 | 0 | 1047.8 |
 | 2026-10-13T02:08 | photo | TECH | Mark Zuckerberg puts Meta on AI frontier against OpenAI | 106 | 6 | 2 | 10 | 45.2 |
 | 2026-10-13T01:07 | reel | BUSINESS | Elon Musk cements status as world's wealthiest person since 2025 | 371 | 27 | 5 | 0 | 143.2 |
-| 2026-10-12T21:08 | reel | BUSINESS | Elon Musk commands Tesla and SpaceX as world's richest leader | 0 | 608 | 48 | 0 | 1360.0 |
