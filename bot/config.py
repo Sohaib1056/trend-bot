@@ -32,7 +32,7 @@ COUNTRIES = [c.strip().upper() for c in (os.getenv("COUNTRIES", "") or "US,GB,CA
 POSTS_PER_RUN = max(1, _int("POSTS_PER_RUN", 1))
 # Posting slots (UTC hours). The workflow wakes up every hour; a scheduled run only posts
 # inside a slot window and only once per slot, so GitHub's late/dropped cron runs are covered.
-POST_SLOTS_UTC = sorted({int(h) for h in (os.getenv("POST_SLOTS", "") or "1,3,4,19,21,23").split(",") if h.strip().isdigit()})
+POST_SLOTS_UTC = sorted({int(h) for h in (os.getenv("POST_SLOTS", "") or "1,3,4,19,21,22,23").split(",") if h.strip().isdigit()})
 SLOT_WINDOW_HOURS = _int("SLOT_WINDOW_HOURS", 3)
 DRY_RUN = _bool("DRY_RUN", True)            # True = make posters only, do NOT upload
 POST_TO_FACEBOOK = _bool("POST_TO_FACEBOOK", True)
@@ -43,6 +43,8 @@ POST_FORMAT = (os.getenv("POST_FORMAT", "") or "slots").strip().lower()
 PHOTO_SLOTS_UTC = {int(h) for h in (os.getenv("PHOTO_SLOTS", "") or "4,23").split(",") if h.strip().isdigit()}
 # Elon-style "star" Reels: the best slot (19 UTC = midnight PKT) and a second one 2 hours later
 STAR_SLOTS_UTC = {int(h) for h in (os.getenv("STAR_SLOTS", "") or "19,21").split(",") if h.strip().isdigit()}
+# "trending" Reels: the hottest topic across all platforms right now, whoever it is about (22 UTC = 6 PM New York)
+TREND_SLOTS_UTC = {int(h) for h in (os.getenv("TREND_SLOTS", "") or "22").split(",") if h.strip().isdigit()}
 # until this time every Reel slot is a star Reel (owner's 2-day test: 12-13 Oct 2026, all Reels about Elon Musk)
 ALL_STAR_UNTIL = datetime.fromisoformat(os.getenv("ALL_STAR_UNTIL", "") or "2026-10-21T04:00+00:00")
 # Replies to comments: "off", "preview" (only print suggested replies in the log) or "on"

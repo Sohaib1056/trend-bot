@@ -1,6 +1,6 @@
 # Hype Atlas Trend Bot: full project report (handoff)
 
-_Last updated: 2026-10-17. Written so any AI tool or new session (VS Code, Antigravity, Claude, etc.) can understand the
+_Last updated: 2026-10-20. Written so any AI tool or new session (VS Code, Antigravity, Claude, etc.) can understand the
 whole project from this one file. No secrets are stored here (all keys live only in GitHub Secrets)._
 
 ---
@@ -10,7 +10,7 @@ whole project from this one file. No secrets are stored here (all keys live only
 A fully automatic poster for the Facebook Page **Hype Atlas - Viral & Trending**
 (facebook.com/hypeatlasnews) and its Instagram account **@hypeatlas2026**.
 It collects trending news, writes posts with free AI models, renders posters and 15-17 second Reels with a voiceover,
-and publishes 6 times a day. It runs on **GitHub Actions** (the owner's PC can be off).
+and publishes 7 times a day. It runs on **GitHub Actions** (the owner's PC can be off).
 
 - Repo: `github.com/Sohaib1056/trend-bot` (private), branch `main`. Language: Python 3.12.
 - Live since **2026-10-04** (`DRY_RUN=false`).
@@ -43,7 +43,7 @@ and publishes 6 times a day. It runs on **GitHub Actions** (the owner's PC can b
 | Page token | Never expires (Access Token Debugger: "Expires: Never"). Breaks only on FB password change, app removal, logout or admin loss. |
 | Instagram | @hypeatlas2026, IG user id 17841450180672907 (Business account linked to the page) |
 | Gmail for the brand | hypeatlas1@gmail.com |
-| Scheduler | cron-job.org job "Hype Atlas Bot" (Asia/Karachi): `5 0,2,6,7,8,9 * * *`, POSTs a workflow_dispatch with a fine-grained GitHub token (Actions write, this repo only) |
+| Scheduler | cron-job.org job "Hype Atlas Bot" (Asia/Karachi): `5 0,2,3,4,6,8,9 * * *`, POSTs a workflow_dispatch with a fine-grained GitHub token (Actions write, this repo only) |
 
 **How the page token was made.** `me/accounts` is empty for this user, so:
 1. Generate a user token in Graph API Explorer.
@@ -62,7 +62,7 @@ and publishes 6 times a day. It runs on **GitHub Actions** (the owner's PC can b
 `PAGE_NAME`, `NICHE`, `DRY_RUN=false`, `AUTO_REPLY=on`. Optional: `COUNTRIES`, `POSTS_PER_RUN`, `AVOID_POLITICS`,
 `POST_FORMAT`.
 
-## 4. Schedule (6 posts a day)
+## 4. Schedule (7 posts a day)
 
 The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST ends on 1 Nov 2026, then UTC-5.
 
@@ -70,13 +70,17 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
 |---|---|---|
 | 19 | 3:05 PM | Reel (star slot) |
 | 21 | 5:05 PM | Reel (star slot, the best slot) |
+| 22 | 6:05 PM | Reel (trending slot: the hottest topic on all platforms, any person) |
+| 23 | 7:05 PM | Photo (moved from 10:05 PM on 10-19; 10 PM was the weakest slot) |
 | 01 | 9:05 PM | Reel |
-| 02 | 10:05 PM | Photo |
 | 03 | 11:05 PM | Reel |
 | 04 | 12:05 AM | Photo |
 
-- `POST_SLOTS=1,2,3,4,19,21`, `PHOTO_SLOTS=2,4`, `STAR_SLOTS=19,21`.
-- `ALL_STAR_UNTIL=2026-10-21T04:00Z`: until then **every** slot (Reels and photos) is about the star face (Elon Musk).
+- `POST_SLOTS=1,3,4,19,21,22,23`, `PHOTO_SLOTS=4,23`, `STAR_SLOTS=19,21`, `TREND_SLOTS=22`.
+- `ALL_STAR_UNTIL=2026-10-21T04:00Z`: until then **every** slot (Reels and photos) is about the star face (Elon Musk),
+  except the trending slot.
+- **Trending slot**: topics are sorted by how many platforms they trend on (X, Reddit, Google, Wikipedia), then by
+  search traffic, and the AI is told to post the hottest one, whoever it is about.
 - `SLOT_WINDOW_HOURS=3`: one post per slot window.
 - The hourly GitHub cron (`:17`) is a backup in case cron-job.org misses.
 - The workflow has `concurrency: trend-bot` and checks out `ref: main`, so a queued run sees the previous run's post.
@@ -211,6 +215,8 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
   - Instagram Reels by resumable upload.
   - No AI images in Reels; closing question shows the face.
   - Reels 15-17 s.
+- **10-19**: Photo slot moved from 10:05 PM ET (02 UTC) to 7:05 PM ET (23 UTC).
+- **10-20**: New 6:05 PM ET (22 UTC) trending Reel slot: the hottest topic across all platforms.
 
 ## 9. Known gotchas (for whoever edits the code)
 
@@ -235,9 +241,9 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
 2. **~2026-10-21**: review the all-Elon period (`ALL_STAR_UNTIL` ends 2026-10-21 04:00 UTC). Decide whether to keep
    Elon-only or mix.
 3. **2026-11-01 (DST ends)**:
-   - The UTC slots will land 1 hour earlier in ET. Shift the slots by +1 h UTC (e.g. 20,22,02,03,04,05) to keep the
-     same ET times.
-   - Update cron-job.org (Karachi): `5 1,3,7,8,9,10 * * *`.
+   - The UTC slots will land 1 hour earlier in ET. Shift every slot by +1 h UTC to keep the same ET times:
+     `POST_SLOTS=0,2,4,5,20,22,23`, `PHOTO_SLOTS=0,5`, `STAR_SLOTS=20,22`, `TREND_SLOTS=23`.
+   - Update cron-job.org (Karachi): `5 1,3,4,5,7,9,10 * * *`.
 4. The owner adds the Instagram website link (`facebook.com/hypeatlasnews`) in the IG app (mobile only).
 5. Ideas not done:
    - Instagram comment replies (needs `instagram_manage_comments`).

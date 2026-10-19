@@ -189,6 +189,15 @@ def main():
     all_star = datetime.now(timezone.utc) < config.ALL_STAR_UNTIL
     if all_star:  # owner's request: every post (Reels and photos) about the star for now
         star_slots |= set(config.POST_SLOTS_UTC)
+    star_slots -= config.TREND_SLOTS_UTC  # trending slots are about whatever is hottest, not the star
+    if slot_now is not None and slot_now.hour in config.TREND_SLOTS_UTC:
+        # the topic buzzing on the most platforms (X, Reddit, Google, Wikipedia) first, then the biggest search traffic
+        candidates = sorted(candidates, key=lambda c: (-len(c.get("trends") or []), -c["power"]))
+        special = ("TRENDING SLOT: this post MUST be about the single HOTTEST topic right now - the one trending on the "
+                   "most platforms (X, Reddit, Google, Wikipedia) that a US audience most wants to see. Topics are "
+                   "listed hottest first; take the top one unless it is unsafe or has no famous person or real image. "
+                   "It does NOT have to be about the page's usual star.\n\n")
+        print(f"[main] trending slot {slot_now:%H}:00 UTC -> hottest topic: {candidates[0]['topic'][:60]}")
     if (all_star or choose_format(state) == "reel") and slot_now is not None and slot_now.hour in star_slots:
         # the page's best slot always gets a Reel about its best-performing face: fresh news, else facts & stats
         star = insights.star_face(state)
