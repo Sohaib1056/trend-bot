@@ -1,21 +1,22 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-19 02:05 UTC_
+_Updated 2026-10-19 03:06 UTC_
 
 ```
-Based on the last 81 posts on this page:
-Best categories: BUSINESS (628.2), POLITICS (573.0), TECH (450.4)
+Based on the last 82 posts on this page:
+Best categories: BUSINESS (630.5), POLITICS (573.0), TECH (434.2)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (602.1, 47 posts), photo (85.9, 34 posts)
-Best posting slots (UTC): 21:00 (1419.9), 03:00 (668.9), 19:00 (622.8)
-Best faces on this page (avg views per post): Elon Musk 1462 (46 posts), Sam Altman 72 (2 posts), Mark Zuckerberg 51 (4 posts), LeBron James 57 (1 posts), Donald Trump 49 (6 posts), Sundar Pichai 35 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (603.0, 47 posts), photo (84.3, 35 posts)
+Best posting slots (UTC): 21:00 (1424.8), 03:00 (669.4), 19:00 (622.8)
+Best faces on this page (avg views per post): Elon Musk 1433 (47 posts), Sam Altman 72 (2 posts), Mark Zuckerberg 51 (4 posts), LeBron James 57 (1 posts), Donald Trump 49 (6 posts), Sundar Pichai 35 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (5467.0) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (4639.2) | Elon Musk's Starlink restricted in Ukraine, Zelensky warns clash (3515.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-19T02:06 | photo | TECH | Elon Musk wants new Tesla Roadster to top 380 MPH | 33 | 4 | 3 | 10 | 29.6 |
 | 2026-10-19T01:07 | reel | BUSINESS | Elon Musk slashes $80,000 child support after NDA refusal | 2 | 0 | 0 | 0 | 0.4 |
-| 2026-10-18T21:06 | reel | BUSINESS | Elon Musk serves worst financial advice, internet erupts with memes | 228 | 6 | 2 | 0 | 63.6 |
+| 2026-10-18T21:06 | reel | BUSINESS | Elon Musk serves worst financial advice, internet erupts with memes | 311 | 13 | 5 | 0 | 103.2 |
 | 2026-10-18T19:07 | reel | BUSINESS | Elon Musk boosts Micron stock, sparking bullish clash with investors | 313 | 15 | 1 | 0 | 95.6 |
 | 2026-10-18T04:07 | photo | BUSINESS | Elon Musk's SpaceX buys spectrum boosting AST SpaceMobile stock | 507 | 31 | 7 | 11 | 190.4 |
 | 2026-10-18T03:07 | reel | POLITICS | Elon Musk's Starlink restricted in Ukraine, Zelensky warns clash | 9274 | 733 | 65 | 0 | 3515.8 |
@@ -45,12 +46,11 @@ Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (5467.0) 
 | 2026-10-13T21:09 | reel | BUSINESS | Elon Musk's record-breaking $366m political spend shocks US | 503 | 40 | 6 | 0 | 198.6 |
 | 2026-10-13T19:28 | reel | POLITICS | Supreme Court reviews Elon Musk DOGE records | 437 | 22 | 3 | 0 | 140.4 |
 | 2026-10-13T04:10 | photo | CELEBRITY | Dan Levy slams Shane Gillis over controversial SNL monologue | 125 | 3 | 2 | 0 | 37.0 |
-| 2026-10-13T03:07 | reel | BUSINESS | Elon Musk hits trillionaire status with $1.1 trillion net worth | 2513 | 218 | 36 | 0 | 1046.6 |
+| 2026-10-13T03:07 | reel | BUSINESS | Elon Musk hits trillionaire status with $1.1 trillion net worth | 2516 | 218 | 36 | 0 | 1047.2 |
 | 2026-10-13T02:08 | photo | TECH | Mark Zuckerberg puts Meta on AI frontier against OpenAI | 106 | 6 | 2 | 10 | 45.2 |
 | 2026-10-13T01:07 | reel | BUSINESS | Elon Musk cements status as world's wealthiest person since 2025 | 370 | 27 | 5 | 0 | 143.0 |
 | 2026-10-12T21:08 | reel | BUSINESS | Elon Musk commands Tesla and SpaceX as world's richest leader | 0 | 607 | 48 | 0 | 1358.0 |
 | 2026-10-12T19:08 | reel | POLITICS | Elon Musk drops $276 million into GOP midterms, igniting clash | 391 | 25 | 4 | 0 | 140.2 |
 | 2026-10-12T04:06 | photo | AI | Sam Altman claims AI singularity has officially arrived | 88 | 2 | 1 | 10 | 30.6 |
-| 2026-10-12T03:06 | reel | BUSINESS | Elon Musk becomes first trillionaire with $1.1 trillion net worth | 0 | 372 | 59 | 0 | 921.0 |
+| 2026-10-12T03:06 | reel | BUSINESS | Elon Musk becomes first trillionaire with $1.1 trillion net worth | 0 | 374 | 59 | 0 | 925.0 |
 | 2026-10-12T02:06 | photo | POLITICS | Mike Tyson backs Donald Trump in surprising endorsement | 64 | 2 | 1 | 0 | 19.8 |
-| 2026-10-12T01:06 | reel | TECH | Elon Musk vows affordable Starlink in India before Jio IPO | 128 | 10 | 2 | 0 | 51.6 |
