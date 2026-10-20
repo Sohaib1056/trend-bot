@@ -131,12 +131,13 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
    - **Voice**: Cloudflare Deepgram Aura (asteria) → Kokoro (local, free) → MeloTTS.
    - **Length**: 15 s normally, up to 17 s (`MAX_LEN`) so the whole point is said. Max speed-up 1.1×. The spoken
      follow line is dropped first, and a middle sentence only if the voice is over 17 s.
-   - **Scenes follow the narration**:
-     - The first scene is always the person's face, and so is the closing question.
-     - Other lines get HD stock video judged against that line (relevance ≥6, quality ≥6), from Pixabay, then NASA,
-       then Wikimedia Commons.
-     - Otherwise a **real** photo of the named thing (Openverse, judged), then another clip of the story, then the
-       face.
+   - **Scenes follow the narration** (owner, 10-20: "the person's photo once at the start, then real scenes"):
+     - The first scene is the person's face, and **only** the first.
+     - Each line has a `wiki` (the Wikipedia title of the real thing, other person, place or event it names). The bot
+       shows a real photo from that article's pictures (free licences only, ≥800 px, no charts/maps/logos, judged).
+     - Else real stock video for the line (Pixabay → NASA → Commons), else a real Openverse photo, else other photos
+       from the story's articles, else story footage. The face again only if nothing at all is found.
+     - Landscape photos are shown whole on a blurred copy instead of a thin cropped strip.
      - **No AI images.**
    - No headline text on top (owner's choice); word-by-word subtitles under the face (`SUB_Y=1225`, face at
      `FACE_Y=720`), in the safe zone (Facebook covers the bottom ~35%), a follow banner and music from `assets/music`.
@@ -228,6 +229,8 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
   - Better Reels (owner: "no hook, no sense, no content"): real article facts, hook → story → twist → question
     script, AI editor with rewrite, subtitles lower. Pushed without a GitHub dry run (owner's call): check the
     first runs' logs for `[facts]` and `[editor]` lines.
+  - Bing reports filtered: they must share 60% of the search's main words (stopped unrelated stories mixing in).
+  - Real scenes: face once at the start, then real Wikipedia/Commons photos of what each line names.
 
 ## 9. Known gotchas (for whoever edits the code)
 

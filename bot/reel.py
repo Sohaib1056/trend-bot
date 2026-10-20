@@ -289,6 +289,60 @@ def _real_photo(query, line, seen):
     return None
 
 
+# article pictures that are not scenes: statistics, documents, maps
+NOT_A_SCENE = re.compile(r"trends?\b|graph|statistic|percent|survey|census|by (race|age|state|year)|population|"
+                         r"locator|location|document|letter|plaque|table|timeline", re.I)
+_WIKI_MEDIA = {}  # article title -> its free photos, so several lines about the same thing share one lookup
+
+
+def _wiki_photos(title, line, seen, skip="", tries=3):
+    """A real photo of exactly what a line names, from the photos in its Wikipedia article (e.g. 'SpaceX Starship',
+    'Greg Abbott', 'Tesla Cybertruck'): free licences only, big enough, judged on-topic and good-looking.
+    `skip` = the main person's last name: their face is shown once, at the start. Returns (img, credit) or None."""
+    from .ai import judge_image
+    if title not in _WIKI_MEDIA:
+        try:
+            r = requests.get("https://en.wikipedia.org/w/api.php", headers=WIKI_UA, timeout=25, params={
+                "action": "query", "format": "json", "generator": "images", "titles": title, "gimlimit": 50,
+                "redirects": 1, "prop": "imageinfo", "iiprop": "url|size|extmetadata", "iiurlwidth": 1280})
+            pages = list(((r.json().get("query") or {}).get("pages") or {}).values())
+        except Exception as e:
+            print(f"[reel] Wikipedia photos for '{title}' failed: {e}")
+            pages = []
+        words = set(re.findall(r"[a-z0-9]+", title.lower()))
+        items = []
+        for p in pages:
+            name, ii = p.get("title", ""), (p.get("imageinfo") or [{}])[0]
+            lic = ii.get("extmetadata", {}).get("LicenseShortName", {}).get("value", "")
+            if (not name.lower().endswith((".jpg", ".jpeg")) or COMMONS_SKIP.search(name) or NOT_A_SCENE.search(name)
+                    or min(ii.get("width", 0), ii.get("height", 0)) < 800
+                    or not lic.lower().startswith(FREE_LICENSE) or "non-free" in lic.lower()):
+                continue
+            artist = re.sub(r"<[^>]+>", "", ii.get("extmetadata", {}).get("Artist", {}).get("value", "")).strip()[:40]
+            items.append((name, ii.get("thumburl") or ii["url"], f"{artist or 'Wikimedia Commons'}, {lic}, via Wikimedia Commons"))
+        # photos whose file name matches the article (e.g. 'Tesla Cybertruck.jpg') first
+        items.sort(key=lambda x: -len(words & set(re.findall(r"[a-z0-9]+", x[0].lower()))))
+        _WIKI_MEDIA[title] = items
+    for name, url, credit in _WIKI_MEDIA[title]:
+        if tries <= 0:
+            break
+        if url in seen or _base_file(name) in seen or (skip and skip in name.lower()):
+            continue
+        seen.update((url, _base_file(name)))
+        tries -= 1
+        try:
+            im = _download(url, WIKI_UA)
+            score = judge_image(im, line)
+            if score is not None and (score[0] < 5 or score[1] < 6):
+                print(f"[reel] Wikipedia photo {name[5:55]} rejected by the judge")
+                continue
+            print(f"[reel] real photo from '{title}': {name[5:65]}")
+            return im, credit
+        except Exception as e:
+            print(f"[reel] photo {name[5:45]} failed: {e}")
+    return None
+
+
 def _good_still(im, line):
     """Every scene must look good: an AI picture is used only if the judge rates it sharp and fitting."""
     from .ai import judge_image
@@ -421,8 +475,10 @@ MAX_LEN = 17.0   # ...or up to 17 when the full story needs it (owner's rule)
 
 
 def _planned_scenes(post, photo, words, duration):
-    """Scenes that follow the narration: the AI split the voiceover into lines and said what to show for each
-    ('face' = the famous person, otherwise a stock-video search). Returns [(kind, item, frames)] or None."""
+    """Scenes that follow the narration: the AI split the voiceover into lines and named what each one is about.
+    Owner's rule: the person's face once, at the start; then real scenes of exactly what is said - a real photo
+    from the Wikipedia article of the thing/person/place the line names, else real footage, else other real
+    photos. Returns [(kind, item, frames)] or None."""
     plan = [s for s in (post.get("scenes") or []) if isinstance(s, dict) and str(s.get("line", "")).strip()]
     if len(plan) < 2 or not words:
         return None
@@ -441,33 +497,30 @@ def _planned_scenes(post, photo, words, duration):
             segs += [[s, a, (a + b) / 2, 0], [s, (a + b) / 2, b, 1]]
         else:
             segs.append([s, a, b, 0])
-    people = _people(post, photo, want=3)
+    people = _people(post, photo, want=1)  # the opening face (+ one spare, only if nothing else can be found)
     others = [im for im in post.get("_extras", []) if im is not photo] + ([] if post.get("_person") else [photo])
-    seen, faces_used, clips_cache, out, stills, credits = set(), 0, {}, [], {}, []
-    for s, a, b, part in segs:
-        show = str(s.get("show", "")).lower()
+    main = (post.get("wiki_title") or "").strip()
+    skip = main.split()[-1].lower() if main and post.get("_person") else ""  # the face is shown once, at the start
+    wikis = list(dict.fromkeys(str(s.get("wiki") or "").strip() for s in plan if str(s.get("wiki") or "").strip()))
+    seen, clips_cache, out, stills, credits = set(), {}, [], {}, []
+    for k, (s, a, b, part) in enumerate(segs):
         query = str(s.get("query") or "").strip()
+        wiki = str(s.get("wiki") or "").strip()
         line = str(s["line"])
         kind = item = None
-        repeat = part == 1 and len(people) < 2  # second half of a long line: don't show the same face again
-        if s is segs[-1][0] and people:  # the closing question: the person's face, not an abstract clip
-            show = "face"
-            repeat = repeat and len(out) > 0 and out[-1][0] == "face"
-        if show == "face" and people and not repeat:
-            kind, item = "face", people[faces_used % len(people)]
-            faces_used += 1
-        if kind is None and query:
+        if k == 0 and people:  # owner's rule: the person's face once, at the start; then real scenes
+            kind, item = "face", people[0]
+        if kind is None and wiki and wiki.lower() != main.lower():  # a real photo of exactly what the line names
+            got = _wiki_photos(wiki, line, seen, skip)
+            if got:
+                kind, item = "photo", got[0]
+                credits.append(got[1])
+        if kind is None and query:  # real footage of the action
             if query not in clips_cache:
                 clips_cache[query] = _pixabay_videos(post, want=2, queries=[query], context=line, seen=seen, max_judge=3)
             got = clips_cache[query]
             if got:
                 kind, item = "video", got[min(part, len(got) - 1)]
-        if kind is None and not query:  # no search for this line: footage for the story in general
-            if "_story" not in clips_cache:
-                clips_cache["_story"] = _pixabay_videos(post, want=2, seen=seen, max_judge=4)
-            got = clips_cache["_story"]
-            if got:
-                kind, item = "video", got[len(out) % len(got)]
         if kind is None:  # a REAL photo of the thing this line names (no AI pictures: they look fake)
             q = str(s.get("photo") or query).strip()
             if q and q not in stills:
@@ -475,13 +528,21 @@ def _planned_scenes(post, photo, words, duration):
             if stills.get(q):
                 kind, item = "photo", stills[q][0]
                 credits.append(stills[q][1])
-        if kind is None:  # footage already found for another line of this story (a different clip than the last)
+        if kind is None:  # another real photo of something this story is about
+            for w in wikis + ([main] if main else []):
+                got = _wiki_photos(w, line, seen, skip, tries=2)
+                if got:
+                    kind, item = "photo", got[0]
+                    credits.append(got[1])
+                    break
+        if kind is None:  # footage for the story in general, or footage already found for another line
+            if "_story" not in clips_cache:
+                clips_cache["_story"] = _pixabay_videos(post, want=2, seen=seen, max_judge=4)
             pool = [c for got in clips_cache.values() for c in got if not out or c is not out[-1][1]]
             if pool:
                 kind, item = "video", pool[len(out) % len(pool)]
-        if kind is None and people:
-            kind, item = "face", people[faces_used % len(people)]
-            faces_used += 1
+        if kind is None and len(people) > 1:  # last resort: another photo of the person
+            kind, item = "face", people[1 + len(out) % (len(people) - 1)]
         if kind is None:
             kind, item = "photo", (others[len(out) % len(others)] if others else photo)
         out.append([kind, item, int(round((b - a) * FPS))])
@@ -497,7 +558,7 @@ def _planned_scenes(post, photo, words, duration):
 
 def _scenes(post, photo, count):
     """Ordered list of ('photo', img) / ('video', (path, duration)) scenes, no picture shown twice in a row."""
-    people = _people(post, photo, want=min(3, count // 2))
+    people = _people(post, photo, want=0)[:1]  # owner's rule: the face once, at the start
     others =([] if post.get("_person") else [photo]) + [im for im in post.get("_extras", []) if im is not photo]
     videos = _pixabay_videos(post, want=min(4, count - len(people)))
     scenes = []
@@ -510,10 +571,10 @@ def _scenes(post, photo, count):
             if pool and len(scenes) < count:
                 scenes.append((kind, pool.pop(0)))
     distinct = len(scenes)
-    k = 0
+    k, reuse = 0, [x for x in scenes if x[0] != "face"] or scenes[:]  # the face is not repeated
     while len(scenes) < count:  # still short: re-use pictures, never next to themselves
-        cand = scenes[k % distinct]
-        if cand is not scenes[-1] or distinct == 1:
+        cand = reuse[k % len(reuse)]
+        if cand is not scenes[-1] or len(reuse) == 1:
             scenes.append(cand)
         k += 1
     print(f"[reel] {len(scenes)} scenes ({distinct} different): " + ", ".join(kind for kind, _ in scenes))
@@ -581,7 +642,15 @@ def _face_frames(img, n, face_y, move):
 def _photo_frames(img, n, move):
     """Ken Burns move (zoom in/out, drift left/right) over n frames."""
     z0, z1, fx, fy = move
-    big = _cover(_enhance(img), int(RW * 1.2), int(RH * 1.2))
+    bw, bh = int(RW * 1.2), int(RH * 1.2)
+    img = _enhance(img)
+    if img.width / img.height > 0.9:  # landscape photo: show all of it on a blurred copy, not a thin middle strip
+        big = Image.blend(_cover(img, bw, bh).filter(ImageFilter.GaussianBlur(40)), Image.new("RGB", (bw, bh), (8, 8, 12)), 0.4)
+        s = min(bw * 1.0 / img.width, bh * 0.62 / img.height)
+        fg = img.resize((int(img.width * s), int(img.height * s)), Image.LANCZOS)
+        big.paste(fg, ((bw - fg.width) // 2, int(bh * 0.40) - fg.height // 2))  # centred a bit high, above the subtitles
+    else:
+        big = _cover(img, bw, bh)
     for i in range(n):
         z = z0 + (z1 - z0) * (i / max(1, n - 1))
         cw, ch = int(RW * 1.2 / z), int(RH * 1.2 / z)
