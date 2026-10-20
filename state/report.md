@@ -1,45 +1,46 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-19 23:06 UTC_
+_Updated 2026-10-20 01:06 UTC_
 
 ```
-Based on the last 87 posts on this page:
-Best categories: POLITICS (641.5), BUSINESS (635.2), TECH (450.7)
+Based on the last 88 posts on this page:
+Best categories: POLITICS (646.7), BUSINESS (610.2), TECH (453.5)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (625.4, 51 posts), photo (97.6, 36 posts)
-Best posting slots (UTC): 21:00 (1398.0), 03:00 (764.6), 19:00 (616.0)
-Best faces on this page (avg views per post): Elon Musk 1543 (51 posts), Sam Altman 72 (2 posts), Mark Zuckerberg 51 (4 posts), Donald Trump 59 (7 posts), LeBron James 57 (1 posts), Sundar Pichai 35 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
-Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (6363.0) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5053.4) | Elon Musk's Starlink restricted in Ukraine, Zelensky warns clash (4738.0)
+Format: reel (628.6, 51 posts), photo (96.4, 37 posts)
+Best posting slots (UTC): 21:00 (1405.8), 03:00 (774.2), 19:00 (616.0)
+Best faces on this page (avg views per post): Elon Musk 1524 (52 posts), Sam Altman 72 (2 posts), Mark Zuckerberg 51 (4 posts), Donald Trump 59 (7 posts), LeBron James 57 (1 posts), Sundar Pichai 35 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (6363.0) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5053.4) | Elon Musk's Starlink restricted in Ukraine, Zelensky warns clash (4790.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-19T23:07 | photo | BUSINESS | Elon Musk faces tough Tesla‑SpaceX merger challenge | 0 | 3 | 3 | 0 | 15.0 |
 | 2026-10-19T22:07 | reel | POLITICS | Donald Trump urges New Mexico to rename as New America | 114 | 2 | 0 | 0 | 26.8 |
-| 2026-10-19T21:07 | reel | BUSINESS | Elon Musk sudden split confirmed by partner | 86 | 6 | 2 | 0 | 35.2 |
+| 2026-10-19T21:07 | reel | BUSINESS | Elon Musk sudden split confirmed by partner | 297 | 12 | 4 | 0 | 95.4 |
 | 2026-10-19T19:07 | reel | BUSINESS | Elon Musk To Give Every Child In America A SpaceX Share | 118 | 9 | 4 | 0 | 53.6 |
-| 2026-10-19T04:06 | photo | TECH | Elon Musk launches showroom FSD trials with 5 crucial details | 328 | 32 | 12 | 16 | 171.6 |
-| 2026-10-19T03:07 | reel | TECH | Elon Musk’s flying Roadster stuns critics, sparks illusion debate | 719 | 102 | 12 | 0 | 383.8 |
-| 2026-10-19T02:06 | photo | TECH | Elon Musk wants new Tesla Roadster to top 380 MPH | 546 | 44 | 18 | 18 | 257.2 |
+| 2026-10-19T04:06 | photo | TECH | Elon Musk launches showroom FSD trials with 5 crucial details | 360 | 35 | 16 | 17 | 196.0 |
+| 2026-10-19T03:07 | reel | TECH | Elon Musk’s flying Roadster stuns critics, sparks illusion debate | 795 | 114 | 13 | 0 | 426.0 |
+| 2026-10-19T02:06 | photo | TECH | Elon Musk wants new Tesla Roadster to top 380 MPH | 574 | 47 | 17 | 18 | 265.8 |
 | 2026-10-19T01:07 | reel | BUSINESS | Elon Musk slashes $80,000 child support after NDA refusal | 323 | 23 | 8 | 0 | 134.6 |
-| 2026-10-18T21:06 | reel | BUSINESS | Elon Musk serves worst financial advice, internet erupts with memes | 536 | 27 | 10 | 0 | 191.2 |
-| 2026-10-18T19:07 | reel | BUSINESS | Elon Musk boosts Micron stock, sparking bullish clash with investors | 378 | 25 | 4 | 0 | 137.6 |
+| 2026-10-18T21:06 | reel | BUSINESS | Elon Musk serves worst financial advice, internet erupts with memes | 540 | 28 | 10 | 0 | 194.0 |
+| 2026-10-18T19:07 | reel | BUSINESS | Elon Musk boosts Micron stock, sparking bullish clash with investors | 380 | 25 | 4 | 0 | 138.0 |
 | 2026-10-18T04:07 | photo | BUSINESS | Elon Musk's SpaceX buys spectrum boosting AST SpaceMobile stock | 581 | 34 | 7 | 11 | 211.2 |
-| 2026-10-18T03:07 | reel | POLITICS | Elon Musk's Starlink restricted in Ukraine, Zelensky warns clash | 13735 | 898 | 65 | 0 | 4738.0 |
+| 2026-10-18T03:07 | reel | POLITICS | Elon Musk's Starlink restricted in Ukraine, Zelensky warns clash | 13886 | 909 | 65 | 0 | 4790.2 |
 | 2026-10-18T02:06 | photo | TECH | Elon Musk's wildest innovations: maps to flying cars | 626 | 45 | 23 | 14 | 290.2 |
 | 2026-10-18T01:06 | reel | TECH | Elon Musk teases Optimus Prime after China unveils 13‑foot robot | 413 | 16 | 4 | 0 | 126.6 |
 | 2026-10-17T21:06 | reel | CELEBRITY | Elon Musk global journey from South Africa to trillion‑dollar empire | 1332 | 64 | 9 | 0 | 421.4 |
-| 2026-10-17T19:07 | reel | TECH | Elon Musk claims Neuralink link, patient sends surprising reply | 493 | 34 | 10 | 0 | 196.6 |
-| 2026-10-17T06:58 | photo | BUSINESS | Elon Musk invested $6.35 million in 2004, became majority shareholder and board chairman | 1676 | 114 | 26 | 24 | 647.2 |
-| 2026-10-17T03:06 | reel | TECH | Elon Musk's wild tech shocks investors with flying Teslas | 648 | 25 | 5 | 0 | 194.6 |
-| 2026-10-17T02:08 | photo | TECH | Elon Musk's Tesla patents touch‑sensitive robot skin, hints at human‑like feel | 806 | 40 | 8 | 23 | 271.2 |
+| 2026-10-17T19:07 | reel | TECH | Elon Musk claims Neuralink link, patient sends surprising reply | 495 | 34 | 10 | 0 | 197.0 |
+| 2026-10-17T06:58 | photo | BUSINESS | Elon Musk invested $6.35 million in 2004, became majority shareholder and board chairman | 1687 | 116 | 26 | 25 | 653.4 |
+| 2026-10-17T03:06 | reel | TECH | Elon Musk's wild tech shocks investors with flying Teslas | 657 | 25 | 5 | 0 | 196.4 |
+| 2026-10-17T02:08 | photo | TECH | Elon Musk's Tesla patents touch‑sensitive robot skin, hints at human‑like feel | 806 | 40 | 8 | 25 | 271.2 |
 | 2026-10-17T01:08 | reel | TECH | Elon Musk unveils record‑breaking flying Tesla car in high‑speed demo | 607 | 34 | 10 | 0 | 219.4 |
-| 2026-10-16T22:52 | reel | BUSINESS | Elon Musk's Tesla faces court block on self‑driving claims | 415 | 21 | 4 | 0 | 137.0 |
+| 2026-10-16T22:52 | reel | BUSINESS | Elon Musk's Tesla faces court block on self‑driving claims | 421 | 21 | 4 | 0 | 138.2 |
 | 2026-10-16T19:10 | reel | TECH | Elon Musk unveils air‑borne Roadster, igniting tech clash | 2066 | 64 | 4 | 0 | 553.2 |
-| 2026-10-16T04:08 | photo | BUSINESS | Elon Musk may merge SpaceX and Tesla, AI clash | 1663 | 93 | 19 | 15 | 581.6 |
+| 2026-10-16T04:08 | photo | BUSINESS | Elon Musk may merge SpaceX and Tesla, AI clash | 1664 | 93 | 19 | 15 | 581.8 |
 | 2026-10-16T03:08 | reel | BUSINESS | Elon Musk agrees to settle 2024 election lottery lawsuits | 344 | 12 | 2 | 0 | 98.8 |
 | 2026-10-16T02:07 | photo | TECH | Elon Musk's brain‑tech push draws attention to two small stocks | 406 | 24 | 2 | 12 | 141.2 |
-| 2026-10-16T01:08 | reel | TECH | Elon Musk’s SpaceX launches classified payload for Space Force | 1610 | 87 | 7 | 0 | 517.0 |
-| 2026-10-15T21:10 | reel | AI | Elon Musk uses AI to buy Lego, bot cancels | 2766 | 255 | 34 | 0 | 1165.2 |
+| 2026-10-16T01:08 | reel | TECH | Elon Musk’s SpaceX launches classified payload for Space Force | 1611 | 87 | 7 | 0 | 517.2 |
+| 2026-10-15T21:10 | reel | AI | Elon Musk uses AI to buy Lego, bot cancels | 2786 | 256 | 34 | 0 | 1171.2 |
 | 2026-10-15T19:11 | reel | BUSINESS | Elon Musk's Tesla teases next‑gen Roadster after a decade of delays | 2959 | 161 | 20 | 0 | 973.8 |
 | 2026-10-15T04:07 | photo | CELEBRITY | Elon Musk became US citizen in 2002, moved to Texas | 1331 | 101 | 23 | 17 | 543.2 |
 | 2026-10-15T03:07 | reel | POLITICS | Elon Musk slams Donald Trump over alleged Epstein ties | 523 | 27 | 4 | 0 | 170.6 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (6363.0) 
 | 2026-10-13T04:10 | photo | CELEBRITY | Dan Levy slams Shane Gillis over controversial SNL monologue | 125 | 3 | 2 | 0 | 37.0 |
 | 2026-10-13T03:07 | reel | BUSINESS | Elon Musk hits trillionaire status with $1.1 trillion net worth | 2519 | 218 | 36 | 0 | 1047.8 |
 | 2026-10-13T02:08 | photo | TECH | Mark Zuckerberg puts Meta on AI frontier against OpenAI | 106 | 6 | 2 | 10 | 45.2 |
-| 2026-10-13T01:07 | reel | BUSINESS | Elon Musk cements status as world's wealthiest person since 2025 | 371 | 27 | 5 | 0 | 143.2 |
