@@ -284,6 +284,10 @@ def wiki_people(limit=20):
     return people[:limit]
 
 
+FACT_STOP = {"with", "from", "that", "this", "after", "over", "into", "about", "says", "said", "will", "have", "just",
+             "their", "they", "what", "when", "your", "more", "than", "news", "report", "reports"}
+
+
 def article_facts(query, want=4, bodies=1):
     """The real reporting behind a headline, so the AI writes from facts and not from one line: Bing News summaries
     from several outlets (numbers, quotes, dates) plus the full text of the first article that can be read.
@@ -297,6 +301,10 @@ def article_facts(query, want=4, bodies=1):
     except Exception as e:
         print(f"[facts] Bing News failed for '{query[:50]}': {e}")
         return []
+    # Bing also returns unrelated stories for loose searches (e.g. someone else's 'split'): keep only reports that
+    # share most of the search's main words (not just the person's name), or the AI may mix two stories into one
+    key = {w for w in re.findall(r"[a-z0-9]+", query.lower()) if len(w) > 3} - FACT_STOP
+    need = max(min(2, len(key)), -(-len(key) * 3 // 5))  # 60%, rounded up
     out, read = [], 0
     for item in root.iter("item"):
         if len(out) >= want:
@@ -306,6 +314,8 @@ def article_facts(query, want=4, bodies=1):
         url = up.parse_qs(up.urlparse(link).query).get("url", [link])[0]
         source = up.urlparse(url).netloc.replace("www.", "")
         if not title or not summary:
+            continue
+        if len(key & set(re.findall(r"[a-z0-9]+", (title + " " + summary).lower()))) < need:
             continue
         body = ""
         if read < bodies:
