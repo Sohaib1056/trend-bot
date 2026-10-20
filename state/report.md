@@ -1,41 +1,42 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-20 21:05 UTC_
+_Updated 2026-10-20 22:06 UTC_
 
 ```
-Based on the last 92 posts on this page:
-Best categories: BUSINESS (646.6), POLITICS (580.4), TECH (456.5)
+Based on the last 93 posts on this page:
+Best categories: BUSINESS (626.4), POLITICS (584.9), TECH (457.4)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (628.0, 54 posts), photo (111.9, 38 posts)
-Best posting slots (UTC): 21:00 (1497.3), 03:00 (743.9), 19:00 (595.7)
-Best faces on this page (avg views per post): Elon Musk 1539 (55 posts), Jensen Huang 270 (1 posts), Donald Trump 132 (7 posts), Sam Altman 72 (2 posts), Mark Zuckerberg 51 (4 posts), LeBron James 57 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
-Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (6708.4) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5251.8) | Elon Musk's Starlink restricted in Ukraine, Zelensky warns clash (4938.8)
+Format: reel (619.7, 55 posts), photo (113.9, 38 posts)
+Best posting slots (UTC): 21:00 (1357.6), 03:00 (750.0), 19:00 (595.8)
+Best faces on this page (avg views per post): Elon Musk 1524 (56 posts), Jensen Huang 275 (1 posts), Donald Trump 132 (7 posts), Sam Altman 72 (2 posts), Mark Zuckerberg 51 (4 posts), LeBron James 57 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (6708.4) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5251.8) | Elon Musk's Starlink restricted in Ukraine, Zelensky warns clash (4984.6)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-20T21:07 | reel | BUSINESS | Elon Musk claims money could become irrelevant soon | 196 | 8 | 3 | 0 | 64.2 |
 | 2026-10-20T19:07 | reel | POLITICS | Elon Musk DOGE probe: Democrats investigate role | 0 | 1 | 1 | 0 | 5.0 |
-| 2026-10-20T04:08 | photo | BUSINESS | Elon Musk's Tesla Could Reach $4,400 by 2031 | 441 | 51 | 20 | 12 | 256.2 |
-| 2026-10-20T03:07 | reel | POLITICS | Elon Musk clashes with Texas Gov. Abbott over emails | 604 | 24 | 8 | 0 | 192.8 |
-| 2026-10-20T01:08 | reel | TECH | Jensen Huang warns over Nvidia's 'Digital Brains' concept | 270 | 15 | 6 | 0 | 102.0 |
-| 2026-10-19T23:07 | photo | BUSINESS | Elon Musk faces tough Tesla‑SpaceX merger challenge | 595 | 50 | 23 | 17 | 294.0 |
-| 2026-10-19T22:07 | reel | POLITICS | Donald Trump urges New Mexico to rename as New America | 628 | 14 | 3 | 0 | 162.6 |
-| 2026-10-19T21:07 | reel | BUSINESS | Elon Musk sudden split confirmed by partner | 1221 | 94 | 28 | 0 | 516.2 |
-| 2026-10-19T19:07 | reel | BUSINESS | Elon Musk To Give Every Child In America A SpaceX Share | 274 | 28 | 10 | 0 | 140.8 |
-| 2026-10-19T04:06 | photo | TECH | Elon Musk launches showroom FSD trials with 5 crucial details | 466 | 45 | 18 | 18 | 243.2 |
-| 2026-10-19T03:07 | reel | TECH | Elon Musk’s flying Roadster stuns critics, sparks illusion debate | 966 | 134 | 17 | 0 | 512.2 |
-| 2026-10-19T02:06 | photo | TECH | Elon Musk wants new Tesla Roadster to top 380 MPH | 691 | 61 | 23 | 18 | 335.2 |
+| 2026-10-20T04:08 | photo | BUSINESS | Elon Musk's Tesla Could Reach $4,400 by 2031 | 506 | 56 | 21 | 13 | 282.2 |
+| 2026-10-20T03:07 | reel | POLITICS | Elon Musk clashes with Texas Gov. Abbott over emails | 637 | 25 | 8 | 0 | 201.4 |
+| 2026-10-20T01:08 | reel | TECH | Jensen Huang warns over Nvidia's 'Digital Brains' concept | 275 | 15 | 6 | 0 | 103.0 |
+| 2026-10-19T23:07 | photo | BUSINESS | Elon Musk faces tough Tesla‑SpaceX merger challenge | 706 | 55 | 24 | 16 | 329.2 |
+| 2026-10-19T22:07 | reel | POLITICS | Donald Trump urges New Mexico to rename as New America | 631 | 14 | 3 | 0 | 163.2 |
+| 2026-10-19T21:07 | reel | BUSINESS | Elon Musk sudden split confirmed by partner | 1312 | 101 | 29 | 0 | 551.4 |
+| 2026-10-19T19:07 | reel | BUSINESS | Elon Musk To Give Every Child In America A SpaceX Share | 279 | 28 | 10 | 0 | 141.8 |
+| 2026-10-19T04:06 | photo | TECH | Elon Musk launches showroom FSD trials with 5 crucial details | 467 | 45 | 18 | 18 | 243.4 |
+| 2026-10-19T03:07 | reel | TECH | Elon Musk’s flying Roadster stuns critics, sparks illusion debate | 985 | 138 | 17 | 0 | 524.0 |
+| 2026-10-19T02:06 | photo | TECH | Elon Musk wants new Tesla Roadster to top 380 MPH | 739 | 61 | 24 | 19 | 347.8 |
 | 2026-10-19T01:07 | reel | BUSINESS | Elon Musk slashes $80,000 child support after NDA refusal | 339 | 24 | 8 | 0 | 139.8 |
 | 2026-10-18T21:06 | reel | BUSINESS | Elon Musk serves worst financial advice, internet erupts with memes | 577 | 33 | 11 | 0 | 214.4 |
 | 2026-10-18T19:07 | reel | BUSINESS | Elon Musk boosts Micron stock, sparking bullish clash with investors | 391 | 27 | 4 | 0 | 144.2 |
-| 2026-10-18T04:07 | photo | BUSINESS | Elon Musk's SpaceX buys spectrum boosting AST SpaceMobile stock | 588 | 35 | 7 | 11 | 214.6 |
-| 2026-10-18T03:07 | reel | POLITICS | Elon Musk's Starlink restricted in Ukraine, Zelensky warns clash | 14374 | 936 | 64 | 0 | 4938.8 |
+| 2026-10-18T04:07 | photo | BUSINESS | Elon Musk's SpaceX buys spectrum boosting AST SpaceMobile stock | 589 | 35 | 7 | 11 | 214.8 |
+| 2026-10-18T03:07 | reel | POLITICS | Elon Musk's Starlink restricted in Ukraine, Zelensky warns clash | 14523 | 944 | 64 | 0 | 4984.6 |
 | 2026-10-18T02:06 | photo | TECH | Elon Musk's wildest innovations: maps to flying cars | 637 | 46 | 23 | 14 | 294.4 |
 | 2026-10-18T01:06 | reel | TECH | Elon Musk teases Optimus Prime after China unveils 13‑foot robot | 420 | 17 | 4 | 0 | 130.0 |
-| 2026-10-17T21:06 | reel | CELEBRITY | Elon Musk global journey from South Africa to trillion‑dollar empire | 1345 | 65 | 9 | 0 | 426.0 |
-| 2026-10-17T19:07 | reel | TECH | Elon Musk claims Neuralink link, patient sends surprising reply | 511 | 35 | 10 | 0 | 202.2 |
+| 2026-10-17T21:06 | reel | CELEBRITY | Elon Musk global journey from South Africa to trillion‑dollar empire | 1348 | 65 | 9 | 0 | 426.6 |
+| 2026-10-17T19:07 | reel | TECH | Elon Musk claims Neuralink link, patient sends surprising reply | 513 | 35 | 10 | 0 | 202.6 |
 | 2026-10-17T06:58 | photo | BUSINESS | Elon Musk invested $6.35 million in 2004, became majority shareholder and board chairman | 1711 | 117 | 26 | 25 | 660.2 |
-| 2026-10-17T03:06 | reel | TECH | Elon Musk's wild tech shocks investors with flying Teslas | 671 | 27 | 5 | 0 | 203.2 |
+| 2026-10-17T03:06 | reel | TECH | Elon Musk's wild tech shocks investors with flying Teslas | 675 | 27 | 5 | 0 | 204.0 |
 | 2026-10-17T02:08 | photo | TECH | Elon Musk's Tesla patents touch‑sensitive robot skin, hints at human‑like feel | 819 | 41 | 8 | 25 | 275.8 |
 | 2026-10-17T01:08 | reel | TECH | Elon Musk unveils record‑breaking flying Tesla car in high‑speed demo | 610 | 35 | 10 | 0 | 222.0 |
 | 2026-10-16T22:52 | reel | BUSINESS | Elon Musk's Tesla faces court block on self‑driving claims | 423 | 23 | 4 | 0 | 142.6 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (6708.4) 
 | 2026-10-14T21:08 | reel | BUSINESS | Elon Musk’s Boring Company plans 150 mph underground cars | 16732 | 1579 | 68 | 0 | 6708.4 |
 | 2026-10-14T19:07 | reel | TECH | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims | 12669 | 1278 | 54 | 0 | 5251.8 |
 | 2026-10-14T01:09 | reel | POLITICS | Elon Musk was a former public official | 2441 | 223 | 39 | 0 | 1051.2 |
-| 2026-10-13T21:09 | reel | BUSINESS | Elon Musk's record-breaking $366m political spend shocks US | 526 | 43 | 7 | 0 | 212.2 |
