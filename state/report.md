@@ -1,21 +1,22 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-20 22:06 UTC_
+_Updated 2026-10-20 23:05 UTC_
 
 ```
-Based on the last 93 posts on this page:
-Best categories: BUSINESS (626.4), POLITICS (584.9), TECH (457.4)
+Based on the last 94 posts on this page:
+Best categories: BUSINESS (631.7), POLITICS (547.6), TECH (459.7)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (619.7, 55 posts), photo (113.9, 38 posts)
-Best posting slots (UTC): 21:00 (1357.6), 03:00 (750.0), 19:00 (595.8)
-Best faces on this page (avg views per post): Elon Musk 1524 (56 posts), Jensen Huang 275 (1 posts), Donald Trump 132 (7 posts), Sam Altman 72 (2 posts), Mark Zuckerberg 51 (4 posts), LeBron James 57 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
-Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (6708.4) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5251.8) | Elon Musk's Starlink restricted in Ukraine, Zelensky warns clash (4984.6)
+Format: reel (614.0, 56 posts), photo (113.9, 38 posts)
+Best posting slots (UTC): 21:00 (1371.1), 03:00 (750.0), 19:00 (606.5)
+Best faces on this page (avg views per post): Elon Musk 1511 (57 posts), Jensen Huang 275 (1 posts), Donald Trump 132 (7 posts), Sam Altman 72 (2 posts), Mark Zuckerberg 51 (4 posts), LeBron James 57 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (6834.8) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5319.0) | Elon Musk's Starlink restricted in Ukraine, Zelensky warns clash (4984.6)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-20T22:07 | reel | POLITICS | Elon Musk targets Texas Senate seat in billionaire showdown | 6 | 2 | 0 | 0 | 5.2 |
 | 2026-10-20T21:07 | reel | BUSINESS | Elon Musk claims money could become irrelevant soon | 196 | 8 | 3 | 0 | 64.2 |
-| 2026-10-20T19:07 | reel | POLITICS | Elon Musk DOGE probe: Democrats investigate role | 0 | 1 | 1 | 0 | 5.0 |
+| 2026-10-20T19:07 | reel | POLITICS | Elon Musk DOGE probe: Democrats investigate role | 260 | 10 | 9 | 0 | 99.0 |
 | 2026-10-20T04:08 | photo | BUSINESS | Elon Musk's Tesla Could Reach $4,400 by 2031 | 506 | 56 | 21 | 13 | 282.2 |
 | 2026-10-20T03:07 | reel | POLITICS | Elon Musk clashes with Texas Gov. Abbott over emails | 637 | 25 | 8 | 0 | 201.4 |
 | 2026-10-20T01:08 | reel | TECH | Jensen Huang warns over Nvidia's 'Digital Brains' concept | 275 | 15 | 6 | 0 | 103.0 |
@@ -43,14 +44,13 @@ Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (6708.4) 
 | 2026-10-16T19:10 | reel | TECH | Elon Musk unveils air‑borne Roadster, igniting tech clash | 2070 | 65 | 4 | 0 | 556.0 |
 | 2026-10-16T04:08 | photo | BUSINESS | Elon Musk may merge SpaceX and Tesla, AI clash | 1667 | 94 | 19 | 15 | 584.4 |
 | 2026-10-16T03:08 | reel | BUSINESS | Elon Musk agrees to settle 2024 election lottery lawsuits | 349 | 13 | 2 | 0 | 101.8 |
-| 2026-10-16T02:07 | photo | TECH | Elon Musk's brain‑tech push draws attention to two small stocks | 410 | 25 | 2 | 12 | 144.0 |
+| 2026-10-16T02:07 | photo | TECH | Elon Musk's brain‑tech push draws attention to two small stocks | 410 | 25 | 2 | 11 | 144.0 |
 | 2026-10-16T01:08 | reel | TECH | Elon Musk’s SpaceX launches classified payload for Space Force | 1619 | 88 | 7 | 0 | 520.8 |
-| 2026-10-15T21:10 | reel | AI | Elon Musk uses AI to buy Lego, bot cancels | 2849 | 259 | 36 | 0 | 1195.8 |
-| 2026-10-15T19:11 | reel | BUSINESS | Elon Musk's Tesla teases next‑gen Roadster after a decade of delays | 2967 | 162 | 20 | 0 | 977.4 |
+| 2026-10-15T21:10 | reel | AI | Elon Musk uses AI to buy Lego, bot cancels | 2862 | 262 | 36 | 0 | 1204.4 |
+| 2026-10-15T19:11 | reel | BUSINESS | Elon Musk's Tesla teases next‑gen Roadster after a decade of delays | 2968 | 162 | 20 | 0 | 977.6 |
 | 2026-10-15T04:07 | photo | CELEBRITY | Elon Musk became US citizen in 2002, moved to Texas | 1338 | 103 | 24 | 21 | 551.6 |
 | 2026-10-15T03:07 | reel | POLITICS | Elon Musk slams Donald Trump over alleged Epstein ties | 530 | 28 | 4 | 0 | 174.0 |
 | 2026-10-15T02:06 | photo | POLITICS | Elon Musk blames Trump over Ukrainian satellite restrictions | 309 | 15 | 3 | 11 | 106.8 |
-| 2026-10-15T01:15 | reel | AI | Elon Musk's Grokipedia cited blacklisted sources amid AI backlash | 1157 | 102 | 11 | 0 | 468.4 |
-| 2026-10-14T21:08 | reel | BUSINESS | Elon Musk’s Boring Company plans 150 mph underground cars | 16732 | 1579 | 68 | 0 | 6708.4 |
-| 2026-10-14T19:07 | reel | TECH | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims | 12669 | 1278 | 54 | 0 | 5251.8 |
-| 2026-10-14T01:09 | reel | POLITICS | Elon Musk was a former public official | 2441 | 223 | 39 | 0 | 1051.2 |
+| 2026-10-15T01:15 | reel | AI | Elon Musk's Grokipedia cited blacklisted sources amid AI backlash | 1163 | 102 | 11 | 0 | 469.6 |
+| 2026-10-14T21:08 | reel | BUSINESS | Elon Musk’s Boring Company plans 150 mph underground cars | 17064 | 1609 | 68 | 0 | 6834.8 |
+| 2026-10-14T19:07 | reel | TECH | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims | 12815 | 1297 | 54 | 0 | 5319.0 |
