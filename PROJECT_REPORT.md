@@ -77,7 +77,7 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
 | 04 | 12:05 AM | Photo |
 
 - `POST_SLOTS=1,3,4,19,21,22,23`, `PHOTO_SLOTS=4,23`, `STAR_SLOTS=19,21`, `TREND_SLOTS=22`.
-- `ALL_STAR_UNTIL=2026-10-21T04:00Z`: until then **every** slot (Reels and photos) is about the star face (Elon Musk),
+- `ALL_STAR_UNTIL=2026-11-01T04:00Z` (end of 31 Oct ET, owner extended it on 10-20): until then **every** slot (Reels and photos) is about the star face (Elon Musk),
   except the trending slot.
 - **Trending slot**: topics are sorted by how many platforms they trend on (X, Reddit, Google, Wikipedia), then by
   search traffic, and the AI is told to post the hottest one, whoever it is about.
@@ -252,7 +252,7 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
 
 1. **After the next live Reel**: confirm that the Instagram Reel posted (resumable upload) and that the new scene rules
    look good.
-2. **~2026-10-21**: review the all-Elon period (`ALL_STAR_UNTIL` ends 2026-10-21 04:00 UTC). Decide whether to keep
+2. **~2026-10-31**: review the all-Elon period (`ALL_STAR_UNTIL` ends 2026-11-01 04:00 UTC = midnight after 31 Oct ET). Decide whether to keep
    Elon-only or mix.
 3. **2026-11-01 (DST ends)**:
    - The UTC slots will land 1 hour earlier in ET. Shift every slot by +1 h UTC to keep the same ET times:

@@ -46,7 +46,7 @@ STAR_SLOTS_UTC = {int(h) for h in (os.getenv("STAR_SLOTS", "") or "19,21").split
 # "trending" Reels: the hottest topic across all platforms right now, whoever it is about (22 UTC = 6 PM New York)
 TREND_SLOTS_UTC = {int(h) for h in (os.getenv("TREND_SLOTS", "") or "22").split(",") if h.strip().isdigit()}
 # until this time every Reel slot is a star Reel (owner's 2-day test: 12-13 Oct 2026, all Reels about Elon Musk)
-ALL_STAR_UNTIL = datetime.fromisoformat(os.getenv("ALL_STAR_UNTIL", "") or "2026-10-21T04:00+00:00")
+ALL_STAR_UNTIL = datetime.fromisoformat(os.getenv("ALL_STAR_UNTIL", "") or "2026-11-01T04:00+00:00")
 # Replies to comments: "off", "preview" (only print suggested replies in the log) or "on"
 AUTO_REPLY = (os.getenv("AUTO_REPLY", "") or "preview").strip().lower()
 FIRST_COMMENT = _bool("FIRST_COMMENT", True)  # page posts a question under each new post
