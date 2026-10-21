@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-21 19:06 UTC_
+_Updated 2026-10-21 21:05 UTC_
 
 ```
-Based on the last 98 posts on this page:
-Best categories: BUSINESS (678.1), POLITICS (557.3), TECH (467.9)
+Based on the last 99 posts on this page:
+Best categories: BUSINESS (678.1), POLITICS (557.3), TECH (454.4)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (641.2, 58 posts), photo (121.7, 40 posts)
-Best posting slots (UTC): 21:00 (1514.8), 03:00 (728.4), 19:00 (638.8)
-Best faces on this page (avg views per post): Elon Musk 1550 (61 posts), Jensen Huang 295 (1 posts), Donald Trump 134 (7 posts), Sam Altman 72 (2 posts), Mark Zuckerberg 51 (4 posts), LeBron James 57 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (631.2, 59 posts), photo (121.7, 40 posts)
+Best posting slots (UTC): 21:00 (1514.8), 03:00 (728.4), 19:00 (602.1)
+Best faces on this page (avg views per post): Elon Musk 1528 (62 posts), Jensen Huang 295 (1 posts), Donald Trump 134 (7 posts), Sam Altman 72 (2 posts), Mark Zuckerberg 51 (4 posts), LeBron James 57 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2) | Elon Musk's Starlink restricted in Ukraine, Zelensky warns clash (5194.6)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-21T19:08 | reel | TECH | Elon Musk slows Starlink for Ukraine, critics say deadly | 153 | 9 | 1 | 0 | 51.6 |
 | 2026-10-21T04:07 | photo | CELEBRITY | Elon Musk's global roots: South African birth, Canadian mother, dual citizenship | 270 | 31 | 9 | 14 | 149.0 |
 | 2026-10-21T03:07 | reel | POLITICS | Musk restricts Starlink for Ukraine, sources reveal | 484 | 49 | 15 | 0 | 239.8 |
 | 2026-10-21T01:07 | reel | TECH | Elon Musk vows double Starship catch in upcoming test launch | 441 | 45 | 9 | 0 | 205.2 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) 
 | 2026-10-15T21:10 | reel | AI | Elon Musk uses AI to buy Lego, bot cancels | 2900 | 264 | 36 | 0 | 1216.0 |
 | 2026-10-15T19:11 | reel | BUSINESS | Elon Musk's Tesla teases next‑gen Roadster after a decade of delays | 2982 | 161 | 20 | 0 | 978.4 |
 | 2026-10-15T04:07 | photo | CELEBRITY | Elon Musk became US citizen in 2002, moved to Texas | 1342 | 103 | 24 | 21 | 552.4 |
-| 2026-10-15T03:07 | reel | POLITICS | Elon Musk slams Donald Trump over alleged Epstein ties | 532 | 28 | 4 | 0 | 174.4 |
