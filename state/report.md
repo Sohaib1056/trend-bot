@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-21 22:06 UTC_
+_Updated 2026-10-21 23:05 UTC_
 
 ```
-Based on the last 100 posts on this page:
-Best categories: BUSINESS (683.0), POLITICS (563.3), TECH (443.9)
+Based on the last 101 posts on this page:
+Best categories: BUSINESS (683.0), POLITICS (563.3), TECH (444.8)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (625.6, 60 posts), photo (123.4, 40 posts)
-Best posting slots (UTC): 21:00 (1391.9), 03:00 (734.0), 19:00 (602.8)
+Format: reel (615.9, 61 posts), photo (123.4, 40 posts)
+Best posting slots (UTC): 21:00 (1392.0), 03:00 (734.0), 19:00 (604.7)
 Best faces on this page (avg views per post): Elon Musk 1518 (63 posts), Jensen Huang 299 (1 posts), Donald Trump 135 (7 posts), Sam Altman 72 (2 posts), Mark Zuckerberg 51 (4 posts), LeBron James 57 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2) | Elon Musk's Starlink restricted in Ukraine, Zelensky warns clash (5209.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-21T22:07 | reel | CELEBRITY | Cole Sprouse mistaken as Barbara Palvin’s husband, not twin Dylan | 4 | 0 | 0 | 0 | 0.8 |
 | 2026-10-21T21:06 | reel | TECH | Elon Musk launches Optimus robot production, profit falls 43% | 236 | 7 | 1 | 0 | 64.2 |
 | 2026-10-21T19:08 | reel | TECH | Elon Musk slows Starlink for Ukraine, critics say deadly | 153 | 9 | 1 | 0 | 51.6 |
 | 2026-10-21T04:07 | photo | CELEBRITY | Elon Musk's global roots: South African birth, Canadian mother, dual citizenship | 355 | 37 | 13 | 14 | 190.0 |
@@ -41,9 +42,9 @@ Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) 
 | 2026-10-18T02:06 | photo | TECH | Elon Musk's wildest innovations: maps to flying cars | 643 | 46 | 23 | 12 | 295.6 |
 | 2026-10-18T01:06 | reel | TECH | Elon Musk teases Optimus Prime after China unveils 13‑foot robot | 427 | 17 | 4 | 0 | 131.4 |
 | 2026-10-17T21:06 | reel | CELEBRITY | Elon Musk global journey from South Africa to trillion‑dollar empire | 1352 | 65 | 9 | 0 | 427.4 |
-| 2026-10-17T19:07 | reel | TECH | Elon Musk claims Neuralink link, patient sends surprising reply | 534 | 37 | 11 | 0 | 213.8 |
-| 2026-10-17T06:58 | photo | BUSINESS | Elon Musk invested $6.35 million in 2004, became majority shareholder and board chairman | 1716 | 117 | 26 | 25 | 661.2 |
-| 2026-10-17T03:06 | reel | TECH | Elon Musk's wild tech shocks investors with flying Teslas | 686 | 28 | 5 | 0 | 208.2 |
+| 2026-10-17T19:07 | reel | TECH | Elon Musk claims Neuralink link, patient sends surprising reply | 542 | 39 | 19 | 0 | 243.4 |
+| 2026-10-17T06:58 | photo | BUSINESS | Elon Musk invested $6.35 million in 2004, became majority shareholder and board chairman | 1718 | 117 | 26 | 25 | 661.6 |
+| 2026-10-17T03:06 | reel | TECH | Elon Musk's wild tech shocks investors with flying Teslas | 687 | 28 | 5 | 0 | 208.4 |
 | 2026-10-17T02:08 | photo | TECH | Elon Musk's Tesla patents touch‑sensitive robot skin, hints at human‑like feel | 822 | 41 | 8 | 23 | 276.4 |
 | 2026-10-17T01:08 | reel | TECH | Elon Musk unveils record‑breaking flying Tesla car in high‑speed demo | 613 | 35 | 10 | 0 | 222.6 |
 | 2026-10-16T22:52 | reel | BUSINESS | Elon Musk's Tesla faces court block on self‑driving claims | 428 | 23 | 4 | 0 | 143.6 |
@@ -52,5 +53,4 @@ Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) 
 | 2026-10-16T03:08 | reel | BUSINESS | Elon Musk agrees to settle 2024 election lottery lawsuits | 352 | 13 | 2 | 0 | 102.4 |
 | 2026-10-16T02:07 | photo | TECH | Elon Musk's brain‑tech push draws attention to two small stocks | 412 | 25 | 2 | 12 | 144.4 |
 | 2026-10-16T01:08 | reel | TECH | Elon Musk’s SpaceX launches classified payload for Space Force | 1624 | 88 | 7 | 0 | 521.8 |
-| 2026-10-15T21:10 | reel | AI | Elon Musk uses AI to buy Lego, bot cancels | 2900 | 264 | 36 | 0 | 1216.0 |
-| 2026-10-15T19:11 | reel | BUSINESS | Elon Musk's Tesla teases next‑gen Roadster after a decade of delays | 2982 | 161 | 20 | 0 | 978.4 |
+| 2026-10-15T21:10 | reel | AI | Elon Musk uses AI to buy Lego, bot cancels | 2905 | 264 | 36 | 0 | 1217.0 |
