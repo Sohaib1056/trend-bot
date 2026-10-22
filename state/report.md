@@ -1,41 +1,42 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-22 03:05 UTC_
+_Updated 2026-10-22 04:06 UTC_
 
 ```
-Based on the last 103 posts on this page:
-Best categories: BUSINESS (662.9), POLITICS (566.8), TECH (435.7)
+Based on the last 104 posts on this page:
+Best categories: BUSINESS (644.5), POLITICS (568.6), TECH (443.7)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (612.0, 62 posts), photo (121.6, 41 posts)
-Best posting slots (UTC): 21:00 (1409.9), 03:00 (737.3), 19:00 (608.5)
-Best faces on this page (avg views per post): Elon Musk 1488 (65 posts), Jensen Huang 299 (1 posts), Cole Sprouse 232 (1 posts), Donald Trump 135 (7 posts), Sam Altman 72 (2 posts), Mark Zuckerberg 51 (4 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (608.7, 63 posts), photo (122.9, 41 posts)
+Best posting slots (UTC): 21:00 (1438.9), 03:00 (682.9), 19:00 (610.2)
+Best faces on this page (avg views per post): Elon Musk 1509 (65 posts), Jensen Huang 300 (1 posts), Cole Sprouse 232 (1 posts), Donald Trump 135 (7 posts), Sam Altman 72 (2 posts), Mark Zuckerberg 49 (5 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2) | Elon Musk's Starlink restricted in Ukraine, Zelensky warns clash (5237.0)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-22T03:08 | reel | BUSINESS | Mark Zuckerberg forces Meta to dodge California wealth tax | 38 | 3 | 0 | 0 | 13.6 |
 | 2026-10-22T01:07 | reel | TECH | Elon Musk’s Tesla Cybertruck eyed for police fleets, city sparks safety debate | 10 | 0 | 0 | 0 | 2.0 |
-| 2026-10-21T23:06 | photo | BUSINESS | Ferrari's CEO just praised Elon Musk over Tesla Roadster | 29 | 4 | 0 | 0 | 13.8 |
+| 2026-10-21T23:06 | photo | BUSINESS | Ferrari's CEO just praised Elon Musk over Tesla Roadster | 67 | 7 | 0 | 1 | 30.4 |
 | 2026-10-21T22:07 | reel | CELEBRITY | Cole Sprouse mistaken as Barbara Palvin’s husband, not twin Dylan | 232 | 4 | 0 | 0 | 54.4 |
-| 2026-10-21T21:06 | reel | TECH | Elon Musk launches Optimus robot production, profit falls 43% | 382 | 21 | 3 | 0 | 127.4 |
-| 2026-10-21T19:08 | reel | TECH | Elon Musk slows Starlink for Ukraine, critics say deadly | 328 | 20 | 2 | 0 | 111.6 |
-| 2026-10-21T04:07 | photo | CELEBRITY | Elon Musk's global roots: South African birth, Canadian mother, dual citizenship | 395 | 41 | 13 | 13 | 206.0 |
-| 2026-10-21T03:07 | reel | POLITICS | Musk restricts Starlink for Ukraine, sources reveal | 587 | 61 | 19 | 0 | 296.4 |
-| 2026-10-21T01:07 | reel | TECH | Elon Musk vows double Starship catch in upcoming test launch | 529 | 52 | 16 | 0 | 257.8 |
-| 2026-10-20T23:06 | photo | BUSINESS | Elon Musk's SpaceX hits $4.4 B profit, AI revenue soars 161% | 433 | 28 | 10 | 12 | 178.6 |
-| 2026-10-20T22:07 | reel | POLITICS | Elon Musk targets Texas Senate seat in billionaire showdown | 507 | 41 | 5 | 0 | 198.4 |
-| 2026-10-20T21:07 | reel | BUSINESS | Elon Musk claims money could become irrelevant soon | 1579 | 114 | 26 | 0 | 621.8 |
-| 2026-10-20T19:07 | reel | POLITICS | Elon Musk DOGE probe: Democrats investigate role | 399 | 20 | 13 | 0 | 158.8 |
-| 2026-10-20T04:08 | photo | BUSINESS | Elon Musk's Tesla Could Reach $4,400 by 2031 | 734 | 73 | 25 | 15 | 373.8 |
-| 2026-10-20T03:07 | reel | POLITICS | Elon Musk clashes with Texas Gov. Abbott over emails | 664 | 27 | 8 | 0 | 210.8 |
-| 2026-10-20T01:08 | reel | TECH | Jensen Huang warns over Nvidia's 'Digital Brains' concept | 299 | 17 | 6 | 0 | 111.8 |
-| 2026-10-19T23:07 | photo | BUSINESS | Elon Musk faces tough Tesla‑SpaceX merger challenge | 1006 | 68 | 28 | 19 | 427.2 |
-| 2026-10-19T22:07 | reel | POLITICS | Donald Trump urges New Mexico to rename as New America | 646 | 15 | 3 | 0 | 168.2 |
-| 2026-10-19T21:07 | reel | BUSINESS | Elon Musk sudden split confirmed by partner | 2191 | 142 | 35 | 0 | 827.2 |
-| 2026-10-19T19:07 | reel | BUSINESS | Elon Musk To Give Every Child In America A SpaceX Share | 316 | 31 | 12 | 0 | 161.2 |
-| 2026-10-19T04:06 | photo | TECH | Elon Musk launches showroom FSD trials with 5 crucial details | 475 | 45 | 18 | 15 | 245.0 |
-| 2026-10-19T03:07 | reel | TECH | Elon Musk’s flying Roadster stuns critics, sparks illusion debate | 1077 | 144 | 18 | 0 | 557.4 |
-| 2026-10-19T02:06 | photo | TECH | Elon Musk wants new Tesla Roadster to top 380 MPH | 885 | 73 | 27 | 19 | 410.0 |
+| 2026-10-21T21:06 | reel | TECH | Elon Musk launches Optimus robot production, profit falls 43% | 1066 | 51 | 7 | 0 | 336.2 |
+| 2026-10-21T19:08 | reel | TECH | Elon Musk slows Starlink for Ukraine, critics say deadly | 394 | 23 | 3 | 0 | 133.8 |
+| 2026-10-21T04:07 | photo | CELEBRITY | Elon Musk's global roots: South African birth, Canadian mother, dual citizenship | 410 | 42 | 13 | 14 | 211.0 |
+| 2026-10-21T03:07 | reel | POLITICS | Musk restricts Starlink for Ukraine, sources reveal | 604 | 66 | 19 | 0 | 309.8 |
+| 2026-10-21T01:07 | reel | TECH | Elon Musk vows double Starship catch in upcoming test launch | 560 | 58 | 16 | 0 | 276.0 |
+| 2026-10-20T23:06 | photo | BUSINESS | Elon Musk's SpaceX hits $4.4 B profit, AI revenue soars 161% | 451 | 30 | 10 | 12 | 186.2 |
+| 2026-10-20T22:07 | reel | POLITICS | Elon Musk targets Texas Senate seat in billionaire showdown | 517 | 43 | 5 | 0 | 204.4 |
+| 2026-10-20T21:07 | reel | BUSINESS | Elon Musk claims money could become irrelevant soon | 1611 | 117 | 26 | 0 | 634.2 |
+| 2026-10-20T19:07 | reel | POLITICS | Elon Musk DOGE probe: Democrats investigate role | 405 | 21 | 13 | 0 | 162.0 |
+| 2026-10-20T04:08 | photo | BUSINESS | Elon Musk's Tesla Could Reach $4,400 by 2031 | 764 | 77 | 24 | 15 | 384.8 |
+| 2026-10-20T03:07 | reel | POLITICS | Elon Musk clashes with Texas Gov. Abbott over emails | 666 | 28 | 8 | 0 | 213.2 |
+| 2026-10-20T01:08 | reel | TECH | Jensen Huang warns over Nvidia's 'Digital Brains' concept | 300 | 18 | 6 | 0 | 114.0 |
+| 2026-10-19T23:07 | photo | BUSINESS | Elon Musk faces tough Tesla‑SpaceX merger challenge | 1016 | 69 | 28 | 19 | 431.2 |
+| 2026-10-19T22:07 | reel | POLITICS | Donald Trump urges New Mexico to rename as New America | 647 | 15 | 3 | 0 | 168.4 |
+| 2026-10-19T21:07 | reel | BUSINESS | Elon Musk sudden split confirmed by partner | 2543 | 153 | 37 | 0 | 925.6 |
+| 2026-10-19T19:07 | reel | BUSINESS | Elon Musk To Give Every Child In America A SpaceX Share | 318 | 32 | 12 | 0 | 163.6 |
+| 2026-10-19T04:06 | photo | TECH | Elon Musk launches showroom FSD trials with 5 crucial details | 478 | 46 | 18 | 18 | 247.6 |
+| 2026-10-19T03:07 | reel | TECH | Elon Musk’s flying Roadster stuns critics, sparks illusion debate | 1080 | 144 | 18 | 0 | 558.0 |
+| 2026-10-19T02:06 | photo | TECH | Elon Musk wants new Tesla Roadster to top 380 MPH | 910 | 74 | 27 | 20 | 417.0 |
 | 2026-10-19T01:07 | reel | BUSINESS | Elon Musk slashes $80,000 child support after NDA refusal | 345 | 23 | 8 | 0 | 139.0 |
 | 2026-10-18T21:06 | reel | BUSINESS | Elon Musk serves worst financial advice, internet erupts with memes | 607 | 34 | 11 | 0 | 222.4 |
 | 2026-10-18T19:07 | reel | BUSINESS | Elon Musk boosts Micron stock, sparking bullish clash with investors | 411 | 30 | 5 | 0 | 157.2 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) 
 | 2026-10-16T19:10 | reel | TECH | Elon Musk unveils air‑borne Roadster, igniting tech clash | 2076 | 65 | 4 | 0 | 557.2 |
 | 2026-10-16T04:08 | photo | BUSINESS | Elon Musk may merge SpaceX and Tesla, AI clash | 1669 | 94 | 19 | 15 | 584.8 |
 | 2026-10-16T03:08 | reel | BUSINESS | Elon Musk agrees to settle 2024 election lottery lawsuits | 352 | 13 | 2 | 0 | 102.4 |
-| 2026-10-16T02:07 | photo | TECH | Elon Musk's brain‑tech push draws attention to two small stocks | 413 | 25 | 2 | 12 | 144.6 |
