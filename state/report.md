@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-22 19:06 UTC_
+_Updated 2026-10-22 21:05 UTC_
 
 ```
-Based on the last 105 posts on this page:
-Best categories: BUSINESS (666.3), POLITICS (585.7), TECH (471.5)
+Based on the last 106 posts on this page:
+Best categories: BUSINESS (666.3), POLITICS (585.7), TECH (460.8)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (641.5, 63 posts), photo (124.7, 42 posts)
-Best posting slots (UTC): 21:00 (1559.1), 03:00 (707.1), 19:00 (626.3)
-Best faces on this page (avg views per post): Elon Musk 1566 (66 posts), Jensen Huang 307 (1 posts), Cole Sprouse 346 (1 posts), Donald Trump 135 (7 posts), Mark Zuckerberg 104 (5 posts), Sam Altman 72 (2 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (633.0, 64 posts), photo (124.7, 42 posts)
+Best posting slots (UTC): 21:00 (1559.1), 03:00 (707.1), 19:00 (595.0)
+Best faces on this page (avg views per post): Elon Musk 1547 (67 posts), Jensen Huang 307 (1 posts), Cole Sprouse 346 (1 posts), Donald Trump 135 (7 posts), Mark Zuckerberg 104 (5 posts), Sam Altman 72 (2 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2) | Elon Musk's Starlink restricted in Ukraine, Zelensky warns clash (5314.0)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-22T19:08 | reel | TECH | Elon Musk record 260,000 FSD subscribers in Q3 | 279 | 15 | 3 | 0 | 94.8 |
 | 2026-10-22T04:07 | photo | TECH | Tesla to start selling Cybercabs by year‑end | 99 | 5 | 0 | 13 | 35.8 |
 | 2026-10-22T03:08 | reel | BUSINESS | Mark Zuckerberg forces Meta to dodge California wealth tax | 316 | 14 | 1 | 0 | 94.2 |
 | 2026-10-22T01:07 | reel | TECH | Elon Musk’s Tesla Cybertruck eyed for police fleets, city sparks safety debate | 316 | 14 | 1 | 0 | 94.2 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) 
 | 2026-10-17T01:08 | reel | TECH | Elon Musk unveils record‑breaking flying Tesla car in high‑speed demo | 615 | 34 | 10 | 0 | 221.0 |
 | 2026-10-16T22:52 | reel | BUSINESS | Elon Musk's Tesla faces court block on self‑driving claims | 429 | 23 | 4 | 0 | 143.8 |
 | 2026-10-16T19:10 | reel | TECH | Elon Musk unveils air‑borne Roadster, igniting tech clash | 2078 | 64 | 4 | 0 | 555.6 |
-| 2026-10-16T04:08 | photo | BUSINESS | Elon Musk may merge SpaceX and Tesla, AI clash | 1670 | 94 | 19 | 15 | 585.0 |
