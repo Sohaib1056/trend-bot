@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-23 19:06 UTC_
+_Updated 2026-10-23 21:05 UTC_
 
 ```
-Based on the last 112 posts on this page:
-Best categories: BUSINESS (666.1), POLITICS (632.9), TECH (583.9)
+Based on the last 113 posts on this page:
+Best categories: BUSINESS (666.1), POLITICS (632.9), TECH (569.2)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (717.7, 68 posts), photo (130.5, 44 posts)
-Best posting slots (UTC): 21:00 (1713.0), 03:00 (746.6), 19:00 (719.4)
-Best faces on this page (avg views per post): Elon Musk 1758 (72 posts), Jensen Huang 325 (1 posts), Cole Sprouse 384 (1 posts), Donald Trump 166 (8 posts), Mark Zuckerberg 116 (5 posts), Sam Altman 72 (2 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (707.7, 69 posts), photo (130.5, 44 posts)
+Best posting slots (UTC): 21:00 (1713.0), 03:00 (746.6), 19:00 (680.8)
+Best faces on this page (avg views per post): Elon Musk 1735 (73 posts), Jensen Huang 325 (1 posts), Cole Sprouse 384 (1 posts), Donald Trump 166 (8 posts), Mark Zuckerberg 116 (5 posts), Sam Altman 72 (2 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2) | Elon Musk's Starlink restricted in Ukraine, Zelensky warns clash (5348.4)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-23T19:07 | reel | TECH | SpaceX wants to be America's fourth phone carrier | 55 | 7 | 0 | 0 | 25.0 |
 | 2026-10-23T04:07 | photo | TECH | Elon Musk invested $100 million in Neuralink, now FDA‑approved | 357 | 33 | 9 | 19 | 170.4 |
 | 2026-10-23T03:07 | reel | BUSINESS | SpaceX records $561 million gain from Boring Co. | 101 | 9 | 1 | 0 | 41.2 |
 | 2026-10-23T01:07 | reel | TECH | Elon Musk seeks 80,000 US cell sites, sparking telecom clash | 2815 | 287 | 32 | 0 | 1233.0 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) 
 | 2026-10-18T02:06 | photo | TECH | Elon Musk's wildest innovations: maps to flying cars | 644 | 46 | 23 | 12 | 295.8 |
 | 2026-10-18T01:06 | reel | TECH | Elon Musk teases Optimus Prime after China unveils 13‑foot robot | 439 | 19 | 5 | 0 | 140.8 |
 | 2026-10-17T21:06 | reel | CELEBRITY | Elon Musk global journey from South Africa to trillion‑dollar empire | 1376 | 68 | 10 | 0 | 441.2 |
-| 2026-10-17T19:07 | reel | TECH | Elon Musk claims Neuralink link, patient sends surprising reply | 568 | 41 | 20 | 0 | 255.6 |
