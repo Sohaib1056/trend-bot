@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-24 19:06 UTC_
+_Updated 2026-10-24 21:05 UTC_
 
 ```
-Based on the last 119 posts on this page:
-Best categories: BUSINESS (707.9), POLITICS (693.4), TECH (645.1)
+Based on the last 120 posts on this page:
+Best categories: BUSINESS (707.9), POLITICS (693.4), TECH (631.0)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (785.9, 73 posts), photo (137.3, 46 posts)
-Best posting slots (UTC): 21:00 (1892.4), 03:00 (812.3), 19:00 (744.4)
-Best faces on this page (avg views per post): Elon Musk 1931 (78 posts), Jensen Huang 337 (1 posts), Cole Sprouse 403 (1 posts), Sundar Pichai 218 (2 posts), Donald Trump 172 (8 posts), Mark Zuckerberg 121 (5 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (776.0, 74 posts), photo (137.3, 46 posts)
+Best posting slots (UTC): 21:00 (1892.4), 03:00 (812.3), 19:00 (708.0)
+Best faces on this page (avg views per post): Elon Musk 1908 (79 posts), Jensen Huang 337 (1 posts), Cole Sprouse 403 (1 posts), Sundar Pichai 218 (2 posts), Donald Trump 172 (8 posts), Mark Zuckerberg 121 (5 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2) | Elon Musk's Starlink restricted in Ukraine, Zelensky warns clash (5375.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-24T19:07 | reel | TECH | Elon Musk's SpaceX sparks U.S. allies scramble to escape orbit | 164 | 10 | 0 | 0 | 52.8 |
 | 2026-10-24T04:07 | photo | BUSINESS | Elon Musk’s SpaceX faces $40 billion AI‑linked debt turmoil | 406 | 24 | 7 | 13 | 156.2 |
 | 2026-10-24T03:08 | reel | TECH | Elon Musk cancels Cybertruck in Australia, NZ | 1786 | 187 | 31 | 0 | 824.2 |
 | 2026-10-24T01:07 | reel | BUSINESS | Elon Musk claims Optimus is 80% of Tesla's value | 1182 | 135 | 20 | 0 | 566.4 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) 
 | 2026-10-19T03:07 | reel | TECH | Elon Musk’s flying Roadster stuns critics, sparks illusion debate | 1148 | 151 | 19 | 0 | 588.6 |
 | 2026-10-19T02:06 | photo | TECH | Elon Musk wants new Tesla Roadster to top 380 MPH | 926 | 76 | 27 | 19 | 424.2 |
 | 2026-10-19T01:07 | reel | BUSINESS | Elon Musk slashes $80,000 child support after NDA refusal | 385 | 30 | 10 | 0 | 167.0 |
-| 2026-10-18T21:06 | reel | BUSINESS | Elon Musk serves worst financial advice, internet erupts with memes | 650 | 35 | 12 | 0 | 236.0 |
