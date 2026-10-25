@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-25 21:05 UTC_
+_Updated 2026-10-25 22:06 UTC_
 
 ```
-Based on the last 127 posts on this page:
-Best categories: BUSINESS (780.9), TECH (764.1), POLITICS (622.3)
+Based on the last 128 posts on this page:
+Best categories: BUSINESS (782.3), TECH (755.7), POLITICS (622.9)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (853.0, 79 posts), photo (151.9, 48 posts)
-Best posting slots (UTC): 21:00 (2111.7), 03:00 (846.6), 19:00 (730.4)
-Best faces on this page (avg views per post): Elon Musk 2136 (85 posts), Jensen Huang 346 (1 posts), Ilhan Omar 497 (1 posts), Cole Sprouse 414 (1 posts), Sundar Pichai 258 (2 posts), Donald Trump 176 (8 posts). Prefer the top faces; faces with low numbers only for very big news.
-Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk launches Optimus robot production, profit falls 43% (7077.0) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
+Format: reel (848.1, 80 posts), photo (151.9, 48 posts)
+Best posting slots (UTC): 21:00 (2000.9), 03:00 (846.7), 19:00 (730.9)
+Best faces on this page (avg views per post): Elon Musk 2132 (86 posts), Jensen Huang 346 (1 posts), Ilhan Omar 497 (1 posts), Cole Sprouse 416 (1 posts), Sundar Pichai 258 (2 posts), Donald Trump 176 (8 posts). Prefer the top faces; faces with low numbers only for very big news.
+Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk launches Optimus robot production, profit falls 43% (7449.0) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-25T21:07 | reel | TECH | Elon Musk's Cybercabs flood Austin F1 race | 99 | 4 | 1 | 0 | 30.8 |
 | 2026-10-25T19:06 | reel | POLITICS | Elon Musk calls politics incredibly tribal on Reddit | 0 | 0 | 0 | 0 | 0.0 |
 | 2026-10-25T04:07 | photo | BUSINESS | Elon Musk's Tesla loses top spot in EV charging to rivals | 575 | 51 | 14 | 16 | 265.0 |
 | 2026-10-25T03:07 | reel | POLITICS | Elon Musk says Kyiv violated Starshield terms as service resumes | 1402 | 103 | 14 | 0 | 528.4 |
@@ -40,17 +41,16 @@ Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) 
 | 2026-10-22T03:08 | reel | BUSINESS | Mark Zuckerberg forces Meta to dodge California wealth tax | 420 | 19 | 4 | 0 | 134.0 |
 | 2026-10-22T01:07 | reel | TECH | Elon Musk’s Tesla Cybertruck eyed for police fleets, city sparks safety debate | 446 | 30 | 5 | 0 | 164.2 |
 | 2026-10-21T23:06 | photo | BUSINESS | Ferrari's CEO just praised Elon Musk over Tesla Roadster | 536 | 47 | 8 | 15 | 231.2 |
-| 2026-10-21T22:07 | reel | CELEBRITY | Cole Sprouse mistaken as Barbara Palvin’s husband, not twin Dylan | 414 | 10 | 1 | 0 | 105.8 |
-| 2026-10-21T21:06 | reel | TECH | Elon Musk launches Optimus robot production, profit falls 43% | 22525 | 1193 | 62 | 0 | 7077.0 |
-| 2026-10-21T19:08 | reel | TECH | Elon Musk slows Starlink for Ukraine, critics say deadly | 1719 | 121 | 14 | 0 | 627.8 |
-| 2026-10-21T04:07 | photo | CELEBRITY | Elon Musk's global roots: South African birth, Canadian mother, dual citizenship | 516 | 43 | 13 | 14 | 234.2 |
-| 2026-10-21T03:07 | reel | POLITICS | Musk restricts Starlink for Ukraine, sources reveal | 6262 | 549 | 58 | 0 | 2524.4 |
-| 2026-10-21T01:07 | reel | TECH | Elon Musk vows double Starship catch in upcoming test launch | 731 | 84 | 22 | 0 | 380.2 |
-| 2026-10-20T23:06 | photo | BUSINESS | Elon Musk's SpaceX hits $4.4 B profit, AI revenue soars 161% | 498 | 34 | 10 | 12 | 203.6 |
-| 2026-10-20T22:07 | reel | POLITICS | Elon Musk targets Texas Senate seat in billionaire showdown | 604 | 52 | 8 | 0 | 248.8 |
-| 2026-10-20T21:07 | reel | BUSINESS | Elon Musk claims money could become irrelevant soon | 2105 | 165 | 34 | 0 | 853.0 |
-| 2026-10-20T19:07 | reel | POLITICS | Elon Musk DOGE probe: Democrats investigate role | 461 | 26 | 15 | 0 | 189.2 |
+| 2026-10-21T22:07 | reel | CELEBRITY | Cole Sprouse mistaken as Barbara Palvin’s husband, not twin Dylan | 416 | 10 | 1 | 0 | 106.2 |
+| 2026-10-21T21:06 | reel | TECH | Elon Musk launches Optimus robot production, profit falls 43% | 24025 | 1229 | 62 | 0 | 7449.0 |
+| 2026-10-21T19:08 | reel | TECH | Elon Musk slows Starlink for Ukraine, critics say deadly | 1724 | 121 | 14 | 0 | 628.8 |
+| 2026-10-21T04:07 | photo | CELEBRITY | Elon Musk's global roots: South African birth, Canadian mother, dual citizenship | 517 | 43 | 13 | 14 | 234.4 |
+| 2026-10-21T03:07 | reel | POLITICS | Musk restricts Starlink for Ukraine, sources reveal | 6270 | 549 | 58 | 0 | 2526.0 |
+| 2026-10-21T01:07 | reel | TECH | Elon Musk vows double Starship catch in upcoming test launch | 733 | 84 | 22 | 0 | 380.6 |
+| 2026-10-20T23:06 | photo | BUSINESS | Elon Musk's SpaceX hits $4.4 B profit, AI revenue soars 161% | 499 | 34 | 10 | 12 | 203.8 |
+| 2026-10-20T22:07 | reel | POLITICS | Elon Musk targets Texas Senate seat in billionaire showdown | 605 | 52 | 8 | 0 | 249.0 |
+| 2026-10-20T21:07 | reel | BUSINESS | Elon Musk claims money could become irrelevant soon | 2115 | 167 | 34 | 0 | 859.0 |
+| 2026-10-20T19:07 | reel | POLITICS | Elon Musk DOGE probe: Democrats investigate role | 472 | 26 | 17 | 0 | 197.4 |
 | 2026-10-20T04:08 | photo | BUSINESS | Elon Musk's Tesla Could Reach $4,400 by 2031 | 819 | 81 | 23 | 15 | 400.8 |
 | 2026-10-20T03:07 | reel | POLITICS | Elon Musk clashes with Texas Gov. Abbott over emails | 699 | 31 | 9 | 0 | 228.8 |
 | 2026-10-20T01:08 | reel | TECH | Jensen Huang warns over Nvidia's 'Digital Brains' concept | 346 | 22 | 7 | 0 | 134.2 |
-| 2026-10-19T23:07 | photo | BUSINESS | Elon Musk faces tough Tesla‑SpaceX merger challenge | 1193 | 87 | 33 | 20 | 517.6 |
