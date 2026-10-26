@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-26 19:06 UTC_
+_Updated 2026-10-26 21:05 UTC_
 
 ```
-Based on the last 133 posts on this page:
-Best categories: BUSINESS (846.5), TECH (825.6), POLITICS (656.6)
-Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (912.3, 83 posts), photo (166.9, 50 posts)
-Best posting slots (UTC): 21:00 (2162.4), 03:00 (863.0), 19:00 (820.9)
-Best faces on this page (avg views per post): Elon Musk 2329 (90 posts), Ilhan Omar 523 (1 posts), Jensen Huang 351 (1 posts), Cole Sprouse 420 (1 posts), Sundar Pichai 276 (3 posts), Donald Trump 178 (8 posts). Prefer the top faces; faces with low numbers only for very big news.
-Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8344.4) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
+Based on the last 134 posts on this page:
+Best categories: BUSINESS (851.7), TECH (834.8), POLITICS (657.3)
+Weakest categories: SCIENCE (4.2), TV & FILM (2.0)
+Format: reel (908.7, 84 posts), photo (167.0, 50 posts)
+Best posting slots (UTC): 21:00 (2194.1), 03:00 (863.9), 19:00 (787.6)
+Best faces on this page (avg views per post): Elon Musk 2328 (91 posts), Ilhan Omar 523 (1 posts), Jensen Huang 351 (1 posts), Cole Sprouse 422 (1 posts), Sundar Pichai 276 (3 posts), Donald Trump 179 (8 posts). Prefer the top faces; faces with low numbers only for very big news.
+Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8638.8) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-26T19:07 | reel | TV & FILM | Elon Musk’s AI Odyssey gets roasted after first episode drops | 10 | 0 | 0 | 0 | 2.0 |
 | 2026-10-26T04:07 | photo | CELEBRITY | Elon Musk global roots and early life revealed | 895 | 57 | 21 | 19 | 362.0 |
 | 2026-10-26T03:08 | reel | CELEBRITY | Musk wins Gold Space Medal and Time Person of Year | 414 | 56 | 14 | 0 | 236.8 |
 | 2026-10-26T01:08 | reel | POLITICS | Elon Musk receives official response from Ukraine | 479 | 25 | 2 | 0 | 151.8 |
@@ -39,18 +40,17 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8344.4
 | 2026-10-23T03:07 | reel | BUSINESS | SpaceX records $561 million gain from Boring Co. | 157 | 12 | 2 | 0 | 61.4 |
 | 2026-10-23T01:07 | reel | TECH | Elon Musk seeks 80,000 US cell sites, sparking telecom clash | 13844 | 706 | 56 | 0 | 4348.8 |
 | 2026-10-22T23:07 | photo | BUSINESS | Elon Musk: 5 Wild Facts You Never Knew | 361 | 22 | 7 | 12 | 143.2 |
-| 2026-10-22T22:07 | reel | POLITICS | Trump calls LeBron a total disgrace over anthem | 430 | 10 | 3 | 0 | 115.0 |
-| 2026-10-22T21:07 | reel | BUSINESS | Elon Musk's SpaceX stock slides | 1223 | 114 | 11 | 0 | 505.6 |
-| 2026-10-22T19:08 | reel | TECH | Elon Musk record 260,000 FSD subscribers in Q3 | 6104 | 547 | 58 | 0 | 2488.8 |
-| 2026-10-22T04:07 | photo | TECH | Tesla to start selling Cybercabs by year‑end | 294 | 31 | 8 | 19 | 150.8 |
-| 2026-10-22T03:08 | reel | BUSINESS | Mark Zuckerberg forces Meta to dodge California wealth tax | 428 | 19 | 4 | 0 | 135.6 |
-| 2026-10-22T01:07 | reel | TECH | Elon Musk’s Tesla Cybertruck eyed for police fleets, city sparks safety debate | 454 | 30 | 5 | 0 | 165.8 |
-| 2026-10-21T23:06 | photo | BUSINESS | Ferrari's CEO just praised Elon Musk over Tesla Roadster | 537 | 47 | 8 | 15 | 231.4 |
-| 2026-10-21T22:07 | reel | CELEBRITY | Cole Sprouse mistaken as Barbara Palvin’s husband, not twin Dylan | 420 | 10 | 1 | 0 | 107.0 |
-| 2026-10-21T21:06 | reel | TECH | Elon Musk launches Optimus robot production, profit falls 43% | 27772 | 1302 | 62 | 0 | 8344.4 |
-| 2026-10-21T19:08 | reel | TECH | Elon Musk slows Starlink for Ukraine, critics say deadly | 1729 | 122 | 14 | 0 | 631.8 |
+| 2026-10-22T22:07 | reel | POLITICS | Trump calls LeBron a total disgrace over anthem | 436 | 10 | 3 | 0 | 116.2 |
+| 2026-10-22T21:07 | reel | BUSINESS | Elon Musk's SpaceX stock slides | 1256 | 116 | 12 | 0 | 519.2 |
+| 2026-10-22T19:08 | reel | TECH | Elon Musk record 260,000 FSD subscribers in Q3 | 6436 | 570 | 58 | 0 | 2601.2 |
+| 2026-10-22T04:07 | photo | TECH | Tesla to start selling Cybercabs by year‑end | 295 | 31 | 8 | 18 | 151.0 |
+| 2026-10-22T03:08 | reel | BUSINESS | Mark Zuckerberg forces Meta to dodge California wealth tax | 432 | 20 | 4 | 0 | 138.4 |
+| 2026-10-22T01:07 | reel | TECH | Elon Musk’s Tesla Cybertruck eyed for police fleets, city sparks safety debate | 455 | 30 | 5 | 0 | 166.0 |
+| 2026-10-21T23:06 | photo | BUSINESS | Ferrari's CEO just praised Elon Musk over Tesla Roadster | 543 | 47 | 8 | 15 | 232.6 |
+| 2026-10-21T22:07 | reel | CELEBRITY | Cole Sprouse mistaken as Barbara Palvin’s husband, not twin Dylan | 422 | 10 | 1 | 0 | 107.4 |
+| 2026-10-21T21:06 | reel | TECH | Elon Musk launches Optimus robot production, profit falls 43% | 28944 | 1332 | 62 | 0 | 8638.8 |
+| 2026-10-21T19:08 | reel | TECH | Elon Musk slows Starlink for Ukraine, critics say deadly | 1744 | 123 | 14 | 0 | 636.8 |
 | 2026-10-21T04:07 | photo | CELEBRITY | Elon Musk's global roots: South African birth, Canadian mother, dual citizenship | 517 | 43 | 13 | 14 | 234.4 |
-| 2026-10-21T03:07 | reel | POLITICS | Musk restricts Starlink for Ukraine, sources reveal | 6292 | 550 | 58 | 0 | 2532.4 |
-| 2026-10-21T01:07 | reel | TECH | Elon Musk vows double Starship catch in upcoming test launch | 737 | 84 | 22 | 0 | 381.4 |
+| 2026-10-21T03:07 | reel | POLITICS | Musk restricts Starlink for Ukraine, sources reveal | 6328 | 552 | 58 | 0 | 2543.6 |
+| 2026-10-21T01:07 | reel | TECH | Elon Musk vows double Starship catch in upcoming test launch | 742 | 84 | 22 | 0 | 382.4 |
 | 2026-10-20T23:06 | photo | BUSINESS | Elon Musk's SpaceX hits $4.4 B profit, AI revenue soars 161% | 499 | 34 | 10 | 12 | 203.8 |
-| 2026-10-20T22:07 | reel | POLITICS | Elon Musk targets Texas Senate seat in billionaire showdown | 609 | 52 | 8 | 0 | 249.8 |
