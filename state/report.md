@@ -1,23 +1,24 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-26 03:06 UTC_
+_Updated 2026-10-26 04:06 UTC_
 
 ```
-Based on the last 131 posts on this page:
-Best categories: BUSINESS (809.7), TECH (766.7), POLITICS (608.3)
+Based on the last 132 posts on this page:
+Best categories: BUSINESS (810.7), TECH (777.6), POLITICS (608.7)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (866.5, 82 posts), photo (153.3, 49 posts)
-Best posting slots (UTC): 21:00 (2074.1), 03:00 (865.0), 19:00 (759.2)
-Best faces on this page (avg views per post): Elon Musk 2206 (88 posts), Ilhan Omar 517 (1 posts), Jensen Huang 348 (1 posts), Cole Sprouse 417 (1 posts), Sundar Pichai 251 (3 posts), Donald Trump 177 (8 posts). Prefer the top faces; faces with low numbers only for very big news.
-Top posts: Elon Musk launches Optimus robot production, profit falls 43% (7955.0) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
+Format: reel (861.6, 83 posts), photo (155.0, 49 posts)
+Best posting slots (UTC): 21:00 (2103.2), 03:00 (815.3), 19:00 (759.4)
+Best faces on this page (avg views per post): Elon Musk 2204 (89 posts), Ilhan Omar 517 (1 posts), Jensen Huang 351 (1 posts), Cole Sprouse 420 (1 posts), Sundar Pichai 251 (3 posts), Donald Trump 178 (8 posts). Prefer the top faces; faces with low numbers only for very big news.
+Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8344.4) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-26T03:08 | reel | CELEBRITY | Musk wins Gold Space Medal and Time Person of Year | 16 | 4 | 1 | 0 | 14.2 |
 | 2026-10-26T01:08 | reel | POLITICS | Elon Musk receives official response from Ukraine | 239 | 6 | 1 | 0 | 62.8 |
-| 2026-10-25T23:07 | photo | TECH | Elon Musk's Roadster fails reality check, engineer debunks stunts | 47 | 8 | 1 | 2 | 34.4 |
+| 2026-10-25T23:07 | photo | TECH | Elon Musk's Roadster fails reality check, engineer debunks stunts | 232 | 23 | 7 | 6 | 119.4 |
 | 2026-10-25T22:07 | reel | TECH | Alphabet cloud revenue soars 82% in one quarter | 219 | 1 | 11 | 0 | 78.8 |
-| 2026-10-25T21:07 | reel | TECH | Elon Musk's Cybercabs flood Austin F1 race | 306 | 13 | 1 | 0 | 90.2 |
+| 2026-10-25T21:07 | reel | TECH | Elon Musk's Cybercabs flood Austin F1 race | 339 | 16 | 1 | 0 | 102.8 |
 | 2026-10-25T19:06 | reel | POLITICS | Elon Musk calls politics incredibly tribal on Reddit | 409 | 29 | 5 | 0 | 154.8 |
 | 2026-10-25T04:07 | photo | BUSINESS | Elon Musk's Tesla loses top spot in EV charging to rivals | 837 | 72 | 22 | 18 | 383.4 |
 | 2026-10-25T03:07 | reel | POLITICS | Elon Musk says Kyiv violated Starshield terms as service resumes | 1625 | 127 | 19 | 0 | 636.0 |
@@ -41,16 +42,15 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (7955.0
 | 2026-10-22T21:07 | reel | BUSINESS | Elon Musk's SpaceX stock slides | 1217 | 112 | 11 | 0 | 500.4 |
 | 2026-10-22T19:08 | reel | TECH | Elon Musk record 260,000 FSD subscribers in Q3 | 6016 | 541 | 58 | 0 | 2459.2 |
 | 2026-10-22T04:07 | photo | TECH | Tesla to start selling Cybercabs by year‑end | 294 | 31 | 8 | 19 | 150.8 |
-| 2026-10-22T03:08 | reel | BUSINESS | Mark Zuckerberg forces Meta to dodge California wealth tax | 421 | 19 | 4 | 0 | 134.2 |
-| 2026-10-22T01:07 | reel | TECH | Elon Musk’s Tesla Cybertruck eyed for police fleets, city sparks safety debate | 448 | 30 | 5 | 0 | 164.6 |
+| 2026-10-22T03:08 | reel | BUSINESS | Mark Zuckerberg forces Meta to dodge California wealth tax | 428 | 19 | 4 | 0 | 135.6 |
+| 2026-10-22T01:07 | reel | TECH | Elon Musk’s Tesla Cybertruck eyed for police fleets, city sparks safety debate | 454 | 30 | 5 | 0 | 165.8 |
 | 2026-10-21T23:06 | photo | BUSINESS | Ferrari's CEO just praised Elon Musk over Tesla Roadster | 537 | 47 | 8 | 15 | 231.4 |
-| 2026-10-21T22:07 | reel | CELEBRITY | Cole Sprouse mistaken as Barbara Palvin’s husband, not twin Dylan | 417 | 10 | 1 | 0 | 106.4 |
-| 2026-10-21T21:06 | reel | TECH | Elon Musk launches Optimus robot production, profit falls 43% | 26155 | 1269 | 62 | 0 | 7955.0 |
-| 2026-10-21T19:08 | reel | TECH | Elon Musk slows Starlink for Ukraine, critics say deadly | 1725 | 121 | 14 | 0 | 629.0 |
-| 2026-10-21T04:07 | photo | CELEBRITY | Elon Musk's global roots: South African birth, Canadian mother, dual citizenship | 517 | 43 | 13 | 13 | 234.4 |
-| 2026-10-21T03:07 | reel | POLITICS | Musk restricts Starlink for Ukraine, sources reveal | 6283 | 549 | 58 | 0 | 2528.6 |
-| 2026-10-21T01:07 | reel | TECH | Elon Musk vows double Starship catch in upcoming test launch | 734 | 84 | 22 | 0 | 380.8 |
+| 2026-10-21T22:07 | reel | CELEBRITY | Cole Sprouse mistaken as Barbara Palvin’s husband, not twin Dylan | 420 | 10 | 1 | 0 | 107.0 |
+| 2026-10-21T21:06 | reel | TECH | Elon Musk launches Optimus robot production, profit falls 43% | 27772 | 1302 | 62 | 0 | 8344.4 |
+| 2026-10-21T19:08 | reel | TECH | Elon Musk slows Starlink for Ukraine, critics say deadly | 1729 | 122 | 14 | 0 | 631.8 |
+| 2026-10-21T04:07 | photo | CELEBRITY | Elon Musk's global roots: South African birth, Canadian mother, dual citizenship | 517 | 43 | 13 | 14 | 234.4 |
+| 2026-10-21T03:07 | reel | POLITICS | Musk restricts Starlink for Ukraine, sources reveal | 6292 | 550 | 58 | 0 | 2532.4 |
+| 2026-10-21T01:07 | reel | TECH | Elon Musk vows double Starship catch in upcoming test launch | 737 | 84 | 22 | 0 | 381.4 |
 | 2026-10-20T23:06 | photo | BUSINESS | Elon Musk's SpaceX hits $4.4 B profit, AI revenue soars 161% | 499 | 34 | 10 | 12 | 203.8 |
-| 2026-10-20T22:07 | reel | POLITICS | Elon Musk targets Texas Senate seat in billionaire showdown | 606 | 52 | 8 | 0 | 249.2 |
-| 2026-10-20T21:07 | reel | BUSINESS | Elon Musk claims money could become irrelevant soon | 2123 | 167 | 34 | 0 | 860.6 |
-| 2026-10-20T19:07 | reel | POLITICS | Elon Musk DOGE probe: Democrats investigate role | 480 | 26 | 17 | 0 | 199.0 |
+| 2026-10-20T22:07 | reel | POLITICS | Elon Musk targets Texas Senate seat in billionaire showdown | 609 | 52 | 8 | 0 | 249.8 |
+| 2026-10-20T21:07 | reel | BUSINESS | Elon Musk claims money could become irrelevant soon | 2133 | 168 | 34 | 0 | 864.6 |
