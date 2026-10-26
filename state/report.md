@@ -1,21 +1,22 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-25 23:06 UTC_
+_Updated 2026-10-26 01:06 UTC_
 
 ```
-Based on the last 129 posts on this page:
-Best categories: BUSINESS (793.8), TECH (753.4), POLITICS (632.0)
+Based on the last 130 posts on this page:
+Best categories: BUSINESS (794.7), TECH (750.0), POLITICS (632.3)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (852.5, 81 posts), photo (153.8, 48 posts)
-Best posting slots (UTC): 21:00 (2016.4), 03:00 (854.6), 19:00 (745.9)
-Best faces on this page (avg views per post): Elon Musk 2178 (86 posts), Jensen Huang 346 (1 posts), Ilhan Omar 508 (1 posts), Cole Sprouse 416 (1 posts), Sundar Pichai 193 (3 posts), Donald Trump 176 (8 posts). Prefer the top faces; faces with low numbers only for very big news.
-Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk launches Optimus robot production, profit falls 43% (7449.0) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
+Format: reel (859.9, 81 posts), photo (151.4, 49 posts)
+Best posting slots (UTC): 21:00 (2056.2), 03:00 (854.7), 19:00 (746.0)
+Best faces on this page (avg views per post): Elon Musk 2182 (87 posts), Jensen Huang 348 (1 posts), Ilhan Omar 508 (1 posts), Cole Sprouse 417 (1 posts), Sundar Pichai 193 (3 posts), Donald Trump 177 (8 posts). Prefer the top faces; faces with low numbers only for very big news.
+Top posts: Elon Musk launches Optimus robot production, profit falls 43% (7955.0) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-25T23:07 | photo | TECH | Elon Musk's Roadster fails reality check, engineer debunks stunts | 47 | 8 | 1 | 2 | 34.4 |
 | 2026-10-25T22:07 | reel | TECH | Alphabet cloud revenue soars 82% in one quarter | 57 | 1 | 0 | 0 | 13.4 |
-| 2026-10-25T21:07 | reel | TECH | Elon Musk's Cybercabs flood Austin F1 race | 99 | 4 | 1 | 0 | 30.8 |
+| 2026-10-25T21:07 | reel | TECH | Elon Musk's Cybercabs flood Austin F1 race | 306 | 13 | 1 | 0 | 90.2 |
 | 2026-10-25T19:06 | reel | POLITICS | Elon Musk calls politics incredibly tribal on Reddit | 310 | 19 | 2 | 0 | 106.0 |
 | 2026-10-25T04:07 | photo | BUSINESS | Elon Musk's Tesla loses top spot in EV charging to rivals | 702 | 62 | 16 | 16 | 318.4 |
 | 2026-10-25T03:07 | reel | POLITICS | Elon Musk says Kyiv violated Starshield terms as service resumes | 1521 | 116 | 16 | 0 | 584.2 |
@@ -40,17 +41,16 @@ Top posts: Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) 
 | 2026-10-22T19:08 | reel | TECH | Elon Musk record 260,000 FSD subscribers in Q3 | 5929 | 536 | 58 | 0 | 2431.8 |
 | 2026-10-22T04:07 | photo | TECH | Tesla to start selling Cybercabs by year‑end | 294 | 31 | 8 | 19 | 150.8 |
 | 2026-10-22T03:08 | reel | BUSINESS | Mark Zuckerberg forces Meta to dodge California wealth tax | 421 | 19 | 4 | 0 | 134.2 |
-| 2026-10-22T01:07 | reel | TECH | Elon Musk’s Tesla Cybertruck eyed for police fleets, city sparks safety debate | 446 | 30 | 5 | 0 | 164.2 |
-| 2026-10-21T23:06 | photo | BUSINESS | Ferrari's CEO just praised Elon Musk over Tesla Roadster | 536 | 47 | 8 | 15 | 231.2 |
-| 2026-10-21T22:07 | reel | CELEBRITY | Cole Sprouse mistaken as Barbara Palvin’s husband, not twin Dylan | 416 | 10 | 1 | 0 | 106.2 |
-| 2026-10-21T21:06 | reel | TECH | Elon Musk launches Optimus robot production, profit falls 43% | 24025 | 1229 | 62 | 0 | 7449.0 |
-| 2026-10-21T19:08 | reel | TECH | Elon Musk slows Starlink for Ukraine, critics say deadly | 1724 | 121 | 14 | 0 | 628.8 |
-| 2026-10-21T04:07 | photo | CELEBRITY | Elon Musk's global roots: South African birth, Canadian mother, dual citizenship | 517 | 43 | 13 | 14 | 234.4 |
-| 2026-10-21T03:07 | reel | POLITICS | Musk restricts Starlink for Ukraine, sources reveal | 6270 | 549 | 58 | 0 | 2526.0 |
-| 2026-10-21T01:07 | reel | TECH | Elon Musk vows double Starship catch in upcoming test launch | 733 | 84 | 22 | 0 | 380.6 |
+| 2026-10-22T01:07 | reel | TECH | Elon Musk’s Tesla Cybertruck eyed for police fleets, city sparks safety debate | 448 | 30 | 5 | 0 | 164.6 |
+| 2026-10-21T23:06 | photo | BUSINESS | Ferrari's CEO just praised Elon Musk over Tesla Roadster | 537 | 47 | 8 | 15 | 231.4 |
+| 2026-10-21T22:07 | reel | CELEBRITY | Cole Sprouse mistaken as Barbara Palvin’s husband, not twin Dylan | 417 | 10 | 1 | 0 | 106.4 |
+| 2026-10-21T21:06 | reel | TECH | Elon Musk launches Optimus robot production, profit falls 43% | 26155 | 1269 | 62 | 0 | 7955.0 |
+| 2026-10-21T19:08 | reel | TECH | Elon Musk slows Starlink for Ukraine, critics say deadly | 1725 | 121 | 14 | 0 | 629.0 |
+| 2026-10-21T04:07 | photo | CELEBRITY | Elon Musk's global roots: South African birth, Canadian mother, dual citizenship | 517 | 43 | 13 | 13 | 234.4 |
+| 2026-10-21T03:07 | reel | POLITICS | Musk restricts Starlink for Ukraine, sources reveal | 6283 | 549 | 58 | 0 | 2528.6 |
+| 2026-10-21T01:07 | reel | TECH | Elon Musk vows double Starship catch in upcoming test launch | 734 | 84 | 22 | 0 | 380.8 |
 | 2026-10-20T23:06 | photo | BUSINESS | Elon Musk's SpaceX hits $4.4 B profit, AI revenue soars 161% | 499 | 34 | 10 | 12 | 203.8 |
-| 2026-10-20T22:07 | reel | POLITICS | Elon Musk targets Texas Senate seat in billionaire showdown | 605 | 52 | 8 | 0 | 249.0 |
-| 2026-10-20T21:07 | reel | BUSINESS | Elon Musk claims money could become irrelevant soon | 2115 | 167 | 34 | 0 | 859.0 |
-| 2026-10-20T19:07 | reel | POLITICS | Elon Musk DOGE probe: Democrats investigate role | 472 | 26 | 17 | 0 | 197.4 |
+| 2026-10-20T22:07 | reel | POLITICS | Elon Musk targets Texas Senate seat in billionaire showdown | 606 | 52 | 8 | 0 | 249.2 |
+| 2026-10-20T21:07 | reel | BUSINESS | Elon Musk claims money could become irrelevant soon | 2123 | 167 | 34 | 0 | 860.6 |
+| 2026-10-20T19:07 | reel | POLITICS | Elon Musk DOGE probe: Democrats investigate role | 480 | 26 | 17 | 0 | 199.0 |
 | 2026-10-20T04:08 | photo | BUSINESS | Elon Musk's Tesla Could Reach $4,400 by 2031 | 819 | 81 | 23 | 15 | 400.8 |
-| 2026-10-20T03:07 | reel | POLITICS | Elon Musk clashes with Texas Gov. Abbott over emails | 699 | 31 | 9 | 0 | 228.8 |
