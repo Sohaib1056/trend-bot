@@ -10,6 +10,7 @@
 Music: a random track from assets/music/ (royalty-free), quieter under the voice.
 """
 import base64
+import collections
 import glob
 import os
 import random
@@ -258,16 +259,22 @@ def _person_photos(post, want=3, used=()):
     return out
 
 
+_OPENVERSE = {"down": False}  # Openverse often times out: after one failure, skip it for the rest of the run
+
+
 def _real_photo(query, line, seen):
     """A real, free-licensed photo (Openverse: Flickr, Wikimedia...) of the exact thing a line names, e.g. 'Tesla
     Roadster' or 'Falcon 9 launch'; the judge must find it on-topic and good-looking. Returns (img, credit) or None."""
     from .ai import judge_image
+    if _OPENVERSE["down"]:
+        return None
     try:
-        r = requests.get("https://api.openverse.org/v1/images/", headers=WIKI_UA, timeout=30, params={
+        r = requests.get("https://api.openverse.org/v1/images/", headers=WIKI_UA, timeout=15, params={
             "q": query, "license_type": "commercial", "page_size": 20})
         results = r.json().get("results", [])
     except Exception as e:
-        print(f"[reel] Openverse search for '{query}' failed: {e}")
+        print(f"[reel] Openverse search for '{query}' failed: {str(e)[:120]} -> skipping Openverse for this run")
+        _OPENVERSE["down"] = True
         return None
     good = [x for x in results if min(x.get("width") or 0, x.get("height") or 0) >= 900 and x.get("url") not in seen
             and not COMMONS_SKIP.search(x.get("title") or "")]
@@ -277,7 +284,7 @@ def _real_photo(query, line, seen):
         try:
             im = _download(url, WIKI_UA if x.get("source") == "wikimedia" else BROWSER_UA)
             score = judge_image(im, line)
-            if score is not None and (score[0] < 6 or score[1] < 6):
+            if score is not None and (score[0] < 6 or score[1] < 7):  # professional-looking only
                 print(f"[reel] photo for '{query}' rejected by the judge")
                 continue
             lic = x.get("license", "")
@@ -333,7 +340,7 @@ def _wiki_photos(title, line, seen, skip="", tries=3):
         try:
             im = _download(url, WIKI_UA)
             score = judge_image(im, line)
-            if score is not None and (score[0] < 5 or score[1] < 6):
+            if score is not None and (score[0] < 5 or score[1] < 7):  # professional-looking only
                 print(f"[reel] Wikipedia photo {name[5:55]} rejected by the judge")
                 continue
             print(f"[reel] real photo from '{title}': {name[5:65]}")
@@ -469,7 +476,7 @@ def _people(post, photo, want):
     return people
 
 
-MIN_SCENE, MAX_SCENE = 1.0, 3.6  # seconds
+MIN_SCENE, MAX_SCENE = 1.0, 2.2  # seconds: a new picture at least every ~2s (owner: more scenes)
 REEL_LEN = 15.0  # Reels run 15 seconds...
 MAX_LEN = 17.0   # ...or up to 17 when the full story needs it (owner's rule)
 
@@ -488,63 +495,80 @@ def _planned_scenes(post, photo, words, duration):
         starts.append(0.0 if not starts else words[min(idx, len(words) - 1)][1])
         idx += len(str(s["line"]).split())
     bounds = [(starts[i], starts[i + 1] if i + 1 < len(plan) else duration) for i in range(len(plan))]
-    segs = []  # merge too-short lines into the previous one, split long ones in two
+    segs = []  # merge too-short lines into the previous one, split long ones so every scene is ~2s
     for s, (a, b) in zip(plan, bounds):
         if segs and b - a < MIN_SCENE:
             segs[-1][2] = b
             continue
-        if b - a > MAX_SCENE:
-            segs += [[s, a, (a + b) / 2, 0], [s, (a + b) / 2, b, 1]]
-        else:
-            segs.append([s, a, b, 0])
+        n = max(1, -(-(b - a) // MAX_SCENE))
+        n = int(n)
+        segs += [[s, a + (b - a) * j / n, a + (b - a) * (j + 1) / n, j] for j in range(n)]
     people = _people(post, photo, want=1)  # the opening face (+ one spare, only if nothing else can be found)
     others = [im for im in post.get("_extras", []) if im is not photo] + ([] if post.get("_person") else [photo])
     main = (post.get("wiki_title") or "").strip()
     skip = main.split()[-1].lower() if main and post.get("_person") else ""  # the face is shown once, at the start
     wikis = list(dict.fromkeys(str(s.get("wiki") or "").strip() for s in plan if str(s.get("wiki") or "").strip()))
-    seen, clips_cache, out, stills, credits = set(), {}, [], {}, []
+    from .trends import STAR_WORLD  # the star's world (rockets, cars, robots...): professional photos for any line
+    story = (post["headline"] + " " + str(post.get("voiceover", ""))).lower()
+    world = sorted(STAR_WORLD.get(main, []), key=lambda t: not any(w in story for w in re.findall(r"[a-z0-9]{4,}", t.lower())))
+    seen, clips_cache, out, stills, credits, used = set(), {}, [], {}, [], set()
+    shown = collections.Counter()  # fallback photos taken from each article
+    def key(item):  # clips by file, photos (and faces) by object
+        first = item[0] if isinstance(item, tuple) else item
+        return first if isinstance(first, str) else id(first)
+
+    def new_photo(get):
+        got = get()
+        if got and key(got[0]) not in used:
+            credits.append(got[1])
+            return got[0]
+        return None
+
+    def new_clip(cache_key, fetch):
+        if cache_key not in clips_cache:
+            clips_cache[cache_key] = fetch()
+        return next((c for c in clips_cache[cache_key] if key(c) not in used), None)
+
     for k, (s, a, b, part) in enumerate(segs):
         query = str(s.get("query") or "").strip()
         wiki = str(s.get("wiki") or "").strip()
         line = str(s["line"])
+        q = str(s.get("photo") or query).strip()
+        tries = []
+        if wiki and wiki.lower() != main.lower():  # a real photo of exactly what the line names
+            tries.append(("photo", lambda: new_photo(lambda: _wiki_photos(wiki, line, seen, skip))))
+            shown[wiki] += 1
+        if query:  # real footage of the action
+            tries.append(("video", lambda: new_clip(query, lambda: _pixabay_videos(
+                post, want=3, queries=[query], context=line, seen=seen, max_judge=4))))
+        if q:  # a real photo (Openverse) of the thing the line names
+            tries.append(("photo", lambda: new_photo(lambda: _real_photo(q, line, seen))))
+        if out and out[-1][0] == "photo":  # photo, video, photo...: alternate when both fit the line
+            tries.sort(key=lambda t: t[0] != "video")
         kind = item = None
         if k == 0 and people:  # owner's rule: the person's face once, at the start; then real scenes
             kind, item = "face", people[0]
-        if kind is None and wiki and wiki.lower() != main.lower():  # a real photo of exactly what the line names
-            got = _wiki_photos(wiki, line, seen, skip)
-            if got:
-                kind, item = "photo", got[0]
-                credits.append(got[1])
-        if kind is None and query:  # real footage of the action
-            if query not in clips_cache:
-                clips_cache[query] = _pixabay_videos(post, want=2, queries=[query], context=line, seen=seen, max_judge=3)
-            got = clips_cache[query]
-            if got:
-                kind, item = "video", got[min(part, len(got) - 1)]
-        if kind is None:  # a REAL photo of the thing this line names (no AI pictures: they look fake)
-            q = str(s.get("photo") or query).strip()
-            if q and q not in stills:
-                stills[q] = _real_photo(q, line, seen)
-            if stills.get(q):
-                kind, item = "photo", stills[q][0]
-                credits.append(stills[q][1])
-        if kind is None:  # another real photo of something this story is about
-            for w in wikis + ([main] if main else []):
-                got = _wiki_photos(w, line, seen, skip, tries=2)
-                if got:
-                    kind, item = "photo", got[0]
-                    credits.append(got[1])
+        for kd, fn in ([] if kind else tries):
+            item = fn()
+            if item is not None:
+                kind = kd
+                break
+        if kind is None:  # another professional real photo: the story's other articles, then the star's world
+            pool = [w for w in wikis + world if w.lower() != main.lower()]
+            for w in sorted(pool, key=lambda w: shown[w]):  # a different article each time (not 5x Cybertruck)
+                item = new_photo(lambda: _wiki_photos(w, line, seen, skip, tries=2))
+                if item is not None:
+                    kind = "photo"
+                    shown[w] += 1
                     break
-        if kind is None:  # footage for the story in general, or footage already found for another line
-            if "_story" not in clips_cache:
-                clips_cache["_story"] = _pixabay_videos(post, want=2, seen=seen, max_judge=4)
-            pool = [c for got in clips_cache.values() for c in got if not out or c is not out[-1][1]]
-            if pool:
-                kind, item = "video", pool[len(out) % len(pool)]
+        if kind is None:  # footage for the story in general (never a clip already shown)
+            item = new_clip("_story", lambda: _pixabay_videos(post, want=4, seen=seen, max_judge=5))
+            kind = "video" if item is not None else None
         if kind is None and len(people) > 1:  # last resort: another photo of the person
-            kind, item = "face", people[1 + len(out) % (len(people) - 1)]
+            kind, item = "face", people[1]
         if kind is None:
             kind, item = "photo", (others[len(out) % len(others)] if others else photo)
+        used.add(key(item))
         out.append([kind, item, int(round((b - a) * FPS))])
         print(f"[reel] {a:4.1f}-{b:4.1f}s {kind:5} for: {line[:60]}")
     if credits:  # real photos used need attribution in the caption

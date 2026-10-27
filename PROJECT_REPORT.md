@@ -121,7 +121,8 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
      post the best-scored one (never an empty slot).
    - Wording checks: `BLOCK_WORDS`, `RISKY` (sexual words, slurs, profanity) and `BAIT` (engagement bait removed
      from captions).
-   - If every star idea is a repeat: ask the AI 2 more times, then post about another huge face (`main.BIG_FACES`:
+   - If every star idea is a repeat: ask the AI 2 more times, then (since 10-27) up to 3 FACTS posts from other
+     sections of the star's Wikipedia article (`person_facts(shift=n)`), and only then post about another huge face (`main.BIG_FACES`:
      Trump, Zuckerberg, Bezos, Gates, Altman, Huang, Taylor Swift, Ronaldo, Messi, LeBron, Kim K, The Rock, MrBeast,
      Obama, Rihanna, Oprah, Tom Cruise, Kylie Jenner). The slot is never left empty.
 9. **Poster** (`poster.make_poster`).
@@ -137,7 +138,11 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
      - Each line has a `wiki` (the Wikipedia title of the real thing, other person, place or event it names). The bot
        shows a real photo from that article's pictures (free licences only, ≥800 px, no charts/maps/logos, judged).
      - Else real stock video for the line (Pixabay → NASA → Commons), else a real Openverse photo, else other photos
-       from the story's articles, else story footage. The face again only if nothing at all is found.
+       from the story's articles, then the star's world (`trends.STAR_WORLD`: Starship, Cybertruck, Optimus, Falcon 9,
+       Starlink, Tesla...), a different article each time; else story footage. The face again only if nothing is found.
+     - Since 10-27: a new picture every ~2 s (`MAX_SCENE=2.2`, about 8-10 scenes), never the same picture or clip
+       twice, photo/video alternate when both fit, judge quality ≥7 for photos. Openverse is skipped for the rest of
+       a run after one timeout.
      - Landscape photos are shown whole on a blurred copy instead of a thin cropped strip.
      - **No AI images.**
    - No headline text on top (owner's choice); word-by-word subtitles under the face (`SUB_Y=1225`, face at
@@ -232,7 +237,10 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
     first runs' logs for `[facts]` and `[editor]` lines.
   - Bing reports filtered: they must share 60% of the search's main words (stopped unrelated stories mixing in).
   - Real scenes: face once at the start, then real Wikipedia/Commons photos of what each line names.
-- **10-27**: Headline accuracy (prompt rule + editor checks headline/caption on every post) and risky legal topics
+- **10-27**:
+  - Star slots no longer fall back to other faces before 3 extra Elon facts posts (5 PM went to Oprah on 10-26).
+  - More scenes (~2 s each), no repeated pictures, Elon-world professional photos as fallback, stricter quality.
+  - Headline accuracy (prompt rule + editor checks headline/caption on every post) and risky legal topics
   blocked (`BLOCK_WORDS`: indictments, raids, subpoenas, FBI, federal/criminal probes, homes searched).
 
 ## 9. Known gotchas (for whoever edits the code)

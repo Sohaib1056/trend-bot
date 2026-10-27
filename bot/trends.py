@@ -229,6 +229,11 @@ def reddit_top(limit=15, url=REDDIT):
 
 # the star's world: news about their companies counts too, and the fan communities show what fans talk about
 STAR_TERMS = {"Elon Musk": ["Elon Musk", "Tesla", "SpaceX", "Starlink", "xAI Grok", "Neuralink", "Cybertruck", "Optimus robot"]}
+# the star's world: Wikipedia articles with professional real photos for Reel scenes (rockets, cars, robots...)
+STAR_WORLD = {"Elon Musk": ["SpaceX Starship", "Tesla Cybertruck", "Optimus (robot)", "Falcon 9", "Starlink", "Tesla, Inc.",
+                            "SpaceX", "Neuralink", "Gigafactory Texas", "Tesla Model S", "X (social network)",
+                            "The Boring Company", "Tesla Roadster (second generation)", "SpaceX Dragon 2", "Tesla Cybercab",
+                            "Tesla Model Y", "Starbase, Texas", "Tesla Semi", "Grok (chatbot)", "xAI (company)"]}
 STAR_SUBS = {"Elon Musk": "elonmusk+teslamotors+SpaceX+spacex+TeslaLounge+starlink"}
 
 
@@ -334,8 +339,9 @@ def article_facts(query, want=4, bodies=1):
     return out
 
 
-def person_facts(name):
-    """A 'facts & stats' topic about a famous person: Wikipedia summary + their latest news, for the star slot."""
+def person_facts(name, shift=0):
+    """A 'facts & stats' topic about a famous person: Wikipedia summary + their latest news, for the star slot.
+    shift > 0 picks another section of their article (when this slot's section was already told)."""
     news = []
     try:
         r = requests.get("https://en.wikipedia.org/api/rest_v1/page/summary/" + requests.utils.quote(name.replace(" ", "_")),
@@ -357,7 +363,7 @@ def person_facts(name):
                         r"politic|views|death|illness|health|accusation|epstein|salute|marriage|relationship|international", parts[i], re.I)]
         if sections:
             now = datetime.now(timezone.utc)
-            title, body = sections[(now.timetuple().tm_yday * 24 + now.hour) % len(sections)]
+            title, body = sections[(now.timetuple().tm_yday * 24 + now.hour + shift * 7) % len(sections)]
             news.insert(0, {"title": f"{name}: {title} (Wikipedia)", "snippet": body[:1200], "source": "Wikipedia",
                             "url": ""})
             print(f"[trends] facts angle for {name}: {title}")

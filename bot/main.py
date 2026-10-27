@@ -282,7 +282,7 @@ def main():
 
     posts.sort(key=lambda p: not p.get("wiki_title"))  # stories about a famous person first
     made, i, faceless, repeats, retries = 0, 0, [], [], 0
-    weak, edits = [], 0  # scripts the editor scored under 8, how many scripts it checked
+    weak, edits, fact_tries = [], 0, 0  # scripts scored under 8, scripts checked, extra star facts asked for
     while made < config.POSTS_PER_RUN:
         if i < len(posts):
             p = posts[i]
@@ -300,6 +300,23 @@ def main():
             weak.sort(key=lambda x: -x[0])
             score, p = weak.pop(0)
             print(f"[main] no script scored 8+ -> posting the best one ({score:.0f}/10): {p['headline'][:60]}")
+        elif star and fact_tries < 3:  # no new star story: new facts from another part of their Wikipedia article
+            fact_tries += 1           # (owner, 10-27: star slots stay about the star, not Oprah)
+            print(f"[main] no new {star} story -> facts from another part of their life ({fact_tries}/3)")
+            try:
+                ft = trends.person_facts(star, shift=fact_tries)
+            except Exception as e:
+                print(f"[main] facts for {star} failed: {e}")
+                continue
+            known.append(ft)
+            posts += star_only(ai.write_posts([ft], already, 1, performance, special +
+                                              f"Write ONE FACTS & STATS post about {star} from the '{star} facts' topic "
+                                              f"(topic exactly '{star} facts'), using ONLY facts from its first "
+                                              "section - facts the page never posted before. " +
+                                              ("Already told, do NOT repeat: " + " | ".join(repeats) if repeats else "")
+                                              + "\n\n"))
+            repeats = []
+            continue
         elif star and not faceless:  # still nothing new about the star: another world-famous face, not an empty slot
             print(f"[main] no new {star} story today -> a post about another world-famous face instead")
             star = ""
