@@ -10,7 +10,10 @@ from . import ai, config, growth, insights, meta, poster, reel, trends
 # extra safety net on top of the AI's own rules
 BLOCK_WORDS = re.compile(
     r"\b(dead|dies|died|death|killed|kill|murder|shooting|shot|stabb|crash|victim|funeral|obituary|"
-    r"suicide|attack|war|bomb|terror|rape|abuse|arrest|overdose|missing|gunfire|molotov|execution|executed|execute|lethal|shooter|firing squad|death row|convicted|sentenced|prison|trial|protests?|protesters?|riots?|teargas)\b", re.I)
+    r"suicide|attack|war|bomb|terror|rape|abuse|arrest|overdose|missing|gunfire|molotov|execution|executed|execute|lethal|shooter|firing squad|death row|convicted|sentenced|prison|trial|protests?|protesters?|riots?|teargas|"
+    # legal trouble (owner, 10-27: risky for the page and easy to get wrong)
+    r"indict\w*|raid|raided|raids|subpoena\w*|fbi|(federal|criminal|justice department|doj) (probe|investigation)|"
+    r"under investigation|(home|house|office)s? (was |were )?searched)\b", re.I)
 
 
 def load_state():
@@ -346,10 +349,11 @@ def main():
                 print(f"[main] skipping {p['key']}: same story as '{dup[:60]}'")
                 repeats.append(p["headline"].replace("*", ""))
                 continue
-            if choose_format(state) == "reel" and not p.get("_edited") and edits < 3:
-                # a strict AI editor scores the script (hook, clarity, sense, facts) and gets weak ones rewritten
+            if not p.get("_edited") and edits < 3:
+                # a strict AI editor scores the post (Reels: hook, clarity, sense, facts; photos: facts - the
+                # headline must say exactly what the reports say) and gets weak or inaccurate ones rewritten
                 p["_edited"], edits = True, edits + 1
-                score, p = ai.edit_reel(p, facts_for(p, known))
+                score, p = ai.edit_reel(p, facts_for(p, known), reel=choose_format(state) == "reel")
                 if score is not None and score < 8:
                     print(f"[main] editor: weak script ({score:.0f}/10) -> trying the next story first")
                     weak.append((score, p))

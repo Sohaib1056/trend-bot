@@ -115,8 +115,9 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
        per 72 h).
      - 60-day check for star stories.
      - **AI same-story check** (`ai.same_story`, 4-day window per face).
-   - **AI editor** (`ai.edit_reel`, Reels only, max 3 per slot): scores hook, clarity, sense and facts (the lowest
-     counts). Under 8/10 it has the script rewritten once; still under 8 → try the next story; if no story reaches 8,
+   - **AI editor** (`ai.edit_reel`, all posts since 10-27, max 3 per slot): Reels are scored on hook, clarity, sense
+     and facts (the lowest counts), photos on facts. "Facts" means headline, narration and caption say EXACTLY what
+     the reports say ('offers buyouts' is not 'fires', 'plans' is not 'launches', claims stay claims). Under 8/10 it has the script rewritten once; still under 8 → try the next story; if no story reaches 8,
      post the best-scored one (never an empty slot).
    - Wording checks: `BLOCK_WORDS`, `RISKY` (sexual words, slurs, profanity) and `BAIT` (engagement bait removed
      from captions).
@@ -231,6 +232,8 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
     first runs' logs for `[facts]` and `[editor]` lines.
   - Bing reports filtered: they must share 60% of the search's main words (stopped unrelated stories mixing in).
   - Real scenes: face once at the start, then real Wikipedia/Commons photos of what each line names.
+- **10-27**: Headline accuracy (prompt rule + editor checks headline/caption on every post) and risky legal topics
+  blocked (`BLOCK_WORDS`: indictments, raids, subpoenas, FBI, federal/criminal probes, homes searched).
 
 ## 9. Known gotchas (for whoever edits the code)
 

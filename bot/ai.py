@@ -52,6 +52,7 @@ Lines marked "* REPORT" are the actual news reports (several outlets, sometimes 
 them can be told with real detail, so prefer them when they are as big as the others.
 RULES:
 - Use ONLY facts stated in the headlines/snippets/reports above. Never invent numbers, quotes, scores or claims. If unsure, keep it general.
+- The headline must say EXACTLY what the reports say, with the same strength - dramatic wording, never a different fact: 'offers buyouts to 60,000' is NOT 'fires 60,000'; 'plans' or 'wants' is NOT 'launches'; 'reportedly' or 'claims' must stay in; a rumour is never 'confirmed'; 'could' is never 'will'.
 - If two snippets disagree (e.g. different rankings or numbers), leave that detail out.
 - SKIP: deaths, tragedies, disasters with victims, crime/violence, shootings, war, medical claims, adult content, gambling. {politics}
 - Prefer: big tech & AI news (OpenAI, Google, Meta, Nvidia, Microsoft, Apple...), famous billionaires and CEOs, new AI tools, world-famous US leaders, then big celebrity/viral stories.
@@ -419,25 +420,27 @@ def _ask(prompt):
     return None
 
 
-def _review(post, facts):
-    prompt = (f"You are the strict editor of a viral US news page (like Pubity or Pop Base). Score this 15-second "
-              f"Reel script.\n\nFACTS (the only true information):\n{facts}\n\nREEL:\n"
-              f"headline: {post['headline'].replace('*', '')}\n"
-              f"narration: {post.get('voiceover', '')}\n\n"
+def _review(post, facts, reel=True):
+    prompt = (f"You are the strict editor of a viral US news page (like Pubity or Pop Base). Score this "
+              f"{'15-second Reel script' if reel else 'photo post'}.\n\nFACTS (the only true information):\n{facts}\n\n"
+              f"POST:\nheadline: {post['headline'].replace('*', '')}\n"
+              f"narration: {post.get('voiceover', '')}\ncaption: {post.get('caption', '')}\n\n"
               "Score 0-10 each, be harsh (8 = as good as the best viral pages):\n"
               "hook: does the first spoken sentence (also shown as subtitles) make a scroller STOP within 2 seconds (a shocking true "
               "fact, a big number, a clash, a famous name)?\n"
               "clarity: would a viewer who never heard of this story fully understand what happened and why it matters?\n"
               "sense: does every sentence make sense, follow from the one before, and carry a real fact (no vague "
               "filler like 'this is huge' or 'people are talking')?\n"
-              "facts: is everything said backed by the FACTS (no invented numbers, quotes or claims)?\n"
+              "facts: does the headline, narration and caption say EXACTLY what the FACTS say, with the same strength? "
+              "Give 0-4 for any invented or changed fact: 'offers buyouts' written as 'fires', 'plans' as 'launches', "
+              "a claim or rumour stated as confirmed, 'could' as 'will', wrong numbers or names.\n"
               'Reply JSON only: {"hook": n, "clarity": n, "sense": n, "facts": n, '
               '"problems": "exactly what is weak, in one or two sentences"}')
     data = _ask(prompt)
     if not isinstance(data, dict):
         return None, ""
-    try:
-        score = min(float(data.get(k, 0)) for k in ("hook", "clarity", "sense", "facts"))
+    try:  # photo posts: only the facts count (the narration is not used)
+        score = min(float(data.get(k, 0)) for k in (("hook", "clarity", "sense", "facts") if reel else ("facts",)))
     except (TypeError, ValueError):
         return None, ""
     print(f"[editor] {score:.0f}/10 (hook {data.get('hook')}, clarity {data.get('clarity')}, sense {data.get('sense')}, "
@@ -445,13 +448,14 @@ def _review(post, facts):
     return score, str(data.get("problems", ""))
 
 
-def edit_reel(post, facts):
-    """A strict AI editor scores the Reel script (hook, clarity, sense, facts) and has it rewritten once when it
-    is weak. Returns (score 0-10, post); score None means no editor was available, so the post is used as it is."""
-    score, problems = _review(post, facts)
+def edit_reel(post, facts, reel=True):
+    """A strict AI editor scores the post (Reels: hook, clarity, sense, facts; photos: facts) and has it rewritten
+    once when it is weak or not accurate. Returns (score 0-10, post); score None means no editor was available,
+    so the post is used as it is."""
+    score, problems = _review(post, facts, reel)
     if score is None or score >= 8:
         return score, post
-    keys = ("headline", "voiceover", "scenes", "first_comment")
+    keys = ("headline", "voiceover", "scenes", "first_comment", "caption")
     old = json.dumps({k: post.get(k) for k in keys}, ensure_ascii=False)
     prompt = (f"You write Reels for a viral US news page (like Pubity or Pop Base). The editor rejected this "
               f"15-second Reel script:\n{old}\n\nEDITOR: {problems}\n\nFACTS (the only true information):\n{facts}\n\n"
@@ -468,8 +472,11 @@ def edit_reel(post, facts):
               "showing exactly that line, \"photo\": 2-4 word search for a real photo of the thing named}; no "
               "person names in query or photo.\n"
               "- first_comment: one short fun question (max 15 words, 1 emoji).\n"
-              "- Use ONLY the FACTS. Facebook-safe wording.\n"
-              'Reply JSON only with the keys "headline", "voiceover", "scenes", "first_comment".')
+              "- caption: 80-140 words, first line a strong hook with 1-2 emojis, short paragraphs, only the FACTS, "
+              "ends with ONE natural question; no engagement bait ('share this', 'tag a friend', 'like if').\n"
+              "- Use ONLY the FACTS, with the same strength: 'offers buyouts' is not 'fires', 'plans' is not "
+              "'launches', claims stay claims, 'could' is not 'will'. Facebook-safe wording.\n"
+              'Reply JSON only with the keys "headline", "voiceover", "scenes", "first_comment", "caption".')
     data = _ask(prompt)
     if not isinstance(data, dict) or not str(data.get("voiceover", "")).strip() or not str(data.get("headline", "")).strip():
         print("[editor] rewrite failed -> keeping the first version")
@@ -480,8 +487,10 @@ def edit_reel(post, facts):
     new["scenes"] = scenes if len(scenes) >= 2 else []
     if str(data.get("first_comment", "")).strip():
         new["first_comment"] = str(data["first_comment"]).strip()
+    if len(str(data.get("caption", "")).split()) >= 40:  # same clean-up as a freshly written post
+        new["caption"] = BAIT.sub("", str(data["caption"]).replace("*", "")).strip()
     print(f"[editor] rewritten: {new['headline']} | {new['voiceover']}")
-    score2, _ = _review(new, facts)
+    score2, _ = _review(new, facts, reel)
     if score2 is None or score2 >= score:
         return (score2 if score2 is not None else score), new
     return score, post
