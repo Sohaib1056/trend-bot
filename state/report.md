@@ -1,38 +1,39 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-27 23:06 UTC_
+_Updated 2026-10-28 01:06 UTC_
 
 ```
-Based on the last 143 posts on this page:
-Best categories: BUSINESS (879.8), TECH (805.7), POLITICS (680.6)
+Based on the last 144 posts on this page:
+Best categories: BUSINESS (856.2), TECH (809.3), POLITICS (686.0)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (900.1, 91 posts), photo (182.1, 52 posts)
-Best posting slots (UTC): 21:00 (1991.9), 03:00 (888.5), 19:00 (830.3)
-Best faces on this page (avg views per post): Elon Musk 2368 (97 posts), Ilhan Omar 531 (1 posts), Cole Sprouse 431 (1 posts), Sundar Pichai 285 (3 posts), Jensen Huang 196 (2 posts), Oprah Winfrey 269 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
-Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8761.4) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
+Format: reel (902.8, 91 posts), photo (181.3, 53 posts)
+Best posting slots (UTC): 21:00 (1995.1), 03:00 (891.3), 19:00 (832.7)
+Best faces on this page (avg views per post): Elon Musk 2355 (98 posts), Ilhan Omar 531 (1 posts), Cole Sprouse 431 (1 posts), Sundar Pichai 286 (3 posts), Jensen Huang 196 (2 posts), Oprah Winfrey 271 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8768.4) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-27T23:07 | photo | BUSINESS | Elon Musk rejects Verizon's eight-year competitor timeline | 12 | 7 | 3 | 1 | 28.4 |
 | 2026-10-27T22:07 | reel | TECH | Jensen Huang reports 44% drop in China AI chip shipments | 42 | 0 | 0 | 0 | 8.4 |
-| 2026-10-27T21:07 | reel | TECH | Elon Musk's Neuralink lets ALS patient speak by thinking | 32 | 0 | 0 | 0 | 6.4 |
+| 2026-10-27T21:07 | reel | TECH | Elon Musk's Neuralink lets ALS patient speak by thinking | 234 | 3 | 0 | 0 | 52.8 |
 | 2026-10-27T19:07 | reel | AI | Elon Musk's SpaceX secures $40 billion GPU lease | 365 | 16 | 2 | 0 | 111.0 |
-| 2026-10-27T04:06 | photo | POLITICS | Elon Musk braces for post‑election investigations as Democrats gain | 1025 | 66 | 13 | 17 | 382.0 |
-| 2026-10-27T03:07 | reel | TECH | SpaceX lands $120.5B AI compute deal with Anthropic | 659 | 51 | 6 | 0 | 251.8 |
-| 2026-10-27T01:07 | reel | TECH | Elon Musk's Optimus robots begin manufacturing, YYForce applauds | 2099 | 209 | 30 | 0 | 927.8 |
-| 2026-10-26T23:06 | photo | TECH | Elon Musk's Super Heavy booster ignites for Starship test | 397 | 31 | 11 | 14 | 180.4 |
-| 2026-10-26T22:08 | reel | TECH | Microsoft fires 60,000 via buyouts for AI | 205 | 0 | 1 | 0 | 44.0 |
-| 2026-10-26T21:08 | reel | CELEBRITY | Oprah Winfrey is the richest Black woman in the world | 269 | 2 | 0 | 0 | 57.8 |
-| 2026-10-26T19:07 | reel | TV & FILM | Elon Musk’s AI Odyssey gets roasted after first episode drops | 985 | 70 | 4 | 0 | 349.0 |
-| 2026-10-26T04:07 | photo | CELEBRITY | Elon Musk global roots and early life revealed | 1823 | 89 | 29 | 23 | 635.6 |
-| 2026-10-26T03:08 | reel | CELEBRITY | Musk wins Gold Space Medal and Time Person of Year | 717 | 99 | 27 | 0 | 422.4 |
-| 2026-10-26T01:08 | reel | POLITICS | Elon Musk receives official response from Ukraine | 513 | 26 | 2 | 0 | 160.6 |
-| 2026-10-25T23:07 | photo | TECH | Elon Musk's Roadster fails reality check, engineer debunks stunts | 1181 | 87 | 35 | 21 | 521.2 |
-| 2026-10-25T22:07 | reel | TECH | Alphabet cloud revenue soars 82% in one quarter | 302 | 2 | 7 | 0 | 85.4 |
-| 2026-10-25T21:07 | reel | TECH | Elon Musk's Cybercabs flood Austin F1 race | 985 | 84 | 25 | 0 | 440.0 |
-| 2026-10-25T19:06 | reel | POLITICS | Elon Musk calls politics incredibly tribal on Reddit | 2403 | 275 | 38 | 0 | 1144.6 |
-| 2026-10-25T04:07 | photo | BUSINESS | Elon Musk's Tesla loses top spot in EV charging to rivals | 1201 | 92 | 29 | 18 | 517.2 |
-| 2026-10-25T03:07 | reel | POLITICS | Elon Musk says Kyiv violated Starshield terms as service resumes | 2928 | 238 | 39 | 0 | 1178.6 |
+| 2026-10-27T04:06 | photo | POLITICS | Elon Musk braces for post‑election investigations as Democrats gain | 1113 | 67 | 15 | 17 | 407.6 |
+| 2026-10-27T03:07 | reel | TECH | SpaceX lands $120.5B AI compute deal with Anthropic | 698 | 51 | 6 | 0 | 259.6 |
+| 2026-10-27T01:07 | reel | TECH | Elon Musk's Optimus robots begin manufacturing, YYForce applauds | 2361 | 224 | 30 | 0 | 1010.2 |
+| 2026-10-26T23:06 | photo | TECH | Elon Musk's Super Heavy booster ignites for Starship test | 416 | 33 | 11 | 14 | 188.2 |
+| 2026-10-26T22:08 | reel | TECH | Microsoft fires 60,000 via buyouts for AI | 211 | 0 | 1 | 0 | 45.2 |
+| 2026-10-26T21:08 | reel | CELEBRITY | Oprah Winfrey is the richest Black woman in the world | 271 | 2 | 0 | 0 | 58.2 |
+| 2026-10-26T19:07 | reel | TV & FILM | Elon Musk’s AI Odyssey gets roasted after first episode drops | 1003 | 72 | 4 | 0 | 356.6 |
+| 2026-10-26T04:07 | photo | CELEBRITY | Elon Musk global roots and early life revealed | 1945 | 96 | 31 | 24 | 680.0 |
+| 2026-10-26T03:08 | reel | CELEBRITY | Musk wins Gold Space Medal and Time Person of Year | 725 | 101 | 27 | 0 | 428.0 |
+| 2026-10-26T01:08 | reel | POLITICS | Elon Musk receives official response from Ukraine | 516 | 26 | 2 | 0 | 161.2 |
+| 2026-10-25T23:07 | photo | TECH | Elon Musk's Roadster fails reality check, engineer debunks stunts | 1252 | 89 | 39 | 21 | 551.4 |
+| 2026-10-25T22:07 | reel | TECH | Alphabet cloud revenue soars 82% in one quarter | 305 | 2 | 7 | 0 | 86.0 |
+| 2026-10-25T21:07 | reel | TECH | Elon Musk's Cybercabs flood Austin F1 race | 1018 | 87 | 21 | 0 | 440.6 |
+| 2026-10-25T19:06 | reel | POLITICS | Elon Musk calls politics incredibly tribal on Reddit | 2522 | 286 | 38 | 0 | 1190.4 |
+| 2026-10-25T04:07 | photo | BUSINESS | Elon Musk's Tesla loses top spot in EV charging to rivals | 1209 | 92 | 29 | 18 | 518.8 |
+| 2026-10-25T03:07 | reel | POLITICS | Elon Musk says Kyiv violated Starshield terms as service resumes | 3012 | 245 | 40 | 0 | 1212.4 |
 | 2026-10-25T01:08 | reel | AI | Elon Musk froze Grokipedia after AI controversy | 1138 | 105 | 19 | 0 | 494.6 |
 | 2026-10-24T23:07 | photo | AI | Elon Musk co‑founded OpenAI, then walked away in 2018 | 831 | 62 | 10 | 15 | 326.2 |
 | 2026-10-24T22:07 | reel | POLITICS | Ilhan Omar's home searched in federal probe | 531 | 13 | 4 | 0 | 144.2 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8761.4
 | 2026-10-22T21:07 | reel | BUSINESS | Elon Musk's SpaceX stock slides | 1320 | 125 | 13 | 0 | 553.0 |
 | 2026-10-22T19:08 | reel | TECH | Elon Musk record 260,000 FSD subscribers in Q3 | 6667 | 594 | 58 | 0 | 2695.4 |
 | 2026-10-22T04:07 | photo | TECH | Tesla to start selling Cybercabs by year‑end | 300 | 32 | 8 | 18 | 154.0 |
-| 2026-10-22T03:08 | reel | BUSINESS | Mark Zuckerberg forces Meta to dodge California wealth tax | 447 | 23 | 4 | 0 | 147.4 |
