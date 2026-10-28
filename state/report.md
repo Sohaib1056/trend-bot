@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-28 19:06 UTC_
+_Updated 2026-10-28 21:06 UTC_
 
 ```
-Based on the last 147 posts on this page:
-Best categories: BUSINESS (895.2), TECH (827.6), POLITICS (676.6)
+Based on the last 148 posts on this page:
+Best categories: BUSINESS (895.2), TECH (827.6), POLITICS (659.4)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (919.7, 93 posts), photo (202.3, 54 posts)
-Best posting slots (UTC): 21:00 (2027.1), 19:00 (881.8), 03:00 (861.9)
-Best faces on this page (avg views per post): Elon Musk 2418 (101 posts), Ilhan Omar 536 (1 posts), Jensen Huang 424 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 291 (3 posts), Oprah Winfrey 275 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (913.1, 94 posts), photo (202.3, 54 posts)
+Best posting slots (UTC): 21:00 (2027.1), 03:00 (861.9), 19:00 (856.4)
+Best faces on this page (avg views per post): Elon Musk 2404 (102 posts), Ilhan Omar 536 (1 posts), Jensen Huang 424 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 291 (3 posts), Oprah Winfrey 275 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-28T19:07 | reel | POLITICS | Putin calls Elon Musk a genius over Starlink | 967 | 34 | 12 | 0 | 297.4 |
 | 2026-10-28T04:07 | photo | AI | Elon Musk's AI film plan hits reality check | 564 | 44 | 7 | 19 | 227.8 |
 | 2026-10-28T03:11 | reel | POLITICS | Report: Musk-linked network funded Cornel West ballot push | 250 | 14 | 1 | 0 | 81.0 |
 | 2026-10-28T01:07 | reel | BUSINESS | Elon Musk targeted as Robert Reich urges defund | 2400 | 222 | 34 | 0 | 1026.0 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-10-23T03:07 | reel | BUSINESS | SpaceX records $561 million gain from Boring Co. | 172 | 13 | 2 | 0 | 66.4 |
 | 2026-10-23T01:07 | reel | TECH | Elon Musk seeks 80,000 US cell sites, sparking telecom clash | 15063 | 732 | 56 | 0 | 4644.6 |
 | 2026-10-22T23:07 | photo | BUSINESS | Elon Musk: 5 Wild Facts You Never Knew | 369 | 23 | 7 | 12 | 146.8 |
-| 2026-10-22T22:07 | reel | POLITICS | Trump calls LeBron a total disgrace over anthem | 454 | 11 | 3 | 0 | 121.8 |
