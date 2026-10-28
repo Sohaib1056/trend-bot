@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-28 22:06 UTC_
+_Updated 2026-10-28 23:06 UTC_
 
 ```
-Based on the last 149 posts on this page:
-Best categories: BUSINESS (902.5), TECH (829.2), POLITICS (637.9)
-Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (908.8, 95 posts), photo (205.0, 54 posts)
-Best posting slots (UTC): 21:00 (1921.4), 03:00 (864.7), 19:00 (861.0)
-Best faces on this page (avg views per post): Elon Musk 2398 (103 posts), Ilhan Omar 536 (1 posts), Jensen Huang 437 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 291 (3 posts), Oprah Winfrey 276 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Based on the last 150 posts on this page:
+Best categories: BUSINESS (904.6), TECH (830.9), POLITICS (637.9)
+Weakest categories: SPORTS (15.0), SCIENCE (4.2)
+Format: reel (901.1, 96 posts), photo (205.0, 54 posts)
+Best posting slots (UTC): 21:00 (1925.3), 03:00 (865.7), 19:00 (863.7)
+Best faces on this page (avg views per post): Elon Musk 2403 (103 posts), Ilhan Omar 537 (1 posts), Jensen Huang 437 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 291 (3 posts), Oprah Winfrey 276 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-28T22:07 | reel | SPORTS | Ernie Johnson ends 37-year Inside the NBA era | 19 | 0 | 0 | 0 | 3.8 |
 | 2026-10-28T21:07 | reel | POLITICS | SpaceX retreats as Putin criticizes Musk | 315 | 7 | 3 | 0 | 86.0 |
 | 2026-10-28T19:07 | reel | POLITICS | Putin calls Elon Musk a genius over Starlink | 967 | 34 | 12 | 0 | 297.4 |
 | 2026-10-28T04:07 | photo | AI | Elon Musk's AI film plan hits reality check | 669 | 49 | 7 | 19 | 258.8 |
@@ -41,16 +42,15 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-10-25T03:07 | reel | POLITICS | Elon Musk says Kyiv violated Starshield terms as service resumes | 3521 | 275 | 43 | 0 | 1383.2 |
 | 2026-10-25T01:08 | reel | AI | Elon Musk froze Grokipedia after AI controversy | 1176 | 107 | 20 | 0 | 509.2 |
 | 2026-10-24T23:07 | photo | AI | Elon Musk co‑founded OpenAI, then walked away in 2018 | 844 | 63 | 10 | 15 | 330.8 |
-| 2026-10-24T22:07 | reel | POLITICS | Ilhan Omar's home searched in federal probe | 536 | 13 | 4 | 0 | 145.2 |
-| 2026-10-24T21:07 | reel | BUSINESS | Musk's SpaceX posts first profit, 835% AI sales jump | 2358 | 279 | 32 | 0 | 1125.6 |
-| 2026-10-24T19:07 | reel | TECH | Elon Musk's SpaceX sparks U.S. allies scramble to escape orbit | 5902 | 498 | 46 | 0 | 2314.4 |
+| 2026-10-24T22:07 | reel | POLITICS | Ilhan Omar's home searched in federal probe | 537 | 13 | 4 | 0 | 145.4 |
+| 2026-10-24T21:07 | reel | BUSINESS | Musk's SpaceX posts first profit, 835% AI sales jump | 2381 | 282 | 32 | 0 | 1136.2 |
+| 2026-10-24T19:07 | reel | TECH | Elon Musk's SpaceX sparks U.S. allies scramble to escape orbit | 6055 | 509 | 46 | 0 | 2367.0 |
 | 2026-10-24T04:07 | photo | BUSINESS | Elon Musk’s SpaceX faces $40 billion AI‑linked debt turmoil | 908 | 60 | 26 | 15 | 385.6 |
-| 2026-10-24T03:08 | reel | TECH | Elon Musk cancels Cybertruck in Australia, NZ | 7580 | 494 | 54 | 0 | 2666.0 |
-| 2026-10-24T01:07 | reel | BUSINESS | Elon Musk claims Optimus is 80% of Tesla's value | 6374 | 652 | 55 | 0 | 2743.8 |
-| 2026-10-23T23:07 | photo | TECH | Elon Musk unveils futuristic Roadster UI, fans gasp | 450 | 35 | 8 | 18 | 190.0 |
-| 2026-10-23T22:08 | reel | TECH | Google clears massive forest for AI causing wolf chaos | 523 | 18 | 9 | 0 | 167.6 |
-| 2026-10-23T21:07 | reel | BUSINESS | Elon Musk almost sells out Tesla Megapacks for 2027, margins to surge | 11729 | 1011 | 51 | 0 | 4520.8 |
-| 2026-10-23T19:07 | reel | TECH | SpaceX wants to be America's fourth phone carrier | 3785 | 314 | 44 | 0 | 1517.0 |
+| 2026-10-24T03:08 | reel | TECH | Elon Musk cancels Cybertruck in Australia, NZ | 7644 | 497 | 54 | 0 | 2684.8 |
+| 2026-10-24T01:07 | reel | BUSINESS | Elon Musk claims Optimus is 80% of Tesla's value | 6394 | 653 | 55 | 0 | 2749.8 |
+| 2026-10-23T23:07 | photo | TECH | Elon Musk unveils futuristic Roadster UI, fans gasp | 450 | 35 | 8 | 17 | 190.0 |
+| 2026-10-23T22:08 | reel | TECH | Google clears massive forest for AI causing wolf chaos | 524 | 18 | 9 | 0 | 167.8 |
+| 2026-10-23T21:07 | reel | BUSINESS | Elon Musk almost sells out Tesla Megapacks for 2027, margins to surge | 11926 | 1021 | 51 | 0 | 4580.2 |
+| 2026-10-23T19:07 | reel | TECH | SpaceX wants to be America's fourth phone carrier | 3796 | 315 | 44 | 0 | 1521.2 |
 | 2026-10-23T04:07 | photo | TECH | Elon Musk invested $100 million in Neuralink, now FDA‑approved | 1638 | 118 | 19 | 25 | 626.6 |
-| 2026-10-23T03:07 | reel | BUSINESS | SpaceX records $561 million gain from Boring Co. | 172 | 13 | 2 | 0 | 66.4 |
-| 2026-10-23T01:07 | reel | TECH | Elon Musk seeks 80,000 US cell sites, sparking telecom clash | 15063 | 732 | 56 | 0 | 4644.6 |
+| 2026-10-23T03:07 | reel | BUSINESS | SpaceX records $561 million gain from Boring Co. | 173 | 13 | 2 | 0 | 66.6 |
