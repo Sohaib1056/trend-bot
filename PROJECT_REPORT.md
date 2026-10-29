@@ -254,6 +254,9 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
   - Only Elon Musk posts, every slot including 6 PM, no end date; never another face; the last resort is facts
     about Elon's companies/products, still with every duplicate check.
   - Stricter duplicates: same name within 24 h, AI same-story over 7 days incl. same storyline (Putin pair on 10-28).
+  - Follow growth: one promise everywhere (`growth.FOLLOW_PROMISE` = "daily Elon Musk news"): caption line, spoken
+    line (kept when the Reel is 15-17 s; a story sentence is dropped first), end banner, and a small "+ Follow for
+    daily Elon Musk news" label from 3 s (`reel._follow_label`, `FOLLOW_FROM`).
 
 ## 9. Known gotchas (for whoever edits the code)
 

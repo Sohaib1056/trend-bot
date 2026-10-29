@@ -14,7 +14,10 @@ import requests
 
 from . import config
 
-FOLLOW_LINE = "👉 Follow Hype Atlas for the biggest US tech, AI & trending news every day! #HypeAtlas"
+# the reason to follow, the same promise everywhere (caption, voice, Reel label and end banner). People follow a
+# page for one clear thing: since the page went Elon-only (10-29), that is daily Elon Musk news.
+FOLLOW_PROMISE = os.getenv("FOLLOW_PROMISE", "").strip() or "daily Elon Musk news"
+FOLLOW_LINE = f"👉 Follow Hype Atlas for {FOLLOW_PROMISE}: SpaceX, Tesla, X & more 🚀 #HypeAtlas"
 
 
 def post_url(rec):

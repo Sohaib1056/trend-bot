@@ -21,6 +21,7 @@ import requests
 from PIL import Image, ImageDraw, ImageFilter
 
 from . import config
+from .growth import FOLLOW_PROMISE
 from .poster import (COMMONS_SKIP, FREE_LICENSE, MARKER, INK, PAD, PINK, ORANGE, YELLOW, WHITE, WIKI_UA,
                      BROWSER_UA, _cloudflare_image, _cover, _download, _enhance, _fit, _font, _hgradient, _logo,
                      _wm_thumb, openverse_person,
@@ -31,6 +32,7 @@ FPS = 30
 SCENE = 2.0          # target seconds per scene
 MAX_SCENES = 9
 VOICE_AT = 0.3       # narration starts after the hook frame
+FOLLOW_FROM = 3.0   # the small follow label appears after the hook (owner, 10-29: more followers)
 END_LEN = 1.8        # follow banner at the end (when there is no voice to time it)
 SUB_Y = 1225         # centre of the subtitles: low in the Reels safe zone, under the face (owner: a bit lower)
 FACE_Y = 720         # where a face is placed: below the logo, above the subtitles
@@ -377,7 +379,7 @@ def _voice_text(post):
     text = post.get("voiceover") or (post["headline"] + ". " + post.get("subtext", ""))
     text = text.translate(str.maketrans({"’": "'", "‘": "'", "“": '"', "”": '"', "‑": "-", "–": ", ", "—": ", "}))
     text = re.sub(r"[*#_]|[^\x00-ɏ\s]", "", text).strip()  # drop emoji
-    return f"{text} Follow Hype Atlas for more!"
+    return f"{text} Follow Hype Atlas for {FOLLOW_PROMISE}."
 
 
 KOKORO_FILES = "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/"
@@ -746,6 +748,20 @@ def _draw_subtitle(frame, chunk, t, font):
         x += ww + space
 
 
+def _follow_label():
+    """Small '+ Follow for daily Elon Musk news' pill next to the category badge, on screen from ~3s to the end:
+    most viewers leave before the end banner, so the reason to follow must show while they watch."""
+    layer = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    f = _font("bold", 28)
+    text = f"+ Follow for {FOLLOW_PROMISE}"
+    w, h = int(d.textlength(text, font=f)) + 56, 60
+    x, y = RW - PAD + 22 - w, 150 + 130  # right side, level with the category badge (below the Reels top bar)
+    d.rounded_rectangle([x, y, x + w, y + h], radius=h // 2, fill=(255, 255, 255, 235))
+    d.text((x + 28, y + 13), text, font=f, fill=(15, 15, 20))
+    return layer
+
+
 def _follow_banner():
     layer = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
@@ -756,7 +772,7 @@ def _follow_banner():
         layer.alpha_composite(lg, (RW // 2 - 75, 825))
     for text, font, fill, yy in (("FOLLOW", _font("bold", 56), WHITE, 1000),
                                  ("HYPE ATLAS", _font("bold", 96), YELLOW, 1062),
-                                 ("for daily viral news", _font("medium", 38), (225, 225, 232), 1172)):
+                                 (f"for {FOLLOW_PROMISE}", _font("medium", 38), (225, 225, 232), 1172)):
         d.text(((RW - d.textlength(text, font=font)) / 2, yy), text, font=font, fill=fill)
     return layer
 
@@ -767,6 +783,7 @@ def _frames(post, scenes, exe, duration, chunks, follow_at):
     header = _header_layer(post)
 
     banner = _follow_banner()
+    label = _follow_label()
     sub_font = _font("bold", 86)
     flash = Image.new("RGBA", (RW, RH), (255, 255, 255, 255))
     bar = _hgradient(RW, 10, [PINK, ORANGE, YELLOW]).convert("RGBA")
@@ -804,6 +821,8 @@ def _frames(post, scenes, exe, duration, chunks, follow_at):
         if not first and since_cut < 0.15:  # white flash on each cut
             frame.alpha_composite(_with_alpha(flash, 0.5 * (1 - since_cut / 0.15)))
         frame.alpha_composite(header)
+        if FOLLOW_FROM <= t < follow_at:  # the reason to follow, while they watch (fades in)
+            frame.alpha_composite(_with_alpha(label, _ease(min(1.0, (t - FOLLOW_FROM) / 0.3))))
         if t < follow_at:  # no headline on top (owner's choice): the footage stays clear, the subtitles tell the story
             for chunk in chunks:
                 if chunk[0][1] <= t < chunk[-1][2] + 0.15:
@@ -836,12 +855,14 @@ def make_reel(post, photo, path):
             parts = re.split(r"(?<=[.!?])\s+", text.strip())
             if not vsecs or vsecs <= fit15 * tempo:
                 break
-            if parts and parts[-1].lower().startswith("follow"):
-                parts = parts[:-1]  # the follow banner on screen already says it
-            elif vsecs > fit17 * tempo and len(parts) > 3:
-                parts = parts[:-3] + parts[-2:]  # still too long for 17s: drop a middle sentence, keep hook + question
+            follow = bool(parts) and parts[-1].lower().startswith("follow")
+            if vsecs > fit17 * tempo and len(parts) > (4 if follow else 3):
+                # too long for 17s: drop a story sentence, keep the hook, the twist, the question and the follow line
+                parts.pop(len(parts) - (4 if follow else 3))
+            elif follow and vsecs > fit17 * tempo:
+                parts = parts[:-1]  # still too long: the follow banner on screen says it
             else:
-                break
+                break  # 15-17s: everything stays, the follow line too (owner: more followers)
             text = " ".join(parts)
             post["scenes"] = [s for s in (post.get("scenes") or []) if isinstance(s, dict)
                               and str(s.get("line", "")).strip()[:25] in text]  # keep scenes in step with the voice
