@@ -89,6 +89,31 @@ def _words(text):
     return {SAME.get(w, w) for w in re.findall(r"[a-z0-9]+", text.lower()) if len(w) > 2 and w not in STOP}
 
 
+# names that are in almost every star post, so sharing them doesn't make two stories the same
+COMMON_NAMES = {"elon", "musk", "musk's", "tesla", "tesla's", "spacex", "spacex's", "x", "ai", "us", "u.s.", "report",
+                "reports", "breaking", "new", "the", "a", "his", "he", "why", "how", "what", "after", "inside", "is",
+                "this", "in", "is", "just", "who", "when", "billionaire", "ceo", "world's", "richest"}
+
+
+def same_name_today(headline, face, state, hours=24):
+    """Two posts about the same star within a day must not share another name - 'Putin calls Musk a genius' and
+    'SpaceX retreats as Putin criticizes Musk', or two Cybercab posts 2 hours apart (owner, 10-29: no duplicates).
+    Returns the old headline or ''."""
+    def names(h):
+        words = re.findall(r"[A-Za-z][\w.'’-]*", h.replace("*", ""))
+        return {w.lower().replace("’", "'") for w in words if w[0].isupper()} - COMMON_NAMES - _words(face)
+    mine, now = names(headline), datetime.now(timezone.utc)
+    for r in state["posted"]:
+        try:
+            if r.get("dry_run") or r.get("face") != face or now - datetime.fromisoformat(r["time"]) > timedelta(hours=hours):
+                continue
+        except Exception:
+            continue
+        if mine & names(r.get("headline", "")):
+            return r.get("headline", "").replace("*", "")
+    return ""
+
+
 def recent_duplicate(text, face, state, hours=48, min_common=2, must=""):
     """Same person + same story posted in the last 2 days (wording may differ), e.g. 'Nicolas Cage refuses AI
     waiver' vs 'Nicolas Cage rejects Amazon AI waiver'. Returns the old headline or ''."""
@@ -192,8 +217,8 @@ def main():
     print(f"[main] {len(candidates)} safe, fresh candidate topics (strongest first)")
     for c in candidates[:5]:
         print(f"[main]   power {c['power']:>9,} | {c['country']:<11} | {c['topic']}")
-    if not candidates:
-        print("Nothing new to post right now.")
+    if not candidates and datetime.now(timezone.utc) >= config.ALL_STAR_UNTIL:  # star-only: the star's own news
+        print("Nothing new to post right now.")                                  # and facts below still work
         return 0
 
     already = [p.get("topic", p["key"]) for p in live]
@@ -283,6 +308,7 @@ def main():
     posts.sort(key=lambda p: not p.get("wiki_title"))  # stories about a famous person first
     made, i, faceless, repeats, retries = 0, 0, [], [], 0
     weak, edits, fact_tries = [], 0, 0  # scripts scored under 8, scripts checked, extra star facts asked for
+    max_facts, world_tries = (5 if all_star else 3), 0
     while made < config.POSTS_PER_RUN:
         if i < len(posts):
             p = posts[i]
@@ -300,9 +326,9 @@ def main():
             weak.sort(key=lambda x: -x[0])
             score, p = weak.pop(0)
             print(f"[main] no script scored 8+ -> posting the best one ({score:.0f}/10): {p['headline'][:60]}")
-        elif star and fact_tries < 3:  # no new star story: new facts from another part of their Wikipedia article
-            fact_tries += 1           # (owner, 10-27: star slots stay about the star, not Oprah)
-            print(f"[main] no new {star} story -> facts from another part of their life ({fact_tries}/3)")
+        elif star and fact_tries < max_facts:  # no new star story: new facts from another part of their article
+            fact_tries += 1                      # (owner, 10-27: star slots stay about the star, not Oprah)
+            print(f"[main] no new {star} story -> facts from another part of their life ({fact_tries}/{max_facts})")
             try:
                 ft = trends.person_facts(star, shift=fact_tries)
             except Exception as e:
@@ -317,7 +343,32 @@ def main():
                                               + "\n\n"))
             repeats = []
             continue
-        elif star and not faceless:  # still nothing new about the star: another world-famous face, not an empty slot
+        elif star and all_star and world_tries < 4:  # owner, 10-29: ONLY the star, no repeats: facts about one
+            world_tries += 1                           # of the star's companies/products, told with the star's face
+            items = trends.STAR_WORLD.get(star, [])
+            if not items:
+                world_tries = 4
+                continue
+            now = datetime.now(timezone.utc)
+            article = items[(now.timetuple().tm_yday * 7 + now.hour + world_tries * 5) % len(items)]
+            print(f"[main] still nothing new about {star} -> facts about {star}'s {article} ({world_tries}/4)")
+            try:
+                ft = trends.person_facts(article, shift=world_tries)
+            except Exception as e:
+                print(f"[main] facts for {article} failed: {e}")
+                continue
+            known.append(ft)
+            facts_topic = norm(ft["topic"])
+            posts += star_only(ai.write_posts([ft], already, 1, performance, special +
+                                              f"Write ONE FACTS & STATS post about {star}'s {article} from the "
+                                              f"'{article} facts' topic (topic exactly '{article} facts'): the headline "
+                                              f"starts with {star}'s name, wiki_title '{star}', ONLY facts from the "
+                                              "text, facts the page never posted before. " +
+                                              ("Already told, do NOT repeat: " + " | ".join(repeats) if repeats else "")
+                                              + "\n\n"))
+            repeats = []
+            continue
+        elif star and not faceless and not all_star:  # nothing new about the star: another world-famous face
             print(f"[main] no new {star} story today -> a post about another world-famous face instead")
             star = ""
             big = [c for c in all_candidates if any(f.lower() in (c["topic"] + " " + " ".join(
@@ -357,8 +408,10 @@ def main():
             if not dup and star and face == star:  # star Reels: no story or theme the page already told
                 dup = (recent_duplicate(p["headline"], face, state, hours=72, min_common=1, must="wealth") if "wealth" in _words(p["headline"])
                        else recent_duplicate(p["headline"], face, state, hours=24 * 60, min_common=3))
+            if not dup and star and face == star:  # same name within a day: 'Putin calls Musk a genius' twice
+                dup = same_name_today(p["headline"], face, state)
             if not dup and face:  # same story in other words ('teases Roadster' = 'unveils flying Tesla')
-                since = datetime.now(timezone.utc) - timedelta(days=4)
+                since = datetime.now(timezone.utc) - timedelta(days=7)
                 told = [r["headline"].replace("*", "") for r in live if r.get("face") == face
                         and datetime.fromisoformat(r["time"]) > since][-20:]
                 dup = ai.same_story(p["headline"].replace("*", ""), told)

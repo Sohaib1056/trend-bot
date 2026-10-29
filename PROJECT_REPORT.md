@@ -70,17 +70,19 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
 |---|---|---|
 | 19 | 3:05 PM | Reel (star slot) |
 | 21 | 5:05 PM | Reel (star slot, the best slot) |
-| 22 | 6:05 PM | Reel (trending slot: the hottest topic on all platforms, any person) |
+| 22 | 6:05 PM | Reel (was the trending slot; Elon since 10-29) |
 | 23 | 7:05 PM | Photo (moved from 10:05 PM on 10-19; 10 PM was the weakest slot) |
 | 01 | 9:05 PM | Reel |
 | 03 | 11:05 PM | Reel |
 | 04 | 12:05 AM | Photo |
 
-- `POST_SLOTS=1,3,4,19,21,22,23`, `PHOTO_SLOTS=4,23`, `STAR_SLOTS=19,21`, `TREND_SLOTS=22`.
-- `ALL_STAR_UNTIL=2026-11-01T04:00Z` (end of 31 Oct ET, owner extended it on 10-20): until then **every** slot (Reels and photos) is about the star face (Elon Musk),
-  except the trending slot.
-- **Trending slot**: topics are sorted by how many platforms they trend on (X, Reddit, Google, Wikipedia), then by
-  search traffic, and the AI is told to post the hottest one, whoever it is about.
+- `POST_SLOTS=1,3,4,19,21,22,23`, `PHOTO_SLOTS=4,23`, `STAR_SLOTS=19,21`, `TREND_SLOTS` empty (was 22 until 10-29).
+- **Owner, 10-29: ONLY Elon Musk posts, every slot, "until I say stop".** `ALL_STAR_UNTIL` default is
+  2100-01-01 (no end date); every post opens on Elon's face. To end it: set the `ALL_STAR_UNTIL` variable (or edit
+  `bot/config.py`), and to bring back the trending slot set `TREND_SLOTS=22`.
+- **Trending slot** (off since 10-29): topics sorted by how many platforms they trend on (X, Reddit, Google,
+  Wikipedia), then by search traffic; the AI posts the hottest one, whoever it is about. It averaged ~410 views vs
+  2,600+ for Elon Reels.
 - `SLOT_WINDOW_HOURS=3`: one post per slot window.
 - The hourly GitHub cron (`:17`) is a backup in case cron-job.org misses.
 - The workflow has `concurrency: trend-bot` and checks out `ref: main`, so a queued run sees the previous run's post.
@@ -114,7 +116,10 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
      - Word-overlap check, with a synonym map ("richest" = "trillionaire" = "net worth" → wealth theme, at most once
        per 72 h).
      - 60-day check for star stories.
-     - **AI same-story check** (`ai.same_story`, 4-day window per face).
+     - **Same name within 24 h** (`main.same_name_today`, 10-29): two star posts may not share another name
+       (Putin, Cybercab, Starlink...) within a day; Tesla/SpaceX/X don't count (`COMMON_NAMES`).
+     - **AI same-story check** (`ai.same_story`, 7-day window per face since 10-29; also the same storyline seen
+       from the other side, e.g. a reaction or follow-up).
    - **AI editor** (`ai.edit_reel`, all posts since 10-27, max 3 per slot): Reels are scored on hook, clarity, sense
      and facts (the lowest counts), photos on facts. "Facts" means headline, narration and caption say EXACTLY what
      the reports say ('offers buyouts' is not 'fires', 'plans' is not 'launches', claims stay claims). Under 8/10 it has the script rewritten once; still under 8 → try the next story; if no story reaches 8,
@@ -122,7 +127,10 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
    - Wording checks: `BLOCK_WORDS`, `RISKY` (sexual words, slurs, profanity) and `BAIT` (engagement bait removed
      from captions).
    - If every star idea is a repeat: ask the AI 2 more times, then (since 10-27) up to 3 FACTS posts from other
-     sections of the star's Wikipedia article (`person_facts(shift=n)`), and only then post about another huge face (`main.BIG_FACES`:
+     sections of the star's Wikipedia article (`person_facts(shift=n)`; 5 in Elon-only mode). In Elon-only mode the
+     last tries are up to 4 facts posts about one of the star's companies/products (`STAR_WORLD`, e.g. "Elon Musk's
+     Tesla Model Y..."), with all duplicate checks; never another face; and the run no longer stops when every
+     collected topic is old. Outside Elon-only mode: another huge face (`main.BIG_FACES`:
      Trump, Zuckerberg, Bezos, Gates, Altman, Huang, Taylor Swift, Ronaldo, Messi, LeBron, Kim K, The Rock, MrBeast,
      Obama, Rihanna, Oprah, Tom Cruise, Kylie Jenner). The slot is never left empty.
 9. **Poster** (`poster.make_poster`).
@@ -242,6 +250,10 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
   - More scenes (~2 s each), no repeated pictures, Elon-world professional photos as fallback, stricter quality.
   - Headline accuracy (prompt rule + editor checks headline/caption on every post) and risky legal topics
   blocked (`BLOCK_WORDS`: indictments, raids, subpoenas, FBI, federal/criminal probes, homes searched).
+- **10-29**:
+  - Only Elon Musk posts, every slot including 6 PM, no end date; never another face; the last resort is facts
+    about Elon's companies/products, still with every duplicate check.
+  - Stricter duplicates: same name within 24 h, AI same-story over 7 days incl. same storyline (Putin pair on 10-28).
 
 ## 9. Known gotchas (for whoever edits the code)
 
@@ -263,11 +275,10 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
 
 1. **After the next live Reel**: confirm that the Instagram Reel posted (resumable upload) and that the new scene rules
    look good.
-2. **~2026-10-31**: review the all-Elon period (`ALL_STAR_UNTIL` ends 2026-11-01 04:00 UTC = midnight after 31 Oct ET). Decide whether to keep
-   Elon-only or mix.
+2. Elon-only has no end date (owner, 10-29); the owner will say when to stop.
 3. **2026-11-01 (DST ends)**:
    - The UTC slots will land 1 hour earlier in ET. Shift every slot by +1 h UTC to keep the same ET times:
-     `POST_SLOTS=0,2,4,5,20,22,23`, `PHOTO_SLOTS=0,5`, `STAR_SLOTS=20,22`, `TREND_SLOTS=23`.
+     `POST_SLOTS=0,2,4,5,20,22,23`, `PHOTO_SLOTS=0,5`, `STAR_SLOTS=20,22` (and `TREND_SLOTS=23` if the trending slot comes back).
    - Update cron-job.org (Karachi): `5 1,3,4,5,7,9,10 * * *`.
 4. The owner adds the Instagram website link (`facebook.com/hypeatlasnews`) in the IG app (mobile only).
 5. Ideas not done:

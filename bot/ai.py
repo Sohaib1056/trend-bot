@@ -396,8 +396,11 @@ def same_story(headline, recent):
         return ""
     lines = "\n".join(f"{i}. {h}" for i, h in enumerate(recent, 1))
     prompt = (f'NEW headline: "{headline}"\n\nHeadlines already posted:\n{lines}\n\n'
-              "Is the NEW headline about the SAME news event or the same product/announcement as one of the posted "
-              "ones (even if worded differently)? Different events about the same person are NOT the same. "
+              "Is the NEW headline about the SAME news event, the same product/announcement, or the same storyline as "
+              "one of the posted ones, even if worded differently or from another side (a reaction to it, a "
+              "follow-up, the other person in the same clash - e.g. 'Putin calls Musk a genius over Starlink' and "
+              "'SpaceX retreats as Putin criticizes Musk' are the same)? Clearly different events about the same "
+              "person are NOT the same. "
               'Reply JSON: {"same": 0} if none, or {"same": n} with the number of the matching headline.')
     try:
         n = int(_parse_json(_light(prompt)).get("same", 0) or 0)

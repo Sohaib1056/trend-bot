@@ -43,10 +43,12 @@ POST_FORMAT = (os.getenv("POST_FORMAT", "") or "slots").strip().lower()
 PHOTO_SLOTS_UTC = {int(h) for h in (os.getenv("PHOTO_SLOTS", "") or "4,23").split(",") if h.strip().isdigit()}
 # Elon-style "star" Reels: the best slot (19 UTC = midnight PKT) and a second one 2 hours later
 STAR_SLOTS_UTC = {int(h) for h in (os.getenv("STAR_SLOTS", "") or "19,21").split(",") if h.strip().isdigit()}
-# "trending" Reels: the hottest topic across all platforms right now, whoever it is about (22 UTC = 6 PM New York)
-TREND_SLOTS_UTC = {int(h) for h in (os.getenv("TREND_SLOTS", "") or "22").split(",") if h.strip().isdigit()}
-# until this time every Reel slot is a star Reel (owner's 2-day test: 12-13 Oct 2026, all Reels about Elon Musk)
-ALL_STAR_UNTIL = datetime.fromisoformat(os.getenv("ALL_STAR_UNTIL", "") or "2026-11-01T04:00+00:00")
+# "trending" slots: the hottest topic across all platforms, whoever it is about (e.g. TREND_SLOTS=22 = 6 PM New
+# York). None since 10-29: the owner wants only Elon Musk posts.
+TREND_SLOTS_UTC = {int(h) for h in os.getenv("TREND_SLOTS", "").split(",") if h.strip().isdigit()}
+# until this time every slot (Reels and photos) is about the star. Owner, 10-29: only Elon Musk "until I say stop",
+# so no end date; set ALL_STAR_UNTIL (e.g. 2026-12-01T05:00+00:00) or change this line to end it.
+ALL_STAR_UNTIL = datetime.fromisoformat(os.getenv("ALL_STAR_UNTIL", "") or "2100-01-01T00:00+00:00")
 # Replies to comments: "off", "preview" (only print suggested replies in the log) or "on"
 AUTO_REPLY = (os.getenv("AUTO_REPLY", "") or "preview").strip().lower()
 FIRST_COMMENT = _bool("FIRST_COMMENT", True)  # page posts a question under each new post
