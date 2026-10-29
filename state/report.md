@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-29 21:06 UTC_
+_Updated 2026-10-29 22:06 UTC_
 
 ```
-Based on the last 155 posts on this page:
-Best categories: BUSINESS (941.9), TECH (810.6), POLITICS (764.5)
+Based on the last 156 posts on this page:
+Best categories: BUSINESS (943.5), TECH (798.1), POLITICS (769.5)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (938.1, 99 posts), photo (225.8, 56 posts)
-Best posting slots (UTC): 21:00 (1968.0), 19:00 (946.2), 03:00 (869.9)
-Best faces on this page (avg views per post): Elon Musk 2501 (108 posts), Ilhan Omar 543 (1 posts), Jensen Huang 449 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 296 (3 posts), Oprah Winfrey 285 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (931.7, 100 posts), photo (226.0, 56 posts)
+Best posting slots (UTC): 21:00 (1869.0), 19:00 (951.0), 03:00 (873.4)
+Best faces on this page (avg views per post): Elon Musk 2485 (109 posts), Ilhan Omar 544 (1 posts), Jensen Huang 449 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 297 (3 posts), Oprah Winfrey 285 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-29T21:07 | reel | TECH | Elon Musk’s Tesla faces legal crackdown in South Korea | 55 | 0 | 1 | 0 | 14.0 |
 | 2026-10-29T19:07 | reel | TECH | Elon Musk’s SpaceX outgrows NASA dependence | 239 | 10 | 2 | 0 | 73.8 |
 | 2026-10-29T04:07 | photo | BUSINESS | Elon Musk bans ElonJet account, faces jet usage backlash | 501 | 25 | 6 | 13 | 174.2 |
 | 2026-10-29T03:07 | reel | TECH | Tesla Model Y battery nearly impossible to repair, Cybercab fixes | 1117 | 133 | 17 | 0 | 540.4 |
@@ -39,18 +40,17 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-10-26T04:07 | photo | CELEBRITY | Elon Musk global roots and early life revealed | 2232 | 118 | 36 | 32 | 796.4 |
 | 2026-10-26T03:08 | reel | CELEBRITY | Musk wins Gold Space Medal and Time Person of Year | 807 | 112 | 30 | 0 | 475.4 |
 | 2026-10-26T01:08 | reel | POLITICS | Elon Musk receives official response from Ukraine | 545 | 32 | 3 | 0 | 182.0 |
-| 2026-10-25T23:07 | photo | TECH | Elon Musk's Roadster fails reality check, engineer debunks stunts | 1392 | 96 | 41 | 23 | 599.4 |
+| 2026-10-25T23:07 | photo | TECH | Elon Musk's Roadster fails reality check, engineer debunks stunts | 1396 | 96 | 41 | 23 | 600.2 |
 | 2026-10-25T22:07 | reel | TECH | Alphabet cloud revenue soars 82% in one quarter | 322 | 3 | 8 | 0 | 94.4 |
-| 2026-10-25T21:07 | reel | TECH | Elon Musk's Cybercabs flood Austin F1 race | 1295 | 133 | 28 | 0 | 609.0 |
-| 2026-10-25T19:06 | reel | POLITICS | Elon Musk calls politics incredibly tribal on Reddit | 4407 | 422 | 52 | 0 | 1881.4 |
+| 2026-10-25T21:07 | reel | TECH | Elon Musk's Cybercabs flood Austin F1 race | 1324 | 136 | 30 | 0 | 626.8 |
+| 2026-10-25T19:06 | reel | POLITICS | Elon Musk calls politics incredibly tribal on Reddit | 4664 | 438 | 56 | 0 | 1976.8 |
 | 2026-10-25T04:07 | photo | BUSINESS | Elon Musk's Tesla loses top spot in EV charging to rivals | 1221 | 92 | 29 | 17 | 521.2 |
-| 2026-10-25T03:07 | reel | POLITICS | Elon Musk says Kyiv violated Starshield terms as service resumes | 3892 | 292 | 45 | 0 | 1497.4 |
-| 2026-10-25T01:08 | reel | AI | Elon Musk froze Grokipedia after AI controversy | 1203 | 111 | 21 | 0 | 525.6 |
-| 2026-10-24T23:07 | photo | AI | Elon Musk co‑founded OpenAI, then walked away in 2018 | 846 | 63 | 10 | 14 | 331.2 |
-| 2026-10-24T22:07 | reel | POLITICS | Ilhan Omar's home searched in federal probe | 543 | 13 | 4 | 0 | 146.6 |
-| 2026-10-24T21:07 | reel | BUSINESS | Musk's SpaceX posts first profit, 835% AI sales jump | 2430 | 287 | 33 | 0 | 1159.0 |
-| 2026-10-24T19:07 | reel | TECH | Elon Musk's SpaceX sparks U.S. allies scramble to escape orbit | 6331 | 534 | 51 | 0 | 2487.2 |
+| 2026-10-25T03:07 | reel | POLITICS | Elon Musk says Kyiv violated Starshield terms as service resumes | 3930 | 295 | 47 | 0 | 1517.0 |
+| 2026-10-25T01:08 | reel | AI | Elon Musk froze Grokipedia after AI controversy | 1211 | 114 | 22 | 0 | 536.2 |
+| 2026-10-24T23:07 | photo | AI | Elon Musk co‑founded OpenAI, then walked away in 2018 | 854 | 64 | 11 | 15 | 337.8 |
+| 2026-10-24T22:07 | reel | POLITICS | Ilhan Omar's home searched in federal probe | 544 | 13 | 4 | 0 | 146.8 |
+| 2026-10-24T21:07 | reel | BUSINESS | Musk's SpaceX posts first profit, 835% AI sales jump | 2436 | 288 | 33 | 0 | 1162.2 |
+| 2026-10-24T19:07 | reel | TECH | Elon Musk's SpaceX sparks U.S. allies scramble to escape orbit | 6381 | 538 | 51 | 0 | 2505.2 |
 | 2026-10-24T04:07 | photo | BUSINESS | Elon Musk’s SpaceX faces $40 billion AI‑linked debt turmoil | 909 | 61 | 26 | 15 | 387.8 |
-| 2026-10-24T03:08 | reel | TECH | Elon Musk cancels Cybertruck in Australia, NZ | 8416 | 527 | 54 | 0 | 2899.2 |
-| 2026-10-24T01:07 | reel | BUSINESS | Elon Musk claims Optimus is 80% of Tesla's value | 6455 | 660 | 55 | 0 | 2776.0 |
-| 2026-10-23T23:07 | photo | TECH | Elon Musk unveils futuristic Roadster UI, fans gasp | 450 | 35 | 8 | 18 | 190.0 |
+| 2026-10-24T03:08 | reel | TECH | Elon Musk cancels Cybertruck in Australia, NZ | 8583 | 535 | 54 | 0 | 2948.6 |
+| 2026-10-24T01:07 | reel | BUSINESS | Elon Musk claims Optimus is 80% of Tesla's value | 6466 | 662 | 55 | 0 | 2782.2 |
