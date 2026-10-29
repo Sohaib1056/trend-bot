@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-29 22:06 UTC_
+_Updated 2026-10-29 23:06 UTC_
 
 ```
-Based on the last 156 posts on this page:
-Best categories: BUSINESS (943.5), TECH (798.1), POLITICS (769.5)
+Based on the last 157 posts on this page:
+Best categories: BUSINESS (943.5), TECH (784.7), POLITICS (769.5)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (931.7, 100 posts), photo (226.0, 56 posts)
+Format: reel (922.8, 101 posts), photo (226.0, 56 posts)
 Best posting slots (UTC): 21:00 (1869.0), 19:00 (951.0), 03:00 (873.4)
-Best faces on this page (avg views per post): Elon Musk 2485 (109 posts), Ilhan Omar 544 (1 posts), Jensen Huang 449 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 297 (3 posts), Oprah Winfrey 285 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2463 (110 posts), Ilhan Omar 544 (1 posts), Jensen Huang 449 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 297 (3 posts), Oprah Winfrey 285 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-29T22:07 | reel | TECH | Sterling Anderson calls Tesla’s vision‑only a weird religious stance | 85 | 5 | 2 | 0 | 33.0 |
 | 2026-10-29T21:07 | reel | TECH | Elon Musk’s Tesla faces legal crackdown in South Korea | 55 | 0 | 1 | 0 | 14.0 |
 | 2026-10-29T19:07 | reel | TECH | Elon Musk’s SpaceX outgrows NASA dependence | 239 | 10 | 2 | 0 | 73.8 |
 | 2026-10-29T04:07 | photo | BUSINESS | Elon Musk bans ElonJet account, faces jet usage backlash | 501 | 25 | 6 | 13 | 174.2 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-10-24T19:07 | reel | TECH | Elon Musk's SpaceX sparks U.S. allies scramble to escape orbit | 6381 | 538 | 51 | 0 | 2505.2 |
 | 2026-10-24T04:07 | photo | BUSINESS | Elon Musk’s SpaceX faces $40 billion AI‑linked debt turmoil | 909 | 61 | 26 | 15 | 387.8 |
 | 2026-10-24T03:08 | reel | TECH | Elon Musk cancels Cybertruck in Australia, NZ | 8583 | 535 | 54 | 0 | 2948.6 |
-| 2026-10-24T01:07 | reel | BUSINESS | Elon Musk claims Optimus is 80% of Tesla's value | 6466 | 662 | 55 | 0 | 2782.2 |
