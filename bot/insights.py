@@ -299,9 +299,9 @@ def _all_comments(obj_id, cap=2000):
     return out
 
 
-def reply_comments(state, max_replies=200, batch=20, gap=2.0, budget=9 * 60):
+def reply_comments(state, max_replies=150, batch=20, gap=2.0, budget=9 * 60):
     """Answers EVERY new comment on posts from the last 7 days (a short, positive, different reply each), up to
-    max_replies per run (the bot runs every hour; owner, 10-29: 200). Stops after `budget` seconds so a posting run
+    max_replies per run (the bot runs every hour; owner, 10-29: 150). Stops after `budget` seconds so a posting run
     stays inside the workflow's time limit. AUTO_REPLY=preview only prints the replies; on = actually reply."""
     import time
     start = time.monotonic()

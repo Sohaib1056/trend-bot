@@ -89,7 +89,7 @@ jobs:
             output/
             !output/clips/
           if-no-files-found: ignore
-          retention-days: 14
+          retention-days: 3   # storage quota is 0.5 GB (it was full with 14 days)
 
       - name: Remember what was posted
         if: always()
