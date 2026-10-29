@@ -263,10 +263,13 @@ def _reply_batch(post_headline, comments):
     lines = "\n".join(f'{n}. "{text[:300]}"' for n, (_, text) in enumerate(comments, 1))
     prompt = (f'You manage the Facebook page "{config.PAGE_NAME}". People commented on our post "{post_headline}":\n'
               f"{lines}\n\n"
-              "Write ONE short, warm, natural reply for EACH comment (max 12 words, max 1 emoji). Make every reply "
+              "Write ONE short, warm, POSITIVE reply for EACH comment (max 12 words, max 1 emoji). Make every reply "
               "different and specific to that comment; if it asks a question, answer briefly from the post only. "
-              "Do not add new facts, do not argue, no politics, no links. "
-              'For spam, abuse, hate, sexual content or requests for money/personal info, the reply is exactly "SKIP". '
+              "Negative, rude, angry, sarcastic or wrong comments get a kind, upbeat reply too: thank them for "
+              "sharing their view, never argue, never correct them harshly, never repeat an insult (e.g. 'Fair "
+              "point, thanks for weighing in! 🙌'). Do not add new facts, no politics, no links. "
+              'Only for spam/scam links, sexual content, hate or slurs against a group, or requests for money or '
+              'personal info, the reply is exactly "SKIP". '
               'Return JSON: {"replies": [{"n": 1, "reply": "..."}, ...]}')
     for engine in (ai._light, ai._groq):  # never Gemini: its small daily quota is kept for the posts
         try:
@@ -296,10 +299,12 @@ def _all_comments(obj_id, cap=2000):
     return out
 
 
-def reply_comments(state, max_replies=100, batch=20, gap=1.2):
-    """Answers EVERY new comment on posts from the last 7 days (a short, different reply each), up to max_replies
-    per run (the bot runs every hour). AUTO_REPLY=preview only prints the replies; on = actually reply."""
+def reply_comments(state, max_replies=200, batch=20, gap=2.0, budget=9 * 60):
+    """Answers EVERY new comment on posts from the last 7 days (a short, positive, different reply each), up to
+    max_replies per run (the bot runs every hour; owner, 10-29: 200). Stops after `budget` seconds so a posting run
+    stays inside the workflow's time limit. AUTO_REPLY=preview only prints the replies; on = actually reply."""
     import time
+    start = time.monotonic()
     mode = config.AUTO_REPLY
     if mode == "off" or not (config.FB_PAGE_ID and config.FB_PAGE_TOKEN):
         return
@@ -307,7 +312,9 @@ def reply_comments(state, max_replies=100, batch=20, gap=1.2):
     sent = 0
     for rec in reversed(state["posted"]):
         oid = rec.get("facebook")
-        if rec.get("dry_run") or not oid or _age_hours(rec) > 24 * 7 or sent >= max_replies:
+        if sent >= max_replies or time.monotonic() - start > budget:
+            break
+        if rec.get("dry_run") or not oid or _age_hours(rec) > 24 * 7:
             continue
         try:
             comments = _all_comments(oid)
@@ -317,7 +324,7 @@ def reply_comments(state, max_replies=100, batch=20, gap=1.2):
         new = [(c["id"], c["message"]) for c in comments if c["id"] not in replied and c.get("message")
                and (c.get("from") or {}).get("id") != config.FB_PAGE_ID]
         for k in range(0, len(new), batch):
-            if sent >= max_replies:
+            if sent >= max_replies or time.monotonic() - start > budget:
                 break
             chunk = new[k:k + batch]
             replies = _reply_batch(rec["headline"].replace("*", ""), chunk)

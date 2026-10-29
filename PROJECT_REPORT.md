@@ -164,7 +164,10 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
 12. Save the record to `state/posted.json` (key, topic, headline, badge, slot, face, format and post IDs). The workflow
     commits the state with `pull --rebase -X theirs` and retries.
 13. `engage()` **after** posting:
-    - Replies to every comment on posts from the last 7 days, max 100 per run.
+    - Replies to every comment on posts from the last 7 days, max 200 per run (owner, 10-29), at most ~9 minutes
+      per run; stops early if Facebook says "limit"/"spam".
+    - Replies are always positive: rude, angry or wrong comments get a kind thank-you (never argue, never repeat an
+      insult). SKIP only for spam/scam links, sexual content, hate/slurs and money/personal-info requests.
     - Replies use the small Groq model `llama-3.1-8b-instant`, so they never use up the quota the posts need.
     - Sends the daily growth to-do (a GitHub issue assigned to the owner; e-mail with share links and USA groups).
 
