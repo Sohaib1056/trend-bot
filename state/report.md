@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-30 22:06 UTC_
+_Updated 2026-10-30 23:05 UTC_
 
 ```
-Based on the last 162 posts on this page:
-Best categories: BUSINESS (937.0), TECH (832.0), POLITICS (778.7)
+Based on the last 163 posts on this page:
+Best categories: BUSINESS (937.0), TECH (818.6), POLITICS (778.7)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (941.0, 105 posts), photo (239.1, 57 posts)
+Format: reel (932.5, 106 posts), photo (239.1, 57 posts)
 Best posting slots (UTC): 21:00 (1810.8), 19:00 (988.5), 03:00 (866.4)
-Best faces on this page (avg views per post): Elon Musk 2515 (115 posts), Ilhan Omar 548 (1 posts), Jensen Huang 455 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 300 (3 posts), Oprah Winfrey 289 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2495 (116 posts), Ilhan Omar 548 (1 posts), Jensen Huang 455 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 300 (3 posts), Oprah Winfrey 289 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-30T22:07 | reel | TECH | Elon Musk to open Optimus robot reservations this year | 164 | 4 | 1 | 0 | 43.8 |
 | 2026-10-30T21:06 | reel | BUSINESS | Tesla sales tanked, yet market share rose | 36 | 2 | 1 | 0 | 14.2 |
 | 2026-10-30T19:07 | reel | POLITICS | Elon Musk warns end of democracy if Democrats win midterms | 154 | 9 | 1 | 0 | 51.8 |
 | 2026-10-30T04:07 | photo | AI | Elon Musk’s Neuralink unveils Grok agent you can summon with thoughts | 612 | 41 | 5 | 11 | 225.4 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-10-25T04:07 | photo | BUSINESS | Elon Musk's Tesla loses top spot in EV charging to rivals | 1222 | 91 | 28 | 18 | 516.4 |
 | 2026-10-25T03:07 | reel | POLITICS | Elon Musk says Kyiv violated Starshield terms as service resumes | 4055 | 305 | 46 | 0 | 1559.0 |
 | 2026-10-25T01:08 | reel | AI | Elon Musk froze Grokipedia after AI controversy | 1226 | 114 | 22 | 0 | 539.2 |
-| 2026-10-24T23:07 | photo | AI | Elon Musk co‑founded OpenAI, then walked away in 2018 | 895 | 63 | 11 | 14 | 344.0 |
