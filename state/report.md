@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-31 22:06 UTC_
+_Updated 2026-10-31 23:05 UTC_
 
 ```
-Based on the last 169 posts on this page:
-Best categories: BUSINESS (924.7), TECH (816.9), POLITICS (771.1)
-Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (932.1, 110 posts), photo (243.7, 59 posts)
-Best posting slots (UTC): 21:00 (1740.4), 19:00 (987.0), 03:00 (841.6)
-Best faces on this page (avg views per post): Elon Musk 2468 (122 posts), Ilhan Omar 552 (1 posts), Jensen Huang 460 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 291 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Based on the last 170 posts on this page:
+Best categories: BUSINESS (924.7), TECH (816.9), POLITICS (771.7)
+Weakest categories: VIRAL (11.2), SCIENCE (4.2)
+Format: reel (924.2, 111 posts), photo (243.7, 59 posts)
+Best posting slots (UTC): 21:00 (1740.5), 19:00 (988.4), 03:00 (841.7)
+Best faces on this page (avg views per post): Elon Musk 2449 (123 posts), Ilhan Omar 552 (1 posts), Jensen Huang 460 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 291 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-31T22:07 | reel | VIRAL | Car owner turns Cybertruck into giant Pikachu | 21 | 2 | 1 | 0 | 11.2 |
 | 2026-10-31T21:07 | reel | BUSINESS | Elon Musk says incredible demand for Micron memory chips | 44 | 4 | 0 | 0 | 16.8 |
 | 2026-10-31T19:07 | reel | TECH | Elon Musk's Nashville Tunnel faces sinkhole risk, study warns | 232 | 14 | 5 | 0 | 89.4 |
 | 2026-10-31T04:09 | photo | TECH | Elon Musk admits Starlink slowdown linked to deaths | 839 | 51 | 9 | 8 | 302.8 |
@@ -42,10 +43,10 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-10-27T23:07 | photo | BUSINESS | Elon Musk rejects Verizon's eight-year competitor timeline | 11059 | 60 | 9 | 14 | 2364.8 |
 | 2026-10-27T22:07 | reel | TECH | Jensen Huang reports 44% drop in China AI chip shipments | 569 | 12 | 3 | 0 | 146.8 |
 | 2026-10-27T21:07 | reel | TECH | Elon Musk's Neuralink lets ALS patient speak by thinking | 598 | 36 | 3 | 0 | 200.6 |
-| 2026-10-27T19:07 | reel | AI | Elon Musk's SpaceX secures $40 billion GPU lease | 3242 | 264 | 39 | 0 | 1293.4 |
+| 2026-10-27T19:07 | reel | AI | Elon Musk's SpaceX secures $40 billion GPU lease | 3318 | 268 | 39 | 0 | 1316.6 |
 | 2026-10-27T04:06 | photo | POLITICS | Elon Musk braces for post‑election investigations as Democrats gain | 1450 | 82 | 17 | 19 | 511.0 |
 | 2026-10-27T03:07 | reel | TECH | SpaceX lands $120.5B AI compute deal with Anthropic | 838 | 55 | 9 | 0 | 304.6 |
-| 2026-10-27T01:07 | reel | TECH | Elon Musk's Optimus robots begin manufacturing, YYForce applauds | 3499 | 341 | 44 | 0 | 1513.8 |
+| 2026-10-27T01:07 | reel | TECH | Elon Musk's Optimus robots begin manufacturing, YYForce applauds | 3505 | 342 | 44 | 0 | 1517.0 |
 | 2026-10-26T23:06 | photo | TECH | Elon Musk's Super Heavy booster ignites for Starship test | 479 | 39 | 11 | 15 | 212.8 |
 | 2026-10-26T22:08 | reel | TECH | Microsoft fires 60,000 via buyouts for AI | 235 | 2 | 2 | 0 | 57.0 |
 | 2026-10-26T21:08 | reel | CELEBRITY | Oprah Winfrey is the richest Black woman in the world | 291 | 5 | 0 | 0 | 68.2 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-10-26T04:07 | photo | CELEBRITY | Elon Musk global roots and early life revealed | 2275 | 123 | 37 | 32 | 818.0 |
 | 2026-10-26T03:08 | reel | CELEBRITY | Musk wins Gold Space Medal and Time Person of Year | 816 | 112 | 29 | 0 | 474.2 |
 | 2026-10-26T01:08 | reel | POLITICS | Elon Musk receives official response from Ukraine | 553 | 34 | 3 | 0 | 187.6 |
-| 2026-10-25T23:07 | photo | TECH | Elon Musk's Roadster fails reality check, engineer debunks stunts | 1401 | 96 | 42 | 23 | 604.2 |
