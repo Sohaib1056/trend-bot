@@ -1,21 +1,22 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-31 01:06 UTC_
+_Updated 2026-10-31 03:06 UTC_
 
 ```
-Based on the last 164 posts on this page:
-Best categories: BUSINESS (939.8), TECH (808.4), POLITICS (783.0)
+Based on the last 165 posts on this page:
+Best categories: BUSINESS (940.4), TECH (797.8), POLITICS (783.0)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (935.9, 106 posts), photo (236.3, 58 posts)
-Best posting slots (UTC): 21:00 (1813.5), 19:00 (994.3), 03:00 (869.3)
-Best faces on this page (avg views per post): Elon Musk 2484 (117 posts), Ilhan Omar 548 (1 posts), Jensen Huang 455 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 300 (3 posts), Oprah Winfrey 289 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (929.1, 107 posts), photo (236.7, 58 posts)
+Best posting slots (UTC): 21:00 (1813.5), 19:00 (996.3), 03:00 (869.3)
+Best faces on this page (avg views per post): Elon Musk 2470 (118 posts), Ilhan Omar 548 (1 posts), Jensen Huang 456 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 300 (3 posts), Oprah Winfrey 289 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-31T01:07 | reel | TECH | Tesla skips paint shop in Cybercab production | 114 | 4 | 2 | 0 | 36.8 |
 | 2026-10-30T23:08 | photo | TECH | Elon Musk in feud with Donald Trump | 52 | 10 | 2 | 1 | 39.4 |
-| 2026-10-30T22:07 | reel | TECH | Elon Musk to open Optimus robot reservations this year | 164 | 4 | 1 | 0 | 43.8 |
+| 2026-10-30T22:07 | reel | TECH | Elon Musk to open Optimus robot reservations this year | 420 | 23 | 2 | 0 | 136.0 |
 | 2026-10-30T21:06 | reel | BUSINESS | Tesla sales tanked, yet market share rose | 140 | 7 | 3 | 0 | 51.0 |
 | 2026-10-30T19:07 | reel | POLITICS | Elon Musk warns end of democracy if Democrats win midterms | 307 | 18 | 3 | 0 | 106.4 |
 | 2026-10-30T04:07 | photo | AI | Elon Musk’s Neuralink unveils Grok agent you can summon with thoughts | 642 | 43 | 6 | 11 | 238.4 |
@@ -34,13 +35,13 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-10-28T04:07 | photo | AI | Elon Musk's AI film plan hits reality check | 1368 | 76 | 14 | 27 | 473.6 |
 | 2026-10-28T03:11 | reel | POLITICS | Report: Musk-linked network funded Cornel West ballot push | 389 | 23 | 3 | 0 | 132.8 |
 | 2026-10-28T01:07 | reel | BUSINESS | Elon Musk targeted as Robert Reich urges defund | 7826 | 555 | 56 | 0 | 2843.2 |
-| 2026-10-27T23:07 | photo | BUSINESS | Elon Musk rejects Verizon's eight-year competitor timeline | 10758 | 61 | 9 | 14 | 2306.6 |
-| 2026-10-27T22:07 | reel | TECH | Jensen Huang reports 44% drop in China AI chip shipments | 559 | 10 | 3 | 0 | 140.8 |
-| 2026-10-27T21:07 | reel | TECH | Elon Musk's Neuralink lets ALS patient speak by thinking | 582 | 36 | 3 | 0 | 197.4 |
-| 2026-10-27T19:07 | reel | AI | Elon Musk's SpaceX secures $40 billion GPU lease | 2698 | 244 | 32 | 0 | 1123.6 |
+| 2026-10-27T23:07 | photo | BUSINESS | Elon Musk rejects Verizon's eight-year competitor timeline | 10875 | 61 | 9 | 14 | 2330.0 |
+| 2026-10-27T22:07 | reel | TECH | Jensen Huang reports 44% drop in China AI chip shipments | 561 | 11 | 3 | 0 | 143.2 |
+| 2026-10-27T21:07 | reel | TECH | Elon Musk's Neuralink lets ALS patient speak by thinking | 583 | 36 | 3 | 0 | 197.6 |
+| 2026-10-27T19:07 | reel | AI | Elon Musk's SpaceX secures $40 billion GPU lease | 2888 | 250 | 32 | 0 | 1173.6 |
 | 2026-10-27T04:06 | photo | POLITICS | Elon Musk braces for post‑election investigations as Democrats gain | 1449 | 82 | 17 | 19 | 510.8 |
 | 2026-10-27T03:07 | reel | TECH | SpaceX lands $120.5B AI compute deal with Anthropic | 837 | 55 | 9 | 0 | 304.4 |
-| 2026-10-27T01:07 | reel | TECH | Elon Musk's Optimus robots begin manufacturing, YYForce applauds | 3349 | 329 | 42 | 0 | 1453.8 |
+| 2026-10-27T01:07 | reel | TECH | Elon Musk's Optimus robots begin manufacturing, YYForce applauds | 3429 | 335 | 43 | 0 | 1484.8 |
 | 2026-10-26T23:06 | photo | TECH | Elon Musk's Super Heavy booster ignites for Starship test | 479 | 39 | 11 | 15 | 212.8 |
 | 2026-10-26T22:08 | reel | TECH | Microsoft fires 60,000 via buyouts for AI | 234 | 2 | 2 | 0 | 56.8 |
 | 2026-10-26T21:08 | reel | CELEBRITY | Oprah Winfrey is the richest Black woman in the world | 289 | 4 | 0 | 0 | 65.8 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-10-25T21:07 | reel | TECH | Elon Musk's Cybercabs flood Austin F1 race | 1513 | 160 | 34 | 0 | 724.6 |
 | 2026-10-25T19:06 | reel | POLITICS | Elon Musk calls politics incredibly tribal on Reddit | 5502 | 498 | 59 | 0 | 2273.4 |
 | 2026-10-25T04:07 | photo | BUSINESS | Elon Musk's Tesla loses top spot in EV charging to rivals | 1222 | 91 | 28 | 17 | 516.4 |
-| 2026-10-25T03:07 | reel | POLITICS | Elon Musk says Kyiv violated Starshield terms as service resumes | 4067 | 305 | 46 | 0 | 1561.4 |
