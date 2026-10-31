@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-31 19:06 UTC_
+_Updated 2026-10-31 21:05 UTC_
 
 ```
-Based on the last 167 posts on this page:
-Best categories: BUSINESS (946.5), TECH (822.5), POLITICS (769.7)
+Based on the last 168 posts on this page:
+Best categories: BUSINESS (946.5), TECH (810.9), POLITICS (769.7)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (945.0, 108 posts), photo (242.0, 59 posts)
-Best posting slots (UTC): 21:00 (1825.3), 19:00 (1021.5), 03:00 (840.0)
-Best faces on this page (avg views per post): Elon Musk 2497 (120 posts), Ilhan Omar 552 (1 posts), Jensen Huang 460 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 291 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (937.2, 109 posts), photo (242.0, 59 posts)
+Best posting slots (UTC): 21:00 (1825.3), 19:00 (985.7), 03:00 (840.0)
+Best faces on this page (avg views per post): Elon Musk 2479 (121 posts), Ilhan Omar 552 (1 posts), Jensen Huang 460 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 291 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-31T19:07 | reel | TECH | Elon Musk's Nashville Tunnel faces sinkhole risk, study warns | 232 | 14 | 5 | 0 | 89.4 |
 | 2026-10-31T04:09 | photo | TECH | Elon Musk admits Starlink slowdown linked to deaths | 694 | 43 | 7 | 8 | 251.8 |
 | 2026-10-31T03:07 | reel | POLITICS | Elon Musk could alter 2026 midterms, reports say | 239 | 13 | 0 | 0 | 73.8 |
 | 2026-10-31T01:07 | reel | TECH | Tesla skips paint shop in Cybercab production | 604 | 62 | 8 | 0 | 268.8 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-10-26T01:08 | reel | POLITICS | Elon Musk receives official response from Ukraine | 553 | 34 | 3 | 0 | 187.6 |
 | 2026-10-25T23:07 | photo | TECH | Elon Musk's Roadster fails reality check, engineer debunks stunts | 1401 | 96 | 42 | 23 | 604.2 |
 | 2026-10-25T22:07 | reel | TECH | Alphabet cloud revenue soars 82% in one quarter | 325 | 3 | 7 | 0 | 92.0 |
-| 2026-10-25T21:07 | reel | TECH | Elon Musk's Cybercabs flood Austin F1 race | 1645 | 174 | 35 | 0 | 782.0 |
