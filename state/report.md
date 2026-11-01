@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-01 22:06 UTC_
+_Updated 2026-11-01 23:06 UTC_
 
 ```
-Based on the last 176 posts on this page:
-Best categories: BUSINESS (921.4), TECH (819.4), POLITICS (749.9)
+Based on the last 177 posts on this page:
+Best categories: BUSINESS (921.4), TECH (807.4), POLITICS (749.9)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (922.3, 115 posts), photo (257.0, 61 posts)
+Format: reel (914.4, 116 posts), photo (257.0, 61 posts)
 Best posting slots (UTC): 21:00 (1675.9), 19:00 (987.6), 03:00 (816.7)
-Best faces on this page (avg views per post): Elon Musk 2430 (129 posts), Ilhan Omar 552 (1 posts), Jensen Huang 466 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 291 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2411 (130 posts), Ilhan Omar 552 (1 posts), Jensen Huang 466 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 291 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-01T22:07 | reel | TECH | Elon Musk promises Neuralink cure for blindness | 21 | 3 | 0 | 0 | 10.2 |
 | 2026-11-01T21:07 | reel | TECH | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 | 78 | 4 | 2 | 0 | 29.6 |
 | 2026-11-01T19:07 | reel | TECH | Elon Musk's AI power plant taken to court by neighbours | 93 | 7 | 2 | 0 | 38.6 |
 | 2026-11-01T04:06 | photo | POLITICS | Elon Musk faces defund push from former Clinton official | 1670 | 76 | 38 | 12 | 606.0 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-10-27T04:06 | photo | POLITICS | Elon Musk braces for post‑election investigations as Democrats gain | 1456 | 80 | 17 | 19 | 508.2 |
 | 2026-10-27T03:07 | reel | TECH | SpaceX lands $120.5B AI compute deal with Anthropic | 839 | 53 | 9 | 0 | 300.8 |
 | 2026-10-27T01:07 | reel | TECH | Elon Musk's Optimus robots begin manufacturing, YYForce applauds | 3539 | 350 | 45 | 0 | 1542.8 |
-| 2026-10-26T23:06 | photo | TECH | Elon Musk's Super Heavy booster ignites for Starship test | 479 | 38 | 11 | 15 | 210.8 |
