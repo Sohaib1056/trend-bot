@@ -1,43 +1,44 @@
 # Hype Atlas performance report
 
-_Updated 2026-10-31 23:05 UTC_
+_Updated 2026-11-01 01:06 UTC_
 
 ```
-Based on the last 170 posts on this page:
-Best categories: BUSINESS (924.7), TECH (816.9), POLITICS (771.7)
+Based on the last 171 posts on this page:
+Best categories: BUSINESS (925.6), TECH (810.5), POLITICS (773.0)
 Weakest categories: VIRAL (11.2), SCIENCE (4.2)
-Format: reel (924.2, 111 posts), photo (243.7, 59 posts)
-Best posting slots (UTC): 21:00 (1740.5), 19:00 (988.4), 03:00 (841.7)
-Best faces on this page (avg views per post): Elon Musk 2449 (123 posts), Ilhan Omar 552 (1 posts), Jensen Huang 460 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 291 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (927.6, 111 posts), photo (241.5, 60 posts)
+Best posting slots (UTC): 21:00 (1743.1), 19:00 (993.3), 03:00 (842.5)
+Best faces on this page (avg views per post): Elon Musk 2441 (124 posts), Ilhan Omar 552 (1 posts), Jensen Huang 460 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 291 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-10-31T23:07 | photo | TECH | Elon Musk reveals Neuralink’s first two product names | 71 | 9 | 3 | 1 | 44.2 |
 | 2026-10-31T22:07 | reel | VIRAL | Car owner turns Cybertruck into giant Pikachu | 21 | 2 | 1 | 0 | 11.2 |
-| 2026-10-31T21:07 | reel | BUSINESS | Elon Musk says incredible demand for Micron memory chips | 44 | 4 | 0 | 0 | 16.8 |
-| 2026-10-31T19:07 | reel | TECH | Elon Musk's Nashville Tunnel faces sinkhole risk, study warns | 232 | 14 | 5 | 0 | 89.4 |
-| 2026-10-31T04:09 | photo | TECH | Elon Musk admits Starlink slowdown linked to deaths | 839 | 51 | 9 | 8 | 302.8 |
-| 2026-10-31T03:07 | reel | POLITICS | Elon Musk could alter 2026 midterms, reports say | 266 | 13 | 1 | 0 | 82.2 |
-| 2026-10-31T01:07 | reel | TECH | Tesla skips paint shop in Cybercab production | 660 | 64 | 8 | 0 | 284.0 |
-| 2026-10-30T23:08 | photo | TECH | Elon Musk in feud with Donald Trump | 349 | 27 | 11 | 6 | 162.8 |
-| 2026-10-30T22:07 | reel | TECH | Elon Musk to open Optimus robot reservations this year | 3378 | 318 | 40 | 0 | 1431.6 |
-| 2026-10-30T21:06 | reel | BUSINESS | Tesla sales tanked, yet market share rose | 616 | 35 | 6 | 0 | 211.2 |
-| 2026-10-30T19:07 | reel | POLITICS | Elon Musk warns end of democracy if Democrats win midterms | 919 | 28 | 5 | 0 | 254.8 |
-| 2026-10-30T04:07 | photo | AI | Elon Musk’s Neuralink unveils Grok agent you can summon with thoughts | 813 | 49 | 7 | 11 | 287.6 |
-| 2026-10-30T03:07 | reel | TECH | SpaceX gets Morningstar price target lift | 410 | 13 | 4 | 0 | 120.0 |
-| 2026-10-30T01:07 | reel | BUSINESS | Elon Musk’s SpaceX could turn $2,000 into tens of millions | 475 | 19 | 7 | 0 | 154.0 |
-| 2026-10-29T22:07 | reel | TECH | Sterling Anderson calls Tesla’s vision‑only a weird religious stance | 2836 | 243 | 25 | 0 | 1128.2 |
-| 2026-10-29T21:07 | reel | TECH | Elon Musk’s Tesla faces legal crackdown in South Korea | 911 | 55 | 16 | 0 | 340.2 |
-| 2026-10-29T19:07 | reel | TECH | Elon Musk’s SpaceX outgrows NASA dependence | 2462 | 237 | 29 | 0 | 1053.4 |
-| 2026-10-29T04:07 | photo | BUSINESS | Elon Musk bans ElonJet account, faces jet usage backlash | 900 | 51 | 12 | 14 | 324.0 |
-| 2026-10-29T03:07 | reel | TECH | Tesla Model Y battery nearly impossible to repair, Cybercab fixes | 2304 | 253 | 30 | 0 | 1056.8 |
-| 2026-10-29T01:07 | reel | TECH | Tesla Cybercab is not fully unsupervised | 2448 | 239 | 28 | 0 | 1051.6 |
-| 2026-10-28T23:07 | photo | TECH | Elon Musk heads to Baron Conference this November | 1423 | 95 | 21 | 34 | 543.6 |
-| 2026-10-28T22:07 | reel | SPORTS | Ernie Johnson ends 37-year Inside the NBA era | 339 | 3 | 0 | 0 | 73.8 |
-| 2026-10-28T21:07 | reel | POLITICS | SpaceX retreats as Putin criticizes Musk | 1494 | 83 | 15 | 0 | 509.8 |
-| 2026-10-28T19:07 | reel | POLITICS | Putin calls Elon Musk a genius over Starlink | 7476 | 605 | 58 | 0 | 2879.2 |
-| 2026-10-28T04:07 | photo | AI | Elon Musk's AI film plan hits reality check | 1384 | 76 | 14 | 27 | 476.8 |
+| 2026-10-31T21:07 | reel | BUSINESS | Elon Musk says incredible demand for Micron memory chips | 181 | 6 | 0 | 0 | 48.2 |
+| 2026-10-31T19:07 | reel | TECH | Elon Musk's Nashville Tunnel faces sinkhole risk, study warns | 534 | 26 | 7 | 0 | 179.8 |
+| 2026-10-31T04:09 | photo | TECH | Elon Musk admits Starlink slowdown linked to deaths | 915 | 54 | 9 | 8 | 324.0 |
+| 2026-10-31T03:07 | reel | POLITICS | Elon Musk could alter 2026 midterms, reports say | 308 | 13 | 2 | 0 | 93.6 |
+| 2026-10-31T01:07 | reel | TECH | Tesla skips paint shop in Cybercab production | 837 | 64 | 8 | 0 | 319.4 |
+| 2026-10-30T23:08 | photo | TECH | Elon Musk in feud with Donald Trump | 384 | 29 | 12 | 6 | 176.8 |
+| 2026-10-30T22:07 | reel | TECH | Elon Musk to open Optimus robot reservations this year | 3657 | 338 | 47 | 0 | 1548.4 |
+| 2026-10-30T21:06 | reel | BUSINESS | Tesla sales tanked, yet market share rose | 637 | 35 | 6 | 0 | 215.4 |
+| 2026-10-30T19:07 | reel | POLITICS | Elon Musk warns end of democracy if Democrats win midterms | 931 | 28 | 6 | 0 | 260.2 |
+| 2026-10-30T04:07 | photo | AI | Elon Musk’s Neuralink unveils Grok agent you can summon with thoughts | 866 | 51 | 7 | 12 | 302.2 |
+| 2026-10-30T03:07 | reel | TECH | SpaceX gets Morningstar price target lift | 411 | 13 | 4 | 0 | 120.2 |
+| 2026-10-30T01:07 | reel | BUSINESS | Elon Musk’s SpaceX could turn $2,000 into tens of millions | 478 | 19 | 7 | 0 | 154.6 |
+| 2026-10-29T22:07 | reel | TECH | Sterling Anderson calls Tesla’s vision‑only a weird religious stance | 2875 | 248 | 25 | 0 | 1146.0 |
+| 2026-10-29T21:07 | reel | TECH | Elon Musk’s Tesla faces legal crackdown in South Korea | 919 | 57 | 19 | 0 | 354.8 |
+| 2026-10-29T19:07 | reel | TECH | Elon Musk’s SpaceX outgrows NASA dependence | 2498 | 243 | 29 | 0 | 1072.6 |
+| 2026-10-29T04:07 | photo | BUSINESS | Elon Musk bans ElonJet account, faces jet usage backlash | 904 | 51 | 12 | 14 | 324.8 |
+| 2026-10-29T03:07 | reel | TECH | Tesla Model Y battery nearly impossible to repair, Cybercab fixes | 2320 | 254 | 30 | 0 | 1062.0 |
+| 2026-10-29T01:07 | reel | TECH | Tesla Cybercab is not fully unsupervised | 2482 | 240 | 28 | 0 | 1060.4 |
+| 2026-10-28T23:07 | photo | TECH | Elon Musk heads to Baron Conference this November | 1465 | 99 | 23 | 35 | 566.0 |
+| 2026-10-28T22:07 | reel | SPORTS | Ernie Johnson ends 37-year Inside the NBA era | 341 | 3 | 0 | 0 | 74.2 |
+| 2026-10-28T21:07 | reel | POLITICS | SpaceX retreats as Putin criticizes Musk | 1504 | 84 | 15 | 0 | 513.8 |
+| 2026-10-28T19:07 | reel | POLITICS | Putin calls Elon Musk a genius over Starlink | 7514 | 607 | 58 | 0 | 2890.8 |
+| 2026-10-28T04:07 | photo | AI | Elon Musk's AI film plan hits reality check | 1391 | 75 | 14 | 27 | 476.2 |
 | 2026-10-28T03:11 | reel | POLITICS | Report: Musk-linked network funded Cornel West ballot push | 392 | 24 | 3 | 0 | 135.4 |
 | 2026-10-28T01:07 | reel | BUSINESS | Elon Musk targeted as Robert Reich urges defund | 7915 | 561 | 56 | 0 | 2873.0 |
 | 2026-10-27T23:07 | photo | BUSINESS | Elon Musk rejects Verizon's eight-year competitor timeline | 11059 | 60 | 9 | 14 | 2364.8 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-10-26T19:07 | reel | TV & FILM | Elon Musk’s AI Odyssey gets roasted after first episode drops | 1065 | 82 | 6 | 0 | 395.0 |
 | 2026-10-26T04:07 | photo | CELEBRITY | Elon Musk global roots and early life revealed | 2275 | 123 | 37 | 32 | 818.0 |
 | 2026-10-26T03:08 | reel | CELEBRITY | Musk wins Gold Space Medal and Time Person of Year | 816 | 112 | 29 | 0 | 474.2 |
-| 2026-10-26T01:08 | reel | POLITICS | Elon Musk receives official response from Ukraine | 553 | 34 | 3 | 0 | 187.6 |
