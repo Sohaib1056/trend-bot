@@ -1,21 +1,22 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-01 01:06 UTC_
+_Updated 2026-11-01 03:05 UTC_
 
 ```
-Based on the last 171 posts on this page:
-Best categories: BUSINESS (925.6), TECH (810.5), POLITICS (773.0)
-Weakest categories: VIRAL (11.2), SCIENCE (4.2)
-Format: reel (927.6, 111 posts), photo (241.5, 60 posts)
-Best posting slots (UTC): 21:00 (1743.1), 19:00 (993.3), 03:00 (842.5)
-Best faces on this page (avg views per post): Elon Musk 2441 (124 posts), Ilhan Omar 552 (1 posts), Jensen Huang 460 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 291 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Based on the last 172 posts on this page:
+Best categories: BUSINESS (904.0), TECH (810.5), POLITICS (774.2)
+Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
+Format: reel (920.3, 112 posts), photo (241.5, 60 posts)
+Best posting slots (UTC): 21:00 (1743.3), 19:00 (995.0), 03:00 (842.5)
+Best faces on this page (avg views per post): Elon Musk 2425 (125 posts), Ilhan Omar 552 (1 posts), Jensen Huang 463 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 291 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-01T01:08 | reel | BUSINESS | Elon Musk's SpaceX loses NAACP lawsuit over Memphis data center | 48 | 3 | 1 | 0 | 18.6 |
 | 2026-10-31T23:07 | photo | TECH | Elon Musk reveals Neuralink’s first two product names | 71 | 9 | 3 | 1 | 44.2 |
-| 2026-10-31T22:07 | reel | VIRAL | Car owner turns Cybertruck into giant Pikachu | 21 | 2 | 1 | 0 | 11.2 |
+| 2026-10-31T22:07 | reel | VIRAL | Car owner turns Cybertruck into giant Pikachu | 197 | 7 | 1 | 0 | 56.4 |
 | 2026-10-31T21:07 | reel | BUSINESS | Elon Musk says incredible demand for Micron memory chips | 181 | 6 | 0 | 0 | 48.2 |
 | 2026-10-31T19:07 | reel | TECH | Elon Musk's Nashville Tunnel faces sinkhole risk, study warns | 534 | 26 | 7 | 0 | 179.8 |
 | 2026-10-31T04:09 | photo | TECH | Elon Musk admits Starlink slowdown linked to deaths | 915 | 54 | 9 | 8 | 324.0 |
@@ -40,17 +41,16 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-10-28T19:07 | reel | POLITICS | Putin calls Elon Musk a genius over Starlink | 7514 | 607 | 58 | 0 | 2890.8 |
 | 2026-10-28T04:07 | photo | AI | Elon Musk's AI film plan hits reality check | 1391 | 75 | 14 | 27 | 476.2 |
 | 2026-10-28T03:11 | reel | POLITICS | Report: Musk-linked network funded Cornel West ballot push | 392 | 24 | 3 | 0 | 135.4 |
-| 2026-10-28T01:07 | reel | BUSINESS | Elon Musk targeted as Robert Reich urges defund | 7915 | 561 | 56 | 0 | 2873.0 |
-| 2026-10-27T23:07 | photo | BUSINESS | Elon Musk rejects Verizon's eight-year competitor timeline | 11059 | 60 | 9 | 14 | 2364.8 |
-| 2026-10-27T22:07 | reel | TECH | Jensen Huang reports 44% drop in China AI chip shipments | 569 | 12 | 3 | 0 | 146.8 |
-| 2026-10-27T21:07 | reel | TECH | Elon Musk's Neuralink lets ALS patient speak by thinking | 598 | 36 | 3 | 0 | 200.6 |
-| 2026-10-27T19:07 | reel | AI | Elon Musk's SpaceX secures $40 billion GPU lease | 3318 | 268 | 39 | 0 | 1316.6 |
-| 2026-10-27T04:06 | photo | POLITICS | Elon Musk braces for post‑election investigations as Democrats gain | 1450 | 82 | 17 | 19 | 511.0 |
-| 2026-10-27T03:07 | reel | TECH | SpaceX lands $120.5B AI compute deal with Anthropic | 838 | 55 | 9 | 0 | 304.6 |
-| 2026-10-27T01:07 | reel | TECH | Elon Musk's Optimus robots begin manufacturing, YYForce applauds | 3505 | 342 | 44 | 0 | 1517.0 |
-| 2026-10-26T23:06 | photo | TECH | Elon Musk's Super Heavy booster ignites for Starship test | 479 | 39 | 11 | 15 | 212.8 |
+| 2026-10-28T01:07 | reel | BUSINESS | Elon Musk targeted as Robert Reich urges defund | 7932 | 560 | 56 | 0 | 2874.4 |
+| 2026-10-27T23:07 | photo | BUSINESS | Elon Musk rejects Verizon's eight-year competitor timeline | 11068 | 60 | 9 | 14 | 2366.6 |
+| 2026-10-27T22:07 | reel | TECH | Jensen Huang reports 44% drop in China AI chip shipments | 575 | 12 | 3 | 0 | 148.0 |
+| 2026-10-27T21:07 | reel | TECH | Elon Musk's Neuralink lets ALS patient speak by thinking | 603 | 36 | 3 | 0 | 201.6 |
+| 2026-10-27T19:07 | reel | AI | Elon Musk's SpaceX secures $40 billion GPU lease | 3376 | 271 | 39 | 0 | 1334.2 |
+| 2026-10-27T04:06 | photo | POLITICS | Elon Musk braces for post‑election investigations as Democrats gain | 1456 | 80 | 17 | 19 | 508.2 |
+| 2026-10-27T03:07 | reel | TECH | SpaceX lands $120.5B AI compute deal with Anthropic | 838 | 52 | 9 | 0 | 298.6 |
+| 2026-10-27T01:07 | reel | TECH | Elon Musk's Optimus robots begin manufacturing, YYForce applauds | 3509 | 342 | 44 | 0 | 1517.8 |
+| 2026-10-26T23:06 | photo | TECH | Elon Musk's Super Heavy booster ignites for Starship test | 479 | 38 | 11 | 15 | 210.8 |
 | 2026-10-26T22:08 | reel | TECH | Microsoft fires 60,000 via buyouts for AI | 235 | 2 | 2 | 0 | 57.0 |
 | 2026-10-26T21:08 | reel | CELEBRITY | Oprah Winfrey is the richest Black woman in the world | 291 | 5 | 0 | 0 | 68.2 |
 | 2026-10-26T19:07 | reel | TV & FILM | Elon Musk’s AI Odyssey gets roasted after first episode drops | 1065 | 82 | 6 | 0 | 395.0 |
 | 2026-10-26T04:07 | photo | CELEBRITY | Elon Musk global roots and early life revealed | 2275 | 123 | 37 | 32 | 818.0 |
-| 2026-10-26T03:08 | reel | CELEBRITY | Musk wins Gold Space Medal and Time Person of Year | 816 | 112 | 29 | 0 | 474.2 |
