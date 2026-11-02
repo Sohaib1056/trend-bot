@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-02 19:06 UTC_
+_Updated 2026-11-02 21:06 UTC_
 
 ```
-Based on the last 181 posts on this page:
+Based on the last 182 posts on this page:
 Best categories: BUSINESS (904.5), TECH (849.2), POLITICS (762.1)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (931.8, 118 posts), photo (258.2, 63 posts)
-Best posting slots (UTC): 21:00 (1760.1), 19:00 (1001.9), 03:00 (807.0)
-Best faces on this page (avg views per post): Elon Musk 2430 (134 posts), Ilhan Omar 552 (1 posts), Jensen Huang 466 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (924.3, 119 posts), photo (258.2, 63 posts)
+Best posting slots (UTC): 21:00 (1760.1), 19:00 (967.4), 03:00 (807.0)
+Best faces on this page (avg views per post): Elon Musk 2413 (135 posts), Ilhan Omar 552 (1 posts), Jensen Huang 466 (2 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-02T19:08 | reel | CELEBRITY | Elon Musk targeted as activists plan massive doxxing | 105 | 5 | 2 | 0 | 37.0 |
 | 2026-11-02T04:07 | photo | AI | Elon Musk calls Grok Bot costs unsustainable | 335 | 30 | 11 | 3 | 166.0 |
 | 2026-11-02T03:08 | reel | TECH | Elon Musk’s SpaceX boosts Nvidia stock value | 1245 | 109 | 10 | 0 | 497.0 |
 | 2026-11-02T01:07 | reel | BUSINESS | Elon Musk's Starlink growth is explosive | 347 | 13 | 0 | 0 | 95.4 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-10-28T01:07 | reel | BUSINESS | Elon Musk targeted as Robert Reich urges defund | 8048 | 564 | 56 | 0 | 2905.6 |
 | 2026-10-27T23:07 | photo | BUSINESS | Elon Musk rejects Verizon's eight-year competitor timeline | 11160 | 60 | 9 | 14 | 2385.0 |
 | 2026-10-27T22:07 | reel | TECH | Jensen Huang reports 44% drop in China AI chip shipments | 582 | 13 | 3 | 0 | 151.4 |
-| 2026-10-27T21:07 | reel | TECH | Elon Musk's Neuralink lets ALS patient speak by thinking | 609 | 37 | 3 | 0 | 204.8 |
