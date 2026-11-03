@@ -32,7 +32,9 @@ COUNTRIES = [c.strip().upper() for c in (os.getenv("COUNTRIES", "") or "US,GB,CA
 POSTS_PER_RUN = max(1, _int("POSTS_PER_RUN", 1))
 # Posting slots (UTC hours). The workflow wakes up every hour; a scheduled run only posts
 # inside a slot window and only once per slot, so GitHub's late/dropped cron runs are covered.
-POST_SLOTS_UTC = sorted({int(h) for h in (os.getenv("POST_SLOTS", "") or "1,3,4,19,21,22,23").split(",") if h.strip().isdigit()})
+# New York winter time (EST, UTC-5) since 2026-11-01: 3,5,6,7 PM, 9,11 PM, midnight ET. When summer time starts again
+# (2027-03-14) shift every slot back by -1 h (1,3,4,19,21,22,23 / photos 4,23 / star 19,21) and update cron-job.org.
+POST_SLOTS_UTC = sorted({int(h) for h in (os.getenv("POST_SLOTS", "") or "0,2,4,5,20,22,23").split(",") if h.strip().isdigit()})
 SLOT_WINDOW_HOURS = _int("SLOT_WINDOW_HOURS", 3)
 DRY_RUN = _bool("DRY_RUN", True)            # True = make posters only, do NOT upload
 POST_TO_FACEBOOK = _bool("POST_TO_FACEBOOK", True)
@@ -40,9 +42,9 @@ POST_TO_INSTAGRAM = _bool("POST_TO_INSTAGRAM", True)
 # What each slot posts: "alternate" (Reel, photo, Reel, ...), "reel", "photo" or "both"
 POST_FORMAT = (os.getenv("POST_FORMAT", "") or "slots").strip().lower()
 # "slots": photo posts in these slots (7 PM and midnight New York), Reels in all others
-PHOTO_SLOTS_UTC = {int(h) for h in (os.getenv("PHOTO_SLOTS", "") or "4,23").split(",") if h.strip().isdigit()}
-# Elon-style "star" Reels: the best slot (19 UTC = midnight PKT) and a second one 2 hours later
-STAR_SLOTS_UTC = {int(h) for h in (os.getenv("STAR_SLOTS", "") or "19,21").split(",") if h.strip().isdigit()}
+PHOTO_SLOTS_UTC = {int(h) for h in (os.getenv("PHOTO_SLOTS", "") or "0,5").split(",") if h.strip().isdigit()}
+# Elon-style "star" Reels: the best slot (3 PM ET) and a second one 2 hours later
+STAR_SLOTS_UTC = {int(h) for h in (os.getenv("STAR_SLOTS", "") or "20,22").split(",") if h.strip().isdigit()}
 # "trending" slots: the hottest topic across all platforms, whoever it is about (e.g. TREND_SLOTS=22 = 6 PM New
 # York). None since 10-29: the owner wants only Elon Musk posts.
 TREND_SLOTS_UTC = {int(h) for h in os.getenv("TREND_SLOTS", "").split(",") if h.strip().isdigit()}

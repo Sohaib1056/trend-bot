@@ -9,7 +9,7 @@ from . import ai, config, growth, insights, meta, poster, reel, trends
 
 # extra safety net on top of the AI's own rules
 BLOCK_WORDS = re.compile(
-    r"\b(dead|dies|died|death|killed|kill|murder|shooting|shot|stabb|crash|victim|funeral|obituary|"
+    r"\b(dead|deadly|dies|died|death|deaths|fatal|fatality|fatalities|killed|kill|kills|murder|shooting|shot|stabb|crash|victim|funeral|obituary|"
     r"suicide|attack|war|bomb|terror|rape|abuse|arrest|overdose|missing|gunfire|molotov|execution|executed|execute|lethal|shooter|firing squad|death row|convicted|sentenced|prison|trial|protests?|protesters?|riots?|teargas|"
     # legal trouble (owner, 10-27: risky for the page and easy to get wrong)
     r"indict\w*|raid|raided|raids|subpoena\w*|fbi|(federal|criminal|justice department|doj) (probe|investigation)|"

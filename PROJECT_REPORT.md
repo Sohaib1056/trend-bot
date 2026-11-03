@@ -43,7 +43,7 @@ and publishes 7 times a day. It runs on **GitHub Actions** (the owner's PC can b
 | Page token | Never expires (Access Token Debugger: "Expires: Never"). Breaks only on FB password change, app removal, logout or admin loss. |
 | Instagram | @hypeatlas2026, IG user id 17841450180672907 (Business account linked to the page) |
 | Gmail for the brand | hypeatlas1@gmail.com |
-| Scheduler | cron-job.org job "Hype Atlas Bot" (Asia/Karachi): `5 0,2,3,4,6,8,9 * * *`, POSTs a workflow_dispatch with a fine-grained GitHub token (Actions write, this repo only) |
+| Scheduler | cron-job.org job "Hype Atlas Bot" (Asia/Karachi): `5 1,3,4,5,7,9,10 * * *` in winter (summer: `5 0,2,3,4,6,8,9 * * *`), POSTs a workflow_dispatch with a fine-grained GitHub token (Actions write, this repo only) |
 
 **How the page token was made.** `me/accounts` is empty for this user, so:
 1. Generate a user token in Graph API Explorer.
@@ -64,19 +64,22 @@ and publishes 7 times a day. It runs on **GitHub Actions** (the owner's PC can b
 
 ## 4. Schedule (7 posts a day)
 
-The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST ends on 1 Nov 2026, then UTC-5.
+The slots are fixed in **UTC** (`bot/config.py`). New York is on winter time (EST, UTC-5) since 1 Nov 2026; the
+slots were shifted +1 h UTC on 11-03 so the ET times stayed the same. Summer time (EDT, UTC-4) starts 2027-03-14:
+then shift every slot back -1 h (`1,3,4,19,21,22,23`, photos `4,23`, star `19,21`) and cron-job.org to
+`5 0,2,3,4,6,8,9 * * *`.
 
-| UTC | ET (now) | Type |
+| UTC (winter) | ET | Type |
 |---|---|---|
-| 19 | 3:05 PM | Reel (star slot) |
-| 21 | 5:05 PM | Reel (star slot, the best slot) |
-| 22 | 6:05 PM | Reel (was the trending slot; Elon since 10-29) |
-| 23 | 7:05 PM | Photo (moved from 10:05 PM on 10-19; 10 PM was the weakest slot) |
-| 01 | 9:05 PM | Reel |
-| 03 | 11:05 PM | Reel |
-| 04 | 12:05 AM | Photo |
+| 20 | 3:05 PM | Reel (star slot) |
+| 22 | 5:05 PM | Reel (star slot, the best slot) |
+| 23 | 6:05 PM | Reel (was the trending slot; Elon since 10-29) |
+| 00 | 7:05 PM | Photo (moved from 10:05 PM on 10-19; 10 PM was the weakest slot) |
+| 02 | 9:05 PM | Reel |
+| 04 | 11:05 PM | Reel |
+| 05 | 12:05 AM | Photo |
 
-- `POST_SLOTS=1,3,4,19,21,22,23`, `PHOTO_SLOTS=4,23`, `STAR_SLOTS=19,21`, `TREND_SLOTS` empty (was 22 until 10-29).
+- `POST_SLOTS=0,2,4,5,20,22,23`, `PHOTO_SLOTS=0,5`, `STAR_SLOTS=20,22`, `TREND_SLOTS` empty (was 22 until 10-29).
 - **Owner, 10-29: ONLY Elon Musk posts, every slot, "until I say stop".** `ALL_STAR_UNTIL` default is
   2100-01-01 (no end date); every post opens on Elon's face. To end it: set the `ALL_STAR_UNTIL` variable (or edit
   `bot/config.py`), and to bring back the trending slot set `TREND_SLOTS=22`.
@@ -253,6 +256,8 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
   - More scenes (~2 s each), no repeated pictures, Elon-world professional photos as fallback, stricter quality.
   - Headline accuracy (prompt rule + editor checks headline/caption on every post) and risky legal topics
   blocked (`BLOCK_WORDS`: indictments, raids, subpoenas, FBI, federal/criminal probes, homes searched).
+- **11-03**: Winter time: slots +1 h UTC (same ET times); `BLOCK_WORDS` now also catch plurals/variants
+  (deaths, deadly, fatal...) after "Starlink slowdown linked to deaths" got through on 10-31.
 - **10-29**:
   - Only Elon Musk posts, every slot including 6 PM, no end date; never another face; the last resort is facts
     about Elon's companies/products, still with every duplicate check.
@@ -282,10 +287,8 @@ The slots are fixed in **UTC** (`bot/config.py`). New York is UTC-4 until DST en
 1. **After the next live Reel**: confirm that the Instagram Reel posted (resumable upload) and that the new scene rules
    look good.
 2. Elon-only has no end date (owner, 10-29); the owner will say when to stop.
-3. **2026-11-01 (DST ends)**:
-   - The UTC slots will land 1 hour earlier in ET. Shift every slot by +1 h UTC to keep the same ET times:
-     `POST_SLOTS=0,2,4,5,20,22,23`, `PHOTO_SLOTS=0,5`, `STAR_SLOTS=20,22` (and `TREND_SLOTS=23` if the trending slot comes back).
-   - Update cron-job.org (Karachi): `5 1,3,4,5,7,9,10 * * *`.
+3. **2027-03-14 (summer time starts)**: shift the slots back -1 h UTC and cron-job.org back (see section 4).
+   (Winter shift done on 2026-11-03; posts on 11-01 and 11-02 went out 1 hour early in ET.)
 4. The owner adds the Instagram website link (`facebook.com/hypeatlasnews`) in the IG app (mobile only).
 5. Ideas not done:
    - Instagram comment replies (needs `instagram_manage_comments`).
