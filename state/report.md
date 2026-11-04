@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-03 23:06 UTC_
+_Updated 2026-11-04 00:05 UTC_
 
 ```
-Based on the last 190 posts on this page:
-Best categories: BUSINESS (893.2), TECH (856.6), POLITICS (734.6)
+Based on the last 191 posts on this page:
+Best categories: BUSINESS (893.2), TECH (856.6), POLITICS (710.2)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (912.8, 125 posts), photo (261.8, 65 posts)
+Format: reel (905.5, 126 posts), photo (261.8, 65 posts)
 Best posting slots (UTC): 21:00 (1760.9), 19:00 (987.6), 03:00 (806.3)
-Best faces on this page (avg views per post): Elon Musk 2379 (143 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2363 (144 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-03T23:09 | reel | POLITICS | Trump promises pre‑emptive pardons for Elon Musk | 0 | 1 | 0 | 0 | 2.0 |
 | 2026-11-03T22:07 | reel | TECH | Tesla Model Y L debuts human‑sized third row | 24 | 1 | 0 | 0 | 6.8 |
 | 2026-11-03T20:07 | reel | CELEBRITY | Elon Musk may be targeting Hollywood next | 92 | 4 | 1 | 0 | 29.4 |
 | 2026-11-03T04:07 | photo | POLITICS | Elon Musk has given more to politics in 18 months than George Soros has in his lifetime | 817 | 61 | 26 | 7 | 369.4 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-10-29T04:07 | photo | BUSINESS | Elon Musk bans ElonJet account, faces jet usage backlash | 916 | 52 | 11 | 14 | 326.2 |
 | 2026-10-29T03:07 | reel | TECH | Tesla Model Y battery nearly impossible to repair, Cybercab fixes | 2555 | 277 | 34 | 0 | 1167.0 |
 | 2026-10-29T01:07 | reel | TECH | Tesla Cybercab is not fully unsupervised | 3012 | 270 | 33 | 0 | 1241.4 |
-| 2026-10-28T23:07 | photo | TECH | Elon Musk heads to Baron Conference this November | 1506 | 100 | 23 | 35 | 576.2 |
