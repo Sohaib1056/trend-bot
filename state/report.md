@@ -1,21 +1,22 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-04 02:06 UTC_
+_Updated 2026-11-04 04:06 UTC_
 
 ```
-Based on the last 192 posts on this page:
-Best categories: BUSINESS (893.9), TECH (849.3), POLITICS (712.4)
+Based on the last 193 posts on this page:
+Best categories: BUSINESS (893.9), TECH (850.4), POLITICS (714.7)
 Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (908.6, 126 posts), photo (259.3, 66 posts)
-Best posting slots (UTC): 21:00 (1772.3), 19:00 (988.0), 03:00 (807.7)
-Best faces on this page (avg views per post): Elon Musk 2357 (145 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (902.8, 127 posts), photo (259.3, 66 posts)
+Best posting slots (UTC): 21:00 (1772.3), 19:00 (989.5), 03:00 (807.7)
+Best faces on this page (avg views per post): Elon Musk 2344 (146 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-04T02:06 | reel | AI | Elon Musk says SpaceX will become world’s biggest AI cloud | 71 | 5 | 2 | 0 | 30.2 |
 | 2026-11-04T00:06 | photo | TECH | Elon Musk Optimus robot 2027 launch timeline | 80 | 9 | 2 | 1 | 43.0 |
-| 2026-11-03T23:09 | reel | POLITICS | Trump promises pre‑emptive pardons for Elon Musk | 0 | 1 | 0 | 0 | 2.0 |
+| 2026-11-03T23:09 | reel | POLITICS | Trump promises pre‑emptive pardons for Elon Musk | 135 | 8 | 6 | 0 | 61.0 |
 | 2026-11-03T22:07 | reel | TECH | Tesla Model Y L debuts human‑sized third row | 65 | 1 | 0 | 0 | 15.0 |
 | 2026-11-03T20:07 | reel | CELEBRITY | Elon Musk may be targeting Hollywood next | 187 | 7 | 2 | 0 | 57.4 |
 | 2026-11-03T04:07 | photo | POLITICS | Elon Musk has given more to politics in 18 months than George Soros has in his lifetime | 880 | 66 | 27 | 7 | 395.0 |
@@ -41,16 +42,15 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-10-31T19:07 | reel | TECH | Elon Musk's Nashville Tunnel faces sinkhole risk, study warns | 1871 | 148 | 25 | 0 | 745.2 |
 | 2026-10-31T04:09 | photo | TECH | Elon Musk admits Starlink slowdown linked to deaths | 1623 | 76 | 13 | 12 | 521.6 |
 | 2026-10-31T03:07 | reel | POLITICS | Elon Musk could alter 2026 midterms, reports say | 388 | 14 | 2 | 0 | 111.6 |
-| 2026-10-31T01:07 | reel | TECH | Tesla skips paint shop in Cybercab production | 912 | 74 | 9 | 0 | 357.4 |
-| 2026-10-30T23:08 | photo | TECH | Elon Musk in feud with Donald Trump | 423 | 31 | 12 | 8 | 188.6 |
-| 2026-10-30T22:07 | reel | TECH | Elon Musk to open Optimus robot reservations this year | 8144 | 695 | 55 | 0 | 3183.8 |
+| 2026-10-31T01:07 | reel | TECH | Tesla skips paint shop in Cybercab production | 912 | 73 | 7 | 0 | 349.4 |
+| 2026-10-30T23:08 | photo | TECH | Elon Musk in feud with Donald Trump | 424 | 31 | 12 | 8 | 188.8 |
+| 2026-10-30T22:07 | reel | TECH | Elon Musk to open Optimus robot reservations this year | 8271 | 703 | 55 | 0 | 3225.2 |
 | 2026-10-30T21:06 | reel | BUSINESS | Tesla sales tanked, yet market share rose | 653 | 37 | 6 | 0 | 222.6 |
 | 2026-10-30T19:07 | reel | POLITICS | Elon Musk warns end of democracy if Democrats win midterms | 982 | 33 | 7 | 0 | 283.4 |
 | 2026-10-30T04:07 | photo | AI | Elon Musk’s Neuralink unveils Grok agent you can summon with thoughts | 1240 | 59 | 6 | 15 | 390.0 |
 | 2026-10-30T03:07 | reel | TECH | SpaceX gets Morningstar price target lift | 419 | 14 | 4 | 0 | 123.8 |
 | 2026-10-30T01:07 | reel | BUSINESS | Elon Musk’s SpaceX could turn $2,000 into tens of millions | 490 | 19 | 7 | 0 | 157.0 |
-| 2026-10-29T22:07 | reel | TECH | Sterling Anderson calls Tesla’s vision‑only a weird religious stance | 3536 | 312 | 29 | 0 | 1418.2 |
+| 2026-10-29T22:07 | reel | TECH | Sterling Anderson calls Tesla’s vision‑only a weird religious stance | 3557 | 312 | 29 | 0 | 1422.4 |
 | 2026-10-29T21:07 | reel | TECH | Elon Musk’s Tesla faces legal crackdown in South Korea | 953 | 63 | 21 | 0 | 379.6 |
-| 2026-10-29T19:07 | reel | TECH | Elon Musk’s SpaceX outgrows NASA dependence | 3694 | 325 | 41 | 0 | 1511.8 |
+| 2026-10-29T19:07 | reel | TECH | Elon Musk’s SpaceX outgrows NASA dependence | 3771 | 333 | 42 | 0 | 1546.2 |
 | 2026-10-29T04:07 | photo | BUSINESS | Elon Musk bans ElonJet account, faces jet usage backlash | 916 | 52 | 11 | 14 | 326.2 |
-| 2026-10-29T03:07 | reel | TECH | Tesla Model Y battery nearly impossible to repair, Cybercab fixes | 2555 | 277 | 34 | 0 | 1167.0 |
