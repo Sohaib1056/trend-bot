@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-04 23:06 UTC_
+_Updated 2026-11-05 00:05 UTC_
 
 ```
-Based on the last 197 posts on this page:
+Based on the last 198 posts on this page:
 Best categories: BUSINESS (879.7), TECH (867.9), POLITICS (702.2)
-Weakest categories: SHOPPING (15.6), SCIENCE (4.2)
-Format: reel (905.9, 130 posts), photo (267.5, 67 posts)
+Weakest categories: SHOPPING (15.6), SCIENCE (5.8)
+Format: reel (899.0, 131 posts), photo (267.4, 67 posts)
 Best posting slots (UTC): 21:00 (1826.0), 19:00 (998.6), 03:00 (814.0)
-Best faces on this page (avg views per post): Elon Musk 2360 (150 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2344 (151 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk leads SpaceX amid Ukraine’s Starlink throttling claims (5709.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-04T23:07 | reel | SCIENCE | Neuralink's new robot inserts brain threads in 1.5 seconds | 37 | 0 | 0 | 0 | 7.4 |
 | 2026-11-04T22:07 | reel | POLITICS | Elon Musk faces Democratic scrutiny after midterm victories | 133 | 6 | 3 | 0 | 47.6 |
 | 2026-11-04T20:07 | reel | TECH | Elon Musk signs Qualcomm deal for Starlink mobile | 106 | 2 | 0 | 0 | 25.2 |
 | 2026-11-04T05:06 | photo | AI | Elon Musk admits Grok users are overloading his AI | 656 | 47 | 20 | 5 | 291.2 |
@@ -40,7 +41,7 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-01T04:06 | photo | POLITICS | Elon Musk faces defund push from former Clinton official | 2724 | 110 | 51 | 14 | 923.8 |
 | 2026-11-01T03:08 | reel | POLITICS | Talarico attacks Musk in final Houston rally | 537 | 35 | 19 | 0 | 234.4 |
 | 2026-11-01T01:08 | reel | BUSINESS | Elon Musk's SpaceX loses NAACP lawsuit over Memphis data center | 1462 | 143 | 23 | 0 | 647.4 |
-| 2026-10-31T23:07 | photo | TECH | Elon Musk reveals Neuralink’s first two product names | 1257 | 74 | 29 | 17 | 492.4 |
+| 2026-10-31T23:07 | photo | TECH | Elon Musk reveals Neuralink’s first two product names | 1258 | 73 | 29 | 17 | 490.6 |
 | 2026-10-31T22:07 | reel | VIRAL | Car owner turns Cybertruck into giant Pikachu | 847 | 75 | 13 | 0 | 358.4 |
 | 2026-10-31T21:07 | reel | BUSINESS | Elon Musk says incredible demand for Micron memory chips | 594 | 36 | 9 | 0 | 217.8 |
 | 2026-10-31T19:07 | reel | TECH | Elon Musk's Nashville Tunnel faces sinkhole risk, study warns | 1885 | 148 | 25 | 0 | 748.0 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-10-30T19:07 | reel | POLITICS | Elon Musk warns end of democracy if Democrats win midterms | 983 | 33 | 7 | 0 | 283.6 |
 | 2026-10-30T04:07 | photo | AI | Elon Musk’s Neuralink unveils Grok agent you can summon with thoughts | 1242 | 59 | 6 | 15 | 390.4 |
 | 2026-10-30T03:07 | reel | TECH | SpaceX gets Morningstar price target lift | 423 | 14 | 4 | 0 | 124.6 |
-| 2026-10-30T01:07 | reel | BUSINESS | Elon Musk’s SpaceX could turn $2,000 into tens of millions | 490 | 19 | 7 | 0 | 157.0 |
