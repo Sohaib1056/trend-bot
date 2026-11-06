@@ -1,32 +1,33 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-06 22:05 UTC_
+_Updated 2026-11-06 23:06 UTC_
 
 ```
-Based on the last 210 posts on this page:
-Best categories: BUSINESS (886.8), TECH (855.5), POLITICS (709.4)
+Based on the last 211 posts on this page:
+Best categories: BUSINESS (891.4), TECH (857.4), POLITICS (709.6)
 Weakest categories: SPORTS (29.2), SHOPPING (15.6)
-Format: reel (907.7, 139 posts), photo (279.1, 71 posts)
+Format: reel (903.3, 140 posts), photo (280.9, 71 posts)
 Best posting slots (UTC): 21:00 (1927.3), 19:00 (1001.2), 03:00 (819.2)
-Best faces on this page (avg views per post): Elon Musk 2364 (163 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2356 (164 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7230.4)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-06T22:08 | reel | AI | SpaceX partners to deploy Grok AI globally | 46 | 2 | 0 | 0 | 13.2 |
 | 2026-11-06T20:08 | reel | TECH | Tesla Cybertruck: 11 recalls, cracked windows, long delays | 59 | 1 | 1 | 0 | 16.8 |
-| 2026-11-06T05:07 | photo | TECH | Musk gets FAA rule change | 989 | 71 | 25 | 7 | 420.8 |
-| 2026-11-06T04:07 | reel | POLITICS | Elon Musk spends $445 million on Republican midterms, falls short | 272 | 9 | 15 | 0 | 117.4 |
-| 2026-11-06T02:07 | reel | CELEBRITY | Elon Musk started Zip2 at 24, sold for $307 M | 469 | 37 | 7 | 0 | 188.8 |
-| 2026-11-06T00:11 | photo | TECH | Elon Musk's Tesla to standardize charging for all EVs by 2025 | 349 | 27 | 14 | 8 | 171.8 |
-| 2026-11-05T23:10 | reel | TECH | Elon Musk’s Grokipedia faces backlash over biased content | 587 | 28 | 22 | 0 | 239.4 |
-| 2026-11-05T22:07 | reel | BUSINESS | Elon Musk faces $450 billion two-day wipeout | 3181 | 220 | 35 | 0 | 1181.2 |
-| 2026-11-05T20:08 | reel | TECH | Elon Musk could cut US wireless prices by half | 1160 | 51 | 19 | 0 | 391.0 |
-| 2026-11-05T05:06 | photo | BUSINESS | Tesla Model S gone, but design patented | 2490 | 115 | 40 | 29 | 854.0 |
-| 2026-11-05T04:10 | reel | TECH | Musk’s brain chip played Pong with a monkey | 579 | 48 | 16 | 0 | 259.8 |
-| 2026-11-05T02:07 | reel | TECH | Neuralink rival electronic appetite‑suppressing brain device in development | 917 | 63 | 18 | 0 | 363.4 |
+| 2026-11-06T05:07 | photo | TECH | Musk gets FAA rule change | 1235 | 86 | 30 | 8 | 515.0 |
+| 2026-11-06T04:07 | reel | POLITICS | Elon Musk spends $445 million on Republican midterms, falls short | 300 | 10 | 15 | 0 | 125.0 |
+| 2026-11-06T02:07 | reel | CELEBRITY | Elon Musk started Zip2 at 24, sold for $307 M | 519 | 40 | 7 | 0 | 204.8 |
+| 2026-11-06T00:11 | photo | TECH | Elon Musk's Tesla to standardize charging for all EVs by 2025 | 357 | 27 | 14 | 8 | 173.4 |
+| 2026-11-05T23:10 | reel | TECH | Elon Musk’s Grokipedia faces backlash over biased content | 649 | 33 | 24 | 0 | 267.8 |
+| 2026-11-05T22:07 | reel | BUSINESS | Elon Musk faces $450 billion two-day wipeout | 3654 | 256 | 42 | 0 | 1368.8 |
+| 2026-11-05T20:08 | reel | TECH | Elon Musk could cut US wireless prices by half | 1206 | 57 | 19 | 0 | 412.2 |
+| 2026-11-05T05:06 | photo | BUSINESS | Tesla Model S gone, but design patented | 2582 | 119 | 41 | 29 | 883.4 |
+| 2026-11-05T04:10 | reel | TECH | Musk’s brain chip played Pong with a monkey | 581 | 48 | 16 | 0 | 260.2 |
+| 2026-11-05T02:07 | reel | TECH | Neuralink rival electronic appetite‑suppressing brain device in development | 919 | 63 | 18 | 0 | 363.8 |
 | 2026-11-05T00:06 | photo | POLITICS | Elon Musk pours $180 million into Texas races, faces defeat | 469 | 29 | 25 | 8 | 232.8 |
-| 2026-11-04T23:07 | reel | SCIENCE | Neuralink's new robot inserts brain threads in 1.5 seconds | 905 | 75 | 23 | 0 | 400.0 |
+| 2026-11-04T23:07 | reel | SCIENCE | Neuralink's new robot inserts brain threads in 1.5 seconds | 929 | 78 | 23 | 0 | 410.8 |
 | 2026-11-04T22:07 | reel | POLITICS | Elon Musk faces Democratic scrutiny after midterm victories | 3210 | 241 | 46 | 0 | 1262.0 |
 | 2026-11-04T20:07 | reel | TECH | Elon Musk signs Qualcomm deal for Starlink mobile | 867 | 10 | 9 | 0 | 220.4 |
 | 2026-11-04T05:06 | photo | AI | Elon Musk admits Grok users are overloading his AI | 903 | 58 | 24 | 5 | 374.6 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-01T04:06 | photo | POLITICS | Elon Musk faces defund push from former Clinton official | 2754 | 113 | 51 | 16 | 935.8 |
 | 2026-11-01T03:08 | reel | POLITICS | Talarico attacks Musk in final Houston rally | 540 | 35 | 19 | 0 | 235.0 |
 | 2026-11-01T01:08 | reel | BUSINESS | Elon Musk's SpaceX loses NAACP lawsuit over Memphis data center | 1475 | 143 | 23 | 0 | 650.0 |
-| 2026-10-31T23:07 | photo | TECH | Elon Musk reveals Neuralink’s first two product names | 1273 | 72 | 29 | 16 | 491.6 |
