@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-05 23:06 UTC_
+_Updated 2026-11-06 00:05 UTC_
 
 ```
-Based on the last 204 posts on this page:
-Best categories: TECH (872.6), BUSINESS (855.5), POLITICS (711.5)
+Based on the last 205 posts on this page:
+Best categories: TECH (861.4), BUSINESS (855.5), POLITICS (711.5)
 Weakest categories: SPORTS (29.2), SHOPPING (15.6)
-Format: reel (904.9, 135 posts), photo (272.9, 69 posts)
+Format: reel (898.4, 136 posts), photo (272.9, 69 posts)
 Best posting slots (UTC): 21:00 (1901.0), 19:00 (1000.9), 03:00 (816.6)
-Best faces on this page (avg views per post): Elon Musk 2362 (157 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2347 (158 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (6627.4)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-05T23:10 | reel | TECH | Elon Musk’s Grokipedia faces backlash over biased content | 29 | 1 | 1 | 0 | 10.8 |
 | 2026-11-05T22:07 | reel | BUSINESS | Elon Musk faces $450 billion two-day wipeout | 164 | 5 | 4 | 0 | 54.8 |
 | 2026-11-05T20:08 | reel | TECH | Elon Musk could cut US wireless prices by half | 166 | 4 | 1 | 0 | 44.2 |
 | 2026-11-05T05:06 | photo | BUSINESS | Tesla Model S gone, but design patented | 1383 | 81 | 28 | 15 | 528.6 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-10-31T19:07 | reel | TECH | Elon Musk's Nashville Tunnel faces sinkhole risk, study warns | 1887 | 148 | 25 | 0 | 748.4 |
 | 2026-10-31T04:09 | photo | TECH | Elon Musk admits Starlink slowdown linked to deaths | 1626 | 76 | 13 | 12 | 522.2 |
 | 2026-10-31T03:07 | reel | POLITICS | Elon Musk could alter 2026 midterms, reports say | 393 | 14 | 2 | 0 | 112.6 |
-| 2026-10-31T01:07 | reel | TECH | Tesla skips paint shop in Cybercab production | 925 | 74 | 7 | 0 | 354.0 |
