@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-07 22:06 UTC_
+_Updated 2026-11-07 23:06 UTC_
 
 ```
-Based on the last 217 posts on this page:
-Best categories: BUSINESS (878.4), TECH (861.1), POLITICS (728.4)
+Based on the last 218 posts on this page:
+Best categories: BUSINESS (878.4), TECH (851.2), POLITICS (728.4)
 Weakest categories: SPORTS (29.2), SHOPPING (15.6)
-Format: reel (925.0, 144 posts), photo (288.7, 73 posts)
-Best posting slots (UTC): 21:00 (1934.7), 19:00 (1001.2), 20:00 (849.1)
-Best faces on this page (avg views per post): Elon Musk 2402 (170 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
-Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7399.0)
+Format: reel (920.3, 145 posts), photo (288.7, 73 posts)
+Best posting slots (UTC): 21:00 (1936.0), 19:00 (1001.2), 20:00 (886.4)
+Best faces on this page (avg views per post): Elon Musk 2392 (171 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7427.4)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-07T22:07 | reel | TECH | Elon Musk’s Optimus robot gets ON Semiconductor chip boost | 74 | 2 | 0 | 0 | 18.8 |
 | 2026-11-07T20:07 | reel | BUSINESS | Elon Musk's $474 million Texas bet backfires | 85 | 2 | 11 | 0 | 54.0 |
 | 2026-11-07T05:09 | photo | BUSINESS | Elon Musk’s hidden $300M PayPal origin story | 644 | 49 | 22 | 10 | 298.8 |
 | 2026-11-07T04:07 | reel | TECH | Elon Musk unveils data centers in orbit at Baron conference | 249 | 12 | 19 | 0 | 130.8 |
@@ -39,18 +40,17 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-04T05:06 | photo | AI | Elon Musk admits Grok users are overloading his AI | 944 | 60 | 25 | 5 | 389.8 |
 | 2026-11-04T04:07 | reel | BUSINESS | Elon Musk slashes Tesla prices with massive US discounts | 525 | 30 | 4 | 0 | 177.0 |
 | 2026-11-04T02:06 | reel | AI | Elon Musk says SpaceX will become world’s biggest AI cloud | 700 | 62 | 9 | 0 | 291.0 |
-| 2026-11-04T00:06 | photo | TECH | Elon Musk Optimus robot 2027 launch timeline | 1156 | 81 | 13 | 14 | 438.2 |
-| 2026-11-03T23:09 | reel | POLITICS | Trump promises pre‑emptive pardons for Elon Musk | 535 | 33 | 10 | 0 | 203.0 |
+| 2026-11-04T00:06 | photo | TECH | Elon Musk Optimus robot 2027 launch timeline | 1157 | 81 | 13 | 13 | 438.4 |
+| 2026-11-03T23:09 | reel | POLITICS | Trump promises pre‑emptive pardons for Elon Musk | 536 | 33 | 10 | 0 | 203.2 |
 | 2026-11-03T22:07 | reel | TECH | Tesla Model Y L debuts human‑sized third row | 268 | 9 | 6 | 0 | 89.6 |
-| 2026-11-03T20:07 | reel | CELEBRITY | Elon Musk may be targeting Hollywood next | 9724 | 511 | 51 | 0 | 3119.8 |
+| 2026-11-03T20:07 | reel | CELEBRITY | Elon Musk may be targeting Hollywood next | 10266 | 550 | 51 | 0 | 3306.2 |
 | 2026-11-03T04:07 | photo | POLITICS | Elon Musk has given more to politics in 18 months than George Soros has in his lifetime | 1240 | 87 | 34 | 14 | 530.0 |
-| 2026-11-03T03:07 | reel | BUSINESS | Elon Musk's Tesla surges in Europe amid Chinese rivals | 1131 | 90 | 28 | 0 | 490.2 |
-| 2026-11-03T01:08 | reel | POLITICS | Elon Musk spends $474 million on 2026 midterm elections | 683 | 52 | 18 | 0 | 294.6 |
+| 2026-11-03T03:07 | reel | BUSINESS | Elon Musk's Tesla surges in Europe amid Chinese rivals | 1132 | 91 | 28 | 0 | 492.4 |
+| 2026-11-03T01:08 | reel | POLITICS | Elon Musk spends $474 million on 2026 midterm elections | 684 | 52 | 18 | 0 | 294.8 |
 | 2026-11-02T23:07 | photo | TECH | Elon Musk targets US wireless giants | 461 | 43 | 6 | 9 | 202.2 |
 | 2026-11-02T22:07 | reel | TECH | Elon Musk's Neuralink offers major vision breakthrough | 365 | 7 | 2 | 0 | 93.0 |
 | 2026-11-02T21:07 | reel | VIRAL | Elon Musk vows die in America as Mars plan | 697 | 16 | 4 | 0 | 183.4 |
 | 2026-11-02T19:08 | reel | CELEBRITY | Elon Musk targeted as activists plan massive doxxing | 1259 | 78 | 25 | 0 | 482.8 |
 | 2026-11-02T04:07 | photo | AI | Elon Musk calls Grok Bot costs unsustainable | 554 | 39 | 14 | 4 | 236.8 |
-| 2026-11-02T03:08 | reel | TECH | Elon Musk’s SpaceX boosts Nvidia stock value | 2869 | 230 | 26 | 0 | 1111.8 |
+| 2026-11-02T03:08 | reel | TECH | Elon Musk’s SpaceX boosts Nvidia stock value | 2872 | 230 | 26 | 0 | 1112.4 |
 | 2026-11-02T01:07 | reel | BUSINESS | Elon Musk's Starlink growth is explosive | 505 | 16 | 1 | 0 | 136.0 |
-| 2026-11-01T23:07 | photo | AI | Elon Musk acquires old Spam factory and gun range | 420 | 29 | 6 | 0 | 160.0 |
