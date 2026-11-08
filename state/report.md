@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-07 23:06 UTC_
+_Updated 2026-11-08 00:05 UTC_
 
 ```
-Based on the last 218 posts on this page:
-Best categories: BUSINESS (878.4), TECH (851.2), POLITICS (728.4)
+Based on the last 219 posts on this page:
+Best categories: BUSINESS (861.8), TECH (851.2), POLITICS (728.4)
 Weakest categories: SPORTS (29.2), SHOPPING (15.6)
-Format: reel (920.3, 145 posts), photo (288.7, 73 posts)
+Format: reel (914.1, 146 posts), photo (288.7, 73 posts)
 Best posting slots (UTC): 21:00 (1936.0), 19:00 (1001.2), 20:00 (886.4)
-Best faces on this page (avg views per post): Elon Musk 2392 (171 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2379 (172 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7427.4)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-07T23:07 | reel | BUSINESS | Elon Musk adds extra shift to Cybertruck before Cybercab shutdown | 40 | 2 | 0 | 0 | 12.0 |
 | 2026-11-07T22:07 | reel | TECH | Elon Musk’s Optimus robot gets ON Semiconductor chip boost | 74 | 2 | 0 | 0 | 18.8 |
 | 2026-11-07T20:07 | reel | BUSINESS | Elon Musk's $474 million Texas bet backfires | 85 | 2 | 11 | 0 | 54.0 |
 | 2026-11-07T05:09 | photo | BUSINESS | Elon Musk’s hidden $300M PayPal origin story | 644 | 49 | 22 | 10 | 298.8 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-02T19:08 | reel | CELEBRITY | Elon Musk targeted as activists plan massive doxxing | 1259 | 78 | 25 | 0 | 482.8 |
 | 2026-11-02T04:07 | photo | AI | Elon Musk calls Grok Bot costs unsustainable | 554 | 39 | 14 | 4 | 236.8 |
 | 2026-11-02T03:08 | reel | TECH | Elon Musk’s SpaceX boosts Nvidia stock value | 2872 | 230 | 26 | 0 | 1112.4 |
-| 2026-11-02T01:07 | reel | BUSINESS | Elon Musk's Starlink growth is explosive | 505 | 16 | 1 | 0 | 136.0 |
