@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-08 20:12 UTC_
+_Updated 2026-11-08 22:05 UTC_
 
 ```
-Based on the last 223 posts on this page:
-Best categories: BUSINESS (901.3), TECH (864.9), POLITICS (716.2)
+Based on the last 224 posts on this page:
+Best categories: BUSINESS (901.5), TECH (855.1), POLITICS (722.5)
 Weakest categories: SPORTS (29.2), SHOPPING (15.6)
-Format: reel (932.3, 148 posts), photo (289.6, 75 posts)
-Best posting slots (UTC): 21:00 (1936.4), 20:00 (1040.1), 19:00 (1001.2)
-Best faces on this page (avg views per post): Elon Musk 2404 (176 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (931.1, 149 posts), photo (289.6, 75 posts)
+Best posting slots (UTC): 21:00 (1936.5), 19:00 (1001.3), 20:00 (945.6)
+Best faces on this page (avg views per post): Elon Musk 2403 (177 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7437.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-08T20:14 | reel | TECH | Elon Musk's SpaceX wins NASA cislunar comms contract | 71 | 7 | 1 | 0 | 31.2 |
 | 2026-11-08T05:07 | photo | BUSINESS | Anthropic vs SpaceX: which IPO is the smarter buy? | 272 | 13 | 16 | 9 | 134.4 |
 | 2026-11-08T04:06 | reel | SCIENCE | SpaceX catches both stages on Nov. 13 | 484 | 44 | 8 | 0 | 208.8 |
 | 2026-11-08T02:07 | reel | POLITICS | Fans celebrate Musk's donations failing big | 600 | 34 | 19 | 0 | 245.0 |
@@ -39,18 +40,17 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-05T04:10 | reel | TECH | Musk’s brain chip played Pong with a monkey | 611 | 50 | 16 | 0 | 270.2 |
 | 2026-11-05T02:07 | reel | TECH | Neuralink rival electronic appetite‑suppressing brain device in development | 973 | 65 | 19 | 0 | 381.6 |
 | 2026-11-05T00:06 | photo | POLITICS | Elon Musk pours $180 million into Texas races, faces defeat | 496 | 31 | 25 | 8 | 242.2 |
-| 2026-11-04T23:07 | reel | SCIENCE | Neuralink's new robot inserts brain threads in 1.5 seconds | 1141 | 103 | 25 | 0 | 509.2 |
-| 2026-11-04T22:07 | reel | POLITICS | Elon Musk faces Democratic scrutiny after midterm victories | 5372 | 321 | 56 | 0 | 1884.4 |
-| 2026-11-04T20:07 | reel | TECH | Elon Musk signs Qualcomm deal for Starlink mobile | 878 | 11 | 9 | 0 | 224.6 |
-| 2026-11-04T05:06 | photo | AI | Elon Musk admits Grok users are overloading his AI | 944 | 60 | 25 | 5 | 389.8 |
-| 2026-11-04T04:07 | reel | BUSINESS | Elon Musk slashes Tesla prices with massive US discounts | 528 | 30 | 4 | 0 | 177.6 |
-| 2026-11-04T02:06 | reel | AI | Elon Musk says SpaceX will become world’s biggest AI cloud | 701 | 62 | 9 | 0 | 291.2 |
-| 2026-11-04T00:06 | photo | TECH | Elon Musk Optimus robot 2027 launch timeline | 1157 | 81 | 13 | 14 | 438.4 |
-| 2026-11-03T23:09 | reel | POLITICS | Trump promises pre‑emptive pardons for Elon Musk | 537 | 33 | 10 | 0 | 203.4 |
-| 2026-11-03T22:07 | reel | TECH | Tesla Model Y L debuts human‑sized third row | 268 | 9 | 6 | 0 | 89.6 |
-| 2026-11-03T20:07 | reel | CELEBRITY | Elon Musk may be targeting Hollywood next | 10623 | 573 | 51 | 0 | 3423.6 |
+| 2026-11-04T23:07 | reel | SCIENCE | Neuralink's new robot inserts brain threads in 1.5 seconds | 1228 | 113 | 23 | 0 | 540.6 |
+| 2026-11-04T22:07 | reel | POLITICS | Elon Musk faces Democratic scrutiny after midterm victories | 6108 | 351 | 55 | 0 | 2088.6 |
+| 2026-11-04T20:07 | reel | TECH | Elon Musk signs Qualcomm deal for Starlink mobile | 882 | 12 | 9 | 0 | 227.4 |
+| 2026-11-04T05:06 | photo | AI | Elon Musk admits Grok users are overloading his AI | 946 | 60 | 25 | 2 | 390.2 |
+| 2026-11-04T04:07 | reel | BUSINESS | Elon Musk slashes Tesla prices with massive US discounts | 532 | 31 | 4 | 0 | 180.4 |
+| 2026-11-04T02:06 | reel | AI | Elon Musk says SpaceX will become world’s biggest AI cloud | 713 | 63 | 9 | 0 | 295.6 |
+| 2026-11-04T00:06 | photo | TECH | Elon Musk Optimus robot 2027 launch timeline | 1160 | 81 | 13 | 14 | 439.0 |
+| 2026-11-03T23:09 | reel | POLITICS | Trump promises pre‑emptive pardons for Elon Musk | 546 | 34 | 10 | 0 | 207.2 |
+| 2026-11-03T22:07 | reel | TECH | Tesla Model Y L debuts human‑sized third row | 270 | 10 | 6 | 0 | 92.0 |
+| 2026-11-03T20:07 | reel | CELEBRITY | Elon Musk may be targeting Hollywood next | 11939 | 661 | 51 | 0 | 3862.8 |
 | 2026-11-03T04:07 | photo | POLITICS | Elon Musk has given more to politics in 18 months than George Soros has in his lifetime | 1240 | 87 | 34 | 14 | 530.0 |
-| 2026-11-03T03:07 | reel | BUSINESS | Elon Musk's Tesla surges in Europe amid Chinese rivals | 1132 | 91 | 28 | 0 | 492.4 |
-| 2026-11-03T01:08 | reel | POLITICS | Elon Musk spends $474 million on 2026 midterm elections | 684 | 52 | 18 | 0 | 294.8 |
+| 2026-11-03T03:07 | reel | BUSINESS | Elon Musk's Tesla surges in Europe amid Chinese rivals | 1146 | 92 | 27 | 0 | 494.2 |
+| 2026-11-03T01:08 | reel | POLITICS | Elon Musk spends $474 million on 2026 midterm elections | 688 | 54 | 18 | 0 | 299.6 |
 | 2026-11-02T23:07 | photo | TECH | Elon Musk targets US wireless giants | 461 | 43 | 6 | 9 | 202.2 |
-| 2026-11-02T22:07 | reel | TECH | Elon Musk's Neuralink offers major vision breakthrough | 365 | 7 | 2 | 0 | 93.0 |
