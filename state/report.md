@@ -1,23 +1,24 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-09 02:06 UTC_
+_Updated 2026-11-09 04:12 UTC_
 
 ```
-Based on the last 227 posts on this page:
-Best categories: BUSINESS (915.5), TECH (839.1), POLITICS (726.0)
+Based on the last 228 posts on this page:
+Best categories: BUSINESS (915.6), TECH (842.1), POLITICS (708.2)
 Weakest categories: SPORTS (29.2), SHOPPING (15.6)
-Format: reel (927.5, 151 posts), photo (287.6, 76 posts)
-Best posting slots (UTC): 21:00 (1936.6), 20:00 (1010.1), 19:00 (1001.3)
-Best faces on this page (avg views per post): Elon Musk 2388 (180 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (923.5, 152 posts), photo (288.9, 76 posts)
+Best posting slots (UTC): 21:00 (1936.6), 20:00 (1039.3), 19:00 (1001.3)
+Best faces on this page (avg views per post): Elon Musk 2381 (181 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7437.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
-| 2026-11-09T00:14 | photo | TECH | Musk calls Starship most powerful object ever | 2 | 5 | 2 | 2 | 22.4 |
-| 2026-11-08T23:07 | reel | TECH | Elon Musk saved lives where cell towers failed | 37 | 2 | 0 | 0 | 11.4 |
+| 2026-11-09T02:07 | reel | POLITICS | Elon Musk’s political fortunes hit a blue wave | 136 | 7 | 0 | 0 | 41.2 |
+| 2026-11-09T00:14 | photo | TECH | Musk calls Starship most powerful object ever | 212 | 24 | 6 | 5 | 114.4 |
+| 2026-11-08T23:07 | reel | TECH | Elon Musk saved lives where cell towers failed | 140 | 7 | 0 | 0 | 42.0 |
 | 2026-11-08T22:07 | reel | TV & FILM | Elon Musk mocked as worst thing South Africa has done | 315 | 8 | 2 | 0 | 85.0 |
-| 2026-11-08T20:14 | reel | TECH | Elon Musk's SpaceX wins NASA cislunar comms contract | 474 | 32 | 6 | 0 | 176.8 |
+| 2026-11-08T20:14 | reel | TECH | Elon Musk's SpaceX wins NASA cislunar comms contract | 732 | 56 | 16 | 0 | 306.4 |
 | 2026-11-08T05:07 | photo | BUSINESS | Anthropic vs SpaceX: which IPO is the smarter buy? | 388 | 18 | 15 | 9 | 164.6 |
 | 2026-11-08T04:06 | reel | SCIENCE | SpaceX catches both stages on Nov. 13 | 570 | 48 | 8 | 0 | 234.0 |
 | 2026-11-08T02:07 | reel | POLITICS | Fans celebrate Musk's donations failing big | 758 | 41 | 20 | 0 | 293.6 |
@@ -42,15 +43,14 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-05T05:06 | photo | BUSINESS | Tesla Model S gone, but design patented | 3167 | 148 | 41 | 32 | 1058.4 |
 | 2026-11-05T04:10 | reel | TECH | Musk’s brain chip played Pong with a monkey | 613 | 50 | 16 | 0 | 270.6 |
 | 2026-11-05T02:07 | reel | TECH | Neuralink rival electronic appetite‑suppressing brain device in development | 975 | 65 | 19 | 0 | 382.0 |
-| 2026-11-05T00:06 | photo | POLITICS | Elon Musk pours $180 million into Texas races, faces defeat | 509 | 32 | 24 | 8 | 243.8 |
-| 2026-11-04T23:07 | reel | SCIENCE | Neuralink's new robot inserts brain threads in 1.5 seconds | 1244 | 113 | 24 | 0 | 546.8 |
-| 2026-11-04T22:07 | reel | POLITICS | Elon Musk faces Democratic scrutiny after midterm victories | 6362 | 361 | 54 | 0 | 2156.4 |
+| 2026-11-05T00:06 | photo | POLITICS | Elon Musk pours $180 million into Texas races, faces defeat | 512 | 32 | 25 | 8 | 247.4 |
+| 2026-11-04T23:07 | reel | SCIENCE | Neuralink's new robot inserts brain threads in 1.5 seconds | 1252 | 114 | 24 | 0 | 550.4 |
+| 2026-11-04T22:07 | reel | POLITICS | Elon Musk faces Democratic scrutiny after midterm victories | 6574 | 370 | 54 | 0 | 2216.8 |
 | 2026-11-04T20:07 | reel | TECH | Elon Musk signs Qualcomm deal for Starlink mobile | 883 | 12 | 9 | 0 | 227.6 |
-| 2026-11-04T05:06 | photo | AI | Elon Musk admits Grok users are overloading his AI | 946 | 60 | 25 | 2 | 390.2 |
+| 2026-11-04T05:06 | photo | AI | Elon Musk admits Grok users are overloading his AI | 946 | 60 | 25 | 5 | 390.2 |
 | 2026-11-04T04:07 | reel | BUSINESS | Elon Musk slashes Tesla prices with massive US discounts | 533 | 31 | 4 | 0 | 180.6 |
 | 2026-11-04T02:06 | reel | AI | Elon Musk says SpaceX will become world’s biggest AI cloud | 715 | 63 | 9 | 0 | 296.0 |
 | 2026-11-04T00:06 | photo | TECH | Elon Musk Optimus robot 2027 launch timeline | 1160 | 81 | 13 | 13 | 439.0 |
-| 2026-11-03T23:09 | reel | POLITICS | Trump promises pre‑emptive pardons for Elon Musk | 548 | 34 | 10 | 0 | 207.6 |
+| 2026-11-03T23:09 | reel | POLITICS | Trump promises pre‑emptive pardons for Elon Musk | 549 | 34 | 10 | 0 | 207.8 |
 | 2026-11-03T22:07 | reel | TECH | Tesla Model Y L debuts human‑sized third row | 271 | 10 | 6 | 0 | 92.2 |
-| 2026-11-03T20:07 | reel | CELEBRITY | Elon Musk may be targeting Hollywood next | 12182 | 667 | 51 | 0 | 3923.4 |
-| 2026-11-03T04:07 | photo | POLITICS | Elon Musk has given more to politics in 18 months than George Soros has in his lifetime | 1240 | 87 | 34 | 14 | 530.0 |
+| 2026-11-03T20:07 | reel | CELEBRITY | Elon Musk may be targeting Hollywood next | 12340 | 674 | 51 | 0 | 3969.0 |
