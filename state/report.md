@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-08 23:06 UTC_
+_Updated 2026-11-09 00:12 UTC_
 
 ```
-Based on the last 225 posts on this page:
-Best categories: BUSINESS (908.5), TECH (856.3), POLITICS (723.0)
+Based on the last 226 posts on this page:
+Best categories: BUSINESS (908.5), TECH (846.2), POLITICS (723.1)
 Weakest categories: SPORTS (29.2), SHOPPING (15.6)
-Format: reel (928.4, 150 posts), photo (290.6, 75 posts)
+Format: reel (922.3, 151 posts), photo (290.6, 75 posts)
 Best posting slots (UTC): 21:00 (1936.5), 19:00 (1001.3), 20:00 (960.6)
-Best faces on this page (avg views per post): Elon Musk 2400 (178 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2387 (179 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7437.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-08T23:07 | reel | TECH | Elon Musk saved lives where cell towers failed | 37 | 2 | 0 | 0 | 11.4 |
 | 2026-11-08T22:07 | reel | TV & FILM | Elon Musk mocked as worst thing South Africa has done | 227 | 3 | 1 | 0 | 54.4 |
 | 2026-11-08T20:14 | reel | TECH | Elon Musk's SpaceX wins NASA cislunar comms contract | 71 | 7 | 1 | 0 | 31.2 |
 | 2026-11-08T05:07 | photo | BUSINESS | Anthropic vs SpaceX: which IPO is the smarter buy? | 336 | 15 | 16 | 9 | 151.2 |
@@ -40,7 +41,7 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-05T05:06 | photo | BUSINESS | Tesla Model S gone, but design patented | 3165 | 148 | 41 | 32 | 1058.0 |
 | 2026-11-05T04:10 | reel | TECH | Musk’s brain chip played Pong with a monkey | 612 | 50 | 16 | 0 | 270.4 |
 | 2026-11-05T02:07 | reel | TECH | Neuralink rival electronic appetite‑suppressing brain device in development | 973 | 65 | 18 | 0 | 378.6 |
-| 2026-11-05T00:06 | photo | POLITICS | Elon Musk pours $180 million into Texas races, faces defeat | 496 | 31 | 25 | 8 | 242.2 |
+| 2026-11-05T00:06 | photo | POLITICS | Elon Musk pours $180 million into Texas races, faces defeat | 509 | 32 | 24 | 8 | 243.8 |
 | 2026-11-04T23:07 | reel | SCIENCE | Neuralink's new robot inserts brain threads in 1.5 seconds | 1228 | 113 | 23 | 0 | 540.6 |
 | 2026-11-04T22:07 | reel | POLITICS | Elon Musk faces Democratic scrutiny after midterm victories | 6108 | 351 | 55 | 0 | 2088.6 |
 | 2026-11-04T20:07 | reel | TECH | Elon Musk signs Qualcomm deal for Starlink mobile | 882 | 12 | 9 | 0 | 227.4 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-03T20:07 | reel | CELEBRITY | Elon Musk may be targeting Hollywood next | 11939 | 661 | 51 | 0 | 3862.8 |
 | 2026-11-03T04:07 | photo | POLITICS | Elon Musk has given more to politics in 18 months than George Soros has in his lifetime | 1240 | 87 | 34 | 14 | 530.0 |
 | 2026-11-03T03:07 | reel | BUSINESS | Elon Musk's Tesla surges in Europe amid Chinese rivals | 1146 | 92 | 27 | 0 | 494.2 |
-| 2026-11-03T01:08 | reel | POLITICS | Elon Musk spends $474 million on 2026 midterm elections | 688 | 54 | 18 | 0 | 299.6 |
