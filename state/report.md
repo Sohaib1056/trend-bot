@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-10 22:06 UTC_
+_Updated 2026-11-10 23:06 UTC_
 
 ```
-Based on the last 238 posts on this page:
-Best categories: BUSINESS (986.6), TECH (850.2), POLITICS (700.0)
+Based on the last 239 posts on this page:
+Best categories: BUSINESS (989.4), TECH (850.3), POLITICS (700.5)
 Weakest categories: SPORTS (29.2), SHOPPING (15.6)
-Format: reel (955.0, 159 posts), photo (294.9, 79 posts)
-Best posting slots (UTC): 21:00 (1936.6), 19:00 (1001.3), 20:00 (993.0)
-Best faces on this page (avg views per post): Elon Musk 2468 (191 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (950.5, 160 posts), photo (294.7, 79 posts)
+Best posting slots (UTC): 21:00 (1936.6), 19:00 (1001.3), 20:00 (993.9)
+Best faces on this page (avg views per post): Elon Musk 2460 (192 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7437.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-10T22:07 | reel | AI | Elon Musk says C++ rewrite delayed Grok 4.8 | 44 | 2 | 1 | 0 | 15.8 |
 | 2026-11-10T20:09 | reel | BUSINESS | Elon Musk half‑right as SoftBank backs away from turbine order | 94 | 2 | 0 | 0 | 22.8 |
 | 2026-11-10T05:07 | photo | TECH | Elon Musk's SpaceX plans $24 billion AI project in Texas | 575 | 37 | 10 | 8 | 225.0 |
 | 2026-11-10T04:06 | reel | TECH | Tesla Robotaxi launched in San Antonio | 3264 | 337 | 39 | 0 | 1443.8 |
@@ -39,18 +40,17 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-07T05:09 | photo | BUSINESS | Elon Musk’s hidden $300M PayPal origin story | 1569 | 88 | 23 | 17 | 564.8 |
 | 2026-11-07T04:07 | reel | TECH | Elon Musk unveils data centers in orbit at Baron conference | 344 | 13 | 19 | 0 | 151.8 |
 | 2026-11-07T02:07 | reel | BUSINESS | Elon Musk predicts SpaceX revenue no analyst believes | 5290 | 427 | 57 | 0 | 2083.0 |
-| 2026-11-07T00:07 | photo | BUSINESS | Elon Musk’s SpaceX stock jumps as investors rally | 1175 | 65 | 36 | 10 | 479.0 |
-| 2026-11-06T23:07 | reel | AI | Elon Musk claims Neuralink could talk to animals | 831 | 68 | 17 | 0 | 353.2 |
-| 2026-11-06T22:08 | reel | AI | SpaceX partners to deploy Grok AI globally | 3366 | 296 | 38 | 0 | 1379.2 |
-| 2026-11-06T20:08 | reel | TECH | Tesla Cybertruck: 11 recalls, cracked windows, long delays | 2317 | 159 | 17 | 0 | 832.4 |
-| 2026-11-06T05:07 | photo | TECH | Musk gets FAA rule change | 2532 | 144 | 37 | 14 | 911.4 |
+| 2026-11-07T00:07 | photo | BUSINESS | Elon Musk’s SpaceX stock jumps as investors rally | 1178 | 65 | 30 | 10 | 461.6 |
+| 2026-11-06T23:07 | reel | AI | Elon Musk claims Neuralink could talk to animals | 832 | 68 | 17 | 0 | 353.4 |
+| 2026-11-06T22:08 | reel | AI | SpaceX partners to deploy Grok AI globally | 3375 | 297 | 38 | 0 | 1383.0 |
+| 2026-11-06T20:08 | reel | TECH | Tesla Cybertruck: 11 recalls, cracked windows, long delays | 2332 | 161 | 17 | 0 | 839.4 |
+| 2026-11-06T05:07 | photo | TECH | Musk gets FAA rule change | 2533 | 144 | 37 | 14 | 911.6 |
 | 2026-11-06T04:07 | reel | POLITICS | Elon Musk spends $445 million on Republican midterms, falls short | 453 | 13 | 18 | 0 | 170.6 |
 | 2026-11-06T02:07 | reel | CELEBRITY | Elon Musk started Zip2 at 24, sold for $307 M | 711 | 47 | 8 | 0 | 260.2 |
 | 2026-11-06T00:11 | photo | TECH | Elon Musk's Tesla to standardize charging for all EVs by 2025 | 446 | 32 | 16 | 9 | 207.2 |
 | 2026-11-05T23:10 | reel | TECH | Elon Musk’s Grokipedia faces backlash over biased content | 865 | 58 | 28 | 0 | 373.0 |
-| 2026-11-05T22:07 | reel | BUSINESS | Elon Musk faces $450 billion two-day wipeout | 19380 | 784 | 58 | 0 | 5618.0 |
-| 2026-11-05T20:08 | reel | TECH | Elon Musk could cut US wireless prices by half | 1675 | 105 | 27 | 0 | 626.0 |
+| 2026-11-05T22:07 | reel | BUSINESS | Elon Musk faces $450 billion two-day wipeout | 20141 | 794 | 58 | 0 | 5790.2 |
+| 2026-11-05T20:08 | reel | TECH | Elon Musk could cut US wireless prices by half | 1677 | 105 | 27 | 0 | 626.4 |
 | 2026-11-05T05:06 | photo | BUSINESS | Tesla Model S gone, but design patented | 3189 | 148 | 42 | 32 | 1065.8 |
-| 2026-11-05T04:10 | reel | TECH | Musk’s brain chip played Pong with a monkey | 626 | 51 | 17 | 0 | 278.2 |
-| 2026-11-05T02:07 | reel | TECH | Neuralink rival electronic appetite‑suppressing brain device in development | 983 | 67 | 18 | 0 | 384.6 |
-| 2026-11-05T00:06 | photo | POLITICS | Elon Musk pours $180 million into Texas races, faces defeat | 524 | 32 | 23 | 8 | 243.8 |
+| 2026-11-05T04:10 | reel | TECH | Musk’s brain chip played Pong with a monkey | 634 | 52 | 17 | 0 | 281.8 |
+| 2026-11-05T02:07 | reel | TECH | Neuralink rival electronic appetite‑suppressing brain device in development | 984 | 67 | 18 | 0 | 384.8 |
