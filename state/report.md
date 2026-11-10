@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-09 23:06 UTC_
+_Updated 2026-11-10 00:05 UTC_
 
 ```
-Based on the last 232 posts on this page:
-Best categories: BUSINESS (952.4), TECH (847.7), POLITICS (714.0)
+Based on the last 233 posts on this page:
+Best categories: BUSINESS (952.4), TECH (838.2), POLITICS (714.0)
 Weakest categories: SPORTS (29.2), SHOPPING (15.6)
-Format: reel (938.7, 155 posts), photo (294.7, 77 posts)
+Format: reel (932.9, 156 posts), photo (294.7, 77 posts)
 Best posting slots (UTC): 21:00 (1936.6), 20:00 (1041.2), 19:00 (1001.3)
-Best faces on this page (avg views per post): Elon Musk 2432 (185 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2419 (186 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7437.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-09T23:07 | reel | TECH | Elon Musk: SpaceX is now an infrastructure giant | 59 | 5 | 1 | 0 | 24.8 |
 | 2026-11-09T22:07 | reel | AI | AI scores Elon Musk's wild tech predictions | 64 | 5 | 1 | 0 | 25.8 |
 | 2026-11-09T20:07 | reel | BUSINESS | Tesla’s 5% stock surge fuels robotaxi excitement | 62 | 0 | 0 | 0 | 12.4 |
 | 2026-11-09T05:07 | photo | TECH | Elon Musk claims Starlink can outcompete undersea internet cables | 556 | 30 | 11 | 10 | 210.2 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-04T20:07 | reel | TECH | Elon Musk signs Qualcomm deal for Starlink mobile | 885 | 12 | 9 | 0 | 228.0 |
 | 2026-11-04T05:06 | photo | AI | Elon Musk admits Grok users are overloading his AI | 946 | 60 | 25 | 2 | 390.2 |
 | 2026-11-04T04:07 | reel | BUSINESS | Elon Musk slashes Tesla prices with massive US discounts | 534 | 31 | 4 | 0 | 180.8 |
-| 2026-11-04T02:06 | reel | AI | Elon Musk says SpaceX will become world’s biggest AI cloud | 716 | 63 | 9 | 0 | 296.2 |
