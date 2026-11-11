@@ -293,15 +293,16 @@ FACT_STOP = {"with", "from", "that", "this", "after", "over", "into", "about", "
              "their", "they", "what", "when", "your", "more", "than", "news", "report", "reports"}
 
 
-def article_facts(query, want=4, bodies=1):
+def article_facts(query, want=4, bodies=1, recent=True):
     """The real reporting behind a headline, so the AI writes from facts and not from one line: Bing News summaries
     from several outlets (numbers, quotes, dates) plus the full text of the first article that can be read.
-    Google News RSS only gives headlines. Returns news items like the other sources ([] if nothing found)."""
+    Google News RSS only gives headlines. recent=False searches all dates (feature stories about the past).
+    Returns news items like the other sources ([] if nothing found)."""
     import html
     import urllib.parse as up
     try:
         r = requests.get("https://www.bing.com/news/search", headers=BROWSER_UA, timeout=20,
-                         params={"q": query, "format": "rss", "qft": 'interval="7"'})
+                         params={"q": query, "format": "rss", **({"qft": 'interval="7"'} if recent else {})})
         root = ET.fromstring(r.content)
     except Exception as e:
         print(f"[facts] Bing News failed for '{query[:50]}': {e}")
@@ -337,6 +338,91 @@ def article_facts(query, want=4, bodies=1):
         out.append({"title": title, "snippet": (body or summary)[:1500], "source": source, "article": True})
     print(f"[facts] {len(out)} reports ({read} full article) for: {query[:60]}")
     return out
+
+
+# Life-story Reels (owner, 11-11: "Reels on Elon Musk's life that engage the audience, never duplicated"): one
+# dramatic chapter per day, told like a mini documentary; each chapter is used once (record["life"] in posted.json)
+# until all are told. (key, title, Wikipedia article, words that find the right paragraphs)
+LIFE_CHAPTERS = {"Elon Musk": [
+    ("blastar", "sold his first video game at 12", "Elon Musk", ["blastar", "video game", "computer programming"]),
+    ("canada", "left South Africa alone at 17", "Elon Musk", ["canada", "queen's", "moved", "citizenship"]),
+    ("stanford", "quit a Stanford PhD after two days", "Elon Musk", ["stanford", "two days", "ph.d", "doctoral"]),
+    ("zip2", "Zip2, his first company", "Zip2", ["zip2", "compaq", "million", "founded"]),
+    ("paypal", "X.com, PayPal and being fired as CEO", "Elon Musk", ["x.com", "paypal", "ousted", "ebay", "confinity"]),
+    ("falcon1", "three failed rockets before success", "Falcon 1", ["failure", "fourth", "flight", "orbit", "2008"]),
+    ("2008", "2008: Tesla and SpaceX nearly went bankrupt", "Elon Musk", ["2008", "bankrupt", "nasa", "contract", "recession"]),
+    ("roadster", "a Tesla Roadster sent into space", "Elon Musk's Tesla Roadster", ["falcon heavy", "starman", "orbit", "mars"]),
+    ("demo2", "first private rocket to fly NASA astronauts", "Crew Dragon Demo-2", ["astronauts", "first", "launch", "iss", "behnken"]),
+    ("boring", "The Boring Company and the flamethrowers", "The Boring Company", ["flamethrower", "tunnel", "las vegas", "sold"]),
+    ("optimus", "the Optimus robot story", "Optimus (robot)", ["unveiled", "prototype", "humanoid", "2021", "walk"]),
+    ("chopsticks", "catching a giant rocket with chopsticks", "Starship flight test 5", ["catch", "chopsticks", "tower", "booster"]),
+    ("twitter", "buying Twitter for $44 billion", "Acquisition of Twitter by Elon Musk", ["44 billion", "offer", "deal", "completed"]),
+    ("richest", "becoming the richest person on Earth", "Elon Musk", ["richest", "net worth", "forbes", "bloomberg"]),
+    ("falconheavy", "the Falcon Heavy gamble", "Falcon Heavy test flight", ["boosters", "landed", "side", "launch"]),
+]}
+
+
+def _wiki_text(article, site="en.wikipedia.org"):
+    pages = requests.get(f"https://{site}/w/api.php", timeout=20, params={
+        "action": "query", "format": "json", "prop": "extracts", "explaintext": 1, "redirects": 1, "titles": article},
+        headers={"User-Agent": "HypeAtlasBot/1.0 (facebook.com/hypeatlasnews)"}).json()["query"]["pages"]
+    return next(iter(pages.values())).get("extract", "")
+
+
+# no swearing and no politics in a life story ('video game' also found a 2025 political post)
+LIFE_UNSAFE = re.compile(r"\b(shit|bullshit|fuck\w*|damn|hell|political|politics|left|right[- ]wing|woke|democrat\w*|"
+                         r"republican\w*|trump|biden|election\w*|government|immigra\w*)\b", re.I)
+
+
+def _about_chapter(text, words):
+    """The chapter's own word, or two of its words: 'Elon Musk' alone is not enough (every Musk story has it)."""
+    t = text.lower()
+    return words[0] in t or sum(w in t for w in words[1:]) >= 2
+
+
+def _quotes(name, words, want=2):
+    """Real things the person said about this chapter, word for word with where and when (Wikiquote)."""
+    lines = [l.strip() for l in _wiki_text(name, "en.wikiquote.org").split("\n") if l.strip()]
+    source = re.compile(r"^(interview|from|as quoted|quoted|in |on |at |speech|tweet|post|statement|talk)|\(\d{4}\)|\b(19|20)\d\d\b")
+    out = []
+    for i, q in enumerate(lines[:-1]):
+        nxt = lines[i + 1]
+        if LIFE_UNSAFE.search(q) or not _about_chapter(q, words):
+            continue
+        if 40 < len(q) < 300 and not source.search(q.lower()[:40]) and source.search(nxt.lower()) and len(nxt) < 250:
+            out.append((sum(w in q.lower() for w in words), f'"{q}" ({nxt})'))
+    return [q for _, q in sorted(out, key=lambda x: -x[0])[:want]]
+
+
+def life_facts(name, chapter):
+    """Facts for a life-story Reel, from three sources: the paragraphs of the chapter's Wikipedia article that match
+    its words (the trusted base), what the person really said about it (Wikiquote, word for word, with the source),
+    and feature stories about it from any year (Bing News: the little-known details people love)."""
+    key, title, article, words = chapter
+    paras = [p.strip() for p in _wiki_text(article).split("\n") if len(p.strip()) > 150 and not p.startswith("=")]
+    hits = lambda p: 3 * (words[0] in p.lower()) + sum(w in p.lower() for w in words[1:])  # the chapter's own word first
+    best = sorted((p for p in paras if hits(p)), key=lambda p: -hits(p))[:3]
+    if not best:
+        raise RuntimeError(f"nothing about '{title}' in {article}")
+    news = [{"title": f"{name}: {title} ({article}, Wikipedia)", "snippet": p[:1200], "source": "Wikipedia", "url": ""}
+            for p in best]
+    extra = []  # 'facts': the writer and the editor both see all of these (news only the first 3)
+    try:
+        quotes = _quotes(name, words)
+        if quotes:
+            extra.append({"title": f"What {name} really said about it (Wikiquote, exact words, may be quoted with "
+                                   f"where and when)", "snippet": " ".join(quotes)[:1200], "source": "Wikiquote"})
+    except Exception as e:
+        print(f"[trends] Wikiquote for {name} failed: {e}")
+    # short search (the article, or the chapter's own word): Bing keeps only reports with most of the search words
+    stories = article_facts(f"{name} {article if article != name else words[0]}", want=4, bodies=2, recent=False)
+    extra += [s for s in stories if _about_chapter(s["title"] + " " + s["snippet"], words)
+              and not LIFE_UNSAFE.search(s["title"])][:2]
+    print(f"[trends] life story for {name}: {title} ({article}; {len(best)} Wikipedia paragraphs, "
+          f"{len(extra)} quotes/feature stories)")
+    return {"topic": f"{name} life: {title}", "traffic": "", "country": "US", "source": "focus", "life": key,
+            "news": news, "facts": extra, "power": 1, "focus": True, "trends": ["a chapter of the star's life"],
+            "countries": ["US"]}
 
 
 def person_facts(name, shift=0):

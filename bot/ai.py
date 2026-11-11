@@ -29,7 +29,17 @@ def build_prompt(candidates, already_posted, n, performance="", special=""):
 Page focus: FAMOUS FACES - the people Americans recognise instantly and talk about: big tech & AI bosses
 ({', '.join(FOCUS[:12])}...), world-famous politicians like Trump, and A-list celebrities, athletes and creators.
 People the world is looking up most TODAY: {', '.join(_TRENDING_PEOPLE[:15]) or 'n/a'}.
-Audience: the general public, mainly in the USA.
+Audience: EVERY American adult aged 18-65 should want to watch, like, comment, share and follow (owner, 11-11);
+today most viewers are 40-65, the page wants the 18-39s too. Write so all ages enjoy it:
+- Plain, clear words everyone gets at first listen; no slang or memes that older viewers would not understand
+  ('rizz', 'slay', 'lowkey', 'no cap'), but never dull or old-fashioned: fast, exciting, modern; say who someone is
+  and what a product is in a few words (e.g. 'SpaceX, his rocket company').
+- What pulls in every age: money (what it costs, who gains or loses billions, jobs, prices), what it means for
+  ordinary people, cool future tech (robots, AI, rockets, self-driving cars), wild records and 'first ever'
+  moments, rivalries and clashes, hard work and comeback stories.
+- People comment when asked for their OPINION in a few words ('Genius or reckless?', 'Would you ride in a car with
+  no driver?', 'Would you buy one?'), and share what they would show friends or family: a surprising fact, an
+  inspiring story, or something mind-blowing.
 
 Below are topics trending RIGHT NOW with related news headlines.
 {chr(10).join(lines)}
@@ -64,14 +74,14 @@ Return JSON exactly in this shape:
   "key": "short-lowercase-slug-of-topic",
   "topic": "topic name",
   "badge": "exactly one of: AI, TECH, POLITICS, BUSINESS, CELEBRITY, SPORTS, TV & FILM, MUSIC, GAMING, SHOPPING, VIRAL, SCIENCE",
-  "first_comment": "one short, fun question the page itself will comment under the post to spark replies (max 15 words, 1 emoji, e.g. 'Would you watch this? Yes or no? 👇')",
+  "first_comment": "one short question the page itself will comment under the post to spark replies, asking viewers of every age (18-65) for their opinion or experience (max 15 words, 1 emoji, e.g. 'Would you trust a car with no driver? 👇' or 'Genius or reckless? 🤔')",
   "share_groups": ["2-3 short Facebook group search terms where fans of this exact topic hang out, e.g. 'Manchester City fans', 'Premier League fans'"],
   "headline": "6-10 words in normal sentence case (NOT all caps). It is the poster title and the Reel title, so on its own it must say what happened and make people stop scrolling; written like the big viral news pages (Pubity, Pop Base). Use the PERSONALITY + MONEY + CLASH formula: lead with the famous person's name (not the company), then the most dramatic true angle - a big dollar figure, a rivalry or clash (X vs Y, slams, fires back, warns), a shock move or a surprising statement - and leave a little curiosity while still saying what happened (never invent or exaggerate). No emoji. Wrap the 1-3 most striking words in *asterisks* for a highlighter, e.g. 'Elon Musk just *fired back* at Sam Altman over OpenAI', 'Jensen Huang's fortune *jumps $20 billion* in one day'",
   "subtext": "max 14 words, one supporting line for the poster with the key fact",
   "wiki_title": "exact English Wikipedia article title of the ONE main famous PERSON in the story (e.g. 'Sam Altman', 'Jensen Huang', 'Donald Trump'). If the story is about a company or product, use its famous leader ONLY if the snippets name them. Empty string only if no famous person is involved. Stories with a famous face do much better, so prefer them.",
   "image_prompt": "one vivid sentence describing a professional, photorealistic, high-contrast scene that explains the story at a glance - its actual subject matter (its sport, venue, objects, setting - e.g. tennis upset -> a tennis racket on a clay court under stadium lights; TV casting news -> a film set with a director's chair and cameras), with the main subject large in the upper half of the frame (no text, no real person's face, no logos)",
   "template": "one of viral, breaking, frame (viral = celebrity/entertainment/viral moments, breaking = news/sports/events, frame = tech/lifestyle/products)",
-  "caption": "80-140 words. First line = strong hook with 1-2 emojis. Short paragraphs. Explain what happened using only given facts. End with ONE natural question to spark comments. No engagement bait (Facebook cuts the reach of posts that say 'share this', 'tag a friend', 'like if', 'send this to a friend', 'comment YES').",
+  "caption": "80-140 words. First line = strong hook with 1-2 emojis. Short paragraphs. Explain what happened using only given facts, in plain words, and say in one line what it means for ordinary Americans when the facts show it. End with ONE natural question asking for their opinion or experience. No engagement bait (Facebook cuts the reach of posts that say 'share this', 'tag a friend', 'like if', 'send this to a friend', 'comment YES').",
   "hashtags": ["10 to 15 hashtags without #, mix of broad popular tags and topic-specific tags"],
   "image_query": "2-4 words for a vibrant, eye-catching, professional stock photo that captures the excitement or emotion of the story, not a dull literal object (e.g. 'online shopping sale' not 'cardboard boxes', 'football stadium crowd' not 'football'). No person names.",
   "voiceover": "the Reel narration, read aloud by an energetic US news voice: 30-36 words (the Reel is 15-17 seconds), 4-5 SHORT punchy spoken sentences (max 10 words each, so the visuals can change often), built like the top viral news pages: (1) HOOK, max 8 words, said in the first 2 seconds: the single most shocking TRUE fact with the famous name - a big number, a clash or a wild move - so nobody scrolls past (e.g. 'Elon Musk is giving every American kid SpaceX stock.'); (2-3) the STORY in concrete facts from the reports - numbers, dates, who said what - so a viewer who knows nothing fully understands what happened; (4) the TWIST: the most surprising true detail or what it means for the viewer (e.g. 'That could cost him over 10 billion dollars.' or 'But nobody knows how it works yet.'); (5) the question. Every sentence must carry a concrete fact: NEVER vague filler like 'this is huge', 'people are talking', 'it could change everything', 'fans are excited'. Plain words, no emoji, no hashtags, no asterisks. End with ONE short direct question the viewer can answer in a word in the comments (e.g. 'Is he right?' or 'Would you buy one?'). Do NOT add a follow request (added automatically). Each sentence should name something REAL that can be SHOWN (another person, a product, a rocket, a place, a building, an event).",
@@ -430,8 +440,11 @@ def _review(post, facts, reel=True):
               f"narration: {post.get('voiceover', '')}\ncaption: {post.get('caption', '')}\n\n"
               "Score 0-10 each, be harsh (8 = as good as the best viral pages):\n"
               "hook: does the first spoken sentence (also shown as subtitles) make a scroller STOP within 2 seconds (a shocking true "
-              "fact, a big number, a clash, a famous name)?\n"
-              "clarity: would a viewer who never heard of this story fully understand what happened and why it matters?\n"
+              "fact, a big number, a clash, a famous name)? Give 6 or less when it is vague or slow to the point "
+              "(e.g. 'Big news about Elon Musk today.') or names no concrete product, dollar figure or clash in its "
+              "first 8 words; this page's hits opened like 'Elon Musk lost $450 billion in two days.'\n"
+              "clarity: would any viewer aged 18-65 who never heard of this story fully understand what happened and "
+              "why it matters, at first listen (plain words, no slang, who/what explained)?\n"
               "sense: does every sentence make sense, follow from the one before, and carry a real fact (no vague "
               "filler like 'this is huge' or 'people are talking')?\n"
               "facts: does the headline, narration and caption say EXACTLY what the FACTS say, with the same strength? "
@@ -466,7 +479,8 @@ def edit_reel(post, facts, reel=True):
               "- headline: 6-10 words, sentence case, famous name first, the most shocking TRUE angle, it must say "
               "what happened on its own; wrap the 1-3 most striking words in *asterisks*.\n"
               "- voiceover: 30-36 words, 4-5 short sentences (max 10 words each): HOOK (max 8 words, the most "
-              "shocking true fact with the name), the STORY in concrete facts (numbers, dates, who said what), the "
+              "shocking true fact with the name, naming the concrete product, dollar figure or clash; never a slow "
+              "opener like 'Big news today'), the STORY in concrete facts (numbers, dates, who said what), the "
               "TWIST (the most surprising true detail or what it means for the viewer), then ONE short question. "
               "Every sentence carries a real fact; no vague filler; no follow request; plain words, no emoji.\n"
               "- scenes: 4-6 items covering the new voiceover in order, each {\"line\": exact words of the "
@@ -474,7 +488,9 @@ def edit_reel(post, facts, reel=True):
               "event the line is about (not the main person; empty if none), \"query\": 2-4 word stock video search "
               "showing exactly that line, \"photo\": 2-4 word search for a real photo of the thing named}; no "
               "person names in query or photo.\n"
-              "- first_comment: one short fun question (max 15 words, 1 emoji).\n"
+              "- Audience: every American adult aged 18-65 (most viewers today are 40-65): plain, clear words, no "
+              "slang, but exciting and modern; the question asks for their opinion or experience in a few words.\n"
+              "- first_comment: one short question asking their opinion or experience (max 15 words, 1 emoji).\n"
               "- caption: 80-140 words, first line a strong hook with 1-2 emojis, short paragraphs, only the FACTS, "
               "ends with ONE natural question; no engagement bait ('share this', 'tag a friend', 'like if').\n"
               "- Use ONLY the FACTS, with the same strength: 'offers buyouts' is not 'fires', 'plans' is not "

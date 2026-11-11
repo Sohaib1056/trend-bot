@@ -20,6 +20,23 @@ MONEY_TECH = re.compile(
     r"millionaires?|valuation|economy|prices?|tariffs?|bitcoin|crypto\w*|interest rates?|the fed|"
     r"ai|a\.i\.|openai|chatgpt|gemini|nvidia|apple|iphone|google|microsoft|amazon|meta|tesla|spacex|nasa|rocket|"
     r"robots?|robotaxi|chips?|semiconductor\w*|tech|startup|gadget|smartphone|electric vehicles?|evs?)\b", re.I)
+# Elon Reels since 10-29 (owner, 11-11: "you should know what gets the best response"): the hits were Tesla products
+# and huge money (Cybercab 26k, $450 billion 21k, Cybertruck 11k, Optimus 9k views); politics (avg 1.4k) and niche
+# tech (Neuralink, orbit data centers, analyst targets, software: 300-400) did worst. Star topics are ranked by this.
+STAR_HOT = re.compile(
+    r"\b(cybercab|cybertruck|optimus|robotaxi|robots?|model [3ysx]|roadster|semi|tesla|starship|falcon|spacex|"
+    r"\$?\d[\d.,]*\s*(billion|trillion)|billions?|trillions?|net worth|richest|wealth|pay ?package|wipeout|"
+    r"revenue|ipo|stock|shares)\b", re.I)
+STAR_COLD = re.compile(
+    r"\b(midterms?|elections?|republicans?|democrats?|gop|campaign|senate|congress|voters?|ballot|trump|"
+    r"neuralink|data cent(er|re)s?|price target|analysts?|morningstar|c\+\+|software update)\b", re.I)
+
+
+def star_appeal(c):
+    """How likely a star topic is to go viral on this page: +1 Tesla product / big money / SpaceX, -1 politics or
+    niche tech (both can match: they cancel out)."""
+    blob = c["topic"] + " " + " ".join(n["title"] for n in c["news"][:3])
+    return bool(STAR_HOT.search(blob)) - bool(STAR_COLD.search(blob))
 
 
 def load_state():
@@ -233,6 +250,7 @@ def main():
         print("[insights] " + performance.replace("\n", "\n[insights] "))
     # a couple of spares, so one skipped post doesn't leave the slot empty
     special, facts_topic, star, all_candidates = "", "", "", candidates
+    life_key = ""  # life-story slot: the chapter of the star's life this post tells
     slot_now = current_slot(datetime.now(timezone.utc))
     if slot_now is None and config.DRY_RUN:  # test run between slots: behave like the next slot
         now = datetime.now(timezone.utc).replace(minute=0, second=0, microsecond=0)
@@ -277,7 +295,11 @@ def main():
                 pool.append(c)
         except Exception as e:
             print(f"[main] extra sources for {star} failed: {e}")
-        pool.sort(key=lambda c: -len(c.get("trends") or []))  # buzzing on several platforms first
+        # what goes viral here first (Tesla products, big money, SpaceX; politics and niche tech last), then
+        # buzzing on several platforms; politics is still used when it is the only fresh news
+        pool.sort(key=lambda c: (-star_appeal(c), -len(c.get("trends") or [])))
+        for c in pool[:5]:
+            print(f"[main]   appeal {star_appeal(c):+d} | {c['topic'][:70]}")
         pool = pool[:10]
         try:
             pool.append(trends.person_facts(star))
@@ -299,8 +321,43 @@ def main():
                        f"{insights.star_angles(state, star)}"
                        f"Choose the story most likely to make people STOP scrolling, like, comment, share and follow: "
                        f"the kind of angle that did best above (personality, power, money, a clash, a shock move), "
-                       f"never the kind that did worst. Stories buzzing on several platforms are the strongest.\n\n")
+                       f"never the kind that did worst. Stories buzzing on several platforms are the strongest.\n"
+                       f"On this page the biggest hits were Tesla PRODUCTS and HUGE MONEY: 'Tesla adopts Cybercab "
+                       f"inverter for 2026 Model 3' (26k views), '$450 billion two-day wipeout' (21k), 'extra shift to "
+                       f"Cybertruck before Cybercab' (11k), 'Optimus robot reservations' (9k). Politics averaged 1.4k "
+                       f"and niche tech (Neuralink, orbit data centers, analyst targets, software) 300-400: pick those "
+                       f"ONLY when no Tesla / SpaceX / money story is listed. Topics are listed best first. HOOK: name "
+                       f"the product or the dollar figure in the first 8 words, in patterns like '[product] just [what "
+                       f"happened].' or 'Elon Musk [lost/made/spent] $[figure] in [time].', using ONLY facts and "
+                       f"numbers from the reports.\n\n")
             print(f"[main] star slot {slot_now:%H}:00 UTC -> Reel about {star} ({len(pool)} topics)")
+        chapters = trends.LIFE_CHAPTERS.get(star, [])
+        if slot_now.hour in config.LIFE_SLOTS_UTC and chapters:
+            # a chapter of the star's life no post told yet (a different one first each day, so a chapter the
+            # duplicate check keeps rejecting, e.g. Zip2 told on 11-06, never blocks the rest); when all are told,
+            # the one told longest ago
+            last = {r["life"]: r["time"] for r in state["posted"] if r.get("life") and not r.get("dry_run")}
+            recent = [r["headline"].replace("*", "") for r in live if star.lower() in r.get("headline", "").lower()][-30:]
+            day = datetime.now(timezone.utc).timetuple().tm_yday
+            order = sorted(range(len(chapters)), key=lambda i: (last.get(chapters[i][0], ""), (i - day) % len(chapters)))
+            for ch in (chapters[i] for i in order):
+                try:
+                    ft = trends.life_facts(star, ch)
+                except Exception as e:
+                    print(f"[main] life story '{ch[1]}' failed: {e}")
+                    continue
+                candidates, life_key, facts_topic = [ft], ch[0], norm(ft["topic"])
+                special = (f"LIFE STORY SLOT: write ONE Reel about a chapter of {star}'s life, told like a gripping "
+                           f"mini documentary: topic exactly '{ft['topic']}', wiki_title '{star}', badge 'VIRAL'. "
+                           f"HOOK (first 8 words): the most surprising TRUE moment of this chapter (an age, a dollar "
+                           f"figure, a near-failure). Then what happened step by step, the turning point, and how it "
+                           f"led to who he is today; end with a question. Use ONLY facts from the text, never invent "
+                           f"quotes, numbers or feelings. The little-known details from the feature stories are the "
+                           f"most engaging part: use the best one. A real quote from Wikiquote may be used word for "
+                           f"word with when he said it (e.g. 'In 1998 he said: ...'), never changed. The page already posted these {star} stories, tell this "
+                           f"chapter from a different angle: {' | '.join(recent) or 'none'}\n\n")
+                print(f"[main] life-story slot {slot_now:%H}:00 UTC -> {star}: {ch[1]}")
+                break
     def star_only(new):
         """Star slots: only posts about the star (with the star's face), e.g. no faceless 'DOGE records' story."""
         if not star:
@@ -468,6 +525,8 @@ def main():
                   "face": p.get("wiki_title", "") if p.get("_person") else "",
                   "share_groups": p.get("share_groups", [])[:3],
                   "time": datetime.now(timezone.utc).isoformat(timespec="minutes")}
+        if life_key and facts_topic and norm(p.get("topic", "")) == facts_topic:
+            record["life"] = life_key  # this chapter is told: the next life-story slot takes another one
         if config.DRY_RUN:
             record["dry_run"] = True
             print("[main] DRY_RUN is on -> not uploading. Set DRY_RUN=false to go live.")

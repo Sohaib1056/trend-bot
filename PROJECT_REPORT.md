@@ -84,6 +84,24 @@ then shift every slot back -1 h (`1,3,4,19,21,22,23`, photos `4,23`, star `19,21
 - **Owner, 11-11: 7-day test** in the 11:05 PM slot: the hottest money/tech topic (`main.MONEY_TECH`: stocks, big
   money, AI, Apple, Nvidia, Tesla, space...), whoever it is about. Compare its views and follows with that slot's
   Elon Reels since 11-03 (median 584, average 1,031). No money/tech topic -> an Elon post as usual.
+- **Audience** (owner, 11-11): every American adult aged 18-65 (most viewers today are 40-65; the page wants the
+  18-39s too); goal = most views, comments, follows and shares. The writer prompt (`ai.build_prompt`), the editor
+  (clarity for any 18-65 viewer) and the rewrite ask for plain words (no slang) that are still exciting and modern:
+  money, what it means for ordinary people, cool future tech, records and 'first ever' moments, clashes, comeback
+  stories, and questions asking their opinion ('Genius or reckless?', 'Would you buy one?').
+- **Life-story slot** (owner, 11-11: "Reels on Elon's life that engage, never duplicated"): `LIFE_SLOTS=2`
+  (9:05 PM ET) tells one chapter of `trends.LIFE_CHAPTERS` (15: Blastar at 12, alone to Canada at 17, Stanford in
+  2 days, Zip2, PayPal, Falcon 1's three failures, 2008 near-bankruptcy, Roadster in space, Demo-2, Boring Company,
+  Optimus, chopsticks catch, Twitter $44B, richest person, Falcon Heavy) from three sources (`trends.life_facts`):
+  the matching paragraphs of its Wikipedia article, Elon's real words about it (Wikiquote, with where and when; no
+  swearing or politics) and feature stories from any year (Bing News without the 7-day limit: the little-known
+  details, e.g. "borrowed money to pay rent in 2008"); quotes and stories must name the chapter's own word (or two
+  of its words). `record["life"]` marks a chapter told; untold chapters come first, a different one first each day (so
+  one the duplicate checks keep rejecting never blocks the rest), then the one told longest ago.
+- **Star topics ranked by what goes viral here** (owner, 11-11): `main.star_appeal` = +1 Tesla products / huge
+  money / SpaceX (`STAR_HOT`), -1 politics or niche tech (`STAR_COLD`); then buzz across platforms. On the Elon
+  Reels since 10-29: +1 topics averaged 4,090 views, 0 → 1,546, -1 → 1,083. Politics is still used when it is the
+  only fresh news. The hook must name the product, dollar figure or clash in its first 8 words (writer + editor).
 - **Owner, 10-29: ONLY Elon Musk posts, every slot, "until I say stop".** `ALL_STAR_UNTIL` default is
   2100-01-01 (no end date); every post opens on Elon's face. To end it: set the `ALL_STAR_UNTIL` variable (or edit
   `bot/config.py`), and to bring back the trending slot set `TREND_SLOTS=22`.

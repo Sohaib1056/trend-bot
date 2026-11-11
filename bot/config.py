@@ -52,6 +52,9 @@ TREND_UNTIL = datetime.fromisoformat(os.getenv("TREND_UNTIL", "") or "2026-11-19
 TREND_SLOTS_UTC = {int(h) for h in (os.getenv("TREND_SLOTS", "") or "4").split(",") if h.strip().isdigit()}
 if datetime.now(TREND_UNTIL.tzinfo) >= TREND_UNTIL:
     TREND_SLOTS_UTC = set()
+# Elon LIFE-STORY Reel slots (owner, 11-11): one dramatic chapter of the star's life per day, never repeated
+# (trends.LIFE_CHAPTERS). 2 = 9:05 PM New York, an average slot (median 920 views).
+LIFE_SLOTS_UTC = {int(h) for h in (os.getenv("LIFE_SLOTS", "") or "2").split(",") if h.strip().isdigit()}
 # until this time every slot (Reels and photos) is about the star. Owner, 10-29: only Elon Musk "until I say stop",
 # so no end date; set ALL_STAR_UNTIL (e.g. 2026-12-01T05:00+00:00) or change this line to end it.
 ALL_STAR_UNTIL = datetime.fromisoformat(os.getenv("ALL_STAR_UNTIL", "") or "2100-01-01T00:00+00:00")
