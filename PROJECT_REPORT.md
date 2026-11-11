@@ -96,7 +96,10 @@ then shift every slot back -1 h (`1,3,4,19,21,22,23`, photos `4,23`, star `19,21
   the matching paragraphs of its Wikipedia article, Elon's real words about it (Wikiquote, with where and when; no
   swearing or politics) and feature stories from any year (Bing News without the 7-day limit: the little-known
   details, e.g. "borrowed money to pay rent in 2008"); quotes and stories must name the chapter's own word (or two
-  of its words). `record["life"]` marks a chapter told; untold chapters come first, a different one first each day (so
+  of its words). A numbered series (for follows): "📖 Elon Musk's Life, Part n" in the caption, a big
+  "ELON'S LIFE • PART n" pill on top of the Reel all through, and the spoken/caption follow line "Follow Hype Atlas
+  for part n+1 tomorrow". Life Reels run 25-30 s (`reel.LIFE_LEN/LIFE_MAX`; 60-72 words, 8-10 scenes; the editor
+  and its rewrite use the long rules via `edit_reel(long=True)`). `record["life"]` marks a chapter told; untold chapters come first, a different one first each day (so
   one the duplicate checks keep rejecting never blocks the rest), then the one told longest ago.
 - **Star topics ranked by what goes viral here** (owner, 11-11): `main.star_appeal` = +1 Tesla products / huge
   money / SpaceX (`STAR_HOT`), -1 politics or niche tech (`STAR_COLD`); then buzz across platforms. On the Elon

@@ -349,6 +349,8 @@ def main():
                 candidates, life_key, facts_topic = [ft], ch[0], norm(ft["topic"])
                 special = (f"LIFE STORY SLOT: write ONE Reel about a chapter of {star}'s life, told like a gripping "
                            f"mini documentary: topic exactly '{ft['topic']}', wiki_title '{star}', badge 'VIRAL'. "
+                           f"This Reel is LONGER, 25-30 seconds: voiceover 60-72 words in 7-9 short sentences (this "
+                           f"replaces the 30-36 word rule) and 8-10 scenes. "
                            f"HOOK (first 8 words): the most surprising TRUE moment of this chapter (an age, a dollar "
                            f"figure, a near-failure). Then what happened step by step, the turning point, and how it "
                            f"led to who he is today; end with a question. Use ONLY facts from the text, never invent "
@@ -494,7 +496,8 @@ def main():
                 # a strict AI editor scores the post (Reels: hook, clarity, sense, facts; photos: facts - the
                 # headline must say exactly what the reports say) and gets weak or inaccurate ones rewritten
                 p["_edited"], edits = True, edits + 1
-                score, p = ai.edit_reel(p, facts_for(p, known), reel=choose_format(state) == "reel")
+                score, p = ai.edit_reel(p, facts_for(p, known), reel=choose_format(state) == "reel",
+                                        long=bool(life_key and facts))  # life-story series: 25-30s script
                 if score is not None and score < 8:
                     print(f"[main] editor: weak script ({score:.0f}/10) -> trying the next story first")
                     weak.append((score, p))
@@ -512,7 +515,16 @@ def main():
                 faceless.append(p)
                 continue
         tags = [h for h in p["hashtags"] if h.lower() != "hypeatlas"]
-        caption = p["caption"].strip() + "\n\n" + growth.FOLLOW_LINE + "\n\n" + " ".join("#" + h for h in tags)
+        follow_line, part = growth.FOLLOW_LINE, 0
+        if life_key and facts_topic and norm(p.get("topic", "")) == facts_topic:
+            # a numbered series: people follow so they don't miss the next part (owner, 11-11: 10k followers)
+            part = 1 + sum(1 for r in state["posted"] if r.get("life") and not r.get("dry_run"))
+            p["_follow"] = f"part {part + 1} of his life story tomorrow"
+            p["_life_part"] = part  # 'ELON'S LIFE • PART n' on top and a 25-30 second Reel
+            if not p["caption"].startswith("📖"):
+                p["caption"] = f"📖 Elon Musk's Life, Part {part}\n\n" + p["caption"].strip()
+            follow_line = f"👉 Follow Hype Atlas so you don't miss Part {part + 1} tomorrow 🚀 #HypeAtlas"
+        caption = p["caption"].strip() + "\n\n" + follow_line + "\n\n" + " ".join("#" + h for h in tags)
         if p.get("_credit"):  # photo licence requires attribution; kept off the poster, in the caption
             caption += "\n\n" + p["_credit"]
         with open(img.replace(".jpg", ".txt"), "w") as f:
@@ -526,7 +538,7 @@ def main():
                   "share_groups": p.get("share_groups", [])[:3],
                   "time": datetime.now(timezone.utc).isoformat(timespec="minutes")}
         if life_key and facts_topic and norm(p.get("topic", "")) == facts_topic:
-            record["life"] = life_key  # this chapter is told: the next life-story slot takes another one
+            record["life"], record["life_part"] = life_key, part  # this chapter is told: the next slot takes another
         if config.DRY_RUN:
             record["dry_run"] = True
             print("[main] DRY_RUN is on -> not uploading. Set DRY_RUN=false to go live.")

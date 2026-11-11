@@ -433,9 +433,10 @@ def _ask(prompt):
     return None
 
 
-def _review(post, facts, reel=True):
+def _review(post, facts, reel=True, long=False):
+    length = "28-second life-story Reel script" if long else "15-second Reel script"
     prompt = (f"You are the strict editor of a viral US news page (like Pubity or Pop Base). Score this "
-              f"{'15-second Reel script' if reel else 'photo post'}.\n\nFACTS (the only true information):\n{facts}\n\n"
+              f"{length if reel else 'photo post'}.\n\nFACTS (the only true information):\n{facts}\n\n"
               f"POST:\nheadline: {post['headline'].replace('*', '')}\n"
               f"narration: {post.get('voiceover', '')}\ncaption: {post.get('caption', '')}\n\n"
               "Score 0-10 each, be harsh (8 = as good as the best viral pages):\n"
@@ -464,26 +465,28 @@ def _review(post, facts, reel=True):
     return score, str(data.get("problems", ""))
 
 
-def edit_reel(post, facts, reel=True):
+def edit_reel(post, facts, reel=True, long=False):
     """A strict AI editor scores the post (Reels: hook, clarity, sense, facts; photos: facts) and has it rewritten
-    once when it is weak or not accurate. Returns (score 0-10, post); score None means no editor was available,
-    so the post is used as it is."""
-    score, problems = _review(post, facts, reel)
+    once when it is weak or not accurate. long = a 25-30 second life-story Reel (60-72 words). Returns (score
+    0-10, post); score None means no editor was available, so the post is used as it is."""
+    score, problems = _review(post, facts, reel, long)
     if score is None or score >= 8:
         return score, post
     keys = ("headline", "voiceover", "scenes", "first_comment", "caption")
     old = json.dumps({k: post.get(k) for k in keys}, ensure_ascii=False)
     prompt = (f"You write Reels for a viral US news page (like Pubity or Pop Base). The editor rejected this "
-              f"15-second Reel script:\n{old}\n\nEDITOR: {problems}\n\nFACTS (the only true information):\n{facts}\n\n"
+              f"{'28-second life-story' if long else '15-second'} Reel script:\n{old}\n\nEDITOR: {problems}\n\nFACTS (the only true information):\n{facts}\n\n"
               "Rewrite it so it fixes every problem. Rules:\n"
               "- headline: 6-10 words, sentence case, famous name first, the most shocking TRUE angle, it must say "
               "what happened on its own; wrap the 1-3 most striking words in *asterisks*.\n"
-              "- voiceover: 30-36 words, 4-5 short sentences (max 10 words each): HOOK (max 8 words, the most "
+              + ("- voiceover: 60-72 words, 7-9 short sentences (max 10 words each): " if long else
+                 "- voiceover: 30-36 words, 4-5 short sentences (max 10 words each): ") +
+              "HOOK (max 8 words, the most "
               "shocking true fact with the name, naming the concrete product, dollar figure or clash; never a slow "
               "opener like 'Big news today'), the STORY in concrete facts (numbers, dates, who said what), the "
               "TWIST (the most surprising true detail or what it means for the viewer), then ONE short question. "
               "Every sentence carries a real fact; no vague filler; no follow request; plain words, no emoji.\n"
-              "- scenes: 4-6 items covering the new voiceover in order, each {\"line\": exact words of the "
+              + ("- scenes: 8-10" if long else "- scenes: 4-6") + " items covering the new voiceover in order, each {\"line\": exact words of the "
               "voiceover, \"wiki\": exact English Wikipedia article title of the real thing, other person, place or "
               "event the line is about (not the main person; empty if none), \"query\": 2-4 word stock video search "
               "showing exactly that line, \"photo\": 2-4 word search for a real photo of the thing named}; no "

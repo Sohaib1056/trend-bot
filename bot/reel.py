@@ -380,7 +380,7 @@ def _voice_text(post):
     text = post.get("voiceover") or (post["headline"] + ". " + post.get("subtext", ""))
     text = text.translate(str.maketrans({"’": "'", "‘": "'", "“": '"', "”": '"', "‑": "-", "–": ", ", "—": ", "}))
     text = re.sub(r"[*#_]|[^\x00-ɏ\s]", "", text).strip()  # drop emoji
-    return f"{text} Follow Hype Atlas for {FOLLOW_PROMISE}."
+    return f"{text} Follow Hype Atlas for {post.get('_follow') or FOLLOW_PROMISE}."  # series: 'part 5 tomorrow'
 
 
 KOKORO_FILES = "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/"
@@ -485,6 +485,7 @@ def _people(post, photo, want):
 MIN_SCENE, MAX_SCENE = 1.0, 2.2  # seconds: a new picture at least every ~2s (owner: more scenes)
 REEL_LEN = 15.0  # Reels run 15 seconds...
 MAX_LEN = 17.0   # ...or up to 17 when the full story needs it (owner's rule)
+LIFE_LEN, LIFE_MAX = 25.0, 30.0  # life-story series Reels: 25-30 seconds (owner, 11-11)
 
 
 def _planned_scenes(post, photo, words, duration):
@@ -715,6 +716,14 @@ def _header_layer(post):
     d = ImageDraw.Draw(layer)
     d.ellipse([bx + 24, by + bh // 2 - 8, bx + 40, by + bh // 2 + 8], fill=WHITE)
     d.text((bx + 52, by + 13), label, font=bf, fill=WHITE)
+    if post.get("_life_part"):  # owner, 11-11: the series part on top, all through the Reel
+        pf = _font("bold", 58)
+        text = f"ELON'S LIFE  •  PART {post['_life_part']}"
+        pw, ph = int(d.textlength(text, font=pf)) + 90, 96
+        px, py = (RW - pw) // 2, by + bh + 34
+        _paste_rounded(layer, _hgradient(pw, ph, [YELLOW, ORANGE]).convert("RGBA"), (px, py), ph // 2)
+        d = ImageDraw.Draw(layer)
+        d.text((px + 45, py + 17), text, font=pf, fill=(15, 15, 20))
     return layer
 
 
@@ -848,8 +857,10 @@ def make_reel(post, photo, path):
         voice = path.replace(".mp4", "-voice.mp3")
         text = _voice_text(post)
         vsecs = _audio_secs(exe, voice) if _tts(text, voice) else 0.0
-        # 15s normally; up to 17s when the full story needs it, so the main point is always said clearly
-        fit15, fit17, tempo = REEL_LEN - VOICE_AT - 0.5, MAX_LEN - VOICE_AT - 0.5, 1.1
+        # 15s normally; up to 17s when the full story needs it, so the main point is always said clearly.
+        # Life-story series (owner, 11-11): 25s, up to 30s
+        reel_len, max_len = (LIFE_LEN, LIFE_MAX) if post.get("_life_part") else (REEL_LEN, MAX_LEN)
+        fit15, fit17, tempo = reel_len - VOICE_AT - 0.5, max_len - VOICE_AT - 0.5, 1.1
         for _ in range(3):
             parts = re.split(r"(?<=[.!?])\s+", text.strip())
             if not vsecs or vsecs <= fit15 * tempo:
@@ -877,14 +888,14 @@ def make_reel(post, photo, path):
         if vsecs:
             chunks = _subtitle_timeline(text, vsecs)
             follow_at = next((c[0][1] for c in chunks if c[0][0].lower().startswith("follow")), vsecs - 1.5)
-            duration = min(MAX_LEN, max(REEL_LEN, vsecs + VOICE_AT + 0.5))  # 15s, at most 17s
+            duration = min(max_len, max(reel_len, vsecs + VOICE_AT + 0.5))  # 15s, at most 17s (life: 25-30s)
         else:
-            chunks, duration = [], REEL_LEN
+            chunks, duration = [], reel_len
             follow_at = duration - END_LEN
         words = [w for c in chunks for w in c]
         scenes = _planned_scenes(post, photo, words, duration)  # visuals that follow what the voice says
         if not scenes:
-            count = max(3, min(MAX_SCENES, round(duration / SCENE)))
+            count = max(3, min(int(MAX_SCENES * max_len / MAX_LEN), round(duration / SCENE)))
             plain = _scenes(post, photo, count)
             per = int(duration * FPS) // len(plain)
             scenes = [(k, it, per) for k, it in plain]
