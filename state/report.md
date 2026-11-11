@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-10 23:06 UTC_
+_Updated 2026-11-11 00:05 UTC_
 
 ```
-Based on the last 239 posts on this page:
-Best categories: BUSINESS (989.4), TECH (850.3), POLITICS (700.5)
+Based on the last 240 posts on this page:
+Best categories: BUSINESS (971.7), TECH (850.3), POLITICS (700.5)
 Weakest categories: SPORTS (29.2), SHOPPING (15.6)
-Format: reel (950.5, 160 posts), photo (294.7, 79 posts)
+Format: reel (944.6, 161 posts), photo (294.7, 79 posts)
 Best posting slots (UTC): 21:00 (1936.6), 19:00 (1001.3), 20:00 (993.9)
-Best faces on this page (avg views per post): Elon Musk 2460 (192 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2447 (193 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7437.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-10T23:07 | reel | BUSINESS | Elon Musk settlement fund closed by SEC | 0 | 0 | 0 | 0 | 0.0 |
 | 2026-11-10T22:07 | reel | AI | Elon Musk says C++ rewrite delayed Grok 4.8 | 44 | 2 | 1 | 0 | 15.8 |
 | 2026-11-10T20:09 | reel | BUSINESS | Elon Musk half‑right as SoftBank backs away from turbine order | 94 | 2 | 0 | 0 | 22.8 |
 | 2026-11-10T05:07 | photo | TECH | Elon Musk's SpaceX plans $24 billion AI project in Texas | 575 | 37 | 10 | 8 | 225.0 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-05T20:08 | reel | TECH | Elon Musk could cut US wireless prices by half | 1677 | 105 | 27 | 0 | 626.4 |
 | 2026-11-05T05:06 | photo | BUSINESS | Tesla Model S gone, but design patented | 3189 | 148 | 42 | 32 | 1065.8 |
 | 2026-11-05T04:10 | reel | TECH | Musk’s brain chip played Pong with a monkey | 634 | 52 | 17 | 0 | 281.8 |
-| 2026-11-05T02:07 | reel | TECH | Neuralink rival electronic appetite‑suppressing brain device in development | 984 | 67 | 18 | 0 | 384.8 |
