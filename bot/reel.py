@@ -1,10 +1,10 @@
 """Fast-cut vertical Reel (1080x1920), built like the big viral news pages:
 
   0.0s  hook: the famous face (or the best footage) and the first spoken line as subtitles (no headline on top)
-  every ~2s a new scene, never the same picture twice in a row: several real photos of the person (Wikimedia
-        Commons, free licences), real moving stock footage (Pixabay videos) and AI images, all checked by the
-        AI judge, with a white flash + zoom punch on every cut
-  voice: AI narration (Cloudflare text-to-speech) with big word-by-word subtitles in the middle of the screen
+  every ~2s a new scene, never the same picture twice in a row: real moving footage first (NASA for space stories,
+        Pixabay, Wikimedia Commons), real photos only when no clip fits the line, all checked by the AI judge;
+        clean hard cuts
+  voice: AI narration (Cloudflare Deepgram Aura-2) with big word-by-word subtitles in the middle of the screen
   end   "FOLLOW HYPE ATLAS" banner over the footage (no black screen, so the Reel loops smoothly)
   All text stays inside the Reels safe zone (Facebook covers the bottom ~35% with the caption and buttons).
 Music: a random track from assets/music/ (royalty-free), quieter under the voice.
@@ -86,6 +86,9 @@ def _pixabay_videos(post, want=3, queries=None, context=None, seen=None, max_jud
     os.makedirs(CLIP_DIR, exist_ok=True)
     clips, judged = [], 0
     seen = set() if seen is None else seen
+    for q in queries:  # space stories: real NASA footage of actual launches first, stock footage after
+        if len(clips) < want and q.strip() and SPACE.search(q + " " + headline):
+            clips += _nasa_videos(q, want - len(clips), headline, seen)
     for q in queries:
         if len(clips) >= want or judged >= max_judge or not q.strip():
             continue
@@ -126,12 +129,8 @@ def _pixabay_videos(post, want=3, queries=None, context=None, seen=None, max_jud
                 print(f"[reel] clip {h['id']} for '{q}' ({v.get('width')}x{v.get('height')}, {h.get('duration')}s)")
             except Exception as e:
                 print(f"[reel] clip {h.get('id')} failed: {e}")
-    for q in queries:  # Pixabay short: public-domain NASA footage (space stories) and free Wikimedia Commons videos
-        if len(clips) >= want or not q.strip():
-            continue
-        if SPACE.search(q + " " + headline):
-            clips += _nasa_videos(q, want - len(clips), headline, seen)
-        if len(clips) < want:
+    for q in queries:  # Pixabay short: free Wikimedia Commons videos
+        if len(clips) < want and q.strip():
             clips += _commons_videos(q, want - len(clips), headline, seen)
     return clips
 
@@ -167,10 +166,11 @@ def _nasa_videos(q, want, context, seen):
         try:
             files = [f.replace(" ", "%20").replace("http://", "https://")
                      for f in requests.get(it["href"].replace(" ", "%20"), timeout=20).json()]
-            mp4 = next((f for f in files for size in ("~medium.mp4", "~large.mp4", "~mobile.mp4") if f.endswith(size)), None)
+            # full HD first: a 720p clip cropped to 9:16 is blown up ~2.7x and looks blurry
+            mp4 = next((f for size in ("~large.mp4", "~medium.mp4") for f in files if f.endswith(size)), None)
             thumb = next((f for f in files if f.endswith("~small.jpg") or f.endswith("~thumb.jpg")), None)
             if mp4 and (not thumb or _judge_clip(thumb, context)):
-                out.append((mp4, 60, 12.0))
+                out.append((mp4, 60, 20.0))  # from 20s: past the title card NASA puts at the start
                 print(f"[reel] NASA clip for '{q}': {nid}")
         except Exception as e:
             print(f"[reel] NASA clip {nid} failed: {e}")
@@ -417,14 +417,17 @@ def _kokoro(text, path):
 
 
 def _tts(text, path):
-    """Voiceover: Cloudflare Workers AI (Deepgram Aura) first, then Kokoro (free, unlimited, runs locally),
-    then Cloudflare MeloTTS. VOICE_ENGINE=kokoro puts Kokoro first. Returns True on success."""
+    """Voiceover: Cloudflare Workers AI (Deepgram Aura-2, natural pacing like a real presenter; Aura-1 as backup)
+    first, then Kokoro (free, unlimited, runs locally), then Cloudflare MeloTTS. VOICE_ENGINE=kokoro puts Kokoro
+    first. Returns True on success."""
     acc, tok = os.getenv("CF_ACCOUNT_ID", "").strip(), os.getenv("CF_API_TOKEN", "").strip()
     base = f"https://api.cloudflare.com/client/v4/accounts/{acc}/ai/run/"
-    engines = [("@cf/deepgram/aura-1", {"text": text, "speaker": os.getenv("VOICE", "asteria"), "encoding": "mp3"}),
+    speaker = os.getenv("VOICE", "asteria")  # the page's usual voice; Aura-2 has the same speaker names
+    engines = [("@cf/deepgram/aura-2-en", {"text": text, "speaker": speaker, "encoding": "mp3"}),
+               ("@cf/deepgram/aura-1", {"text": text, "speaker": speaker, "encoding": "mp3"}),
                ("kokoro", None), ("@cf/myshell-ai/melotts", {"prompt": text, "lang": "en"})]
     if os.getenv("VOICE_ENGINE", "").strip().lower() == "kokoro":
-        engines.insert(0, engines.pop(1))
+        engines.sort(key=lambda e: e[0] != "kokoro")
     for model, body in engines:
         if model == "kokoro":
             try:
@@ -546,8 +549,9 @@ def _planned_scenes(post, photo, words, duration):
                 post, want=3, queries=[query], context=line, seen=seen, max_judge=4))))
         if q:  # a real photo (Openverse) of the thing the line names
             tries.append(("photo", lambda: new_photo(lambda: _real_photo(q, line, seen))))
-        if out and out[-1][0] == "photo":  # photo, video, photo...: alternate when both fit the line
-            tries.sort(key=lambda t: t[0] != "video")
+        # owner, 11-11: moving footage like a professional Reel, not a slideshow of photos: a clip that fits the
+        # line (the judge checks it) comes first, a photo only when there is none
+        tries.sort(key=lambda t: t[0] != "video")
         kind = item = None
         if k == 0 and people:  # owner's rule: the person's face once, at the start; then real scenes
             kind, item = "face", people[0]
@@ -614,8 +618,10 @@ def _video_frames(exe, path, duration, n, start=None):
     if start is None:
         start = 1.0 if duration >= 5 else 0.0  # skip slow fade-ins
     net = ["-rw_timeout", "30000000"] if path.startswith("http") else []  # give up on a stalled stream after 30s
+    # NASA videos have their own captions burned in at the bottom: cut that band off so they don't clash with ours
+    trim = "crop=iw:ih*0.8:0:0," if "nasa.gov" in path else ""
     cmd = [exe, "-loglevel", "error", *net, "-ss", str(start), "-i", path, "-an",
-           "-vf", f"scale={RW}:{RH}:force_original_aspect_ratio=increase,crop={RW}:{RH},fps={FPS},eq=contrast=1.06:saturation=1.15",
+           "-vf", f"{trim}scale={RW}:{RH}:force_original_aspect_ratio=increase,crop={RW}:{RH},fps={FPS},eq=contrast=1.06:saturation=1.15",
            "-frames:v", str(n), "-f", "rawvideo", "-pix_fmt", "rgb24", "-"]
     proc = subprocess.Popen(cmd, stdout=subprocess.PIPE)
     size, last = RW * RH * 3, None
@@ -791,13 +797,8 @@ def _frames(post, scenes, exe, duration, chunks, follow_at):
     banner = _follow_banner()
     label = _follow_label()
     sub_font = _font("bold", 86)
-    flash = Image.new("RGBA", (RW, RH), (255, 255, 255, 255))
     bar = _hgradient(RW, 10, [PINK, ORANGE, YELLOW]).convert("RGBA")
     total = sum(n for _, _, n in scenes)
-    cuts, at = [], 0  # frame index where each scene starts
-    for _, _, n in scenes:
-        cuts.append(at)
-        at += n
 
     def source():
         for k, (kind, item, n) in enumerate(scenes):
@@ -815,16 +816,9 @@ def _frames(post, scenes, exe, duration, chunks, follow_at):
 
     for i, base in enumerate(source()):
         t = i / FPS
-        since_cut = (i - max(c for c in cuts if c <= i)) / FPS
-        first = i < cuts[1] if len(cuts) > 1 else True
-        frame = base
-        if not first and since_cut < 0.25:  # zoom punch on each cut
-            z = 1.0 + 0.08 * (1 - since_cut / 0.25)
-            frame = _view(frame, (RW - RW / z) / 2, (RH - RH / z) / 2, RW / z, RH / z)
-        frame = frame.convert("RGBA")
+        # clean hard cuts like a news channel (owner, 11-11: the white flash + zoom punch looked like a template)
+        frame = base.convert("RGBA")
         frame.alpha_composite(shade)
-        if not first and since_cut < 0.15:  # white flash on each cut
-            frame.alpha_composite(_with_alpha(flash, 0.5 * (1 - since_cut / 0.15)))
         frame.alpha_composite(header)
         if FOLLOW_FROM <= t < follow_at:  # the reason to follow, while they watch (fades in)
             frame.alpha_composite(_with_alpha(label, _ease(min(1.0, (t - FOLLOW_FROM) / 0.3))))

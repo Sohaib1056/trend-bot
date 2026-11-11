@@ -145,14 +145,19 @@ then shift every slot back -1 h (`1,3,4,19,21,22,23`, photos `4,23`, star `19,21
    - Wikipedia name lists such as "Dan Levy" are resolved with a search plus a role hint.
    - A story with no face photo is tried last.
 10. **Reel** (`reel.make_reel`), 1080×1920, 30 fps.
-   - **Voice**: Cloudflare Deepgram Aura (asteria) → Kokoro (local, free) → MeloTTS.
+   - **Voice**: Cloudflare Deepgram Aura-2 (asteria, more natural; since 11-11) → Aura-1 → Kokoro (local, free) → MeloTTS.
+   - **Professional look (owner, 11-11, "realistic like a professional Reel, not photos joined together")**: every
+     line tries real moving footage first (NASA first for space stories, 1080p, bottom caption band cut off and
+     started at 20 s past NASA's title card; then Pixabay, Commons), a photo only when no clip fits; clean hard cuts
+     (no white flash or zoom punch); photos at 1920 px with smooth sub-pixel zoom. AI video of a real person
+     (deepfake) is never used.
    - **Length**: 15 s normally, up to 17 s (`MAX_LEN`) so the whole point is said. Max speed-up 1.1×. The spoken
      follow line is dropped first, and a middle sentence only if the voice is over 17 s.
    - **Scenes follow the narration** (owner, 10-20: "the person's photo once at the start, then real scenes"):
      - The first scene is the person's face, and **only** the first.
      - Each line has a `wiki` (the Wikipedia title of the real thing, other person, place or event it names). The bot
        shows a real photo from that article's pictures (free licences only, ≥800 px, no charts/maps/logos, judged).
-     - Else real stock video for the line (Pixabay → NASA → Commons), else a real Openverse photo, else other photos
+     - Real video for the line comes first since 11-11 (see above), else that photo, else a real Openverse photo, else other photos
        from the story's articles, then the star's world (`trends.STAR_WORLD`: Starship, Cybertruck, Optimus, Falcon 9,
        Starlink, Tesla...), a different article each time; else story footage. The face again only if nothing is found.
      - Since 10-27: a new picture every ~2 s (`MAX_SCENE=2.2`, about 8-10 scenes), never the same picture or clip
@@ -168,6 +173,11 @@ then shift every slot back -1 h (`1,3,4,19,21,22,23`, photos `4,23`, star `19,21
       `image_url`.
     - The bot then writes its first comment.
     - If the Reel upload fails, it posts the photo instead.
+    - **YouTube Shorts** (`bot/youtube.py`, since 11-03): the same Reel, with a YouTube title (max 70 chars,
+      keyword first, " #Shorts"), description (keywords, "Subscribe for daily Elon Musk news", 3-5 hashtags, photo
+      credits) and 10-15 search tags, written by the small Groq model. Needs secrets `YT_CLIENT_ID`,
+      `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN` (made once with `tools/youtube_auth.py`); skipped without them.
+      Quota: 1,600 of 10,000 units per upload. New API projects upload as private until Google's API audit passes.
 12. Save the record to `state/posted.json` (key, topic, headline, badge, slot, face, format and post IDs). The workflow
     commits the state with `pull --rebase -X theirs` and retries.
 13. `engage()` **after** posting:
