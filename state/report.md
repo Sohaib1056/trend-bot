@@ -1,44 +1,45 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-11 04:05 UTC_
+_Updated 2026-11-11 05:06 UTC_
 
 ```
-Based on the last 242 posts on this page:
-Best categories: BUSINESS (966.4), TECH (844.4), POLITICS (702.3)
+Based on the last 243 posts on this page:
+Best categories: BUSINESS (971.1), TECH (846.0), POLITICS (703.1)
 Weakest categories: SPORTS (29.2), SHOPPING (15.6)
-Format: reel (944.9, 162 posts), photo (292.6, 80 posts)
-Best posting slots (UTC): 21:00 (1936.6), 20:00 (1013.5), 19:00 (1001.3)
-Best faces on this page (avg views per post): Elon Musk 2440 (195 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (941.0, 163 posts), photo (294.5, 80 posts)
+Best posting slots (UTC): 21:00 (1936.6), 20:00 (1023.0), 19:00 (1001.3)
+Best faces on this page (avg views per post): Elon Musk 2434 (196 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7437.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-11T04:06 | reel | SCIENCE | Musk spent big on Republicans, got nothing | 39 | 3 | 0 | 0 | 13.8 |
 | 2026-11-11T02:07 | reel | TECH | Elon Musk cancels Cybertruck to make room for robotaxis | 41 | 4 | 0 | 0 | 16.2 |
-| 2026-11-11T00:08 | photo | BUSINESS | Elon Musk’s private jet habits exposed | 180 | 16 | 7 | 1 | 92.0 |
+| 2026-11-11T00:08 | photo | BUSINESS | Elon Musk’s private jet habits exposed | 414 | 35 | 19 | 7 | 215.8 |
 | 2026-11-10T23:07 | reel | BUSINESS | Elon Musk settlement fund closed by SEC | 320 | 10 | 6 | 0 | 102.0 |
-| 2026-11-10T22:07 | reel | AI | Elon Musk says C++ rewrite delayed Grok 4.8 | 244 | 7 | 1 | 0 | 65.8 |
-| 2026-11-10T20:09 | reel | BUSINESS | Elon Musk half‑right as SoftBank backs away from turbine order | 497 | 15 | 3 | 0 | 138.4 |
-| 2026-11-10T05:07 | photo | TECH | Elon Musk's SpaceX plans $24 billion AI project in Texas | 644 | 40 | 11 | 8 | 247.8 |
-| 2026-11-10T04:06 | reel | TECH | Tesla Robotaxi launched in San Antonio | 3631 | 379 | 46 | 0 | 1622.2 |
-| 2026-11-10T02:06 | reel | POLITICS | Elon Musk's empire braces for Democratic crackdown | 902 | 73 | 10 | 0 | 356.4 |
-| 2026-11-10T00:06 | photo | POLITICS | Elon Musk banked on Trump, now humbled and humiliated | 564 | 33 | 14 | 6 | 226.8 |
-| 2026-11-09T23:07 | reel | TECH | Elon Musk: SpaceX is now an infrastructure giant | 1120 | 91 | 15 | 0 | 451.0 |
-| 2026-11-09T22:07 | reel | AI | AI scores Elon Musk's wild tech predictions | 570 | 31 | 4 | 0 | 188.0 |
-| 2026-11-09T20:07 | reel | BUSINESS | Tesla’s 5% stock surge fuels robotaxi excitement | 442 | 22 | 2 | 0 | 138.4 |
-| 2026-11-09T05:07 | photo | TECH | Elon Musk claims Starlink can outcompete undersea internet cables | 755 | 39 | 13 | 10 | 274.0 |
-| 2026-11-09T04:15 | reel | POLITICS | Elon Musk slams oppressive state, praises Texas | 1668 | 102 | 13 | 0 | 576.6 |
-| 2026-11-09T02:07 | reel | POLITICS | Elon Musk’s political fortunes hit a blue wave | 1304 | 84 | 16 | 0 | 476.8 |
-| 2026-11-09T00:14 | photo | TECH | Musk calls Starship most powerful object ever | 1372 | 70 | 21 | 15 | 483.4 |
+| 2026-11-10T22:07 | reel | AI | Elon Musk says C++ rewrite delayed Grok 4.8 | 299 | 7 | 1 | 0 | 76.8 |
+| 2026-11-10T20:09 | reel | BUSINESS | Elon Musk half‑right as SoftBank backs away from turbine order | 706 | 22 | 4 | 0 | 197.2 |
+| 2026-11-10T05:07 | photo | TECH | Elon Musk's SpaceX plans $24 billion AI project in Texas | 696 | 42 | 10 | 8 | 259.2 |
+| 2026-11-10T04:06 | reel | TECH | Tesla Robotaxi launched in San Antonio | 3875 | 386 | 48 | 0 | 1691.0 |
+| 2026-11-10T02:06 | reel | POLITICS | Elon Musk's empire braces for Democratic crackdown | 929 | 75 | 11 | 0 | 368.8 |
+| 2026-11-10T00:06 | photo | POLITICS | Elon Musk banked on Trump, now humbled and humiliated | 608 | 36 | 13 | 9 | 238.6 |
+| 2026-11-09T23:07 | reel | TECH | Elon Musk: SpaceX is now an infrastructure giant | 1152 | 93 | 15 | 0 | 461.4 |
+| 2026-11-09T22:07 | reel | AI | AI scores Elon Musk's wild tech predictions | 574 | 31 | 4 | 0 | 188.8 |
+| 2026-11-09T20:07 | reel | BUSINESS | Tesla’s 5% stock surge fuels robotaxi excitement | 462 | 24 | 2 | 0 | 146.4 |
+| 2026-11-09T05:07 | photo | TECH | Elon Musk claims Starlink can outcompete undersea internet cables | 759 | 39 | 13 | 10 | 274.8 |
+| 2026-11-09T04:15 | reel | POLITICS | Elon Musk slams oppressive state, praises Texas | 1669 | 102 | 13 | 0 | 576.8 |
+| 2026-11-09T02:07 | reel | POLITICS | Elon Musk’s political fortunes hit a blue wave | 1311 | 85 | 16 | 0 | 480.2 |
+| 2026-11-09T00:14 | photo | TECH | Musk calls Starship most powerful object ever | 1375 | 71 | 21 | 15 | 486.0 |
 | 2026-11-08T23:07 | reel | TECH | Elon Musk saved lives where cell towers failed | 375 | 16 | 2 | 0 | 113.0 |
-| 2026-11-08T22:07 | reel | TV & FILM | Elon Musk mocked as worst thing South Africa has done | 1608 | 40 | 10 | 0 | 431.6 |
-| 2026-11-08T20:14 | reel | TECH | Elon Musk's SpaceX wins NASA cislunar comms contract | 2244 | 137 | 25 | 0 | 797.8 |
+| 2026-11-08T22:07 | reel | TV & FILM | Elon Musk mocked as worst thing South Africa has done | 1614 | 41 | 10 | 0 | 434.8 |
+| 2026-11-08T20:14 | reel | TECH | Elon Musk's SpaceX wins NASA cislunar comms contract | 2260 | 140 | 25 | 0 | 807.0 |
 | 2026-11-08T05:07 | photo | BUSINESS | Anthropic vs SpaceX: which IPO is the smarter buy? | 506 | 24 | 18 | 10 | 209.2 |
-| 2026-11-08T04:06 | reel | SCIENCE | SpaceX catches both stages on Nov. 13 | 698 | 55 | 9 | 0 | 276.6 |
+| 2026-11-08T04:06 | reel | SCIENCE | SpaceX catches both stages on Nov. 13 | 705 | 55 | 9 | 0 | 278.0 |
 | 2026-11-08T02:07 | reel | POLITICS | Fans celebrate Musk's donations failing big | 912 | 55 | 23 | 0 | 361.4 |
 | 2026-11-08T00:06 | photo | AI | Elon Musk's xAI wins live trading showdown over OpenAI, Google | 653 | 38 | 13 | 10 | 251.6 |
-| 2026-11-07T23:07 | reel | BUSINESS | Elon Musk adds extra shift to Cybertruck before Cybercab shutdown | 11005 | 610 | 58 | 0 | 3595.0 |
-| 2026-11-07T22:07 | reel | TECH | Elon Musk’s Optimus robot gets ON Semiconductor chip boost | 3245 | 256 | 55 | 0 | 1326.0 |
+| 2026-11-07T23:07 | reel | BUSINESS | Elon Musk adds extra shift to Cybertruck before Cybercab shutdown | 11320 | 617 | 58 | 0 | 3672.0 |
+| 2026-11-07T22:07 | reel | TECH | Elon Musk’s Optimus robot gets ON Semiconductor chip boost | 3306 | 267 | 55 | 0 | 1360.2 |
 | 2026-11-07T20:07 | reel | BUSINESS | Elon Musk's $474 million Texas bet backfires | 2666 | 172 | 37 | 0 | 988.2 |
 | 2026-11-07T05:09 | photo | BUSINESS | Elon Musk’s hidden $300M PayPal origin story | 1571 | 88 | 23 | 17 | 565.2 |
 | 2026-11-07T04:07 | reel | TECH | Elon Musk unveils data centers in orbit at Baron conference | 344 | 13 | 19 | 0 | 151.8 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-06T00:11 | photo | TECH | Elon Musk's Tesla to standardize charging for all EVs by 2025 | 446 | 32 | 16 | 9 | 207.2 |
 | 2026-11-05T23:10 | reel | TECH | Elon Musk’s Grokipedia faces backlash over biased content | 865 | 58 | 28 | 0 | 373.0 |
 | 2026-11-05T22:07 | reel | BUSINESS | Elon Musk faces $450 billion two-day wipeout | 20888 | 806 | 58 | 0 | 5963.6 |
-| 2026-11-05T20:08 | reel | TECH | Elon Musk could cut US wireless prices by half | 1677 | 105 | 27 | 0 | 626.4 |
