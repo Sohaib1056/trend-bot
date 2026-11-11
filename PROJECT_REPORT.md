@@ -173,11 +173,6 @@ then shift every slot back -1 h (`1,3,4,19,21,22,23`, photos `4,23`, star `19,21
       `image_url`.
     - The bot then writes its first comment.
     - If the Reel upload fails, it posts the photo instead.
-    - **YouTube Shorts** (`bot/youtube.py`, since 11-03): the same Reel, with a YouTube title (max 70 chars,
-      keyword first, " #Shorts"), description (keywords, "Subscribe for daily Elon Musk news", 3-5 hashtags, photo
-      credits) and 10-15 search tags, written by the small Groq model. Needs secrets `YT_CLIENT_ID`,
-      `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN` (made once with `tools/youtube_auth.py`); skipped without them.
-      Quota: 1,600 of 10,000 units per upload. New API projects upload as private until Google's API audit passes.
 12. Save the record to `state/posted.json` (key, topic, headline, badge, slot, face, format and post IDs). The workflow
     commits the state with `pull --rebase -X theirs` and retries.
 13. `engage()` **after** posting:
