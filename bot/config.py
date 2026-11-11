@@ -45,9 +45,13 @@ POST_FORMAT = (os.getenv("POST_FORMAT", "") or "slots").strip().lower()
 PHOTO_SLOTS_UTC = {int(h) for h in (os.getenv("PHOTO_SLOTS", "") or "0,5").split(",") if h.strip().isdigit()}
 # Elon-style "star" Reels: the best slot (3 PM ET) and a second one 2 hours later
 STAR_SLOTS_UTC = {int(h) for h in (os.getenv("STAR_SLOTS", "") or "20,22").split(",") if h.strip().isdigit()}
-# "trending" slots: the hottest topic across all platforms, whoever it is about (e.g. TREND_SLOTS=22 = 6 PM New
-# York). None since 10-29: the owner wants only Elon Musk posts.
-TREND_SLOTS_UTC = {int(h) for h in os.getenv("TREND_SLOTS", "").split(",") if h.strip().isdigit()}
+# "trending" slots: the hottest MONEY / TECH topic, whoever it is about (e.g. TREND_SLOTS=4 = 11 PM New York).
+# Owner, 11-11: a 7-day test in the weakest Reel slot (11:05 PM ET, median 584 views on Elon), compared with that
+# slot's Elon history; after TREND_UNTIL it is an Elon slot again.
+TREND_UNTIL = datetime.fromisoformat(os.getenv("TREND_UNTIL", "") or "2026-11-19T05:00+00:00")
+TREND_SLOTS_UTC = {int(h) for h in (os.getenv("TREND_SLOTS", "") or "4").split(",") if h.strip().isdigit()}
+if datetime.now(TREND_UNTIL.tzinfo) >= TREND_UNTIL:
+    TREND_SLOTS_UTC = set()
 # until this time every slot (Reels and photos) is about the star. Owner, 10-29: only Elon Musk "until I say stop",
 # so no end date; set ALL_STAR_UNTIL (e.g. 2026-12-01T05:00+00:00) or change this line to end it.
 ALL_STAR_UNTIL = datetime.fromisoformat(os.getenv("ALL_STAR_UNTIL", "") or "2100-01-01T00:00+00:00")

@@ -14,6 +14,12 @@ BLOCK_WORDS = re.compile(
     # legal trouble (owner, 10-27: risky for the page and easy to get wrong)
     r"indict\w*|raid|raided|raids|subpoena\w*|fbi|(federal|criminal|justice department|doj) (probe|investigation)|"
     r"under investigation|(home|house|office)s? (was |were )?searched)\b", re.I)
+# what the trending test slot may be about (owner, 11-11): money and tech, the page's best-performing kinds of news
+MONEY_TECH = re.compile(
+    r"\b(stocks?|shares|market|wall street|dow|nasdaq|s&p|ipo|earnings|profits?|revenue|billion\w*|trillion\w*|"
+    r"millionaires?|valuation|economy|prices?|tariffs?|bitcoin|crypto\w*|interest rates?|the fed|"
+    r"ai|a\.i\.|openai|chatgpt|gemini|nvidia|apple|iphone|google|microsoft|amazon|meta|tesla|spacex|nasa|rocket|"
+    r"robots?|robotaxi|chips?|semiconductor\w*|tech|startup|gadget|smartphone|electric vehicles?|evs?)\b", re.I)
 
 
 def load_state():
@@ -238,13 +244,21 @@ def main():
         star_slots |= set(config.POST_SLOTS_UTC)
     star_slots -= config.TREND_SLOTS_UTC  # trending slots are about whatever is hottest, not the star
     if slot_now is not None and slot_now.hour in config.TREND_SLOTS_UTC:
-        # the topic buzzing on the most platforms (X, Reddit, Google, Wikipedia) first, then the biggest search traffic
-        candidates = sorted(candidates, key=lambda c: (-len(c.get("trends") or []), -c["power"]))
-        special = ("TRENDING SLOT: this post MUST be about the single HOTTEST topic right now - the one trending on the "
-                   "most platforms (X, Reddit, Google, Wikipedia) that a US audience most wants to see. Topics are "
-                   "listed hottest first; take the top one unless it is unsafe or has no famous person or real image. "
-                   "It does NOT have to be about the page's usual star.\n\n")
-        print(f"[main] trending slot {slot_now:%H}:00 UTC -> hottest topic: {candidates[0]['topic'][:60]}")
+        # money & tech only (what this page's audience watches most); the topic buzzing on the most platforms
+        # (X, Reddit, Google, Wikipedia) first, then the biggest search traffic
+        money_tech = [c for c in candidates
+                      if MONEY_TECH.search(c["topic"] + " " + " ".join(n["title"] for n in c["news"][:3]))]
+        if money_tech:
+            candidates = sorted(money_tech, key=lambda c: (-len(c.get("trends") or []), -c["power"]))
+            special = ("TRENDING SLOT: this post MUST be about the single HOTTEST MONEY or TECH topic right now (stocks, "
+                       "big money, companies, AI, gadgets, space, cars) - the one trending on the most platforms (X, "
+                       "Reddit, Google, Wikipedia) that a US audience most wants to see. Topics are listed hottest "
+                       "first; take the top one unless it is unsafe, political or has no famous person or real image. "
+                       "It does NOT have to be about the page's usual star.\n\n")
+            print(f"[main] trending slot {slot_now:%H}:00 UTC -> hottest money/tech topic: {candidates[0]['topic'][:60]}")
+        else:  # nothing hot about money or tech: the slot stays an Elon slot
+            print(f"[main] trending slot {slot_now:%H}:00 UTC: no money/tech topic -> star post instead")
+            star_slots.add(slot_now.hour)
     if (all_star or choose_format(state) == "reel") and slot_now is not None and slot_now.hour in star_slots:
         # the page's best slot always gets a Reel about its best-performing face: fresh news, else facts & stats
         star = insights.star_face(state)

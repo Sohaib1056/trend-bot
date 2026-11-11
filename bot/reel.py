@@ -29,6 +29,7 @@ from .poster import (COMMONS_SKIP, FREE_LICENSE, MARKER, INK, PAD, PINK, ORANGE,
 
 RW, RH = 1080, 1920
 FPS = 30
+PHOTO_W = 1920       # Wikimedia copy width: 1280px photos were blown up ~1.5-2x on a 1080x1920 screen and looked soft
 SCENE = 2.0          # target seconds per scene
 MAX_SCENES = 9
 VOICE_AT = 0.3       # narration starts after the hook frame
@@ -223,7 +224,7 @@ def _person_photos(post, want=3, used=()):
         r = requests.get("https://commons.wikimedia.org/w/api.php", headers=WIKI_UA, timeout=25, params={
             "action": "query", "format": "json", "generator": "search", "gsrnamespace": 6,
             "gsrsearch": f'"{name}" filetype:bitmap', "gsrlimit": 30,
-            "prop": "imageinfo", "iiprop": "url|size|extmetadata", "iiurlwidth": 1280})
+            "prop": "imageinfo", "iiprop": "url|size|extmetadata", "iiurlwidth": PHOTO_W})
         pages = sorted((r.json().get("query") or {}).get("pages", {}).values(), key=lambda p: p.get("index", 99))
     except Exception as e:
         print(f"[reel] Commons search for '{name}' failed: {e}")
@@ -282,7 +283,7 @@ def _real_photo(query, line, seen):
             and not COMMONS_SKIP.search(x.get("title") or "")]
     for x in good[:3]:
         seen.add(x["url"])
-        url = _wm_thumb(x["url"], 1280) if x.get("source") == "wikimedia" and (x.get("width") or 0) > 1280 else x["url"]
+        url = _wm_thumb(x["url"], PHOTO_W) if x.get("source") == "wikimedia" and (x.get("width") or 0) > PHOTO_W else x["url"]
         try:
             im = _download(url, WIKI_UA if x.get("source") == "wikimedia" else BROWSER_UA)
             score = judge_image(im, line)
@@ -313,7 +314,7 @@ def _wiki_photos(title, line, seen, skip="", tries=3):
         try:
             r = requests.get("https://en.wikipedia.org/w/api.php", headers=WIKI_UA, timeout=25, params={
                 "action": "query", "format": "json", "generator": "images", "titles": title, "gimlimit": 50,
-                "redirects": 1, "prop": "imageinfo", "iiprop": "url|size|extmetadata", "iiurlwidth": 1280})
+                "redirects": 1, "prop": "imageinfo", "iiprop": "url|size|extmetadata", "iiurlwidth": PHOTO_W})
             pages = list(((r.json().get("query") or {}).get("pages") or {}).values())
         except Exception as e:
             print(f"[reel] Wikipedia photos for '{title}' failed: {e}")
@@ -657,11 +658,11 @@ def _face_frames(img, n, face_y, move):
     fy = pad + face_y * pic.height
     for i in range(n):
         z = z0 + (z1 - z0) * (i / max(1, n - 1))
-        cw, ch = int(RW / z * 1.0), int(RH / z)
-        top = int(fy - FACE_Y / RH * ch)
-        top = max(pad - int(ch * 0.30), min(top, canvas.height - ch))  # never more than 30% blurred band
-        left = (canvas.width - cw) // 2
-        yield canvas.crop((left, top, left + cw, top + ch)).resize((RW, RH), Image.BILINEAR)
+        cw, ch = RW / z, RH / z
+        top = fy - FACE_Y / RH * ch
+        top = max(pad - ch * 0.30, min(top, canvas.height - ch))  # never more than 30% blurred band
+        left = (canvas.width - cw) / 2
+        yield _view(canvas, left, top, cw, ch)
 
 
 
@@ -679,9 +680,14 @@ def _photo_frames(img, n, move):
         big = _cover(img, bw, bh)
     for i in range(n):
         z = z0 + (z1 - z0) * (i / max(1, n - 1))
-        cw, ch = int(RW * 1.2 / z), int(RH * 1.2 / z)
-        left, top = int((big.width - cw) * fx), int((big.height - ch) * fy)
-        yield big.crop((left, top, left + cw, top + ch)).resize((RW, RH), Image.BILINEAR)
+        cw, ch = RW * 1.2 / z, RH * 1.2 / z
+        yield _view(big, (big.width - cw) * fx, (big.height - ch) * fy, cw, ch)
+
+
+def _view(img, left, top, w, h):
+    """The (left, top, w, h) window of img scaled to the Reel. Sub-pixel position + bicubic: whole-pixel crops made
+    slow zooms step and shake, and bilinear looked soft."""
+    return img.resize((RW, RH), Image.BICUBIC, box=(left, top, left + w, top + h))
 
 
 # ------------------------------------------------------------------ overlays
@@ -814,8 +820,7 @@ def _frames(post, scenes, exe, duration, chunks, follow_at):
         frame = base
         if not first and since_cut < 0.25:  # zoom punch on each cut
             z = 1.0 + 0.08 * (1 - since_cut / 0.25)
-            cw, ch = int(RW / z), int(RH / z)
-            frame = frame.crop(((RW - cw) // 2, (RH - ch) // 2, (RW + cw) // 2, (RH + ch) // 2)).resize((RW, RH), Image.BILINEAR)
+            frame = _view(frame, (RW - RW / z) / 2, (RH - RH / z) / 2, RW / z, RH / z)
         frame = frame.convert("RGBA")
         frame.alpha_composite(shade)
         if not first and since_cut < 0.15:  # white flash on each cut
@@ -906,7 +911,7 @@ def make_reel(post, photo, path):
         else:
             cmd += ["-af", f"{fades},volume=0.8", "-map", "0:v", "-map", "1:a"]
         cmd += ["-t", f"{duration:.2f}",
-                "-c:v", "libx264", "-preset", "medium", "-crf", "19", "-pix_fmt", "yuv420p",
+                "-c:v", "libx264", "-preset", "medium", "-crf", "17", "-pix_fmt", "yuv420p",
                 "-profile:v", "high", "-c:a", "aac", "-b:a", "160k", "-ar", "44100", "-movflags", "+faststart", path]
         os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
         proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)

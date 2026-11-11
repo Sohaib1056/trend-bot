@@ -76,10 +76,14 @@ then shift every slot back -1 h (`1,3,4,19,21,22,23`, photos `4,23`, star `19,21
 | 23 | 6:05 PM | Reel (was the trending slot; Elon since 10-29) |
 | 00 | 7:05 PM | Photo (moved from 10:05 PM on 10-19; 10 PM was the weakest slot) |
 | 02 | 9:05 PM | Reel |
-| 04 | 11:05 PM | Reel |
+| 04 | 11:05 PM | Reel: **money/tech trending test until 2026-11-19** (the weakest Reel slot), then Elon again |
 | 05 | 12:05 AM | Photo |
 
-- `POST_SLOTS=0,2,4,5,20,22,23`, `PHOTO_SLOTS=0,5`, `STAR_SLOTS=20,22`, `TREND_SLOTS` empty (was 22 until 10-29).
+- `POST_SLOTS=0,2,4,5,20,22,23`, `PHOTO_SLOTS=0,5`, `STAR_SLOTS=20,22`, `TREND_SLOTS=4` until `TREND_UNTIL`
+  (2026-11-19 05:00 UTC), then empty again.
+- **Owner, 11-11: 7-day test** in the 11:05 PM slot: the hottest money/tech topic (`main.MONEY_TECH`: stocks, big
+  money, AI, Apple, Nvidia, Tesla, space...), whoever it is about. Compare its views and follows with that slot's
+  Elon Reels since 11-03 (median 584, average 1,031). No money/tech topic -> an Elon post as usual.
 - **Owner, 10-29: ONLY Elon Musk posts, every slot, "until I say stop".** `ALL_STAR_UNTIL` default is
   2100-01-01 (no end date); every post opens on Elon's face. To end it: set the `ALL_STAR_UNTIL` variable (or edit
   `bot/config.py`), and to bring back the trending slot set `TREND_SLOTS=22`.

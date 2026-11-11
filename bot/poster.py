@@ -363,10 +363,10 @@ def _wikimedia_photo(title, hint="", _resolved=False):
             raise RuntimeError("not a person (only real photos of people are used)")
         q = requests.get("https://en.wikipedia.org/w/api.php", headers=WIKI_UA, timeout=20, params={
             "action": "query", "format": "json", "prop": "imageinfo", "iiprop": "extmetadata|url",
-            "iiurlwidth": 1280, "titles": "File:" + fname}).json()
+            "iiurlwidth": 1920, "titles": "File:" + fname}).json()
         ii = next(iter(q["query"]["pages"].values()))["imageinfo"][0]
         meta = ii["extmetadata"]
-        src = ii.get("thumburl") or src  # a 1280px copy: lighter, and far less often rate-limited than the original
+        src = ii.get("thumburl") or src  # a 1920px copy: sharp on a Reel, lighter and less often rate-limited than the original
         lic = meta.get("LicenseShortName", {}).get("value", "")
         if not lic.lower().startswith(FREE_LICENSE) or "non-free" in lic.lower() or "fair use" in lic.lower():
             raise RuntimeError(f"license not free: {lic}")
