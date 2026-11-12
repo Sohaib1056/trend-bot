@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-11 23:06 UTC_
+_Updated 2026-11-12 00:05 UTC_
 
 ```
-Based on the last 246 posts on this page:
-Best categories: BUSINESS (1008.4), TECH (840.2), POLITICS (694.9)
+Based on the last 247 posts on this page:
+Best categories: BUSINESS (1008.4), TECH (831.4), POLITICS (694.9)
 Weakest categories: SPORTS (29.2), SHOPPING (15.6)
-Format: reel (948.9, 165 posts), photo (298.5, 81 posts)
+Format: reel (943.3, 166 posts), photo (298.5, 81 posts)
 Best posting slots (UTC): 21:00 (1936.6), 20:00 (1004.2), 19:00 (1001.3)
-Best faces on this page (avg views per post): Elon Musk 2454 (199 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2442 (200 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7437.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-11T23:07 | reel | TECH | SpaceX stock shrugs off AI worries | 32 | 4 | 2 | 0 | 20.4 |
 | 2026-11-11T22:07 | reel | TECH | Elon Musk’s Tesla Roadster performs crazy tricks | 128 | 4 | 2 | 0 | 39.6 |
 | 2026-11-11T20:07 | reel | TECH | Tesla Model Y hits 111k miles without home charging | 296 | 7 | 2 | 0 | 79.2 |
 | 2026-11-11T05:08 | photo | POLITICS | Elon Musk accused of using Starlink to intercept election results | 458 | 33 | 11 | 1 | 193.6 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-06T20:08 | reel | TECH | Tesla Cybertruck: 11 recalls, cracked windows, long delays | 2387 | 166 | 17 | 0 | 860.4 |
 | 2026-11-06T05:07 | photo | TECH | Musk gets FAA rule change | 2545 | 144 | 38 | 14 | 917.0 |
 | 2026-11-06T04:07 | reel | POLITICS | Elon Musk spends $445 million on Republican midterms, falls short | 453 | 13 | 18 | 0 | 170.6 |
-| 2026-11-06T02:07 | reel | CELEBRITY | Elon Musk started Zip2 at 24, sold for $307 M | 713 | 47 | 8 | 0 | 260.6 |
