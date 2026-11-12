@@ -1,21 +1,22 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-12 02:06 UTC_
+_Updated 2026-11-12 04:05 UTC_
 
 ```
-Based on the last 248 posts on this page:
-Best categories: BUSINESS (994.7), TECH (836.5), POLITICS (695.7)
+Based on the last 249 posts on this page:
+Best categories: BUSINESS (994.7), TECH (837.2), POLITICS (695.7)
 Weakest categories: SPORTS (29.2), SHOPPING (15.6)
-Format: reel (947.3, 166 posts), photo (295.7, 82 posts)
+Format: reel (942.1, 167 posts), photo (295.7, 82 posts)
 Best posting slots (UTC): 21:00 (1936.6), 20:00 (1018.0), 19:00 (1001.3)
-Best faces on this page (avg views per post): Elon Musk 2440 (201 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2429 (202 posts), Jensen Huang 468 (2 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts), Oprah Winfrey 292 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7437.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-12T02:07 | reel | VIRAL | Elon Musk left South Africa alone at 17 | 43 | 1 | 0 | 0 | 10.6 |
 | 2026-11-12T00:06 | photo | BUSINESS | Elon Musk eyes huge SpaceX stock jump on Nov 13 | 65 | 2 | 2 | 0 | 23.0 |
-| 2026-11-11T23:07 | reel | TECH | SpaceX stock shrugs off AI worries | 32 | 4 | 2 | 0 | 20.4 |
+| 2026-11-11T23:07 | reel | TECH | SpaceX stock shrugs off AI worries | 147 | 16 | 6 | 0 | 79.4 |
 | 2026-11-11T22:07 | reel | TECH | Elon Musk’s Tesla Roadster performs crazy tricks | 665 | 55 | 11 | 0 | 276.0 |
 | 2026-11-11T20:07 | reel | TECH | Tesla Model Y hits 111k miles without home charging | 528 | 20 | 5 | 0 | 160.6 |
 | 2026-11-11T05:08 | photo | POLITICS | Elon Musk accused of using Starlink to intercept election results | 514 | 34 | 13 | 1 | 212.8 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-06T23:07 | reel | AI | Elon Musk claims Neuralink could talk to animals | 836 | 68 | 17 | 0 | 354.2 |
 | 2026-11-06T22:08 | reel | AI | SpaceX partners to deploy Grok AI globally | 3404 | 298 | 38 | 0 | 1390.8 |
 | 2026-11-06T20:08 | reel | TECH | Tesla Cybertruck: 11 recalls, cracked windows, long delays | 2393 | 168 | 17 | 0 | 865.6 |
-| 2026-11-06T05:07 | photo | TECH | Musk gets FAA rule change | 2545 | 144 | 37 | 14 | 914.0 |
