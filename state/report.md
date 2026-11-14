@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-13 23:06 UTC_
+_Updated 2026-11-14 00:05 UTC_
 
 ```
-Based on the last 260 posts on this page:
+Based on the last 261 posts on this page:
 Best categories: BUSINESS (958.0), TECH (855.2), POLITICS (692.5)
 Weakest categories: SHOPPING (129.7), SPORTS (29.2)
-Format: reel (934.1, 175 posts), photo (300.3, 85 posts)
+Format: reel (929.0, 176 posts), photo (300.3, 85 posts)
 Best posting slots (UTC): 21:00 (1936.6), 19:00 (1001.3), 20:00 (961.4)
-Best faces on this page (avg views per post): Elon Musk 2422 (211 posts), Ilhan Omar 552 (1 posts), Jensen Huang 444 (3 posts), Cole Sprouse 434 (1 posts), Satya Nadella 402 (3 posts), Sundar Pichai 301 (3 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2411 (212 posts), Ilhan Omar 552 (1 posts), Jensen Huang 444 (3 posts), Cole Sprouse 434 (1 posts), Satya Nadella 402 (3 posts), Sundar Pichai 301 (3 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7437.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-13T23:08 | reel | AI | Grok arrives in Tesla, but limited access | 49 | 6 | 4 | 0 | 33.8 |
 | 2026-11-13T22:09 | reel | BUSINESS | Elon Musk's Foundation Holds $14B in Assets | 22 | 0 | 1 | 0 | 7.4 |
 | 2026-11-13T20:08 | reel | BUSINESS | Elon Musk's net worth jumps to $849.7 billion | 111 | 2 | 0 | 0 | 26.2 |
 | 2026-11-13T05:07 | photo | SHOPPING | Elon Musk forces $112 K Cybertruck price jump | 594 | 43 | 11 | 7 | 243.8 |
@@ -40,7 +41,7 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-10T05:07 | photo | TECH | Elon Musk's SpaceX plans $24 billion AI project in Texas | 1144 | 61 | 12 | 8 | 392.8 |
 | 2026-11-10T04:06 | reel | TECH | Tesla Robotaxi launched in San Antonio | 5183 | 476 | 53 | 0 | 2147.6 |
 | 2026-11-10T02:06 | reel | POLITICS | Elon Musk's empire braces for Democratic crackdown | 1015 | 87 | 11 | 0 | 410.0 |
-| 2026-11-10T00:06 | photo | POLITICS | Elon Musk banked on Trump, now humbled and humiliated | 806 | 46 | 15 | 10 | 304.2 |
+| 2026-11-10T00:06 | photo | POLITICS | Elon Musk banked on Trump, now humbled and humiliated | 808 | 46 | 15 | 10 | 304.6 |
 | 2026-11-09T23:07 | reel | TECH | Elon Musk: SpaceX is now an infrastructure giant | 1445 | 114 | 18 | 0 | 571.0 |
 | 2026-11-09T22:07 | reel | AI | AI scores Elon Musk's wild tech predictions | 604 | 33 | 4 | 0 | 198.8 |
 | 2026-11-09T20:07 | reel | BUSINESS | Tesla’s 5% stock surge fuels robotaxi excitement | 606 | 54 | 3 | 0 | 238.2 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-08T20:14 | reel | TECH | Elon Musk's SpaceX wins NASA cislunar comms contract | 2480 | 159 | 29 | 0 | 901.0 |
 | 2026-11-08T05:07 | photo | BUSINESS | Anthropic vs SpaceX: which IPO is the smarter buy? | 511 | 24 | 18 | 10 | 210.2 |
 | 2026-11-08T04:06 | reel | SCIENCE | SpaceX catches both stages on Nov. 13 | 811 | 54 | 9 | 0 | 297.2 |
-| 2026-11-08T02:07 | reel | POLITICS | Fans celebrate Musk's donations failing big | 951 | 57 | 22 | 0 | 370.2 |
