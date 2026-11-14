@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-14 20:06 UTC_
+_Updated 2026-11-14 22:05 UTC_
 
 ```
-Based on the last 265 posts on this page:
-Best categories: BUSINESS (952.1), TECH (853.0), POLITICS (680.8)
+Based on the last 266 posts on this page:
+Best categories: BUSINESS (952.9), TECH (845.7), POLITICS (681.2)
 Weakest categories: SHOPPING (195.1), SPORTS (29.2)
-Format: reel (931.0, 178 posts), photo (302.3, 87 posts)
-Best posting slots (UTC): 21:00 (1936.6), 19:00 (1001.3), 20:00 (992.5)
-Best faces on this page (avg views per post): Elon Musk 2417 (215 posts), Ilhan Omar 552 (1 posts), Satya Nadella 429 (3 posts), Cole Sprouse 434 (1 posts), Jensen Huang 381 (4 posts), Sundar Pichai 301 (3 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (927.0, 179 posts), photo (302.3, 87 posts)
+Best posting slots (UTC): 21:00 (1936.6), 19:00 (1001.3), 20:00 (912.6)
+Best faces on this page (avg views per post): Elon Musk 2408 (216 posts), Ilhan Omar 552 (1 posts), Satya Nadella 429 (3 posts), Cole Sprouse 434 (1 posts), Jensen Huang 381 (4 posts), Sundar Pichai 301 (3 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7437.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-14T20:07 | reel | TECH | Tesla opens sales of autonomous Cybercab for select customers | 49 | 2 | 2 | 0 | 19.8 |
 | 2026-11-14T05:11 | photo | POLITICS | Elon Musk clashes with Donald Trump over Big Beautiful Bill | 344 | 31 | 10 | 11 | 166.8 |
 | 2026-11-14T04:06 | reel | TECH | Jensen Huang surrendered after calling himself shattered | 187 | 0 | 0 | 0 | 37.4 |
 | 2026-11-14T02:07 | reel | BUSINESS | Jameis Winston sings song at NFL line of scrimmage | 446 | 50 | 8 | 0 | 213.2 |
@@ -39,18 +40,17 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-11T04:06 | reel | SCIENCE | Musk spent big on Republicans, got nothing | 355 | 15 | 4 | 0 | 113.0 |
 | 2026-11-11T02:07 | reel | TECH | Elon Musk cancels Cybertruck to make room for robotaxis | 4133 | 275 | 30 | 0 | 1466.6 |
 | 2026-11-11T00:08 | photo | BUSINESS | Elon Musk’s private jet habits exposed | 1848 | 90 | 39 | 10 | 672.6 |
-| 2026-11-10T23:07 | reel | BUSINESS | Elon Musk settlement fund closed by SEC | 1770 | 60 | 17 | 0 | 525.0 |
-| 2026-11-10T22:07 | reel | AI | Elon Musk says C++ rewrite delayed Grok 4.8 | 514 | 17 | 2 | 0 | 142.8 |
-| 2026-11-10T20:09 | reel | BUSINESS | Elon Musk half‑right as SoftBank backs away from turbine order | 2415 | 136 | 24 | 0 | 827.0 |
-| 2026-11-10T05:07 | photo | TECH | Elon Musk's SpaceX plans $24 billion AI project in Texas | 1145 | 61 | 12 | 8 | 393.0 |
-| 2026-11-10T04:06 | reel | TECH | Tesla Robotaxi launched in San Antonio | 5210 | 479 | 53 | 0 | 2159.0 |
-| 2026-11-10T02:06 | reel | POLITICS | Elon Musk's empire braces for Democratic crackdown | 1015 | 87 | 11 | 0 | 410.0 |
-| 2026-11-10T00:06 | photo | POLITICS | Elon Musk banked on Trump, now humbled and humiliated | 808 | 46 | 15 | 10 | 304.6 |
-| 2026-11-09T23:07 | reel | TECH | Elon Musk: SpaceX is now an infrastructure giant | 1445 | 114 | 18 | 0 | 571.0 |
-| 2026-11-09T22:07 | reel | AI | AI scores Elon Musk's wild tech predictions | 604 | 33 | 4 | 0 | 198.8 |
-| 2026-11-09T20:07 | reel | BUSINESS | Tesla’s 5% stock surge fuels robotaxi excitement | 607 | 54 | 3 | 0 | 238.4 |
-| 2026-11-09T05:07 | photo | TECH | Elon Musk claims Starlink can outcompete undersea internet cables | 823 | 43 | 13 | 10 | 295.6 |
-| 2026-11-09T04:15 | reel | POLITICS | Elon Musk slams oppressive state, praises Texas | 1696 | 101 | 13 | 0 | 580.2 |
-| 2026-11-09T02:07 | reel | POLITICS | Elon Musk’s political fortunes hit a blue wave | 1374 | 92 | 18 | 0 | 512.8 |
+| 2026-11-10T23:07 | reel | BUSINESS | Elon Musk settlement fund closed by SEC | 1774 | 61 | 17 | 0 | 527.8 |
+| 2026-11-10T22:07 | reel | AI | Elon Musk says C++ rewrite delayed Grok 4.8 | 518 | 18 | 2 | 0 | 145.6 |
+| 2026-11-10T20:09 | reel | BUSINESS | Elon Musk half‑right as SoftBank backs away from turbine order | 2435 | 139 | 24 | 0 | 837.0 |
+| 2026-11-10T05:07 | photo | TECH | Elon Musk's SpaceX plans $24 billion AI project in Texas | 1146 | 61 | 12 | 8 | 393.2 |
+| 2026-11-10T04:06 | reel | TECH | Tesla Robotaxi launched in San Antonio | 5348 | 496 | 53 | 0 | 2220.6 |
+| 2026-11-10T02:06 | reel | POLITICS | Elon Musk's empire braces for Democratic crackdown | 1027 | 90 | 12 | 0 | 421.4 |
+| 2026-11-10T00:06 | photo | POLITICS | Elon Musk banked on Trump, now humbled and humiliated | 809 | 46 | 15 | 10 | 304.8 |
+| 2026-11-09T23:07 | reel | TECH | Elon Musk: SpaceX is now an infrastructure giant | 1463 | 116 | 18 | 0 | 578.6 |
+| 2026-11-09T22:07 | reel | AI | AI scores Elon Musk's wild tech predictions | 610 | 34 | 4 | 0 | 202.0 |
+| 2026-11-09T20:07 | reel | BUSINESS | Tesla’s 5% stock surge fuels robotaxi excitement | 610 | 54 | 3 | 0 | 239.0 |
+| 2026-11-09T05:07 | photo | TECH | Elon Musk claims Starlink can outcompete undersea internet cables | 823 | 43 | 12 | 10 | 292.6 |
+| 2026-11-09T04:15 | reel | POLITICS | Elon Musk slams oppressive state, praises Texas | 1699 | 100 | 13 | 0 | 578.8 |
+| 2026-11-09T02:07 | reel | POLITICS | Elon Musk’s political fortunes hit a blue wave | 1376 | 92 | 18 | 0 | 513.2 |
 | 2026-11-09T00:14 | photo | TECH | Musk calls Starship most powerful object ever | 1410 | 72 | 21 | 15 | 495.0 |
-| 2026-11-08T23:07 | reel | TECH | Elon Musk saved lives where cell towers failed | 385 | 16 | 2 | 0 | 115.0 |
