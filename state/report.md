@@ -1,21 +1,22 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-15 02:06 UTC_
+_Updated 2026-11-15 04:05 UTC_
 
 ```
-Based on the last 269 posts on this page:
-Best categories: BUSINESS (940.2), TECH (841.5), POLITICS (667.4)
-Weakest categories: SHOPPING (203.2), SPORTS (29.2)
-Format: reel (919.7, 181 posts), photo (300.9, 88 posts)
+Based on the last 270 posts on this page:
+Best categories: BUSINESS (940.9), TECH (842.3), POLITICS (667.5)
+Weakest categories: VIRAL (202.7), SPORTS (29.2)
+Format: reel (915.5, 182 posts), photo (300.9, 88 posts)
 Best posting slots (UTC): 21:00 (1936.6), 19:00 (1001.3), 20:00 (918.7)
-Best faces on this page (avg views per post): Elon Musk 2386 (219 posts), Ilhan Omar 552 (1 posts), Satya Nadella 431 (3 posts), Cole Sprouse 434 (1 posts), Jensen Huang 393 (4 posts), Sundar Pichai 301 (3 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2377 (220 posts), Ilhan Omar 552 (1 posts), Satya Nadella 431 (3 posts), Cole Sprouse 434 (1 posts), Jensen Huang 393 (4 posts), Sundar Pichai 301 (3 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7437.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-15T02:07 | reel | VIRAL | Elon Musk fired as CEO of X.com before PayPal sale | 73 | 2 | 3 | 0 | 27.6 |
 | 2026-11-15T00:06 | photo | TECH | Elon Musk signs petition to reinstate Nvidia CEO | 58 | 4 | 5 | 1 | 37.6 |
-| 2026-11-14T23:07 | reel | BUSINESS | Elon Musk out‑earns Ford and GM as rivals double sales | 64 | 7 | 1 | 0 | 29.8 |
+| 2026-11-14T23:07 | reel | BUSINESS | Elon Musk out‑earns Ford and GM as rivals double sales | 201 | 14 | 4 | 0 | 80.2 |
 | 2026-11-14T22:08 | reel | POLITICS | Elon Musk takes advisory role in Trump’s new government plan | 145 | 6 | 0 | 0 | 41.0 |
 | 2026-11-14T20:07 | reel | TECH | Tesla opens sales of autonomous Cybercab for select customers | 141 | 6 | 2 | 0 | 46.2 |
 | 2026-11-14T05:11 | photo | POLITICS | Elon Musk clashes with Donald Trump over Big Beautiful Bill | 419 | 35 | 16 | 11 | 207.8 |
@@ -39,9 +40,9 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-11T23:07 | reel | TECH | SpaceX stock shrugs off AI worries | 753 | 54 | 14 | 0 | 300.6 |
 | 2026-11-11T22:07 | reel | TECH | Elon Musk’s Tesla Roadster performs crazy tricks | 6278 | 423 | 47 | 0 | 2242.6 |
 | 2026-11-11T20:07 | reel | TECH | Tesla Model Y hits 111k miles without home charging | 3106 | 155 | 23 | 0 | 1000.2 |
-| 2026-11-11T05:08 | photo | POLITICS | Elon Musk accused of using Starlink to intercept election results | 740 | 48 | 14 | 2 | 292.0 |
+| 2026-11-11T05:08 | photo | POLITICS | Elon Musk accused of using Starlink to intercept election results | 745 | 49 | 14 | 2 | 295.0 |
 | 2026-11-11T04:06 | reel | SCIENCE | Musk spent big on Republicans, got nothing | 357 | 15 | 4 | 0 | 113.4 |
-| 2026-11-11T02:07 | reel | TECH | Elon Musk cancels Cybertruck to make room for robotaxis | 4563 | 286 | 33 | 0 | 1583.6 |
+| 2026-11-11T02:07 | reel | TECH | Elon Musk cancels Cybertruck to make room for robotaxis | 4830 | 298 | 33 | 0 | 1661.0 |
 | 2026-11-11T00:08 | photo | BUSINESS | Elon Musk’s private jet habits exposed | 1850 | 90 | 39 | 10 | 673.0 |
 | 2026-11-10T23:07 | reel | BUSINESS | Elon Musk settlement fund closed by SEC | 1778 | 61 | 17 | 0 | 528.6 |
 | 2026-11-10T22:07 | reel | AI | Elon Musk says C++ rewrite delayed Grok 4.8 | 518 | 18 | 2 | 0 | 145.6 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-09T23:07 | reel | TECH | Elon Musk: SpaceX is now an infrastructure giant | 1464 | 116 | 18 | 0 | 578.8 |
 | 2026-11-09T22:07 | reel | AI | AI scores Elon Musk's wild tech predictions | 611 | 34 | 4 | 0 | 202.2 |
 | 2026-11-09T20:07 | reel | BUSINESS | Tesla’s 5% stock surge fuels robotaxi excitement | 611 | 54 | 3 | 0 | 239.2 |
-| 2026-11-09T05:07 | photo | TECH | Elon Musk claims Starlink can outcompete undersea internet cables | 823 | 43 | 12 | 10 | 292.6 |
