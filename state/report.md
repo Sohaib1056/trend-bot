@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-14 23:06 UTC_
+_Updated 2026-11-15 00:05 UTC_
 
 ```
-Based on the last 267 posts on this page:
-Best categories: BUSINESS (953.9), TECH (848.2), POLITICS (666.1)
+Based on the last 268 posts on this page:
+Best categories: BUSINESS (939.5), TECH (848.2), POLITICS (666.1)
 Weakest categories: SHOPPING (199.8), SPORTS (29.2)
-Format: reel (923.6, 180 posts), photo (303.1, 87 posts)
+Format: reel (918.7, 181 posts), photo (303.1, 87 posts)
 Best posting slots (UTC): 21:00 (1936.6), 19:00 (1001.3), 20:00 (915.7)
-Best faces on this page (avg views per post): Elon Musk 2404 (217 posts), Ilhan Omar 552 (1 posts), Satya Nadella 431 (3 posts), Cole Sprouse 434 (1 posts), Jensen Huang 386 (4 posts), Sundar Pichai 301 (3 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2393 (218 posts), Ilhan Omar 552 (1 posts), Satya Nadella 431 (3 posts), Cole Sprouse 434 (1 posts), Jensen Huang 386 (4 posts), Sundar Pichai 301 (3 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7437.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-14T23:07 | reel | BUSINESS | Elon Musk out‑earns Ford and GM as rivals double sales | 64 | 7 | 1 | 0 | 29.8 |
 | 2026-11-14T22:08 | reel | POLITICS | Elon Musk takes advisory role in Trump’s new government plan | 81 | 4 | 0 | 0 | 24.2 |
 | 2026-11-14T20:07 | reel | TECH | Tesla opens sales of autonomous Cybercab for select customers | 49 | 2 | 2 | 0 | 19.8 |
 | 2026-11-14T05:11 | photo | POLITICS | Elon Musk clashes with Donald Trump over Big Beautiful Bill | 381 | 33 | 11 | 11 | 181.2 |
@@ -40,7 +41,7 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-11T05:08 | photo | POLITICS | Elon Musk accused of using Starlink to intercept election results | 740 | 48 | 14 | 2 | 292.0 |
 | 2026-11-11T04:06 | reel | SCIENCE | Musk spent big on Republicans, got nothing | 357 | 15 | 4 | 0 | 113.4 |
 | 2026-11-11T02:07 | reel | TECH | Elon Musk cancels Cybertruck to make room for robotaxis | 4563 | 286 | 33 | 0 | 1583.6 |
-| 2026-11-11T00:08 | photo | BUSINESS | Elon Musk’s private jet habits exposed | 1848 | 90 | 39 | 10 | 672.6 |
+| 2026-11-11T00:08 | photo | BUSINESS | Elon Musk’s private jet habits exposed | 1850 | 90 | 39 | 10 | 673.0 |
 | 2026-11-10T23:07 | reel | BUSINESS | Elon Musk settlement fund closed by SEC | 1774 | 61 | 17 | 0 | 527.8 |
 | 2026-11-10T22:07 | reel | AI | Elon Musk says C++ rewrite delayed Grok 4.8 | 518 | 18 | 2 | 0 | 145.6 |
 | 2026-11-10T20:09 | reel | BUSINESS | Elon Musk half‑right as SoftBank backs away from turbine order | 2435 | 139 | 24 | 0 | 837.0 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-09T20:07 | reel | BUSINESS | Tesla’s 5% stock surge fuels robotaxi excitement | 610 | 54 | 3 | 0 | 239.0 |
 | 2026-11-09T05:07 | photo | TECH | Elon Musk claims Starlink can outcompete undersea internet cables | 823 | 43 | 12 | 10 | 292.6 |
 | 2026-11-09T04:15 | reel | POLITICS | Elon Musk slams oppressive state, praises Texas | 1699 | 100 | 13 | 0 | 578.8 |
-| 2026-11-09T02:07 | reel | POLITICS | Elon Musk’s political fortunes hit a blue wave | 1376 | 92 | 18 | 0 | 513.2 |
