@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-15 23:06 UTC_
+_Updated 2026-11-16 00:05 UTC_
 
 ```
-Based on the last 274 posts on this page:
-Best categories: BUSINESS (920.7), TECH (852.6), POLITICS (685.3)
+Based on the last 275 posts on this page:
+Best categories: BUSINESS (920.7), TECH (844.5), POLITICS (685.3)
 Weakest categories: SHOPPING (243.0), SPORTS (29.2)
-Format: reel (914.3, 185 posts), photo (310.4, 89 posts)
+Format: reel (909.6, 186 posts), photo (310.4, 89 posts)
 Best posting slots (UTC): 21:00 (1936.6), 19:00 (1001.3), 22:00 (872.7)
-Best faces on this page (avg views per post): Elon Musk 2381 (223 posts), Ilhan Omar 552 (1 posts), Jensen Huang 489 (5 posts), Satya Nadella 436 (3 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2371 (224 posts), Ilhan Omar 552 (1 posts), Jensen Huang 489 (5 posts), Satya Nadella 436 (3 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7437.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-15T23:07 | reel | TECH | Elon Musk's Cybertruck missed 500-mile range promise | 76 | 7 | 0 | 0 | 29.2 |
 | 2026-11-15T22:06 | reel | AI | Elon Musk Grok enabled 2,000-plus munitions in four days | 43 | 1 | 0 | 0 | 10.6 |
 | 2026-11-15T20:07 | reel | BUSINESS | Elon Musk's Tesla raises Model Y AWD price $8,000 | 59 | 4 | 2 | 0 | 25.8 |
 | 2026-11-15T05:11 | photo | TECH | Elon Musk's Falcon 9 achieves 699 launches, $396M NASA contract | 1151 | 95 | 31 | 12 | 519.2 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-10T20:09 | reel | BUSINESS | Elon Musk half‑right as SoftBank backs away from turbine order | 2452 | 140 | 24 | 0 | 842.4 |
 | 2026-11-10T05:07 | photo | TECH | Elon Musk's SpaceX plans $24 billion AI project in Texas | 1147 | 62 | 12 | 8 | 395.4 |
 | 2026-11-10T04:06 | reel | TECH | Tesla Robotaxi launched in San Antonio | 5468 | 506 | 53 | 0 | 2264.6 |
-| 2026-11-10T02:06 | reel | POLITICS | Elon Musk's empire braces for Democratic crackdown | 1037 | 91 | 12 | 0 | 425.4 |
