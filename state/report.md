@@ -1,22 +1,23 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-16 02:02 UTC_
+_Updated 2026-11-16 04:05 UTC_
 
 ```
 Based on the last 275 posts on this page:
-Best categories: BUSINESS (908.6), TECH (845.6), POLITICS (686.6)
+Best categories: BUSINESS (908.6), TECH (841.5), POLITICS (686.6)
 Weakest categories: SHOPPING (243.5), SPORTS (29.2)
-Format: reel (910.5, 186 posts), photo (312.1, 89 posts)
-Best posting slots (UTC): 21:00 (1936.6), 19:00 (1001.3), 22:00 (874.2)
-Best faces on this page (avg views per post): Elon Musk 2364 (225 posts), Jensen Huang 499 (5 posts), Ilhan Omar 552 (1 posts), Satya Nadella 437 (3 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (908.1, 187 posts), photo (315.6, 88 posts)
+Best posting slots (UTC): 21:00 (1936.6), 19:00 (1001.3), 22:00 (878.3)
+Best faces on this page (avg views per post): Elon Musk 2361 (226 posts), Jensen Huang 499 (5 posts), Ilhan Omar 552 (1 posts), Satya Nadella 437 (3 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7437.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-16T02:04 | reel | TECH | Elon Musk’s Falcon 1 C‑17 glitch saves launch | 1 | 0 | 0 | 0 | 0.2 |
 | 2026-11-16T00:07 | photo | BUSINESS | Elon Musk apologizes after Trump feud sparks controversy | 87 | 6 | 8 | 0 | 53.4 |
-| 2026-11-15T23:07 | reel | TECH | Elon Musk's Cybertruck missed 500-mile range promise | 76 | 7 | 0 | 0 | 29.2 |
-| 2026-11-15T22:06 | reel | AI | Elon Musk Grok enabled 2,000-plus munitions in four days | 43 | 1 | 0 | 0 | 10.6 |
+| 2026-11-15T23:07 | reel | TECH | Elon Musk's Cybertruck missed 500-mile range promise | 379 | 30 | 4 | 0 | 147.8 |
+| 2026-11-15T22:06 | reel | AI | Elon Musk Grok enabled 2,000-plus munitions in four days | 179 | 5 | 0 | 0 | 45.8 |
 | 2026-11-15T20:07 | reel | BUSINESS | Elon Musk's Tesla raises Model Y AWD price $8,000 | 131 | 4 | 4 | 0 | 46.2 |
 | 2026-11-15T05:11 | photo | TECH | Elon Musk's Falcon 9 achieves 699 launches, $396M NASA contract | 1342 | 103 | 33 | 12 | 579.4 |
 | 2026-11-15T04:07 | reel | BUSINESS | Nvidia deliberately kept GPU prices high | 742 | 20 | 6 | 0 | 206.4 |
@@ -44,13 +45,12 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-12T02:07 | reel | VIRAL | Elon Musk left South Africa alone at 17 | 703 | 45 | 4 | 0 | 242.6 |
 | 2026-11-12T00:06 | photo | BUSINESS | Elon Musk eyes huge SpaceX stock jump on Nov 13 | 923 | 46 | 16 | 10 | 330.6 |
 | 2026-11-11T23:07 | reel | TECH | SpaceX stock shrugs off AI worries | 762 | 56 | 14 | 0 | 306.4 |
-| 2026-11-11T22:07 | reel | TECH | Elon Musk’s Tesla Roadster performs crazy tricks | 7221 | 466 | 47 | 0 | 2517.2 |
-| 2026-11-11T20:07 | reel | TECH | Tesla Model Y hits 111k miles without home charging | 3159 | 157 | 23 | 0 | 1014.8 |
+| 2026-11-11T22:07 | reel | TECH | Elon Musk’s Tesla Roadster performs crazy tricks | 7489 | 480 | 47 | 0 | 2598.8 |
+| 2026-11-11T20:07 | reel | TECH | Tesla Model Y hits 111k miles without home charging | 3165 | 157 | 23 | 0 | 1016.0 |
 | 2026-11-11T05:08 | photo | POLITICS | Elon Musk accused of using Starlink to intercept election results | 749 | 50 | 14 | 2 | 297.8 |
 | 2026-11-11T04:06 | reel | SCIENCE | Musk spent big on Republicans, got nothing | 364 | 16 | 4 | 0 | 116.8 |
-| 2026-11-11T02:07 | reel | TECH | Elon Musk cancels Cybertruck to make room for robotaxis | 6069 | 346 | 37 | 0 | 2016.8 |
-| 2026-11-11T00:08 | photo | BUSINESS | Elon Musk’s private jet habits exposed | 1854 | 92 | 40 | 11 | 680.8 |
-| 2026-11-10T23:07 | reel | BUSINESS | Elon Musk settlement fund closed by SEC | 1785 | 62 | 17 | 0 | 532.0 |
+| 2026-11-11T02:07 | reel | TECH | Elon Musk cancels Cybertruck to make room for robotaxis | 6914 | 367 | 41 | 0 | 2239.8 |
+| 2026-11-11T00:08 | photo | BUSINESS | Elon Musk’s private jet habits exposed | 1860 | 92 | 40 | 11 | 682.0 |
+| 2026-11-10T23:07 | reel | BUSINESS | Elon Musk settlement fund closed by SEC | 1786 | 62 | 17 | 0 | 532.2 |
 | 2026-11-10T22:07 | reel | AI | Elon Musk says C++ rewrite delayed Grok 4.8 | 524 | 19 | 2 | 0 | 148.8 |
 | 2026-11-10T20:09 | reel | BUSINESS | Elon Musk half‑right as SoftBank backs away from turbine order | 2452 | 140 | 24 | 0 | 842.4 |
-| 2026-11-10T05:07 | photo | TECH | Elon Musk's SpaceX plans $24 billion AI project in Texas | 1147 | 62 | 12 | 8 | 395.4 |
