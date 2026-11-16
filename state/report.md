@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-16 22:05 UTC_
+_Updated 2026-11-16 23:05 UTC_
 
 ```
 Based on the last 276 posts on this page:
-Best categories: TECH (901.1), BUSINESS (893.4), POLITICS (688.3)
+Best categories: BUSINESS (893.4), TECH (893.1), POLITICS (688.3)
 Weakest categories: SHOPPING (245.5), SPORTS (29.2)
-Format: reel (933.2, 189 posts), photo (330.9, 87 posts)
-Best posting slots (UTC): 21:00 (1936.6), 19:00 (1001.3), 22:00 (887.7)
-Best faces on this page (avg views per post): Elon Musk 2458 (228 posts), Jensen Huang 502 (6 posts), Ilhan Omar 552 (1 posts), Satya Nadella 442 (3 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (928.6, 190 posts), photo (334.7, 86 posts)
+Best posting slots (UTC): 21:00 (1936.6), 19:00 (1001.3), 22:00 (859.4)
+Best faces on this page (avg views per post): Elon Musk 2448 (229 posts), Jensen Huang 502 (6 posts), Ilhan Omar 552 (1 posts), Satya Nadella 442 (3 posts), Cole Sprouse 434 (1 posts), Sundar Pichai 301 (3 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7437.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-16T22:07 | reel | TECH | Elon Musk's SpaceX Catches Starship, Stock Falls | 194 | 9 | 3 | 0 | 65.8 |
 | 2026-11-16T20:28 | reel | BUSINESS | Elon Musk injects $3.3 billion into Germany's auto sector | 12 | 1 | 0 | 0 | 4.4 |
 | 2026-11-16T05:07 | photo | SCIENCE | SpaceX caught a 124-meter rocket in mid-air | 731 | 57 | 24 | 8 | 338.2 |
 | 2026-11-16T04:07 | reel | BUSINESS | Jensen Huang’s Nvidia sees $1 billion board sale amid scandal | 389 | 17 | 4 | 0 | 123.8 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk launches Optimus robot production, profit falls 43% (8804.2
 | 2026-11-11T05:08 | photo | POLITICS | Elon Musk accused of using Starlink to intercept election results | 749 | 50 | 14 | 2 | 297.8 |
 | 2026-11-11T04:06 | reel | SCIENCE | Musk spent big on Republicans, got nothing | 364 | 16 | 4 | 0 | 116.8 |
 | 2026-11-11T02:07 | reel | TECH | Elon Musk cancels Cybertruck to make room for robotaxis | 25297 | 646 | 49 | 0 | 6498.4 |
-| 2026-11-11T00:08 | photo | BUSINESS | Elon Musk’s private jet habits exposed | 1879 | 92 | 40 | 11 | 685.8 |
