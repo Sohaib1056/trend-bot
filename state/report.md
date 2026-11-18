@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-17 23:06 UTC_
+_Updated 2026-11-18 00:05 UTC_
 
 ```
 Based on the last 279 posts on this page:
-Best categories: TECH (1007.7), BUSINESS (900.5), POLITICS (678.4)
+Best categories: TECH (1007.7), BUSINESS (888.1), POLITICS (678.4)
 Weakest categories: VIRAL (365.5), SPORTS (29.2)
-Format: reel (986.3, 194 posts), photo (363.5, 85 posts)
+Format: reel (981.3, 195 posts), photo (367.8, 84 posts)
 Best posting slots (UTC): 21:00 (1936.6), 02:00 (1298.1), 19:00 (1001.3)
-Best faces on this page (avg views per post): Elon Musk 2687 (235 posts), Jensen Huang 536 (6 posts), OpenAI 571 (1 posts), Ilhan Omar 552 (1 posts), Satya Nadella 444 (3 posts), Cole Sprouse 434 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2675 (236 posts), Jensen Huang 536 (6 posts), OpenAI 571 (1 posts), Ilhan Omar 552 (1 posts), Satya Nadella 444 (3 posts), Cole Sprouse 434 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-17T23:11 | reel | BUSINESS | Elon Musk under fire over board independence criticism | 37 | 4 | 1 | 0 | 18.4 |
 | 2026-11-17T22:07 | reel | TECH | Tesla defies Europe loss predictions | 1 | 0 | 0 | 0 | 0.2 |
 | 2026-11-17T20:08 | reel | TECH | Elon Musk's Tesla unveils 7.4 MW Powercore | 181 | 5 | 2 | 0 | 52.2 |
 | 2026-11-17T05:08 | photo | POLITICS | Elon Musk refuses to block Russian media on Starlink | 790 | 37 | 6 | 3 | 256.0 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | E
 | 2026-11-12T20:09 | reel | TECH | Elon Musk Robotaxi Runs 24/7, Optimus Heads to Academy | 1300 | 71 | 9 | 0 | 429.0 |
 | 2026-11-12T05:08 | photo | AI | Elon Musk's Grok AI hit with nudification lawsuit | 543 | 28 | 2 | 9 | 176.6 |
 | 2026-11-12T04:07 | reel | BUSINESS | Jensen Huang faces scandal over alleged Nvidia executive affair | 422 | 8 | 1 | 0 | 103.4 |
-| 2026-11-12T02:07 | reel | VIRAL | Elon Musk left South Africa alone at 17 | 719 | 45 | 4 | 0 | 245.8 |
