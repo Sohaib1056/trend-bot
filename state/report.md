@@ -1,21 +1,22 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-18 02:06 UTC_
+_Updated 2026-11-18 04:06 UTC_
 
 ```
-Based on the last 280 posts on this page:
-Best categories: TECH (1009.7), BUSINESS (878.0), POLITICS (679.0)
-Weakest categories: VIRAL (377.4), SPORTS (29.2)
-Format: reel (982.9, 195 posts), photo (366.4, 85 posts)
-Best posting slots (UTC): 21:00 (1936.6), 02:00 (1301.7), 19:00 (1001.3)
-Best faces on this page (avg views per post): Elon Musk 2671 (237 posts), Jensen Huang 537 (6 posts), OpenAI 598 (1 posts), Ilhan Omar 552 (1 posts), Satya Nadella 444 (3 posts), Cole Sprouse 434 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Based on the last 281 posts on this page:
+Best categories: TECH (1009.8), BUSINESS (879.0), POLITICS (679.0)
+Weakest categories: VIRAL (327.8), SPORTS (29.2)
+Format: reel (978.4, 196 posts), photo (366.3, 85 posts)
+Best posting slots (UTC): 21:00 (1936.6), 02:00 (1243.9), 19:00 (1001.3)
+Best faces on this page (avg views per post): Elon Musk 2662 (238 posts), Jensen Huang 537 (6 posts), OpenAI 598 (1 posts), Ilhan Omar 552 (1 posts), Satya Nadella 444 (3 posts), Cole Sprouse 434 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-18T02:07 | reel | VIRAL | Elon Musk Tesla Roadster circles Sun after Falcon Heavy launch | 97 | 4 | 1 | 0 | 30.4 |
 | 2026-11-18T00:07 | photo | BUSINESS | Elon Musk $850 Cybertruck toy resale after sellout | 100 | 14 | 2 | 0 | 54.0 |
-| 2026-11-17T23:11 | reel | BUSINESS | Elon Musk under fire over board independence criticism | 37 | 4 | 1 | 0 | 18.4 |
+| 2026-11-17T23:11 | reel | BUSINESS | Elon Musk under fire over board independence criticism | 255 | 17 | 1 | 0 | 88.0 |
 | 2026-11-17T22:07 | reel | TECH | Tesla defies Europe loss predictions | 124 | 1 | 0 | 0 | 26.8 |
 | 2026-11-17T20:08 | reel | TECH | Elon Musk's Tesla unveils 7.4 MW Powercore | 378 | 15 | 3 | 0 | 114.6 |
 | 2026-11-17T05:08 | photo | POLITICS | Elon Musk refuses to block Russian media on Starlink | 878 | 38 | 8 | 3 | 281.6 |
@@ -40,17 +41,16 @@ Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | E
 | 2026-11-14T22:08 | reel | POLITICS | Elon Musk takes advisory role in Trump’s new government plan | 1717 | 156 | 30 | 0 | 745.4 |
 | 2026-11-14T20:07 | reel | TECH | Tesla opens sales of autonomous Cybercab for select customers | 663 | 25 | 11 | 0 | 215.6 |
 | 2026-11-14T05:11 | photo | POLITICS | Elon Musk clashes with Donald Trump over Big Beautiful Bill | 615 | 53 | 36 | 13 | 343.0 |
-| 2026-11-14T04:06 | reel | TECH | Jensen Huang surrendered after calling himself shattered | 437 | 21 | 9 | 0 | 156.4 |
-| 2026-11-14T02:07 | reel | BUSINESS | Jameis Winston sings song at NFL line of scrimmage | 698 | 61 | 9 | 0 | 288.6 |
-| 2026-11-14T00:08 | photo | TECH | Elon Musk launches 15th Starship but aborts booster catch | 1695 | 97 | 29 | 10 | 626.0 |
-| 2026-11-13T23:08 | reel | AI | Grok arrives in Tesla, but limited access | 1377 | 134 | 25 | 0 | 618.4 |
-| 2026-11-13T22:09 | reel | BUSINESS | Elon Musk's Foundation Holds $14B in Assets | 257 | 5 | 2 | 0 | 67.4 |
-| 2026-11-13T20:08 | reel | BUSINESS | Elon Musk's net worth jumps to $849.7 billion | 1199 | 61 | 7 | 0 | 382.8 |
-| 2026-11-13T05:07 | photo | SHOPPING | Elon Musk forces $112 K Cybertruck price jump | 1249 | 73 | 25 | 9 | 476.8 |
-| 2026-11-13T04:07 | reel | TECH | Microsoft global outage knocks out Outlook, Teams, Copilot | 1078 | 27 | 4 | 0 | 281.6 |
-| 2026-11-13T02:07 | reel | VIRAL | Elon Musk skipped Stanford PhD after two days | 493 | 45 | 9 | 0 | 215.6 |
+| 2026-11-14T04:06 | reel | TECH | Jensen Huang surrendered after calling himself shattered | 438 | 21 | 9 | 0 | 156.6 |
+| 2026-11-14T02:07 | reel | BUSINESS | Jameis Winston sings song at NFL line of scrimmage | 699 | 61 | 9 | 0 | 288.8 |
+| 2026-11-14T00:08 | photo | TECH | Elon Musk launches 15th Starship but aborts booster catch | 1696 | 97 | 29 | 10 | 626.2 |
+| 2026-11-13T23:08 | reel | AI | Grok arrives in Tesla, but limited access | 1378 | 134 | 25 | 0 | 618.6 |
+| 2026-11-13T22:09 | reel | BUSINESS | Elon Musk's Foundation Holds $14B in Assets | 258 | 5 | 2 | 0 | 67.6 |
+| 2026-11-13T20:08 | reel | BUSINESS | Elon Musk's net worth jumps to $849.7 billion | 1200 | 61 | 7 | 0 | 383.0 |
+| 2026-11-13T05:07 | photo | SHOPPING | Elon Musk forces $112 K Cybertruck price jump | 1252 | 70 | 24 | 9 | 468.4 |
+| 2026-11-13T04:07 | reel | TECH | Microsoft global outage knocks out Outlook, Teams, Copilot | 1079 | 27 | 4 | 0 | 281.8 |
+| 2026-11-13T02:07 | reel | VIRAL | Elon Musk skipped Stanford PhD after two days | 494 | 45 | 9 | 0 | 215.8 |
 | 2026-11-13T00:09 | photo | TECH | Elon Musk invested $100M to launch SpaceX | 1031 | 61 | 13 | 10 | 373.2 |
 | 2026-11-12T23:07 | reel | POLITICS | Elon Musk invited to shift Tesla HQ to Florida | 1314 | 108 | 14 | 0 | 520.8 |
-| 2026-11-12T22:08 | reel | BUSINESS | Elon Musk could become Jensen Huang’s boss | 2834 | 107 | 23 | 0 | 849.8 |
+| 2026-11-12T22:08 | reel | BUSINESS | Elon Musk could become Jensen Huang’s boss | 2835 | 107 | 23 | 0 | 850.0 |
 | 2026-11-12T20:09 | reel | TECH | Elon Musk Robotaxi Runs 24/7, Optimus Heads to Academy | 1300 | 71 | 9 | 0 | 429.0 |
-| 2026-11-12T05:08 | photo | AI | Elon Musk's Grok AI hit with nudification lawsuit | 543 | 28 | 2 | 9 | 176.6 |
