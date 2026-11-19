@@ -1,21 +1,22 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-19 02:06 UTC_
+_Updated 2026-11-19 04:05 UTC_
 
 ```
 Based on the last 283 posts on this page:
-Best categories: TECH (1021.5), BUSINESS (878.5), POLITICS (661.2)
-Weakest categories: AI (395.5), SPORTS (35.5)
-Format: reel (981.7, 198 posts), photo (396.7, 85 posts)
-Best posting slots (UTC): 21:00 (1936.6), 02:00 (1269.7), 19:00 (1036.6)
-Best faces on this page (avg views per post): Elon Musk 2678 (242 posts), OpenAI 653 (1 posts), Jensen Huang 543 (6 posts), Ilhan Omar 552 (1 posts), Satya Nadella 446 (3 posts), Cole Sprouse 434 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best categories: TECH (1012.5), BUSINESS (879.5), POLITICS (661.2)
+Weakest categories: AI (395.6), SPORTS (35.5)
+Format: reel (977.5, 199 posts), photo (401.4, 84 posts)
+Best posting slots (UTC): 21:00 (1936.6), 02:00 (1217.2), 19:00 (1036.6)
+Best faces on this page (avg views per post): Elon Musk 2669 (243 posts), OpenAI 653 (1 posts), Jensen Huang 544 (6 posts), Ilhan Omar 552 (1 posts), Satya Nadella 446 (3 posts), Cole Sprouse 434 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-19T02:07 | reel | TECH | NASA astronauts call Falcon 9 a very pure flying machine | 162 | 9 | 0 | 0 | 50.4 |
 | 2026-11-19T00:10 | photo | TECH | Elon Musk calls Trump a disgusting abomination over Bill | 74 | 1 | 0 | 0 | 16.8 |
-| 2026-11-18T23:09 | reel | BUSINESS | Elon Musk invests $10M in Skydance studio | 49 | 4 | 0 | 0 | 17.8 |
+| 2026-11-18T23:09 | reel | BUSINESS | Elon Musk invests $10M in Skydance studio | 297 | 11 | 0 | 0 | 81.4 |
 | 2026-11-18T22:07 | reel | BUSINESS | Elon Musk invests $3.31 B in German Cybercab factory | 254 | 17 | 4 | 0 | 96.8 |
 | 2026-11-18T20:10 | reel | POLITICS | Elon Musk leads U.S. agency set to delete itself | 522 | 24 | 8 | 0 | 176.4 |
 | 2026-11-18T05:07 | photo | BUSINESS | Own Tesla? You own a 95% bet beyond cars | 2157 | 141 | 43 | 15 | 848.4 |
@@ -40,17 +41,16 @@ Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | E
 | 2026-11-15T22:06 | reel | AI | Elon Musk Grok enabled 2,000-plus munitions in four days | 613 | 28 | 10 | 0 | 208.6 |
 | 2026-11-15T20:07 | reel | BUSINESS | Elon Musk's Tesla raises Model Y AWD price $8,000 | 982 | 27 | 19 | 0 | 307.4 |
 | 2026-11-15T05:11 | photo | TECH | Elon Musk's Falcon 9 achieves 699 launches, $396M NASA contract | 2825 | 177 | 45 | 20 | 1060.0 |
-| 2026-11-15T04:07 | reel | BUSINESS | Nvidia deliberately kept GPU prices high | 883 | 22 | 6 | 0 | 238.6 |
-| 2026-11-15T02:07 | reel | VIRAL | Elon Musk fired as CEO of X.com before PayPal sale | 1534 | 139 | 41 | 0 | 707.8 |
-| 2026-11-15T00:06 | photo | TECH | Elon Musk signs petition to reinstate Nvidia CEO | 670 | 55 | 37 | 10 | 361.0 |
-| 2026-11-14T23:07 | reel | BUSINESS | Elon Musk out‑earns Ford and GM as rivals double sales | 683 | 65 | 23 | 0 | 335.6 |
-| 2026-11-14T22:08 | reel | POLITICS | Elon Musk takes advisory role in Trump’s new government plan | 1731 | 157 | 30 | 0 | 750.2 |
-| 2026-11-14T20:07 | reel | TECH | Tesla opens sales of autonomous Cybercab for select customers | 672 | 24 | 11 | 0 | 215.4 |
-| 2026-11-14T05:11 | photo | POLITICS | Elon Musk clashes with Donald Trump over Big Beautiful Bill | 618 | 52 | 35 | 13 | 338.6 |
-| 2026-11-14T04:06 | reel | TECH | Jensen Huang surrendered after calling himself shattered | 445 | 21 | 9 | 0 | 158.0 |
-| 2026-11-14T02:07 | reel | BUSINESS | Jameis Winston sings song at NFL line of scrimmage | 705 | 61 | 9 | 0 | 290.0 |
+| 2026-11-15T04:07 | reel | BUSINESS | Nvidia deliberately kept GPU prices high | 886 | 22 | 6 | 0 | 239.2 |
+| 2026-11-15T02:07 | reel | VIRAL | Elon Musk fired as CEO of X.com before PayPal sale | 1566 | 142 | 41 | 0 | 720.2 |
+| 2026-11-15T00:06 | photo | TECH | Elon Musk signs petition to reinstate Nvidia CEO | 674 | 55 | 37 | 10 | 361.8 |
+| 2026-11-14T23:07 | reel | BUSINESS | Elon Musk out‑earns Ford and GM as rivals double sales | 687 | 65 | 23 | 0 | 336.4 |
+| 2026-11-14T22:08 | reel | POLITICS | Elon Musk takes advisory role in Trump’s new government plan | 1736 | 157 | 30 | 0 | 751.2 |
+| 2026-11-14T20:07 | reel | TECH | Tesla opens sales of autonomous Cybercab for select customers | 675 | 24 | 11 | 0 | 216.0 |
+| 2026-11-14T05:11 | photo | POLITICS | Elon Musk clashes with Donald Trump over Big Beautiful Bill | 619 | 52 | 35 | 13 | 338.8 |
+| 2026-11-14T04:06 | reel | TECH | Jensen Huang surrendered after calling himself shattered | 449 | 21 | 9 | 0 | 158.8 |
+| 2026-11-14T02:07 | reel | BUSINESS | Jameis Winston sings song at NFL line of scrimmage | 707 | 61 | 9 | 0 | 290.4 |
 | 2026-11-14T00:08 | photo | TECH | Elon Musk launches 15th Starship but aborts booster catch | 1699 | 95 | 29 | 10 | 622.8 |
-| 2026-11-13T23:08 | reel | AI | Grok arrives in Tesla, but limited access | 1385 | 135 | 25 | 0 | 622.0 |
-| 2026-11-13T22:09 | reel | BUSINESS | Elon Musk's Foundation Holds $14B in Assets | 261 | 5 | 2 | 0 | 68.2 |
-| 2026-11-13T20:08 | reel | BUSINESS | Elon Musk's net worth jumps to $849.7 billion | 1211 | 61 | 7 | 0 | 385.2 |
-| 2026-11-13T05:07 | photo | SHOPPING | Elon Musk forces $112 K Cybertruck price jump | 1252 | 68 | 24 | 9 | 464.4 |
+| 2026-11-13T23:08 | reel | AI | Grok arrives in Tesla, but limited access | 1391 | 136 | 25 | 0 | 625.2 |
+| 2026-11-13T22:09 | reel | BUSINESS | Elon Musk's Foundation Holds $14B in Assets | 262 | 5 | 2 | 0 | 68.4 |
+| 2026-11-13T20:08 | reel | BUSINESS | Elon Musk's net worth jumps to $849.7 billion | 1216 | 62 | 7 | 0 | 388.2 |
