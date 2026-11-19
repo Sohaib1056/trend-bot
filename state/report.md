@@ -1,44 +1,45 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-19 00:05 UTC_
+_Updated 2026-11-19 02:06 UTC_
 
 ```
 Based on the last 283 posts on this page:
-Best categories: TECH (1029.7), BUSINESS (868.8), POLITICS (658.2)
-Weakest categories: VIRAL (391.9), SPORTS (35.5)
-Format: reel (979.4, 198 posts), photo (389.2, 85 posts)
-Best posting slots (UTC): 21:00 (1936.6), 02:00 (1266.8), 19:00 (1036.6)
-Best faces on this page (avg views per post): Elon Musk 2675 (241 posts), OpenAI 651 (1 posts), Jensen Huang 542 (6 posts), Ilhan Omar 552 (1 posts), Satya Nadella 446 (3 posts), Cole Sprouse 434 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best categories: TECH (1021.5), BUSINESS (878.5), POLITICS (661.2)
+Weakest categories: AI (395.5), SPORTS (35.5)
+Format: reel (981.7, 198 posts), photo (396.7, 85 posts)
+Best posting slots (UTC): 21:00 (1936.6), 02:00 (1269.7), 19:00 (1036.6)
+Best faces on this page (avg views per post): Elon Musk 2678 (242 posts), OpenAI 653 (1 posts), Jensen Huang 543 (6 posts), Ilhan Omar 552 (1 posts), Satya Nadella 446 (3 posts), Cole Sprouse 434 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-19T00:10 | photo | TECH | Elon Musk calls Trump a disgusting abomination over Bill | 74 | 1 | 0 | 0 | 16.8 |
 | 2026-11-18T23:09 | reel | BUSINESS | Elon Musk invests $10M in Skydance studio | 49 | 4 | 0 | 0 | 17.8 |
-| 2026-11-18T22:07 | reel | BUSINESS | Elon Musk invests $3.31 B in German Cybercab factory | 47 | 4 | 0 | 0 | 17.4 |
-| 2026-11-18T20:10 | reel | POLITICS | Elon Musk leads U.S. agency set to delete itself | 279 | 5 | 0 | 0 | 65.8 |
-| 2026-11-18T05:07 | photo | BUSINESS | Own Tesla? You own a 95% bet beyond cars | 1063 | 93 | 38 | 14 | 518.6 |
-| 2026-11-18T04:08 | reel | POLITICS | Trump overrides Amazon, Google in China data center clash | 629 | 26 | 5 | 0 | 192.8 |
-| 2026-11-18T02:07 | reel | VIRAL | Elon Musk Tesla Roadster circles Sun after Falcon Heavy launch | 1012 | 43 | 12 | 0 | 324.4 |
-| 2026-11-18T00:07 | photo | BUSINESS | Elon Musk $850 Cybertruck toy resale after sellout | 1968 | 97 | 26 | 11 | 671.6 |
-| 2026-11-17T23:11 | reel | BUSINESS | Elon Musk under fire over board independence criticism | 933 | 81 | 11 | 0 | 381.6 |
-| 2026-11-17T22:07 | reel | TECH | Tesla defies Europe loss predictions | 524 | 26 | 10 | 0 | 186.8 |
-| 2026-11-17T20:08 | reel | TECH | Elon Musk's Tesla unveils 7.4 MW Powercore | 1221 | 39 | 7 | 0 | 343.2 |
-| 2026-11-17T05:08 | photo | POLITICS | Elon Musk refuses to block Russian media on Starlink | 1323 | 59 | 18 | 9 | 442.6 |
-| 2026-11-17T04:06 | reel | AI | OpenAI lawsuit sparks California clash over AI safety | 651 | 11 | 3 | 0 | 161.2 |
-| 2026-11-17T02:08 | reel | VIRAL | Elon Musk faced $6.35 million debt as Tesla teetered | 1767 | 146 | 20 | 0 | 705.4 |
-| 2026-11-17T00:07 | photo | BUSINESS | Elon Musk wants to merge Tesla and SpaceX | 1324 | 68 | 24 | 18 | 478.8 |
-| 2026-11-16T23:07 | reel | TECH | Elon Musk deepens ties, Samsung to build SpaceX chips | 1267 | 102 | 13 | 0 | 496.4 |
-| 2026-11-16T22:07 | reel | TECH | Elon Musk's SpaceX Catches Starship, Stock Falls | 1720 | 70 | 12 | 0 | 520.0 |
-| 2026-11-16T20:28 | reel | BUSINESS | Elon Musk injects $3.3 billion into Germany's auto sector | 1307 | 39 | 9 | 0 | 366.4 |
-| 2026-11-16T05:07 | photo | SCIENCE | SpaceX caught a 124-meter rocket in mid-air | 3693 | 245 | 52 | 18 | 1390.6 |
-| 2026-11-16T04:07 | reel | BUSINESS | Jensen Huang’s Nvidia sees $1 billion board sale amid scandal | 567 | 23 | 6 | 0 | 177.4 |
-| 2026-11-16T02:04 | reel | TECH | Elon Musk’s Falcon 1 C‑17 glitch saves launch | 3028 | 193 | 28 | 0 | 1075.6 |
-| 2026-11-16T00:07 | photo | BUSINESS | Elon Musk apologizes after Trump feud sparks controversy | 4201 | 161 | 52 | 14 | 1324.2 |
-| 2026-11-15T23:07 | reel | TECH | Elon Musk's Cybertruck missed 500-mile range promise | 4793 | 375 | 44 | 0 | 1840.6 |
-| 2026-11-15T22:06 | reel | AI | Elon Musk Grok enabled 2,000-plus munitions in four days | 608 | 28 | 10 | 0 | 207.6 |
-| 2026-11-15T20:07 | reel | BUSINESS | Elon Musk's Tesla raises Model Y AWD price $8,000 | 980 | 27 | 19 | 0 | 307.0 |
-| 2026-11-15T05:11 | photo | TECH | Elon Musk's Falcon 9 achieves 699 launches, $396M NASA contract | 2824 | 177 | 45 | 20 | 1059.8 |
+| 2026-11-18T22:07 | reel | BUSINESS | Elon Musk invests $3.31 B in German Cybercab factory | 254 | 17 | 4 | 0 | 96.8 |
+| 2026-11-18T20:10 | reel | POLITICS | Elon Musk leads U.S. agency set to delete itself | 522 | 24 | 8 | 0 | 176.4 |
+| 2026-11-18T05:07 | photo | BUSINESS | Own Tesla? You own a 95% bet beyond cars | 2157 | 141 | 43 | 15 | 848.4 |
+| 2026-11-18T04:08 | reel | POLITICS | Trump overrides Amazon, Google in China data center clash | 667 | 27 | 5 | 0 | 202.4 |
+| 2026-11-18T02:07 | reel | VIRAL | Elon Musk Tesla Roadster circles Sun after Falcon Heavy launch | 1093 | 45 | 12 | 0 | 344.6 |
+| 2026-11-18T00:07 | photo | BUSINESS | Elon Musk $850 Cybertruck toy resale after sellout | 2940 | 121 | 28 | 12 | 920.0 |
+| 2026-11-17T23:11 | reel | BUSINESS | Elon Musk under fire over board independence criticism | 1033 | 90 | 13 | 0 | 425.6 |
+| 2026-11-17T22:07 | reel | TECH | Tesla defies Europe loss predictions | 539 | 29 | 11 | 0 | 198.8 |
+| 2026-11-17T20:08 | reel | TECH | Elon Musk's Tesla unveils 7.4 MW Powercore | 1231 | 39 | 7 | 0 | 345.2 |
+| 2026-11-17T05:08 | photo | POLITICS | Elon Musk refuses to block Russian media on Starlink | 1379 | 61 | 18 | 9 | 457.8 |
+| 2026-11-17T04:06 | reel | AI | OpenAI lawsuit sparks California clash over AI safety | 653 | 11 | 3 | 0 | 161.6 |
+| 2026-11-17T02:08 | reel | VIRAL | Elon Musk faced $6.35 million debt as Tesla teetered | 1834 | 153 | 22 | 0 | 738.8 |
+| 2026-11-17T00:07 | photo | BUSINESS | Elon Musk wants to merge Tesla and SpaceX | 1327 | 70 | 24 | 18 | 483.4 |
+| 2026-11-16T23:07 | reel | TECH | Elon Musk deepens ties, Samsung to build SpaceX chips | 1284 | 103 | 13 | 0 | 501.8 |
+| 2026-11-16T22:07 | reel | TECH | Elon Musk's SpaceX Catches Starship, Stock Falls | 1742 | 73 | 12 | 0 | 530.4 |
+| 2026-11-16T20:28 | reel | BUSINESS | Elon Musk injects $3.3 billion into Germany's auto sector | 1324 | 39 | 10 | 0 | 372.8 |
+| 2026-11-16T05:07 | photo | SCIENCE | SpaceX caught a 124-meter rocket in mid-air | 3727 | 247 | 52 | 19 | 1401.4 |
+| 2026-11-16T04:07 | reel | BUSINESS | Jensen Huang’s Nvidia sees $1 billion board sale amid scandal | 571 | 23 | 6 | 0 | 178.2 |
+| 2026-11-16T02:04 | reel | TECH | Elon Musk’s Falcon 1 C‑17 glitch saves launch | 3049 | 194 | 29 | 0 | 1084.8 |
+| 2026-11-16T00:07 | photo | BUSINESS | Elon Musk apologizes after Trump feud sparks controversy | 4276 | 163 | 52 | 14 | 1343.2 |
+| 2026-11-15T23:07 | reel | TECH | Elon Musk's Cybertruck missed 500-mile range promise | 5143 | 390 | 45 | 0 | 1943.6 |
+| 2026-11-15T22:06 | reel | AI | Elon Musk Grok enabled 2,000-plus munitions in four days | 613 | 28 | 10 | 0 | 208.6 |
+| 2026-11-15T20:07 | reel | BUSINESS | Elon Musk's Tesla raises Model Y AWD price $8,000 | 982 | 27 | 19 | 0 | 307.4 |
+| 2026-11-15T05:11 | photo | TECH | Elon Musk's Falcon 9 achieves 699 launches, $396M NASA contract | 2825 | 177 | 45 | 20 | 1060.0 |
 | 2026-11-15T04:07 | reel | BUSINESS | Nvidia deliberately kept GPU prices high | 883 | 22 | 6 | 0 | 238.6 |
 | 2026-11-15T02:07 | reel | VIRAL | Elon Musk fired as CEO of X.com before PayPal sale | 1534 | 139 | 41 | 0 | 707.8 |
 | 2026-11-15T00:06 | photo | TECH | Elon Musk signs petition to reinstate Nvidia CEO | 670 | 55 | 37 | 10 | 361.0 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | E
 | 2026-11-13T22:09 | reel | BUSINESS | Elon Musk's Foundation Holds $14B in Assets | 261 | 5 | 2 | 0 | 68.2 |
 | 2026-11-13T20:08 | reel | BUSINESS | Elon Musk's net worth jumps to $849.7 billion | 1211 | 61 | 7 | 0 | 385.2 |
 | 2026-11-13T05:07 | photo | SHOPPING | Elon Musk forces $112 K Cybertruck price jump | 1252 | 68 | 24 | 9 | 464.4 |
-| 2026-11-13T04:07 | reel | TECH | Microsoft global outage knocks out Outlook, Teams, Copilot | 1084 | 27 | 4 | 0 | 282.8 |
