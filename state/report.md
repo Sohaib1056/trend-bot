@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-18 23:06 UTC_
+_Updated 2026-11-19 00:05 UTC_
 
 ```
 Based on the last 283 posts on this page:
-Best categories: TECH (1029.7), BUSINESS (880.3), POLITICS (658.2)
+Best categories: TECH (1029.7), BUSINESS (868.8), POLITICS (658.2)
 Weakest categories: VIRAL (391.9), SPORTS (35.5)
-Format: reel (979.7, 198 posts), photo (389.1, 85 posts)
+Format: reel (979.4, 198 posts), photo (389.2, 85 posts)
 Best posting slots (UTC): 21:00 (1936.6), 02:00 (1266.8), 19:00 (1036.6)
-Best faces on this page (avg views per post): Elon Musk 2685 (240 posts), OpenAI 651 (1 posts), Jensen Huang 542 (6 posts), Ilhan Omar 552 (1 posts), Satya Nadella 446 (3 posts), Cole Sprouse 434 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2675 (241 posts), OpenAI 651 (1 posts), Jensen Huang 542 (6 posts), Ilhan Omar 552 (1 posts), Satya Nadella 446 (3 posts), Cole Sprouse 434 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-18T23:09 | reel | BUSINESS | Elon Musk invests $10M in Skydance studio | 49 | 4 | 0 | 0 | 17.8 |
 | 2026-11-18T22:07 | reel | BUSINESS | Elon Musk invests $3.31 B in German Cybercab factory | 47 | 4 | 0 | 0 | 17.4 |
 | 2026-11-18T20:10 | reel | POLITICS | Elon Musk leads U.S. agency set to delete itself | 279 | 5 | 0 | 0 | 65.8 |
 | 2026-11-18T05:07 | photo | BUSINESS | Own Tesla? You own a 95% bet beyond cars | 1063 | 93 | 38 | 14 | 518.6 |
@@ -40,7 +41,7 @@ Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | E
 | 2026-11-15T05:11 | photo | TECH | Elon Musk's Falcon 9 achieves 699 launches, $396M NASA contract | 2824 | 177 | 45 | 20 | 1059.8 |
 | 2026-11-15T04:07 | reel | BUSINESS | Nvidia deliberately kept GPU prices high | 883 | 22 | 6 | 0 | 238.6 |
 | 2026-11-15T02:07 | reel | VIRAL | Elon Musk fired as CEO of X.com before PayPal sale | 1534 | 139 | 41 | 0 | 707.8 |
-| 2026-11-15T00:06 | photo | TECH | Elon Musk signs petition to reinstate Nvidia CEO | 667 | 55 | 37 | 10 | 360.4 |
+| 2026-11-15T00:06 | photo | TECH | Elon Musk signs petition to reinstate Nvidia CEO | 670 | 55 | 37 | 10 | 361.0 |
 | 2026-11-14T23:07 | reel | BUSINESS | Elon Musk out‑earns Ford and GM as rivals double sales | 683 | 65 | 23 | 0 | 335.6 |
 | 2026-11-14T22:08 | reel | POLITICS | Elon Musk takes advisory role in Trump’s new government plan | 1731 | 157 | 30 | 0 | 750.2 |
 | 2026-11-14T20:07 | reel | TECH | Tesla opens sales of autonomous Cybercab for select customers | 672 | 24 | 11 | 0 | 215.4 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | E
 | 2026-11-13T20:08 | reel | BUSINESS | Elon Musk's net worth jumps to $849.7 billion | 1211 | 61 | 7 | 0 | 385.2 |
 | 2026-11-13T05:07 | photo | SHOPPING | Elon Musk forces $112 K Cybertruck price jump | 1252 | 68 | 24 | 9 | 464.4 |
 | 2026-11-13T04:07 | reel | TECH | Microsoft global outage knocks out Outlook, Teams, Copilot | 1084 | 27 | 4 | 0 | 282.8 |
-| 2026-11-13T02:07 | reel | VIRAL | Elon Musk skipped Stanford PhD after two days | 498 | 45 | 9 | 0 | 216.6 |
