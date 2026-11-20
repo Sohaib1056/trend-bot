@@ -1,21 +1,22 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-20 02:06 UTC_
+_Updated 2026-11-20 04:05 UTC_
 
 ```
 Based on the last 288 posts on this page:
-Best categories: TECH (996.9), BUSINESS (919.0), POLITICS (686.2)
-Weakest categories: AI (401.1), SPORTS (35.5)
-Format: reel (978.9, 203 posts), photo (435.9, 85 posts)
-Best posting slots (UTC): 21:00 (1936.6), 02:00 (1239.4), 19:00 (1036.6)
-Best faces on this page (avg views per post): Elon Musk 2710 (248 posts), OpenAI 662 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 547 (6 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best categories: TECH (989.9), BUSINESS (931.0), POLITICS (686.2)
+Weakest categories: AI (401.0), SPORTS (35.5)
+Format: reel (975.2, 204 posts), photo (441.0, 84 posts)
+Best posting slots (UTC): 21:00 (1936.6), 02:00 (1190.0), 19:00 (1076.2)
+Best faces on this page (avg views per post): Elon Musk 2703 (249 posts), OpenAI 662 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 547 (6 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-20T02:07 | reel | TECH | Elon Musk’s flamethrower sales spark $10 million buzz | 153 | 4 | 2 | 0 | 44.6 |
 | 2026-11-20T00:07 | photo | BUSINESS | SpaceX stock drops 3.5% after Anthropic's boom | 79 | 11 | 2 | 1 | 46.8 |
-| 2026-11-19T23:07 | reel | TECH | Elon Musk sued over hijab‑violating deepfakes | 67 | 6 | 0 | 0 | 25.4 |
+| 2026-11-19T23:07 | reel | TECH | Elon Musk sued over hijab‑violating deepfakes | 306 | 14 | 0 | 0 | 89.2 |
 | 2026-11-19T22:06 | reel | BUSINESS | Elon Musk faces $300 billion cost challenge from Verizon | 99 | 6 | 1 | 0 | 34.8 |
 | 2026-11-19T20:07 | reel | TECH | Musk promises interactive Optimus video in two months | 474 | 7 | 4 | 0 | 120.8 |
 | 2026-11-19T05:09 | photo | TECH | Elon Musk unveils steering‑wheel‑free Model Y for families | 412 | 26 | 8 | 6 | 164.4 |
@@ -41,16 +42,15 @@ Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | E
 | 2026-11-16T20:28 | reel | BUSINESS | Elon Musk injects $3.3 billion into Germany's auto sector | 1385 | 44 | 11 | 0 | 398.0 |
 | 2026-11-16T05:07 | photo | SCIENCE | SpaceX caught a 124-meter rocket in mid-air | 3939 | 257 | 54 | 21 | 1469.8 |
 | 2026-11-16T04:07 | reel | BUSINESS | Jensen Huang’s Nvidia sees $1 billion board sale amid scandal | 577 | 24 | 7 | 0 | 184.4 |
-| 2026-11-16T02:04 | reel | TECH | Elon Musk’s Falcon 1 C‑17 glitch saves launch | 3102 | 197 | 30 | 0 | 1104.4 |
-| 2026-11-16T00:07 | photo | BUSINESS | Elon Musk apologizes after Trump feud sparks controversy | 4448 | 169 | 52 | 14 | 1389.6 |
-| 2026-11-15T23:07 | reel | TECH | Elon Musk's Cybertruck missed 500-mile range promise | 6098 | 448 | 45 | 0 | 2250.6 |
+| 2026-11-16T02:04 | reel | TECH | Elon Musk’s Falcon 1 C‑17 glitch saves launch | 3123 | 197 | 30 | 0 | 1108.6 |
+| 2026-11-16T00:07 | photo | BUSINESS | Elon Musk apologizes after Trump feud sparks controversy | 4458 | 169 | 52 | 14 | 1391.6 |
+| 2026-11-15T23:07 | reel | TECH | Elon Musk's Cybertruck missed 500-mile range promise | 6457 | 464 | 45 | 0 | 2354.4 |
 | 2026-11-15T22:06 | reel | AI | Elon Musk Grok enabled 2,000-plus munitions in four days | 618 | 28 | 10 | 0 | 209.6 |
 | 2026-11-15T20:07 | reel | BUSINESS | Elon Musk's Tesla raises Model Y AWD price $8,000 | 991 | 27 | 19 | 0 | 309.2 |
-| 2026-11-15T05:11 | photo | TECH | Elon Musk's Falcon 9 achieves 699 launches, $396M NASA contract | 2834 | 177 | 45 | 20 | 1061.8 |
+| 2026-11-15T05:11 | photo | TECH | Elon Musk's Falcon 9 achieves 699 launches, $396M NASA contract | 2847 | 177 | 45 | 20 | 1064.4 |
 | 2026-11-15T04:07 | reel | BUSINESS | Nvidia deliberately kept GPU prices high | 891 | 22 | 6 | 0 | 240.2 |
-| 2026-11-15T02:07 | reel | VIRAL | Elon Musk fired as CEO of X.com before PayPal sale | 1672 | 147 | 41 | 0 | 751.4 |
+| 2026-11-15T02:07 | reel | VIRAL | Elon Musk fired as CEO of X.com before PayPal sale | 1701 | 147 | 41 | 0 | 757.2 |
 | 2026-11-15T00:06 | photo | TECH | Elon Musk signs petition to reinstate Nvidia CEO | 675 | 56 | 37 | 10 | 364.0 |
 | 2026-11-14T23:07 | reel | BUSINESS | Elon Musk out‑earns Ford and GM as rivals double sales | 691 | 65 | 23 | 0 | 337.2 |
 | 2026-11-14T22:08 | reel | POLITICS | Elon Musk takes advisory role in Trump’s new government plan | 1739 | 157 | 30 | 0 | 751.8 |
-| 2026-11-14T20:07 | reel | TECH | Tesla opens sales of autonomous Cybercab for select customers | 680 | 25 | 11 | 0 | 219.0 |
-| 2026-11-14T05:11 | photo | POLITICS | Elon Musk clashes with Donald Trump over Big Beautiful Bill | 620 | 52 | 35 | 13 | 339.0 |
+| 2026-11-14T20:07 | reel | TECH | Tesla opens sales of autonomous Cybercab for select customers | 684 | 25 | 11 | 0 | 219.8 |
