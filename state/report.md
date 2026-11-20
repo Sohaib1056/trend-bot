@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-19 23:06 UTC_
+_Updated 2026-11-20 00:05 UTC_
 
 ```
-Based on the last 287 posts on this page:
-Best categories: TECH (1004.5), BUSINESS (924.0), POLITICS (685.7)
+Based on the last 288 posts on this page:
+Best categories: TECH (995.6), BUSINESS (924.1), POLITICS (685.7)
 Weakest categories: AI (384.5), SPORTS (35.5)
-Format: reel (981.3, 202 posts), photo (432.9, 85 posts)
+Format: reel (976.6, 203 posts), photo (433.0, 85 posts)
 Best posting slots (UTC): 21:00 (1936.6), 02:00 (1237.5), 19:00 (1036.6)
-Best faces on this page (avg views per post): Elon Musk 2722 (246 posts), OpenAI 658 (1 posts), Jensen Huang 547 (6 posts), Ilhan Omar 552 (1 posts), Satya Nadella 447 (3 posts), Cole Sprouse 434 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2711 (247 posts), OpenAI 658 (1 posts), Jensen Huang 547 (6 posts), Ilhan Omar 552 (1 posts), Satya Nadella 447 (3 posts), Cole Sprouse 434 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-19T23:07 | reel | TECH | Elon Musk sued over hijab‑violating deepfakes | 67 | 6 | 0 | 0 | 25.4 |
 | 2026-11-19T22:06 | reel | BUSINESS | Elon Musk faces $300 billion cost challenge from Verizon | 34 | 5 | 0 | 0 | 16.8 |
 | 2026-11-19T20:07 | reel | TECH | Musk promises interactive Optimus video in two months | 221 | 2 | 0 | 0 | 48.2 |
 | 2026-11-19T05:09 | photo | TECH | Elon Musk unveils steering‑wheel‑free Model Y for families | 390 | 25 | 7 | 6 | 155.0 |
@@ -40,7 +41,7 @@ Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | E
 | 2026-11-16T05:07 | photo | SCIENCE | SpaceX caught a 124-meter rocket in mid-air | 3922 | 256 | 54 | 21 | 1464.4 |
 | 2026-11-16T04:07 | reel | BUSINESS | Jensen Huang’s Nvidia sees $1 billion board sale amid scandal | 577 | 24 | 7 | 0 | 184.4 |
 | 2026-11-16T02:04 | reel | TECH | Elon Musk’s Falcon 1 C‑17 glitch saves launch | 3102 | 197 | 30 | 0 | 1104.4 |
-| 2026-11-16T00:07 | photo | BUSINESS | Elon Musk apologizes after Trump feud sparks controversy | 4419 | 169 | 52 | 14 | 1383.8 |
+| 2026-11-16T00:07 | photo | BUSINESS | Elon Musk apologizes after Trump feud sparks controversy | 4448 | 169 | 52 | 14 | 1389.6 |
 | 2026-11-15T23:07 | reel | TECH | Elon Musk's Cybertruck missed 500-mile range promise | 6098 | 448 | 45 | 0 | 2250.6 |
 | 2026-11-15T22:06 | reel | AI | Elon Musk Grok enabled 2,000-plus munitions in four days | 618 | 28 | 10 | 0 | 209.6 |
 | 2026-11-15T20:07 | reel | BUSINESS | Elon Musk's Tesla raises Model Y AWD price $8,000 | 991 | 27 | 19 | 0 | 309.2 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | E
 | 2026-11-14T20:07 | reel | TECH | Tesla opens sales of autonomous Cybercab for select customers | 680 | 25 | 11 | 0 | 219.0 |
 | 2026-11-14T05:11 | photo | POLITICS | Elon Musk clashes with Donald Trump over Big Beautiful Bill | 620 | 52 | 35 | 13 | 339.0 |
 | 2026-11-14T04:06 | reel | TECH | Jensen Huang surrendered after calling himself shattered | 452 | 21 | 9 | 0 | 159.4 |
-| 2026-11-14T02:07 | reel | BUSINESS | Jameis Winston sings song at NFL line of scrimmage | 712 | 61 | 9 | 0 | 291.4 |
