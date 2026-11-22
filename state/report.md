@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-22 20:06 UTC_
+_Updated 2026-11-22 22:05 UTC_
 
 ```
 Based on the last 289 posts on this page:
-Best categories: TECH (1084.5), BUSINESS (1011.7), POLITICS (693.7)
-Weakest categories: AI (420.3), SPORTS (41.2)
-Format: reel (1034.2, 205 posts), photo (498.2, 84 posts)
+Best categories: TECH (1075.2), BUSINESS (1011.7), POLITICS (693.7)
+Weakest categories: TV & FILM (425.1), SPORTS (41.2)
+Format: reel (1029.5, 206 posts), photo (504.0, 83 posts)
 Best posting slots (UTC): 21:00 (1936.6), 02:00 (1152.0), 19:00 (1117.3)
-Best faces on this page (avg views per post): Elon Musk 2791 (259 posts), OpenAI 684 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 555 (6 posts), Ilhan Omar 552 (1 posts), Donald Trump 418 (5 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2781 (260 posts), OpenAI 684 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 555 (6 posts), Ilhan Omar 552 (1 posts), Sundar Pichai 434 (2 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-22T20:07 | reel | TECH | Musk gives AI5 to robots, not cars | 304 | 5 | 1 | 0 | 73.8 |
 | 2026-11-22T05:07 | photo | BUSINESS | Elon Musk's Cybertruck becomes America's fastest-selling used truck | 352 | 37 | 7 | 9 | 171.4 |
 | 2026-11-22T04:07 | reel | SCIENCE | SpaceX delivers 6,300‑pound cancer research cargo | 709 | 69 | 5 | 0 | 294.8 |
 | 2026-11-22T02:07 | reel | POLITICS | FAA delays Starship license, adds 60‑day setback | 1039 | 65 | 9 | 0 | 364.8 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | E
 | 2026-11-17T04:06 | reel | AI | OpenAI lawsuit sparks California clash over AI safety | 684 | 16 | 4 | 0 | 180.8 |
 | 2026-11-17T02:08 | reel | VIRAL | Elon Musk faced $6.35 million debt as Tesla teetered | 2031 | 162 | 24 | 0 | 802.2 |
 | 2026-11-17T00:07 | photo | BUSINESS | Elon Musk wants to merge Tesla and SpaceX | 1483 | 80 | 25 | 23 | 537.6 |
-| 2026-11-16T23:07 | reel | TECH | Elon Musk deepens ties, Samsung to build SpaceX chips | 1539 | 117 | 15 | 0 | 586.8 |
