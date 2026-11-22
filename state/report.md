@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-21 23:12 UTC_
+_Updated 2026-11-22 00:05 UTC_
 
 ```
 Based on the last 289 posts on this page:
-Best categories: TECH (1039.3), BUSINESS (992.6), POLITICS (690.6)
+Best categories: TECH (1048.8), BUSINESS (980.9), POLITICS (690.6)
 Weakest categories: AI (419.6), SPORTS (41.2)
-Format: reel (1003.5, 206 posts), photo (492.3, 83 posts)
+Format: reel (999.0, 207 posts), photo (498.2, 82 posts)
 Best posting slots (UTC): 21:00 (1936.6), 02:00 (1179.1), 19:00 (1073.6)
-Best faces on this page (avg views per post): Elon Musk 2750 (256 posts), OpenAI 669 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 550 (6 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2741 (257 posts), OpenAI 669 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 550 (6 posts), Ilhan Omar 552 (1 posts), Cole Sprouse 434 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-21T23:14 | reel | BUSINESS | Elon Musk: Starlink phone service 40x bandwidth threatens AT&T revenue | 228 | 9 | 4 | 0 | 75.6 |
 | 2026-11-21T22:07 | reel | CELEBRITY | Elon Musk freezes during Argentina launch, says I don't know what to say | 306 | 10 | 2 | 0 | 87.2 |
 | 2026-11-21T20:07 | reel | POLITICS | Elon Musk hired five Democratic lobbyists | 311 | 8 | 1 | 0 | 81.2 |
 | 2026-11-21T05:08 | photo | TECH | Elon Musk’s SpaceX lands 11th droneship recovery after USSF‑317 launch | 545 | 63 | 26 | 9 | 319.0 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | E
 | 2026-11-16T20:28 | reel | BUSINESS | Elon Musk injects $3.3 billion into Germany's auto sector | 1397 | 45 | 11 | 0 | 402.4 |
 | 2026-11-16T05:07 | photo | SCIENCE | SpaceX caught a 124-meter rocket in mid-air | 4035 | 258 | 56 | 21 | 1497.0 |
 | 2026-11-16T04:07 | reel | BUSINESS | Jensen Huang’s Nvidia sees $1 billion board sale amid scandal | 584 | 23 | 7 | 0 | 183.8 |
-| 2026-11-16T02:04 | reel | TECH | Elon Musk’s Falcon 1 C‑17 glitch saves launch | 3230 | 204 | 32 | 0 | 1150.0 |
