@@ -787,6 +787,31 @@ def _follow_label():
     return layer
 
 
+def _stars_label(post):
+    """'★ Send Stars to support Hype Atlas' pill under the top labels (owner, 11-24: nobody reads captions, so the
+    Stars ask has to be in the video). The star is drawn: the font has no emoji."""
+    import math
+    layer = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    f = _font("bold", 36)
+    part = post.get("_life_part")
+    text = f"Send Stars to support Part {part + 1}" if part else "Send Stars to support Hype Atlas"
+    w, h = int(d.textlength(text, font=f)) + 130, 76
+    x, y = (RW - w) // 2, 150 + 124 + 72 + 28 + ((96 + 22) if part else 0)  # under the badge row (and Part pill)
+    _paste_rounded(layer, _hgradient(w, h, [PINK, ORANGE]).convert("RGBA"), (x, y), h // 2)
+    d = ImageDraw.Draw(layer)
+    d.rounded_rectangle([x, y, x + w, y + h], radius=h // 2, outline=(255, 255, 255, 255), width=3)
+    cx, cy, r = x + 52, y + h // 2, 24
+    star = [(cx + (r if k % 2 == 0 else r * 0.45) * math.sin(k * math.pi / 5),
+             cy - (r if k % 2 == 0 else r * 0.45) * math.cos(k * math.pi / 5)) for k in range(10)]
+    d.polygon(star, fill=YELLOW, outline=(255, 255, 255))
+    d.text((x + 92, y + 16), text, font=f, fill=WHITE)
+    return layer
+
+
+STARS_FROM = 0.35  # the Stars ask shows from 35% of the Reel (after the hook and the follow label) to the end banner
+
+
 def _follow_banner():
     layer = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
@@ -809,6 +834,8 @@ def _frames(post, scenes, exe, duration, chunks, follow_at):
 
     banner = _follow_banner()
     label = _follow_label()
+    stars = _stars_label(post) if config.STARS_ON else None
+    stars_at = duration * STARS_FROM
     sub_font = _font("bold", 86)
     bar = _hgradient(RW, 10, [PINK, ORANGE, YELLOW]).convert("RGBA")
     total = sum(n for _, _, n in scenes)
@@ -835,6 +862,8 @@ def _frames(post, scenes, exe, duration, chunks, follow_at):
         frame.alpha_composite(header)
         if FOLLOW_FROM <= t < follow_at:  # the reason to follow, while they watch (fades in)
             frame.alpha_composite(_with_alpha(label, _ease(min(1.0, (t - FOLLOW_FROM) / 0.3))))
+        if stars is not None and stars_at <= t < follow_at:  # the Stars ask, inside the video (fades in)
+            frame.alpha_composite(_with_alpha(stars, _ease(min(1.0, (t - stars_at) / 0.3))))
         if t < follow_at:  # no headline on top (owner's choice): the footage stays clear, the subtitles tell the story
             for chunk in chunks:
                 if chunk[0][1] <= t < chunk[-1][2] + 0.15:
