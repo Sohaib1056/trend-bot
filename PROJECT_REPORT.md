@@ -89,6 +89,10 @@ then shift every slot back -1 h (`1,3,4,19,21,22,23`, photos `4,23`, star `19,21
   (clarity for any 18-65 viewer) and the rewrite ask for plain words (no slang) that are still exciting and modern:
   money, what it means for ordinary people, cool future tech, records and 'first ever' moments, clashes, comeback
   stories, and questions asking their opinion ('Genius or reckless?', 'Would you buy one?').
+- **Stars** (`STARS_ON`, on since 11-24: the owner says Stars is on for the Page): captions get a short
+  "⭐ ... Support Hype Atlas with Stars!" line (life series: "Send Stars to support the next part!").
+- Life chapters (11-24): feature stories must name the chapter's own word (`words[0]`) and no legal-trouble titles;
+  the prompt says the whole story must be about the chapter (11-23 a Starbase jobs story was posted as "Twitter").
 - **Life-story slot** (owner, 11-11: "Reels on Elon's life that engage, never duplicated"): `LIFE_SLOTS=2`
   (9:05 PM ET) tells one chapter of `trends.LIFE_CHAPTERS` (15: Blastar at 12, alone to Canada at 17, Stanford in
   2 days, Zip2, PayPal, Falcon 1's three failures, 2008 near-bankruptcy, Roadster in space, Demo-2, Boring Company,
@@ -294,7 +298,7 @@ then shift every slot back -1 h (`1,3,4,19,21,22,23`, photos `4,23`, star `19,21
   - Stricter duplicates: same name within 24 h, AI same-story over 7 days incl. same storyline (Putin pair on 10-28).
   - Follow growth: one promise everywhere (`growth.FOLLOW_PROMISE` = "daily Elon Musk news"): caption line, spoken
     line (kept when the Reel is 15-17 s; a story sentence is dropped first), end banner, and a small "+ Follow for
-    daily Elon Musk news" label from 3 s (`reel._follow_label`, `FOLLOW_FROM`).
+    daily Elon Musk news" label from 1 s (`reel._follow_label`, `FOLLOW_FROM`; owner, 11-24: from second 1).
 
 ## 9. Known gotchas (for whoever edits the code)
 

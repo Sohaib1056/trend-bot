@@ -61,6 +61,9 @@ ALL_STAR_UNTIL = datetime.fromisoformat(os.getenv("ALL_STAR_UNTIL", "") or "2100
 # Replies to comments: "off", "preview" (only print suggested replies in the log) or "on"
 AUTO_REPLY = (os.getenv("AUTO_REPLY", "") or "preview").strip().lower()
 FIRST_COMMENT = _bool("FIRST_COMMENT", True)  # page posts a question under each new post
+# a short 'support us with Stars' line in captions: only while Stars is switched on for the Page (owner, 11-24:
+# "already on"); set STARS_ON=false if Stars is ever turned off, else it confuses viewers
+STARS_ON = _bool("STARS_ON", True)
 AVOID_POLITICS = _bool("AVOID_POLITICS", True)
 
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "").strip() or "gemini-flash-latest"

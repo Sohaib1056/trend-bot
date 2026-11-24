@@ -33,7 +33,7 @@ PHOTO_W = 1920       # Wikimedia copy width: 1280px photos were blown up ~1.5-2x
 SCENE = 2.0          # target seconds per scene
 MAX_SCENES = 9
 VOICE_AT = 0.3       # narration starts after the hook frame
-FOLLOW_FROM = 3.0   # the small follow label appears after the hook (owner, 10-29: more followers)
+FOLLOW_FROM = 1.0   # the follow label from the 1st second (owner, 11-24: ask viewers to follow from second 1)
 END_LEN = 1.8        # follow banner at the end (when there is no voice to time it)
 SUB_Y = 1225         # centre of the subtitles: low in the Reels safe zone, under the face (owner: a bit lower)
 FACE_Y = 720         # where a face is placed: below the logo, above the subtitles
@@ -770,16 +770,20 @@ def _draw_subtitle(frame, chunk, t, font):
 
 
 def _follow_label():
-    """Small '+ Follow for daily Elon Musk news' pill next to the category badge, on screen from ~3s to the end:
+    """Small '+ Follow for daily Elon Musk news' pill next to the category badge, on screen from 1s to the end:
     most viewers leave before the end banner, so the reason to follow must show while they watch."""
     layer = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
-    f = _font("bold", 28)
+    f = _font("bold", 34)  # owner, 11-24: 'a little more visible' -> bigger, brand yellow, with a shadow
     text = f"+ Follow for {FOLLOW_PROMISE}"
-    w, h = int(d.textlength(text, font=f)) + 56, 60
-    x, y = RW - PAD + 22 - w, 150 + 130  # right side, level with the category badge (below the Reels top bar)
-    d.rounded_rectangle([x, y, x + w, y + h], radius=h // 2, fill=(255, 255, 255, 235))
-    d.text((x + 28, y + 13), text, font=f, fill=(15, 15, 20))
+    w, h = int(d.textlength(text, font=f)) + 60, 72
+    x, y = RW - PAD + 22 - w, 150 + 124  # right side, level with the category badge (below the Reels top bar)
+    shadow = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
+    ImageDraw.Draw(shadow).rounded_rectangle([x + 4, y + 6, x + w + 4, y + h + 6], radius=h // 2, fill=(0, 0, 0, 150))
+    layer.alpha_composite(shadow.filter(ImageFilter.GaussianBlur(6)))
+    d.rounded_rectangle([x, y, x + w, y + h], radius=h // 2, fill=YELLOW + (255,), outline=(255, 255, 255, 255),
+                        width=3)
+    d.text((x + 30, y + 15), text, font=f, fill=(15, 15, 20))
     return layer
 
 

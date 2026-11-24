@@ -349,6 +349,8 @@ def main():
                 candidates, life_key, facts_topic = [ft], ch[0], norm(ft["topic"])
                 special = (f"LIFE STORY SLOT: write ONE Reel about a chapter of {star}'s life, told like a gripping "
                            f"mini documentary: topic exactly '{ft['topic']}', wiki_title '{star}', badge 'VIRAL'. "
+                           f"The headline and the whole story MUST be about this chapter: '{ch[1]}' (never today's "
+                           f"news or another story found in the reports). "
                            f"This Reel is LONGER, 25-30 seconds: voiceover 60-72 words in 7-9 short sentences (this "
                            f"replaces the 30-36 word rule) and 8-10 scenes. "
                            f"HOOK (first 8 words): the most surprising TRUE moment of this chapter (an age, a dollar "
@@ -524,6 +526,9 @@ def main():
             if not p["caption"].startswith("📖"):
                 p["caption"] = f"📖 Elon Musk's Life, Part {part}\n\n" + p["caption"].strip()
             follow_line = f"👉 Follow Hype Atlas so you don't miss Part {part + 1} tomorrow 🚀 #HypeAtlas"
+        if config.STARS_ON:  # Stars are real money for the page: a friendly ask, never a promise or bait
+            follow_line += ("\n⭐ Enjoying Elon's Life series? Send Stars to support the next part!" if part
+                            else "\n⭐ Like what we do? Support Hype Atlas with Stars!")
         caption = p["caption"].strip() + "\n\n" + follow_line + "\n\n" + " ".join("#" + h for h in tags)
         if p.get("_credit"):  # photo licence requires attribution; kept off the poster, in the caption
             caption += "\n\n" + p["_credit"]

@@ -349,16 +349,16 @@ LIFE_CHAPTERS = {"Elon Musk": [
     ("stanford", "quit a Stanford PhD after two days", "Elon Musk", ["stanford", "two days", "ph.d", "doctoral"]),
     ("zip2", "Zip2, his first company", "Zip2", ["zip2", "compaq", "million", "founded"]),
     ("paypal", "X.com, PayPal and being fired as CEO", "Elon Musk", ["x.com", "paypal", "ousted", "ebay", "confinity"]),
-    ("falcon1", "three failed rockets before success", "Falcon 1", ["failure", "fourth", "flight", "orbit", "2008"]),
+    ("falcon1", "three failed rockets before success", "Falcon 1", ["falcon 1", "failure", "fourth", "flight", "orbit", "2008"]),
     ("2008", "2008: Tesla and SpaceX nearly went bankrupt", "Elon Musk", ["2008", "bankrupt", "nasa", "contract", "recession"]),
-    ("roadster", "a Tesla Roadster sent into space", "Elon Musk's Tesla Roadster", ["falcon heavy", "starman", "orbit", "mars"]),
-    ("demo2", "first private rocket to fly NASA astronauts", "Crew Dragon Demo-2", ["astronauts", "first", "launch", "iss", "behnken"]),
+    ("roadster", "a Tesla Roadster sent into space", "Elon Musk's Tesla Roadster", ["roadster", "falcon heavy", "starman", "orbit", "mars"]),
+    ("demo2", "first private rocket to fly NASA astronauts", "Crew Dragon Demo-2", ["crew dragon", "astronauts", "first", "launch", "iss", "behnken"]),
     ("boring", "The Boring Company and the flamethrowers", "The Boring Company", ["flamethrower", "tunnel", "las vegas", "sold"]),
-    ("optimus", "the Optimus robot story", "Optimus (robot)", ["unveiled", "prototype", "humanoid", "2021", "walk"]),
-    ("chopsticks", "catching a giant rocket with chopsticks", "Starship flight test 5", ["catch", "chopsticks", "tower", "booster"]),
-    ("twitter", "buying Twitter for $44 billion", "Acquisition of Twitter by Elon Musk", ["44 billion", "offer", "deal", "completed"]),
+    ("optimus", "the Optimus robot story", "Optimus (robot)", ["optimus", "unveiled", "prototype", "humanoid", "2021", "walk"]),
+    ("chopsticks", "catching a giant rocket with chopsticks", "Starship flight test 5", ["chopsticks", "catch", "tower", "booster"]),
+    ("twitter", "buying Twitter for $44 billion", "Acquisition of Twitter by Elon Musk", ["twitter", "44 billion", "acquisition", "takeover"]),
     ("richest", "becoming the richest person on Earth", "Elon Musk", ["richest", "net worth", "forbes", "bloomberg"]),
-    ("falconheavy", "the Falcon Heavy gamble", "Falcon Heavy test flight", ["boosters", "landed", "side", "launch"]),
+    ("falconheavy", "the Falcon Heavy gamble", "Falcon Heavy test flight", ["falcon heavy", "boosters", "landed", "side", "launch"]),
 ]}
 
 
@@ -371,7 +371,8 @@ def _wiki_text(article, site="en.wikipedia.org"):
 
 # no swearing and no politics in a life story ('video game' also found a 2025 political post)
 LIFE_UNSAFE = re.compile(r"\b(shit|bullshit|fuck\w*|damn|hell|political|politics|left|right[- ]wing|woke|democrat\w*|"
-                         r"republican\w*|trump|biden|election\w*|government|immigra\w*)\b", re.I)
+                         r"republican\w*|trump|biden|election\w*|government|immigra\w*|"
+                         r"investigation\w*|lawsuit\w*|court|sued|probe\w*|indict\w*)\b", re.I)  # nor legal trouble
 
 
 def _about_chapter(text, words):
@@ -416,7 +417,9 @@ def life_facts(name, chapter):
         print(f"[trends] Wikiquote for {name} failed: {e}")
     # short search (the article, or the chapter's own word): Bing keeps only reports with most of the search words
     stories = article_facts(f"{name} {article if article != name else words[0]}", want=4, bodies=2, recent=False)
-    extra += [s for s in stories if _about_chapter(s["title"] + " " + s["snippet"], words)
+    # feature stories must name the chapter itself ("deal" + "completed" let a Starbase jobs story into the
+    # Twitter chapter on 11-23)
+    extra += [s for s in stories if words[0] in (s["title"] + " " + s["snippet"]).lower()
               and not LIFE_UNSAFE.search(s["title"])][:2]
     print(f"[trends] life story for {name}: {title} ({article}; {len(best)} Wikipedia paragraphs, "
           f"{len(extra)} quotes/feature stories)")
