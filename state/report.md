@@ -1,14 +1,14 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-23 23:05 UTC_
+_Updated 2026-11-24 00:05 UTC_
 
 ```
-Based on the last 288 posts on this page:
-Best categories: TECH (1087.2), BUSINESS (1013.0), CELEBRITY (784.1)
+Based on the last 287 posts on this page:
+Best categories: TECH (1072.5), BUSINESS (1013.0), CELEBRITY (784.1)
 Weakest categories: TV & FILM (425.1), SPORTS (74.8)
-Format: reel (1063.2, 205 posts), photo (517.3, 83 posts)
-Best posting slots (UTC): 21:00 (1936.6), 19:00 (1212.0), 02:00 (1132.0)
-Best faces on this page (avg views per post): Elon Musk 2821 (264 posts), OpenAI 699 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 556 (6 posts), Donald Trump 516 (4 posts), Ilhan Omar 552 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (1055.2, 204 posts), photo (517.3, 83 posts)
+Best posting slots (UTC): 21:00 (1901.9), 19:00 (1212.0), 02:00 (1132.0)
+Best faces on this page (avg views per post): Elon Musk 2832 (263 posts), OpenAI 699 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 556 (6 posts), Donald Trump 516 (4 posts), Ilhan Omar 552 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2)
 ```
 
