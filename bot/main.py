@@ -554,17 +554,21 @@ def main():
         if config.DRY_RUN:
             pass
         elif record["format"] == "reel":
+            # each platform on its own: 11-23 Facebook blocked the Page (identity check, code 368) and the Instagram
+            # Reels were lost too, because a Facebook failure turned the whole post into a photo
             try:
-                record["facebook_reel"] = record["facebook"] = meta.publish_reel(video, caption)
-                res = {"facebook": record["facebook"]}
-                if config.POST_TO_INSTAGRAM and config.IG_USER_ID:  # same Reel on Instagram
-                    try:
-                        record["instagram"] = res["instagram"] = meta.post_instagram_reel(video, caption)
-                        print(f"[meta] Instagram Reel posted: {record['instagram']}")
-                    except Exception as e:
-                        print(f"[meta] Instagram Reel failed: {e}")
-            except Exception as e:  # reel upload failed -> fall back to the photo post
-                print(f"[main] Reel failed ({e}) -> posting the photo instead")
+                record["facebook_reel"] = record["facebook"] = res["facebook"] = meta.publish_reel(video, caption)
+            except Exception as e:
+                print(f"[main] Facebook Reel failed: {e}")
+                record["facebook_error"] = str(e)[:300]
+            if config.POST_TO_INSTAGRAM and config.IG_USER_ID:  # same Reel on Instagram
+                try:
+                    record["instagram"] = res["instagram"] = meta.post_instagram_reel(video, caption)
+                    print(f"[meta] Instagram Reel posted: {record['instagram']}")
+                except Exception as e:
+                    print(f"[meta] Instagram Reel failed: {e}")
+            if not res:  # the Reel went nowhere -> fall back to the photo post
+                print("[main] Reel failed on every platform -> posting the photo instead")
                 record["format"] = "photo"
                 res = meta.publish(img, caption)
                 record.update(res)
