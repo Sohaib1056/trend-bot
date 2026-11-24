@@ -1,14 +1,14 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-24 02:06 UTC_
+_Updated 2026-11-24 04:06 UTC_
 
 ```
-Based on the last 286 posts on this page:
-Best categories: TECH (1084.9), BUSINESS (1018.7), CELEBRITY (795.2)
+Based on the last 285 posts on this page:
+Best categories: TECH (1086.0), BUSINESS (1020.1), CELEBRITY (795.2)
 Weakest categories: TV & FILM (425.1), SPORTS (74.8)
-Format: reel (1063.9, 203 posts), photo (520.4, 83 posts)
-Best posting slots (UTC): 21:00 (1901.9), 19:00 (1212.0), 02:00 (1137.9)
-Best faces on this page (avg views per post): Elon Musk 2855 (262 posts), OpenAI 699 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 556 (6 posts), Donald Trump 516 (4 posts), Ilhan Omar 552 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (1064.7, 203 posts), photo (527.7, 82 posts)
+Best posting slots (UTC): 21:00 (1901.9), 19:00 (1212.0), 02:00 (1181.0)
+Best faces on this page (avg views per post): Elon Musk 2858 (262 posts), Donald Trump 669 (3 posts), OpenAI 706 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 556 (6 posts), Ilhan Omar 552 (1 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2)
 ```
 
@@ -39,18 +39,18 @@ Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | E
 | 2026-11-20T04:06 | reel | BUSINESS | Elon Musk's Tesla ends 13‑month European sales slump | 6977 | 635 | 54 | 0 | 2827.4 |
 | 2026-11-20T02:07 | reel | TECH | Elon Musk’s flamethrower sales spark $10 million buzz | 1545 | 37 | 13 | 0 | 422.0 |
 | 2026-11-20T00:07 | photo | BUSINESS | SpaceX stock drops 3.5% after Anthropic's boom | 2035 | 97 | 31 | 8 | 700.0 |
-| 2026-11-19T23:07 | reel | TECH | Elon Musk sued over hijab‑violating deepfakes | 1360 | 99 | 13 | 0 | 509.0 |
-| 2026-11-19T22:06 | reel | BUSINESS | Elon Musk faces $300 billion cost challenge from Verizon | 1251 | 78 | 18 | 0 | 460.2 |
-| 2026-11-19T20:07 | reel | TECH | Musk promises interactive Optimus video in two months | 11973 | 429 | 50 | 0 | 3402.6 |
-| 2026-11-19T05:09 | photo | TECH | Elon Musk unveils steering‑wheel‑free Model Y for families | 538 | 31 | 8 | 6 | 199.6 |
-| 2026-11-19T04:06 | reel | AI | Sam Altman announces public company for OpenAI | 646 | 18 | 2 | 0 | 171.2 |
-| 2026-11-19T02:07 | reel | TECH | NASA astronauts call Falcon 9 a very pure flying machine | 1540 | 87 | 9 | 0 | 509.0 |
+| 2026-11-19T23:07 | reel | TECH | Elon Musk sued over hijab‑violating deepfakes | 1374 | 101 | 13 | 0 | 515.8 |
+| 2026-11-19T22:06 | reel | BUSINESS | Elon Musk faces $300 billion cost challenge from Verizon | 1260 | 80 | 18 | 0 | 466.0 |
+| 2026-11-19T20:07 | reel | TECH | Musk promises interactive Optimus video in two months | 12340 | 449 | 50 | 0 | 3516.0 |
+| 2026-11-19T05:09 | photo | TECH | Elon Musk unveils steering‑wheel‑free Model Y for families | 539 | 31 | 8 | 6 | 199.8 |
+| 2026-11-19T04:06 | reel | AI | Sam Altman announces public company for OpenAI | 650 | 18 | 2 | 0 | 172.0 |
+| 2026-11-19T02:07 | reel | TECH | NASA astronauts call Falcon 9 a very pure flying machine | 1546 | 86 | 9 | 0 | 508.2 |
 | 2026-11-19T00:10 | photo | TECH | Elon Musk calls Trump a disgusting abomination over Bill | 1262 | 54 | 20 | 13 | 426.4 |
-| 2026-11-18T23:09 | reel | BUSINESS | Elon Musk invests $10M in Skydance studio | 895 | 48 | 8 | 0 | 299.0 |
-| 2026-11-18T22:07 | reel | BUSINESS | Elon Musk invests $3.31 B in German Cybercab factory | 7179 | 432 | 40 | 0 | 2419.8 |
-| 2026-11-18T20:10 | reel | POLITICS | Elon Musk leads U.S. agency set to delete itself | 4549 | 236 | 40 | 0 | 1501.8 |
-| 2026-11-18T05:07 | photo | BUSINESS | Own Tesla? You own a 95% bet beyond cars | 16332 | 802 | 44 | 91 | 5008.4 |
-| 2026-11-18T04:08 | reel | POLITICS | Trump overrides Amazon, Google in China data center clash | 843 | 36 | 6 | 0 | 258.6 |
-| 2026-11-18T02:07 | reel | VIRAL | Elon Musk Tesla Roadster circles Sun after Falcon Heavy launch | 1190 | 49 | 17 | 0 | 387.0 |
-| 2026-11-18T00:07 | photo | BUSINESS | Elon Musk $850 Cybertruck toy resale after sellout | 6564 | 210 | 47 | 24 | 1879.8 |
-| 2026-11-17T23:11 | reel | BUSINESS | Elon Musk under fire over board independence criticism | 1236 | 106 | 15 | 0 | 504.2 |
+| 2026-11-18T23:09 | reel | BUSINESS | Elon Musk invests $10M in Skydance studio | 900 | 48 | 8 | 0 | 300.0 |
+| 2026-11-18T22:07 | reel | BUSINESS | Elon Musk invests $3.31 B in German Cybercab factory | 7229 | 434 | 40 | 0 | 2433.8 |
+| 2026-11-18T20:10 | reel | POLITICS | Elon Musk leads U.S. agency set to delete itself | 4561 | 237 | 40 | 0 | 1506.2 |
+| 2026-11-18T05:07 | photo | BUSINESS | Own Tesla? You own a 95% bet beyond cars | 16697 | 812 | 44 | 93 | 5101.4 |
+| 2026-11-18T04:08 | reel | POLITICS | Trump overrides Amazon, Google in China data center clash | 850 | 37 | 6 | 0 | 262.0 |
+| 2026-11-18T02:07 | reel | VIRAL | Elon Musk Tesla Roadster circles Sun after Falcon Heavy launch | 1195 | 49 | 17 | 0 | 388.0 |
+| 2026-11-18T00:07 | photo | BUSINESS | Elon Musk $850 Cybertruck toy resale after sellout | 6573 | 210 | 47 | 24 | 1881.6 |
+| 2026-11-17T23:11 | reel | BUSINESS | Elon Musk under fire over board independence criticism | 1242 | 105 | 15 | 0 | 503.4 |
