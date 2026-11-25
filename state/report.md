@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-24 23:06 UTC_
+_Updated 2026-11-25 00:05 UTC_
 
 ```
 Based on the last 284 posts on this page:
-Best categories: TECH (1069.6), BUSINESS (1030.2), CELEBRITY (823.3)
+Best categories: TECH (1069.6), BUSINESS (1028.5), CELEBRITY (823.3)
 Weakest categories: TV & FILM (425.1), SPORTS (74.8)
-Format: reel (1068.6, 202 posts), photo (538.6, 82 posts)
+Format: reel (1067.9, 202 posts), photo (538.6, 82 posts)
 Best posting slots (UTC): 21:00 (1927.8), 19:00 (1263.0), 02:00 (1185.6)
-Best faces on this page (avg views per post): Elon Musk 2894 (262 posts), Donald Trump 670 (3 posts), OpenAI 706 (1 posts), Sam Altman 652 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 556 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2893 (262 posts), Donald Trump 670 (3 posts), OpenAI 706 (1 posts), Sam Altman 652 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 556 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-24T23:10 | reel | BUSINESS | Elon Musk banned the tracker following his private jets | 49 | 3 | 0 | 0 | 15.8 |
 | 2026-11-24T22:10 | reel | TECH | Elon Musk pledged $1B to OpenAI, gave only $50M | 112 | 1 | 0 | 0 | 24.4 |
 | 2026-11-24T20:10 | reel | TECH | Amazon Kuiper Falls Behind Starlink in Satellite Race | 809 | 7 | 6 | 0 | 193.8 |
 | 2026-11-24T05:07 | photo | TECH | Elon Musk’s Tesla raises financing rates to 2.99% | 514 | 50 | 14 | 10 | 250.8 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | E
 | 2026-11-18T22:07 | reel | BUSINESS | Elon Musk invests $3.31 B in German Cybercab factory | 7292 | 438 | 40 | 0 | 2454.4 |
 | 2026-11-18T20:10 | reel | POLITICS | Elon Musk leads U.S. agency set to delete itself | 4569 | 237 | 40 | 0 | 1507.8 |
 | 2026-11-18T05:07 | photo | BUSINESS | Own Tesla? You own a 95% bet beyond cars | 17914 | 857 | 45 | 93 | 5437.8 |
-| 2026-11-18T04:08 | reel | POLITICS | Trump overrides Amazon, Google in China data center clash | 854 | 36 | 6 | 0 | 260.8 |
