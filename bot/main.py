@@ -251,6 +251,7 @@ def main():
     # a couple of spares, so one skipped post doesn't leave the slot empty
     special, facts_topic, star, all_candidates = "", "", "", candidates
     life_key = ""  # life-story slot: the chapter of the star's life this post tells
+    followers = None  # the Page's follower count, fetched once per run for the giveaway counter
     slot_now = current_slot(datetime.now(timezone.utc))
     if slot_now is None and config.DRY_RUN:  # test run between slots: behave like the next slot
         now = datetime.now(timezone.utc).replace(minute=0, second=0, microsecond=0)
@@ -509,6 +510,10 @@ def main():
                 print(f"[main] skipping {p['key']}")
                 continue
             stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M")
+            if config.GIVEAWAY_ON:  # live counter on the poster and the Reel ('7,412 / 10,000 followers')
+                if followers is None:
+                    followers = meta.page_followers() or 0
+                p["_followers"] = followers or None
             img = poster.make_poster(p, os.path.join(config.OUTPUT_DIR, f"{stamp}-{p['key']}.jpg"))
             p["_img"] = img
             if not p.get("_person"):  # owner's rule: the picture must show the person -> try the next story first

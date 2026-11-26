@@ -94,6 +94,8 @@ then shift every slot back -1 h (`1,3,4,19,21,22,23`, photos `4,23`, star `19,21
   UTC): a pinned Facebook event (text and rules in `branding/giveaway-event.md`): if the Page reaches 10,000
   followers by Dec 26, 10 followers win $100 each. While on, the Reel follow label reads "+ Follow &
   win $100: see pinned event" from the first frame, photo posts show "WIN $100: SEE PINNED EVENT" top-right,
+  a live counter ('4,182 / 10,000 followers · 31 days left', `poster.giveaway_status`; the follower count comes
+  from `meta.page_followers()` once per run) on the Reel label (with a progress bar) and the photo,
   captions link the event, and the Page's first comment on every Facebook post carries the event link (the Graph
   API cannot pin comments; the owner pins by hand where wanted).
 - **Stars** (`STARS_ON`, on since 11-24: the owner says Stars is on for the Page): captions get a short

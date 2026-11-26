@@ -869,6 +869,16 @@ def tpl_card(post, photo, theme=None):
     return img
 
 
+def giveaway_status(post):
+    """'7,412 / 10,000 followers · 31 days left': the live counter for the 10K giveaway (owner, 11-26), so viewers
+    see how close the goal is. post['_followers'] is the Page's count when the run started (None if unknown)."""
+    import math
+    left = math.ceil((config.GIVEAWAY_UNTIL - datetime.now(timezone.utc)).total_seconds() / 86400)
+    days = "LAST DAY!" if left <= 1 else f"{left} days left"
+    n = post.get("_followers")
+    return f"{n:,} / 10,000 followers · {days}" if n else f"10K giveaway · {days}"
+
+
 def _stars_badge(img):
     """'★ Send Stars' pill at the bottom-right of the photo, level with the logo watermark (owner, 11-26: the Stars
     ask on photo posts too, since nobody reads captions). The star is drawn: the font has no emoji."""
@@ -916,7 +926,7 @@ def make_poster(post, path, photo=None, template=None):
     if config.GIVEAWAY_ON and name == "card":  # top-right of the white panel, level with the category label
         d = ImageDraw.Draw(img)
         gf = _font("bold", 24)
-        text = "WIN $100: SEE PINNED EVENT"
+        text = f"WIN $100 · {giveaway_status(post).upper()}"
         d.text((W - 64 - d.textlength(text, font=gf), 44), text, font=gf, fill=PINK)
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     img.convert("RGB").save(path, "JPEG", quality=95, subsampling=0)

@@ -10,6 +10,21 @@ def _url(path):
     return f"https://graph.facebook.com/{config.GRAPH_VERSION}/{path}"
 
 
+def page_followers():
+    """The Page's follower count (for the 10K giveaway counter), None if Facebook doesn't say."""
+    if not (config.FB_PAGE_ID and config.FB_PAGE_TOKEN):
+        return None
+    try:
+        r = requests.get(_url(config.FB_PAGE_ID), timeout=30, params={
+            "fields": "followers_count,fan_count", "access_token": config.FB_PAGE_TOKEN})
+        data = r.json()
+        n = data.get("followers_count") or data.get("fan_count")
+        return int(n) if n else None
+    except Exception as e:
+        print(f"[meta] follower count failed: {e}")
+        return None
+
+
 def _check(r, what):
     try:
         data = r.json()

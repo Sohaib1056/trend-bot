@@ -720,7 +720,7 @@ def _header_layer(post):
         pf = _font("bold", 58)
         text = f"ELON'S LIFE  •  PART {post['_life_part']}"
         pw, ph = int(d.textlength(text, font=pf)) + 90, 96
-        px, py = (RW - pw) // 2, by + bh + 34
+        px, py = (RW - pw) // 2, by + bh + 34 + (GIVE_EXTRA if config.GIVEAWAY_ON else 0)
         _paste_rounded(layer, _hgradient(pw, ph, [YELLOW, ORANGE]).convert("RGBA"), (px, py), ph // 2)
         d = ImageDraw.Draw(layer)
         d.text((px + 45, py + 17), text, font=pf, fill=(15, 15, 20))
@@ -769,21 +769,34 @@ def _draw_subtitle(frame, chunk, t, font):
         x += ww + space
 
 
-def _follow_label():
+GIVE_EXTRA = 56  # giveaway: the follow label has a 2nd line (counter + progress bar), the pills below move down
+
+
+def _follow_label(post):
     """Small '+ Follow for daily Elon Musk news' pill next to the category badge, on screen from 1s to the end:
-    most viewers leave before the end banner, so the reason to follow must show while they watch."""
+    most viewers leave before the end banner, so the reason to follow must show while they watch.
+    During the 10K giveaway: '+ Follow & win $100' with the live counter and a progress bar under it."""
+    from .poster import giveaway_status
     layer = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
     f = _font("bold", 34)  # owner, 11-24: 'a little more visible' -> bigger, brand yellow, with a shadow
     text = "+ Follow & win $100: see pinned event" if config.GIVEAWAY_ON else f"+ Follow for {FOLLOW_PROMISE}"
-    w, h = int(d.textlength(text, font=f)) + 60, 72
+    f2, status = _font("bold", 27), giveaway_status(post) if config.GIVEAWAY_ON else ""
+    w = int(max(d.textlength(text, font=f), d.textlength(status, font=f2) if status else 0)) + 60
+    h = 72 + (GIVE_EXTRA if status else 0)
     x, y = RW - PAD + 22 - w, 150 + 124  # right side, level with the category badge (below the Reels top bar)
     shadow = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
-    ImageDraw.Draw(shadow).rounded_rectangle([x + 4, y + 6, x + w + 4, y + h + 6], radius=h // 2, fill=(0, 0, 0, 150))
+    ImageDraw.Draw(shadow).rounded_rectangle([x + 4, y + 6, x + w + 4, y + h + 6], radius=36, fill=(0, 0, 0, 150))
     layer.alpha_composite(shadow.filter(ImageFilter.GaussianBlur(6)))
-    d.rounded_rectangle([x, y, x + w, y + h], radius=h // 2, fill=YELLOW + (255,), outline=(255, 255, 255, 255),
-                        width=3)
+    d.rounded_rectangle([x, y, x + w, y + h], radius=36, fill=YELLOW + (255,), outline=(255, 255, 255, 255), width=3)
     d.text((x + 30, y + 15), text, font=f, fill=(15, 15, 20))
+    if status:
+        d.text((x + 30, y + 60), status, font=f2, fill=(15, 15, 20))
+        done = min(1.0, (post.get("_followers") or 0) / 10000)
+        bx0, bx1, by0 = x + 30, x + w - 30, y + h - 24
+        d.rounded_rectangle([bx0, by0, bx1, by0 + 12], radius=6, fill=(15, 15, 20, 255))
+        if done:
+            d.rounded_rectangle([bx0, by0, bx0 + max(12, int((bx1 - bx0) * done)), by0 + 12], radius=6, fill=PINK)
     return layer
 
 
@@ -797,7 +810,8 @@ def _stars_label(post):
     part = post.get("_life_part")
     text = f"Send Stars to support Part {part + 1}" if part else "Send Stars to support Hype Atlas"
     w, h = int(d.textlength(text, font=f)) + 130, 76
-    x, y = (RW - w) // 2, 150 + 124 + 72 + 28 + ((96 + 22) if part else 0)  # under the badge row (and Part pill)
+    x, y = (RW - w) // 2, (150 + 124 + 72 + 28 + ((96 + 22) if part else 0)  # under the badge row (and Part pill)
+                           + (GIVE_EXTRA if config.GIVEAWAY_ON else 0))
     _paste_rounded(layer, _hgradient(w, h, [PINK, ORANGE]).convert("RGBA"), (x, y), h // 2)
     d = ImageDraw.Draw(layer)
     d.rounded_rectangle([x, y, x + w, y + h], radius=h // 2, outline=(255, 255, 255, 255), width=3)
@@ -833,7 +847,7 @@ def _frames(post, scenes, exe, duration, chunks, follow_at):
     header = _header_layer(post)
 
     banner = _follow_banner()
-    label = _follow_label()
+    label = _follow_label(post)
     stars = _stars_label(post) if config.STARS_ON else None
     stars_at = STARS_FROM
     sub_font = _font("bold", 86)
