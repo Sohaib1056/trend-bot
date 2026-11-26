@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-25 23:06 UTC_
+_Updated 2026-11-26 00:05 UTC_
 
 ```
 Based on the last 287 posts on this page:
-Best categories: TECH (1060.5), BUSINESS (1044.3), CELEBRITY (915.1)
+Best categories: TECH (1051.7), BUSINESS (1044.3), CELEBRITY (915.1)
 Weakest categories: TV & FILM (425.1), SPORTS (74.8)
-Format: reel (1064.4, 205 posts), photo (551.8, 82 posts)
-Best posting slots (UTC): 21:00 (1927.8), 19:00 (1263.0), 02:00 (1202.9)
-Best faces on this page (avg views per post): Elon Musk 2880 (267 posts), Donald Trump 670 (3 posts), OpenAI 706 (1 posts), Sam Altman 656 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 556 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (1063.9, 205 posts), photo (551.8, 82 posts)
+Best posting slots (UTC): 21:00 (1927.8), 19:00 (1319.0), 02:00 (1202.9)
+Best faces on this page (avg views per post): Elon Musk 2879 (267 posts), Donald Trump 670 (3 posts), OpenAI 706 (1 posts), Sam Altman 656 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 556 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-25T23:07 | reel | TECH | Elon Musk gives free Starlink hardware, cuts $738M grants | 139 | 2 | 1 | 0 | 34.8 |
 | 2026-11-25T22:09 | reel | TECH | Elon Musk avoids apartheid army by moving to Canada | 18 | 3 | 0 | 0 | 9.6 |
 | 2026-11-25T20:08 | reel | TECH | Elon Musk launches xAI to rival ChatGPT | 197 | 6 | 0 | 0 | 51.4 |
 | 2026-11-25T05:07 | photo | AI | Elon Musk's robot sparks job debate | 1541 | 86 | 29 | 8 | 573.2 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | E
 | 2026-11-19T22:06 | reel | BUSINESS | Elon Musk faces $300 billion cost challenge from Verizon | 1296 | 86 | 18 | 0 | 485.2 |
 | 2026-11-19T20:07 | reel | TECH | Musk promises interactive Optimus video in two months | 13949 | 499 | 50 | 0 | 3937.8 |
 | 2026-11-19T05:09 | photo | TECH | Elon Musk unveils steering‑wheel‑free Model Y for families | 540 | 32 | 8 | 7 | 202.0 |
-| 2026-11-19T04:06 | reel | AI | Sam Altman announces public company for OpenAI | 656 | 18 | 2 | 0 | 173.2 |
