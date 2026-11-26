@@ -526,6 +526,9 @@ def main():
             if not p["caption"].startswith("📖"):
                 p["caption"] = f"📖 Elon Musk's Life, Part {part}\n\n" + p["caption"].strip()
             follow_line = f"👉 Follow Hype Atlas so you don't miss Part {part + 1} tomorrow 🚀 #HypeAtlas"
+        if config.GIVEAWAY_ON:  # the 10K giveaway event (rules are in the event, not in every caption)
+            follow_line += ("\n🎁 10K FOLLOWER GIVEAWAY: if we hit 10,000 followers by Dec 26, 10 followers win $100 "
+                            f"each! Free to join, rules here: {config.GIVEAWAY_URL}")
         if config.STARS_ON:  # Stars are real money for the page: a friendly ask, never a promise or bait
             follow_line += ("\n⭐ Enjoying Elon's Life series? Send Stars to support the next part!" if part
                             else "\n⭐ Like what we do? Support Hype Atlas with Stars!")
@@ -597,7 +600,11 @@ def main():
             except Exception as e:
                 print(f"[threads] skipped: {e}")
         if config.FIRST_COMMENT and res.get("facebook"):
-            insights.first_comment(res["facebook"], p.get("first_comment", ""))
+            comment = p.get("first_comment", "")
+            if config.GIVEAWAY_ON:  # the event link in every comment section (the Page's own comment shows first)
+                comment = (comment + "\n\n" if comment else "") + ("🎁 10K Follower Giveaway: 10 followers win $100! "
+                                                                   f"Join free here: {config.GIVEAWAY_URL}")
+            insights.first_comment(res["facebook"], comment)
         if not config.DRY_RUN and not any(k in res for k in ("facebook", "instagram")):
             print("[main] Upload failed on both platforms.")
             save_state(state)

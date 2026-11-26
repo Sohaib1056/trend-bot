@@ -775,7 +775,7 @@ def _follow_label():
     layer = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
     f = _font("bold", 34)  # owner, 11-24: 'a little more visible' -> bigger, brand yellow, with a shadow
-    text = f"+ Follow for {FOLLOW_PROMISE}"
+    text = "+ Follow & win $100: see pinned event" if config.GIVEAWAY_ON else f"+ Follow for {FOLLOW_PROMISE}"
     w, h = int(d.textlength(text, font=f)) + 60, 72
     x, y = RW - PAD + 22 - w, 150 + 124  # right side, level with the category badge (below the Reels top bar)
     shadow = Image.new("RGBA", (RW, RH), (0, 0, 0, 0))
@@ -860,7 +860,9 @@ def _frames(post, scenes, exe, duration, chunks, follow_at):
         frame = base.convert("RGBA")
         frame.alpha_composite(shade)
         frame.alpha_composite(header)
-        if FOLLOW_FROM <= t < follow_at:  # the reason to follow, while they watch (fades in)
+        if config.GIVEAWAY_ON and t < follow_at:  # giveaway: on screen from the very first frame (owner, 11-26)
+            frame.alpha_composite(label)
+        elif FOLLOW_FROM <= t < follow_at:  # the reason to follow, while they watch (fades in)
             frame.alpha_composite(_with_alpha(label, _ease(min(1.0, (t - FOLLOW_FROM) / 0.3))))
         if stars is not None and stars_at <= t < follow_at:  # the Stars ask, inside the video (fades in)
             frame.alpha_composite(_with_alpha(stars, _ease(min(1.0, (t - stars_at) / 0.3))))

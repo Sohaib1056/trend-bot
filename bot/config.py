@@ -64,6 +64,12 @@ FIRST_COMMENT = _bool("FIRST_COMMENT", True)  # page posts a question under each
 # a short 'support us with Stars' line in captions: only while Stars is switched on for the Page (owner, 11-24:
 # "already on"); set STARS_ON=false if Stars is ever turned off, else it confuses viewers
 STARS_ON = _bool("STARS_ON", True)
+# 10K giveaway (owner, 11-26): a pinned Facebook event, 10 followers win $100 if the page reaches 10,000 followers
+# by Dec 26. While it runs every Reel's follow label, every photo and every caption point to the event. Off until
+# the owner gives the event link (GIVEAWAY_URL); ends by itself after GIVEAWAY_UNTIL.
+GIVEAWAY_URL = os.getenv("GIVEAWAY_URL", "").strip() or "https://www.facebook.com/events/1657575395838001/"
+GIVEAWAY_UNTIL = datetime.fromisoformat(os.getenv("GIVEAWAY_UNTIL", "") or "2026-12-27T05:00+00:00")
+GIVEAWAY_ON = bool(GIVEAWAY_URL) and datetime.now(GIVEAWAY_UNTIL.tzinfo) < GIVEAWAY_UNTIL
 AVOID_POLITICS = _bool("AVOID_POLITICS", True)
 
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "").strip() or "gemini-flash-latest"

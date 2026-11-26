@@ -913,6 +913,11 @@ def make_poster(post, path, photo=None, template=None):
     img = PHOTO_TEMPLATES[name](post, photo, theme)
     if config.STARS_ON and name == "card":  # the other templates have a footer in that corner
         img = _stars_badge(img.convert("RGBA"))
+    if config.GIVEAWAY_ON and name == "card":  # top-right of the white panel, level with the category label
+        d = ImageDraw.Draw(img)
+        gf = _font("bold", 24)
+        text = "WIN $100: SEE PINNED EVENT"
+        d.text((W - 64 - d.textlength(text, font=gf), 44), text, font=gf, fill=PINK)
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     img.convert("RGB").save(path, "JPEG", quality=95, subsampling=0)
     return path

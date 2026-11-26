@@ -89,6 +89,13 @@ then shift every slot back -1 h (`1,3,4,19,21,22,23`, photos `4,23`, star `19,21
   (clarity for any 18-65 viewer) and the rewrite ask for plain words (no slang) that are still exciting and modern:
   money, what it means for ordinary people, cool future tech, records and 'first ever' moments, clashes, comeback
   stories, and questions asking their opinion ('Genius or reckless?', 'Would you buy one?').
+- **10K giveaway** (owner, 11-26; event https://www.facebook.com/events/1657575395838001/ made and pinned to the Featured section
+  on 11-26 (dated Dec 26 11 PM ET, the last day: Facebook events run at most ~2 weeks); `GIVEAWAY_URL`, ends after `GIVEAWAY_UNTIL` 2026-12-27 05:00
+  UTC): a pinned Facebook event (text and rules in `branding/giveaway-event.md`): if the Page reaches 10,000
+  followers by Dec 26, 10 followers win $100 each. While on, the Reel follow label reads "+ Follow &
+  win $100: see pinned event" from the first frame, photo posts show "WIN $100: SEE PINNED EVENT" top-right,
+  captions link the event, and the Page's first comment on every Facebook post carries the event link (the Graph
+  API cannot pin comments; the owner pins by hand where wanted).
 - **Stars** (`STARS_ON`, on since 11-24: the owner says Stars is on for the Page): captions get a short
   "⭐ ... Support Hype Atlas with Stars!" line (life series: "Send Stars to support the next part!"), and since
   the owner said nobody reads captions, the Reel itself shows a "★ Send Stars to support Hype Atlas" pill (life:
