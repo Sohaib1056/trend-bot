@@ -869,6 +869,29 @@ def tpl_card(post, photo, theme=None):
     return img
 
 
+def _stars_badge(img):
+    """'★ Send Stars' pill at the bottom-right of the photo, level with the logo watermark (owner, 11-26: the Stars
+    ask on photo posts too, since nobody reads captions). The star is drawn: the font has no emoji."""
+    import math
+    d = ImageDraw.Draw(img)
+    f = _font("bold", 30)
+    text = "Send Stars"
+    w, h = int(d.textlength(text, font=f)) + 100, 64
+    x, y = W - 46 - w, H - 114
+    shadow = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(shadow).rounded_rectangle([x + 3, y + 5, x + w + 3, y + h + 5], radius=h // 2, fill=(0, 0, 0, 140))
+    img.alpha_composite(shadow.filter(ImageFilter.GaussianBlur(5)))
+    _paste_rounded(img, _hgradient(w, h, [PINK, ORANGE]).convert("RGBA"), (x, y), h // 2)
+    d = ImageDraw.Draw(img)
+    d.rounded_rectangle([x, y, x + w, y + h], radius=h // 2, outline=WHITE, width=3)
+    cx, cy, r = x + 40, y + h // 2, 19
+    star = [(cx + (r if k % 2 == 0 else r * 0.45) * math.sin(k * math.pi / 5),
+             cy - (r if k % 2 == 0 else r * 0.45) * math.cos(k * math.pi / 5)) for k in range(10)]
+    d.polygon(star, fill=YELLOW, outline=WHITE)
+    d.text((x + 72, y + 14), text, font=f, fill=WHITE)
+    return img
+
+
 PHOTO_TEMPLATES = {"card": tpl_card, "hype": tpl_hype, "viral": tpl_viral, "breaking": tpl_breaking, "frame": tpl_frame}
 DEFAULT_TEMPLATE = os.getenv("POSTER_TEMPLATE", "card").strip() or "card"
 
@@ -888,6 +911,8 @@ def make_poster(post, path, photo=None, template=None):
         name = "card"
     print(f"[poster] template: {name}")
     img = PHOTO_TEMPLATES[name](post, photo, theme)
+    if config.STARS_ON and name == "card":  # the other templates have a footer in that corner
+        img = _stars_badge(img.convert("RGBA"))
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     img.convert("RGB").save(path, "JPEG", quality=95, subsampling=0)
     return path

@@ -809,7 +809,7 @@ def _stars_label(post):
     return layer
 
 
-STARS_FROM = 0.35  # the Stars ask shows from 35% of the Reel (after the hook and the follow label) to the end banner
+STARS_FROM = 1.0  # seconds: the Stars ask from the start, with the follow label (owner, 11-26), to the end banner
 
 
 def _follow_banner():
@@ -835,7 +835,7 @@ def _frames(post, scenes, exe, duration, chunks, follow_at):
     banner = _follow_banner()
     label = _follow_label()
     stars = _stars_label(post) if config.STARS_ON else None
-    stars_at = duration * STARS_FROM
+    stars_at = STARS_FROM
     sub_font = _font("bold", 86)
     bar = _hgradient(RW, 10, [PINK, ORANGE, YELLOW]).convert("RGBA")
     total = sum(n for _, _, n in scenes)

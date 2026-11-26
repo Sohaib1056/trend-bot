@@ -92,7 +92,9 @@ then shift every slot back -1 h (`1,3,4,19,21,22,23`, photos `4,23`, star `19,21
 - **Stars** (`STARS_ON`, on since 11-24: the owner says Stars is on for the Page): captions get a short
   "⭐ ... Support Hype Atlas with Stars!" line (life series: "Send Stars to support the next part!"), and since
   the owner said nobody reads captions, the Reel itself shows a "★ Send Stars to support Hype Atlas" pill (life:
-  "...support Part n+1") from 35% of the Reel to the end banner (`reel._stars_label`, `STARS_FROM`).
+  "...support Part n+1") from second 1 to the end banner (`reel._stars_label`, `STARS_FROM`; owner, 11-26: from the
+  start), and photo posts get a "★ Send Stars" pill at the bottom-right of the photo (`poster._stars_badge`, card
+  template only).
 - Life chapters (11-24): feature stories must name the chapter's own word (`words[0]`) and no legal-trouble titles;
   the prompt says the whole story must be about the chapter (11-23 a Starbase jobs story was posted as "Twitter").
 - **Life-story slot** (owner, 11-11: "Reels on Elon's life that engage, never duplicated"): `LIFE_SLOTS=2`
