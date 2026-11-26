@@ -1,44 +1,45 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-26 00:05 UTC_
+_Updated 2026-11-26 02:06 UTC_
 
 ```
 Based on the last 287 posts on this page:
-Best categories: TECH (1051.7), BUSINESS (1044.3), CELEBRITY (915.1)
+Best categories: BUSINESS (1057.1), TECH (1053.7), CELEBRITY (918.1)
 Weakest categories: TV & FILM (425.1), SPORTS (74.8)
-Format: reel (1063.9, 205 posts), photo (551.8, 82 posts)
-Best posting slots (UTC): 21:00 (1927.8), 19:00 (1319.0), 02:00 (1202.9)
-Best faces on this page (avg views per post): Elon Musk 2879 (267 posts), Donald Trump 670 (3 posts), OpenAI 706 (1 posts), Sam Altman 656 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 556 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (1070.2, 204 posts), photo (546.8, 83 posts)
+Best posting slots (UTC): 21:00 (2013.5), 19:00 (1319.0), 02:00 (1206.2)
+Best faces on this page (avg views per post): Elon Musk 2884 (267 posts), Donald Trump 670 (3 posts), OpenAI 706 (1 posts), Sam Altman 656 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 556 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-26T00:06 | photo | POLITICS | Elon Musk’s SpaceX matches Trump contributions, sparking debate | 134 | 10 | 2 | 1 | 55.8 |
 | 2026-11-25T23:07 | reel | TECH | Elon Musk gives free Starlink hardware, cuts $738M grants | 139 | 2 | 1 | 0 | 34.8 |
-| 2026-11-25T22:09 | reel | TECH | Elon Musk avoids apartheid army by moving to Canada | 18 | 3 | 0 | 0 | 9.6 |
-| 2026-11-25T20:08 | reel | TECH | Elon Musk launches xAI to rival ChatGPT | 197 | 6 | 0 | 0 | 51.4 |
-| 2026-11-25T05:07 | photo | AI | Elon Musk's robot sparks job debate | 1541 | 86 | 29 | 8 | 573.2 |
-| 2026-11-25T04:08 | reel | AI | Elon Musk: Earns more renting AI power at SpaceX | 757 | 90 | 22 | 0 | 397.4 |
-| 2026-11-25T02:07 | reel | TECH | Elon Musk’s Falcon Heavy test rockets to 5 million lb‑force | 978 | 86 | 20 | 0 | 427.6 |
-| 2026-11-25T00:07 | photo | TECH | Elon Musk's AI5 chip skips self-driving cars | 612 | 47 | 18 | 10 | 276.4 |
-| 2026-11-24T23:10 | reel | BUSINESS | Elon Musk banned the tracker following his private jets | 676 | 31 | 8 | 0 | 221.2 |
-| 2026-11-24T22:10 | reel | TECH | Elon Musk pledged $1B to OpenAI, gave only $50M | 679 | 38 | 5 | 0 | 226.8 |
-| 2026-11-24T20:10 | reel | TECH | Amazon Kuiper Falls Behind Starlink in Satellite Race | 2261 | 68 | 15 | 0 | 633.2 |
-| 2026-11-24T05:07 | photo | TECH | Elon Musk’s Tesla raises financing rates to 2.99% | 765 | 68 | 26 | 14 | 373.0 |
-| 2026-11-23T05:08 | photo | BUSINESS | Elon Musk dodged military service with a Canadian passport | 2752 | 117 | 40 | 13 | 910.4 |
-| 2026-11-23T04:07 | reel | AI | Elon Musk says singularity has begun, sparking debate | 2061 | 174 | 24 | 0 | 832.2 |
-| 2026-11-23T02:11 | reel | BUSINESS | Elon Musk’s Starbase creates 5,000 jobs in poor Texas town | 1890 | 147 | 28 | 0 | 756.0 |
+| 2026-11-25T22:09 | reel | TECH | Elon Musk avoids apartheid army by moving to Canada | 321 | 9 | 2 | 0 | 88.2 |
+| 2026-11-25T20:08 | reel | TECH | Elon Musk launches xAI to rival ChatGPT | 359 | 14 | 0 | 0 | 99.8 |
+| 2026-11-25T05:07 | photo | AI | Elon Musk's robot sparks job debate | 1780 | 95 | 30 | 8 | 642.0 |
+| 2026-11-25T04:08 | reel | AI | Elon Musk: Earns more renting AI power at SpaceX | 877 | 98 | 24 | 0 | 443.4 |
+| 2026-11-25T02:07 | reel | TECH | Elon Musk’s Falcon Heavy test rockets to 5 million lb‑force | 1290 | 91 | 21 | 0 | 503.0 |
+| 2026-11-25T00:07 | photo | TECH | Elon Musk's AI5 chip skips self-driving cars | 631 | 47 | 18 | 10 | 280.2 |
+| 2026-11-24T23:10 | reel | BUSINESS | Elon Musk banned the tracker following his private jets | 692 | 32 | 8 | 0 | 226.4 |
+| 2026-11-24T22:10 | reel | TECH | Elon Musk pledged $1B to OpenAI, gave only $50M | 688 | 39 | 5 | 0 | 230.6 |
+| 2026-11-24T20:10 | reel | TECH | Amazon Kuiper Falls Behind Starlink in Satellite Race | 2277 | 70 | 15 | 0 | 640.4 |
+| 2026-11-24T05:07 | photo | TECH | Elon Musk’s Tesla raises financing rates to 2.99% | 777 | 68 | 26 | 14 | 375.4 |
+| 2026-11-23T05:08 | photo | BUSINESS | Elon Musk dodged military service with a Canadian passport | 2774 | 118 | 41 | 13 | 919.8 |
+| 2026-11-23T04:07 | reel | AI | Elon Musk says singularity has begun, sparking debate | 2066 | 173 | 24 | 0 | 831.2 |
+| 2026-11-23T02:11 | reel | BUSINESS | Elon Musk’s Starbase creates 5,000 jobs in poor Texas town | 1900 | 148 | 28 | 0 | 760.0 |
 | 2026-11-23T00:07 | photo | TECH | Tesla robotaxi embeds Starlink directly in roof | 571 | 53 | 7 | 6 | 247.2 |
-| 2026-11-22T23:08 | reel | TECH | Elon Musk launches secret NROL-136 spy satellites | 1932 | 182 | 22 | 0 | 816.4 |
-| 2026-11-22T22:07 | reel | TECH | Elon Musk: Tesla AI chips drive 10x annual growth | 1296 | 90 | 11 | 0 | 472.2 |
-| 2026-11-22T20:07 | reel | TECH | Musk gives AI5 to robots, not cars | 1234 | 45 | 13 | 0 | 375.8 |
+| 2026-11-22T23:08 | reel | TECH | Elon Musk launches secret NROL-136 spy satellites | 1941 | 183 | 22 | 0 | 820.2 |
+| 2026-11-22T22:07 | reel | TECH | Elon Musk: Tesla AI chips drive 10x annual growth | 1300 | 92 | 11 | 0 | 477.0 |
+| 2026-11-22T20:07 | reel | TECH | Musk gives AI5 to robots, not cars | 1236 | 46 | 13 | 0 | 378.2 |
 | 2026-11-22T05:07 | photo | BUSINESS | Elon Musk's Cybertruck becomes America's fastest-selling used truck | 586 | 43 | 9 | 10 | 236.2 |
-| 2026-11-22T04:07 | reel | SCIENCE | SpaceX delivers 6,300‑pound cancer research cargo | 1253 | 94 | 10 | 0 | 468.6 |
-| 2026-11-22T02:07 | reel | POLITICS | FAA delays Starship license, adds 60‑day setback | 1465 | 84 | 12 | 0 | 497.0 |
+| 2026-11-22T04:07 | reel | SCIENCE | SpaceX delivers 6,300‑pound cancer research cargo | 1257 | 94 | 10 | 0 | 469.4 |
+| 2026-11-22T02:07 | reel | POLITICS | FAA delays Starship license, adds 60‑day setback | 1476 | 86 | 12 | 0 | 503.2 |
 | 2026-11-22T00:06 | photo | TECH | Elon Musk announces wide release of FSD v15 | 1124 | 64 | 17 | 7 | 409.8 |
-| 2026-11-21T23:14 | reel | BUSINESS | Elon Musk: Starlink phone service 40x bandwidth threatens AT&T revenue | 4864 | 273 | 52 | 0 | 1674.8 |
-| 2026-11-21T22:07 | reel | CELEBRITY | Elon Musk freezes during Argentina launch, says I don't know what to say | 7568 | 312 | 45 | 0 | 2272.6 |
-| 2026-11-21T20:07 | reel | POLITICS | Elon Musk hired five Democratic lobbyists | 1717 | 68 | 11 | 0 | 512.4 |
+| 2026-11-21T23:14 | reel | BUSINESS | Elon Musk: Starlink phone service 40x bandwidth threatens AT&T revenue | 5286 | 286 | 52 | 0 | 1785.2 |
+| 2026-11-21T22:07 | reel | CELEBRITY | Elon Musk freezes during Argentina launch, says I don't know what to say | 7682 | 317 | 45 | 0 | 2305.4 |
+| 2026-11-21T20:07 | reel | POLITICS | Elon Musk hired five Democratic lobbyists | 1723 | 69 | 11 | 0 | 515.6 |
 | 2026-11-21T05:08 | photo | TECH | Elon Musk’s SpaceX lands 11th droneship recovery after USSF‑317 launch | 988 | 86 | 40 | 15 | 495.6 |
 | 2026-11-21T04:10 | reel | TECH | Elon Musk crashes $1 million McLaren | 1563 | 142 | 37 | 0 | 707.6 |
 | 2026-11-21T02:07 | reel | VIRAL | Elon Musk says Optimus could be biggest product ever | 1268 | 67 | 11 | 0 | 420.6 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | E
 | 2026-11-19T23:07 | reel | TECH | Elon Musk sued over hijab‑violating deepfakes | 1407 | 104 | 13 | 0 | 528.4 |
 | 2026-11-19T22:06 | reel | BUSINESS | Elon Musk faces $300 billion cost challenge from Verizon | 1296 | 86 | 18 | 0 | 485.2 |
 | 2026-11-19T20:07 | reel | TECH | Musk promises interactive Optimus video in two months | 13949 | 499 | 50 | 0 | 3937.8 |
-| 2026-11-19T05:09 | photo | TECH | Elon Musk unveils steering‑wheel‑free Model Y for families | 540 | 32 | 8 | 7 | 202.0 |
