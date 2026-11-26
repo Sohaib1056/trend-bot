@@ -1,21 +1,22 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-26 02:06 UTC_
+_Updated 2026-11-26 04:06 UTC_
 
 ```
 Based on the last 287 posts on this page:
-Best categories: BUSINESS (1057.1), TECH (1053.7), CELEBRITY (918.1)
-Weakest categories: TV & FILM (425.1), SPORTS (74.8)
-Format: reel (1070.2, 204 posts), photo (546.8, 83 posts)
-Best posting slots (UTC): 21:00 (2013.5), 19:00 (1319.0), 02:00 (1206.2)
-Best faces on this page (avg views per post): Elon Musk 2884 (267 posts), Donald Trump 670 (3 posts), OpenAI 706 (1 posts), Sam Altman 656 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 556 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best categories: BUSINESS (1057.4), TECH (1055.3), CELEBRITY (918.1)
+Weakest categories: VIRAL (392.6), SPORTS (74.8)
+Format: reel (1066.2, 204 posts), photo (546.8, 83 posts)
+Best posting slots (UTC): 21:00 (2013.5), 19:00 (1319.0), 02:00 (1163.0)
+Best faces on this page (avg views per post): Elon Musk 2878 (267 posts), Donald Trump 670 (3 posts), OpenAI 706 (1 posts), Sam Altman 659 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 556 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Boring Company plans 150 mph underground cars (7648.2)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-26T02:07 | reel | VIRAL | Elon Musk sold a video game for $500 at age 12 | 135 | 2 | 1 | 0 | 34.0 |
 | 2026-11-26T00:06 | photo | POLITICS | Elon Musk’s SpaceX matches Trump contributions, sparking debate | 134 | 10 | 2 | 1 | 55.8 |
-| 2026-11-25T23:07 | reel | TECH | Elon Musk gives free Starlink hardware, cuts $738M grants | 139 | 2 | 1 | 0 | 34.8 |
+| 2026-11-25T23:07 | reel | TECH | Elon Musk gives free Starlink hardware, cuts $738M grants | 299 | 3 | 1 | 0 | 68.8 |
 | 2026-11-25T22:09 | reel | TECH | Elon Musk avoids apartheid army by moving to Canada | 321 | 9 | 2 | 0 | 88.2 |
 | 2026-11-25T20:08 | reel | TECH | Elon Musk launches xAI to rival ChatGPT | 359 | 14 | 0 | 0 | 99.8 |
 | 2026-11-25T05:07 | photo | AI | Elon Musk's robot sparks job debate | 1780 | 95 | 30 | 8 | 642.0 |
@@ -40,17 +41,16 @@ Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | E
 | 2026-11-21T23:14 | reel | BUSINESS | Elon Musk: Starlink phone service 40x bandwidth threatens AT&T revenue | 5286 | 286 | 52 | 0 | 1785.2 |
 | 2026-11-21T22:07 | reel | CELEBRITY | Elon Musk freezes during Argentina launch, says I don't know what to say | 7682 | 317 | 45 | 0 | 2305.4 |
 | 2026-11-21T20:07 | reel | POLITICS | Elon Musk hired five Democratic lobbyists | 1723 | 69 | 11 | 0 | 515.6 |
-| 2026-11-21T05:08 | photo | TECH | Elon Musk’s SpaceX lands 11th droneship recovery after USSF‑317 launch | 988 | 86 | 40 | 15 | 495.6 |
-| 2026-11-21T04:10 | reel | TECH | Elon Musk crashes $1 million McLaren | 1563 | 142 | 37 | 0 | 707.6 |
-| 2026-11-21T02:07 | reel | VIRAL | Elon Musk says Optimus could be biggest product ever | 1268 | 67 | 11 | 0 | 420.6 |
-| 2026-11-21T00:07 | photo | TECH | Elon Musk's SpaceX attempts live Starship landing capture | 794 | 61 | 18 | 11 | 340.8 |
-| 2026-11-20T23:08 | reel | TECH | Elon Musk's Cybertruck loses $50,000 in two years | 1750 | 169 | 21 | 0 | 751.0 |
-| 2026-11-20T22:07 | reel | TECH | Elon Musk's Tesla gets green light in Italy | 11278 | 773 | 53 | 0 | 3960.6 |
-| 2026-11-20T20:07 | reel | BUSINESS | Musk predicts SpaceX to be world's largest company | 1496 | 59 | 12 | 0 | 453.2 |
+| 2026-11-21T05:08 | photo | TECH | Elon Musk’s SpaceX lands 11th droneship recovery after USSF‑317 launch | 989 | 86 | 40 | 15 | 495.8 |
+| 2026-11-21T04:10 | reel | TECH | Elon Musk crashes $1 million McLaren | 1567 | 143 | 37 | 0 | 710.4 |
+| 2026-11-21T02:07 | reel | VIRAL | Elon Musk says Optimus could be biggest product ever | 1275 | 68 | 11 | 0 | 424.0 |
+| 2026-11-21T00:07 | photo | TECH | Elon Musk's SpaceX attempts live Starship landing capture | 795 | 61 | 18 | 11 | 341.0 |
+| 2026-11-20T23:08 | reel | TECH | Elon Musk's Cybertruck loses $50,000 in two years | 1752 | 170 | 21 | 0 | 753.4 |
+| 2026-11-20T22:07 | reel | TECH | Elon Musk's Tesla gets green light in Italy | 11525 | 789 | 53 | 0 | 4042.0 |
+| 2026-11-20T20:07 | reel | BUSINESS | Musk predicts SpaceX to be world's largest company | 1500 | 58 | 12 | 0 | 452.0 |
 | 2026-11-20T05:07 | photo | POLITICS | Elon Musk says he is not MAGA at DealBook Summit | 1483 | 91 | 46 | 16 | 622.6 |
-| 2026-11-20T04:06 | reel | BUSINESS | Elon Musk's Tesla ends 13‑month European sales slump | 7677 | 676 | 54 | 0 | 3049.4 |
-| 2026-11-20T02:07 | reel | TECH | Elon Musk’s flamethrower sales spark $10 million buzz | 1556 | 37 | 14 | 0 | 427.2 |
-| 2026-11-20T00:07 | photo | BUSINESS | SpaceX stock drops 3.5% after Anthropic's boom | 2037 | 98 | 31 | 9 | 702.4 |
-| 2026-11-19T23:07 | reel | TECH | Elon Musk sued over hijab‑violating deepfakes | 1407 | 104 | 13 | 0 | 528.4 |
-| 2026-11-19T22:06 | reel | BUSINESS | Elon Musk faces $300 billion cost challenge from Verizon | 1296 | 86 | 18 | 0 | 485.2 |
-| 2026-11-19T20:07 | reel | TECH | Musk promises interactive Optimus video in two months | 13949 | 499 | 50 | 0 | 3937.8 |
+| 2026-11-20T04:06 | reel | BUSINESS | Elon Musk's Tesla ends 13‑month European sales slump | 7719 | 679 | 54 | 0 | 3063.8 |
+| 2026-11-20T02:07 | reel | TECH | Elon Musk’s flamethrower sales spark $10 million buzz | 1559 | 38 | 14 | 0 | 429.8 |
+| 2026-11-20T00:07 | photo | BUSINESS | SpaceX stock drops 3.5% after Anthropic's boom | 2039 | 98 | 31 | 9 | 702.8 |
+| 2026-11-19T23:07 | reel | TECH | Elon Musk sued over hijab‑violating deepfakes | 1411 | 104 | 13 | 0 | 529.2 |
+| 2026-11-19T22:06 | reel | BUSINESS | Elon Musk faces $300 billion cost challenge from Verizon | 1306 | 88 | 18 | 0 | 491.2 |
