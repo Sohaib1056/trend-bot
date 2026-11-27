@@ -5,7 +5,7 @@ import re
 import sys
 from datetime import datetime, timedelta, timezone
 
-from . import ai, config, growth, insights, meta, poster, reel, trends
+from . import ai, config, growth, insights, meta, poster, reel, trends, youtube
 
 # extra safety net on top of the AI's own rules
 BLOCK_WORDS = re.compile(
@@ -580,6 +580,11 @@ def main():
                     print(f"[meta] Instagram Reel posted: {record['instagram']}")
                 except Exception as e:
                     print(f"[meta] Instagram Reel failed: {e}")
+            if res and youtube.configured():  # same Reel as a YouTube Short, with YouTube's own title/description/tags
+                try:
+                    record["youtube"] = youtube.upload_short(video, p, caption)
+                except Exception as e:
+                    print(f"[youtube] Short failed: {e}")
             if not res:  # the Reel went nowhere -> fall back to the photo post
                 print("[main] Reel failed on every platform -> posting the photo instead")
                 record["format"] = "photo"

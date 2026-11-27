@@ -53,7 +53,7 @@ and publishes 7 times a day. It runs on **GitHub Actions** (the owner's PC can b
 
 ### GitHub Secrets (names only)
 
-`GEMINI_API_KEY`, `GROQ_API_KEY`, `CF_ACCOUNT_ID`, `CF_API_TOKEN`, `PIXABAY_API_KEY`, `FB_PAGE_ID`, `FB_PAGE_TOKEN`,
+`YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN` (YouTube, optional), `GEMINI_API_KEY`, `GROQ_API_KEY`, `CF_ACCOUNT_ID`, `CF_API_TOKEN`, `PIXABAY_API_KEY`, `FB_PAGE_ID`, `FB_PAGE_TOKEN`,
 `IG_USER_ID`. Optional and unused: `PEXELS_API_KEY` (Pexels stopped issuing keys), `POLLINATIONS_API_KEY`,
 `THREADS_USER_ID`, `THREADS_TOKEN`.
 
@@ -211,6 +211,11 @@ then shift every slot back -1 h (`1,3,4,19,21,22,23`, photos `4,23`, star `19,21
       `image_url`.
     - The bot then writes its first comment.
     - If the Reel upload fails, it posts the photo instead.
+    - **YouTube Shorts** (`bot/youtube.py`, since 11-03): the same Reel, with a YouTube title (max 70 chars,
+      keyword first, " #Shorts"), description (keywords, "Subscribe for daily Elon Musk news", 3-5 hashtags, photo
+      credits) and 10-15 search tags, written by the small Groq model. Needs secrets `YT_CLIENT_ID`,
+      `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN` (made once with `tools/youtube_auth.py`); skipped without them.
+      Quota: 1,600 of 10,000 units per upload. New API projects upload as private until Google's API audit passes.
 12. Save the record to `state/posted.json` (key, topic, headline, badge, slot, face, format and post IDs). The workflow
     commits the state with `pull --rebase -X theirs` and retries.
 13. `engage()` **after** posting:
@@ -231,6 +236,8 @@ then shift every slot back -1 h (`1,3,4,19,21,22,23`, photos `4,23`, star `19,21
 | `bot/ai.py` | Prompt, Gemini/Groq/Cloudflare writers, `_light`, `same_story`, `edit_reel` (AI editor), `judge_image` (Gemini → Groq vision → Cloudflare llama-4-scout), `BAIT` |
 | `bot/poster.py` | Photo search (Wikipedia/Commons/Openverse), poster templates (default "card"), downloads with 429 retry |
 | `bot/reel.py` | Reel rendering (PIL + imageio-ffmpeg), TTS, scene planning, stock video sources |
+| `bot/youtube.py` | YouTube Shorts upload (token refresh, resumable upload, YouTube title/description/tags) |
+| `tools/youtube_auth.py` | One-time local login that prints the YouTube refresh token for GitHub Secrets |
 | `bot/meta.py` | Graph API: connection check (FB + IG), photo, Reel and Instagram publish |
 | `bot/insights.py` | Stats, score, face stats, best slot/format, `star_angles`, comment replies, performance summary for the AI |
 | `bot/growth.py` | Follow line, share links, USA group lists, daily to-do issue |

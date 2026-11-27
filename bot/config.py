@@ -39,6 +39,7 @@ SLOT_WINDOW_HOURS = _int("SLOT_WINDOW_HOURS", 3)
 DRY_RUN = _bool("DRY_RUN", True)            # True = make posters only, do NOT upload
 POST_TO_FACEBOOK = _bool("POST_TO_FACEBOOK", True)
 POST_TO_INSTAGRAM = _bool("POST_TO_INSTAGRAM", True)
+POST_TO_YOUTUBE = _bool("POST_TO_YOUTUBE", True)  # Reels also as YouTube Shorts (needs the YT_* secrets)
 # What each slot posts: "alternate" (Reel, photo, Reel, ...), "reel", "photo" or "both"
 POST_FORMAT = (os.getenv("POST_FORMAT", "") or "slots").strip().lower()
 # "slots": photo posts in these slots (7 PM and midnight New York), Reels in all others
