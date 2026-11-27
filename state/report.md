@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-27 22:06 UTC_
+_Updated 2026-11-27 23:06 UTC_
 
 ```
 Based on the last 287 posts on this page:
-Best categories: TECH (1027.5), BUSINESS (948.9), CELEBRITY (936.0)
-Weakest categories: VIRAL (411.2), SPORTS (74.8)
-Format: reel (1020.5, 203 posts), photo (553.3, 84 posts)
-Best posting slots (UTC): 21:00 (1717.0), 02:00 (1217.3), 19:00 (1087.9)
-Best faces on this page (avg views per post): Elon Musk 2803 (267 posts), Donald Trump 670 (3 posts), OpenAI 706 (1 posts), Sam Altman 659 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 556 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best categories: TECH (1019.0), CELEBRITY (975.6), BUSINESS (949.4)
+Weakest categories: VIRAL (411.3), SPORTS (74.8)
+Format: reel (1016.0, 204 posts), photo (553.3, 83 posts)
+Best posting slots (UTC): 21:00 (1717.0), 02:00 (1217.5), 19:00 (1087.9)
+Best faces on this page (avg views per post): Elon Musk 2800 (267 posts), Donald Trump 670 (3 posts), OpenAI 706 (1 posts), Sam Altman 659 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 556 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7437.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-27T22:07 | reel | TECH | Elon Musk: Optimus Will Wash Dishes in 18 Months | 183 | 4 | 0 | 0 | 44.6 |
 | 2026-11-27T20:07 | reel | BUSINESS | Elon Musk just ends Cybertruck as used demand surges | 457 | 6 | 1 | 0 | 106.4 |
 | 2026-11-27T05:06 | photo | BUSINESS | Elon Musk pledges $18 billion in SpaceX stock to US kids | 405 | 36 | 8 | 8 | 183.0 |
 | 2026-11-26T20:07 | reel | POLITICS | Musk rejects Dark MAGA label he used | 2429 | 14 | 1 | 0 | 516.8 |
@@ -39,18 +40,17 @@ Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | E
 | 2026-11-22T23:08 | reel | TECH | Elon Musk launches secret NROL-136 spy satellites | 2032 | 188 | 21 | 0 | 845.4 |
 | 2026-11-22T22:07 | reel | TECH | Elon Musk: Tesla AI chips drive 10x annual growth | 1329 | 94 | 11 | 0 | 486.8 |
 | 2026-11-22T20:07 | reel | TECH | Musk gives AI5 to robots, not cars | 1258 | 46 | 13 | 0 | 382.6 |
-| 2026-11-22T05:07 | photo | BUSINESS | Elon Musk's Cybertruck becomes America's fastest-selling used truck | 593 | 43 | 9 | 10 | 237.6 |
-| 2026-11-22T04:07 | reel | SCIENCE | SpaceX delivers 6,300‑pound cancer research cargo | 1268 | 93 | 10 | 0 | 469.6 |
-| 2026-11-22T02:07 | reel | POLITICS | FAA delays Starship license, adds 60‑day setback | 1518 | 88 | 12 | 0 | 515.6 |
+| 2026-11-22T05:07 | photo | BUSINESS | Elon Musk's Cybertruck becomes America's fastest-selling used truck | 594 | 43 | 9 | 11 | 237.8 |
+| 2026-11-22T04:07 | reel | SCIENCE | SpaceX delivers 6,300‑pound cancer research cargo | 1270 | 94 | 10 | 0 | 472.0 |
+| 2026-11-22T02:07 | reel | POLITICS | FAA delays Starship license, adds 60‑day setback | 1522 | 89 | 12 | 0 | 518.4 |
 | 2026-11-22T00:06 | photo | TECH | Elon Musk announces wide release of FSD v15 | 1157 | 68 | 18 | 8 | 427.4 |
-| 2026-11-21T23:14 | reel | BUSINESS | Elon Musk: Starlink phone service 40x bandwidth threatens AT&T revenue | 7765 | 381 | 52 | 0 | 2471.0 |
-| 2026-11-21T22:07 | reel | CELEBRITY | Elon Musk freezes during Argentina launch, says I don't know what to say | 8459 | 338 | 45 | 0 | 2502.8 |
-| 2026-11-21T20:07 | reel | POLITICS | Elon Musk hired five Democratic lobbyists | 1760 | 70 | 11 | 0 | 525.0 |
+| 2026-11-21T23:14 | reel | BUSINESS | Elon Musk: Starlink phone service 40x bandwidth threatens AT&T revenue | 7891 | 387 | 52 | 0 | 2508.2 |
+| 2026-11-21T22:07 | reel | CELEBRITY | Elon Musk freezes during Argentina launch, says I don't know what to say | 8511 | 339 | 45 | 0 | 2515.2 |
+| 2026-11-21T20:07 | reel | POLITICS | Elon Musk hired five Democratic lobbyists | 1763 | 70 | 11 | 0 | 525.6 |
 | 2026-11-21T05:08 | photo | TECH | Elon Musk’s SpaceX lands 11th droneship recovery after USSF‑317 launch | 991 | 86 | 40 | 15 | 496.2 |
-| 2026-11-21T04:10 | reel | TECH | Elon Musk crashes $1 million McLaren | 1580 | 144 | 36 | 0 | 712.0 |
-| 2026-11-21T02:07 | reel | VIRAL | Elon Musk says Optimus could be biggest product ever | 1287 | 68 | 11 | 0 | 426.4 |
+| 2026-11-21T04:10 | reel | TECH | Elon Musk crashes $1 million McLaren | 1582 | 143 | 36 | 0 | 710.4 |
+| 2026-11-21T02:07 | reel | VIRAL | Elon Musk says Optimus could be biggest product ever | 1291 | 68 | 11 | 0 | 427.2 |
 | 2026-11-21T00:07 | photo | TECH | Elon Musk's SpaceX attempts live Starship landing capture | 796 | 61 | 18 | 11 | 341.2 |
-| 2026-11-20T23:08 | reel | TECH | Elon Musk's Cybertruck loses $50,000 in two years | 1756 | 169 | 21 | 0 | 752.2 |
+| 2026-11-20T23:08 | reel | TECH | Elon Musk's Cybertruck loses $50,000 in two years | 1758 | 168 | 21 | 0 | 750.6 |
 | 2026-11-20T22:07 | reel | TECH | Elon Musk's Tesla gets green light in Italy | 12806 | 909 | 53 | 0 | 4538.2 |
 | 2026-11-20T20:07 | reel | BUSINESS | Musk predicts SpaceX to be world's largest company | 1505 | 59 | 12 | 0 | 455.0 |
-| 2026-11-20T05:07 | photo | POLITICS | Elon Musk says he is not MAGA at DealBook Summit | 1483 | 91 | 46 | 16 | 622.6 |
