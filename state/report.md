@@ -1,43 +1,44 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-27 20:05 UTC_
+_Updated 2026-11-27 22:06 UTC_
 
 ```
 Based on the last 287 posts on this page:
-Best categories: TECH (1027.4), BUSINESS (959.7), CELEBRITY (936.0)
-Weakest categories: VIRAL (410.9), SPORTS (74.8)
-Format: reel (1020.6, 203 posts), photo (552.7, 84 posts)
+Best categories: TECH (1027.5), BUSINESS (948.9), CELEBRITY (936.0)
+Weakest categories: VIRAL (411.2), SPORTS (74.8)
+Format: reel (1020.5, 203 posts), photo (553.3, 84 posts)
 Best posting slots (UTC): 21:00 (1717.0), 02:00 (1217.3), 19:00 (1087.9)
-Best faces on this page (avg views per post): Elon Musk 2802 (267 posts), Donald Trump 670 (3 posts), OpenAI 706 (1 posts), Sam Altman 659 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 556 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2803 (267 posts), Donald Trump 670 (3 posts), OpenAI 706 (1 posts), Sam Altman 659 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 556 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7437.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
-| 2026-11-27T05:06 | photo | BUSINESS | Elon Musk pledges $18 billion in SpaceX stock to US kids | 345 | 32 | 8 | 8 | 163.0 |
-| 2026-11-26T20:07 | reel | POLITICS | Musk rejects Dark MAGA label he used | 2249 | 13 | 1 | 0 | 478.8 |
-| 2026-11-26T05:07 | photo | AI | Elon Musk gets FCC clearance for 1 million AI satellites | 1211 | 77 | 33 | 16 | 501.2 |
-| 2026-11-26T04:08 | reel | BUSINESS | Elon Musk leads new agency DOGE | 1040 | 68 | 16 | 0 | 392.0 |
-| 2026-11-26T02:07 | reel | VIRAL | Elon Musk sold a video game for $500 at age 12 | 595 | 25 | 9 | 0 | 196.0 |
-| 2026-11-26T00:06 | photo | POLITICS | Elon Musk’s SpaceX matches Trump contributions, sparking debate | 557 | 44 | 20 | 5 | 265.4 |
-| 2026-11-25T23:07 | reel | TECH | Elon Musk gives free Starlink hardware, cuts $738M grants | 644 | 26 | 10 | 0 | 210.8 |
-| 2026-11-25T22:09 | reel | TECH | Elon Musk avoids apartheid army by moving to Canada | 799 | 37 | 12 | 0 | 269.8 |
-| 2026-11-25T20:08 | reel | TECH | Elon Musk launches xAI to rival ChatGPT | 1060 | 42 | 8 | 0 | 320.0 |
-| 2026-11-25T05:07 | photo | AI | Elon Musk's robot sparks job debate | 2223 | 115 | 35 | 10 | 785.6 |
-| 2026-11-25T04:08 | reel | AI | Elon Musk: Earns more renting AI power at SpaceX | 1403 | 126 | 34 | 0 | 634.6 |
-| 2026-11-25T02:07 | reel | TECH | Elon Musk’s Falcon Heavy test rockets to 5 million lb‑force | 1618 | 133 | 26 | 0 | 667.6 |
-| 2026-11-25T00:07 | photo | TECH | Elon Musk's AI5 chip skips self-driving cars | 868 | 52 | 18 | 11 | 337.6 |
-| 2026-11-24T23:10 | reel | BUSINESS | Elon Musk banned the tracker following his private jets | 725 | 34 | 8 | 0 | 237.0 |
-| 2026-11-24T22:10 | reel | TECH | Elon Musk pledged $1B to OpenAI, gave only $50M | 743 | 52 | 6 | 0 | 270.6 |
-| 2026-11-24T20:10 | reel | TECH | Amazon Kuiper Falls Behind Starlink in Satellite Race | 2374 | 82 | 15 | 0 | 683.8 |
-| 2026-11-24T05:07 | photo | TECH | Elon Musk’s Tesla raises financing rates to 2.99% | 865 | 74 | 26 | 14 | 405.0 |
-| 2026-11-23T05:08 | photo | BUSINESS | Elon Musk dodged military service with a Canadian passport | 2836 | 117 | 42 | 16 | 933.2 |
-| 2026-11-23T04:07 | reel | AI | Elon Musk says singularity has begun, sparking debate | 2111 | 175 | 24 | 0 | 844.2 |
-| 2026-11-23T02:11 | reel | BUSINESS | Elon Musk’s Starbase creates 5,000 jobs in poor Texas town | 1950 | 150 | 28 | 0 | 774.0 |
-| 2026-11-23T00:07 | photo | TECH | Tesla robotaxi embeds Starlink directly in roof | 587 | 53 | 8 | 6 | 253.4 |
-| 2026-11-22T23:08 | reel | TECH | Elon Musk launches secret NROL-136 spy satellites | 2017 | 188 | 22 | 0 | 845.4 |
-| 2026-11-22T22:07 | reel | TECH | Elon Musk: Tesla AI chips drive 10x annual growth | 1321 | 95 | 11 | 0 | 487.2 |
-| 2026-11-22T20:07 | reel | TECH | Musk gives AI5 to robots, not cars | 1255 | 47 | 13 | 0 | 384.0 |
+| 2026-11-27T20:07 | reel | BUSINESS | Elon Musk just ends Cybertruck as used demand surges | 457 | 6 | 1 | 0 | 106.4 |
+| 2026-11-27T05:06 | photo | BUSINESS | Elon Musk pledges $18 billion in SpaceX stock to US kids | 405 | 36 | 8 | 8 | 183.0 |
+| 2026-11-26T20:07 | reel | POLITICS | Musk rejects Dark MAGA label he used | 2429 | 14 | 1 | 0 | 516.8 |
+| 2026-11-26T05:07 | photo | AI | Elon Musk gets FCC clearance for 1 million AI satellites | 1245 | 80 | 33 | 17 | 514.0 |
+| 2026-11-26T04:08 | reel | BUSINESS | Elon Musk leads new agency DOGE | 1047 | 69 | 16 | 0 | 395.4 |
+| 2026-11-26T02:07 | reel | VIRAL | Elon Musk sold a video game for $500 at age 12 | 598 | 26 | 9 | 0 | 198.6 |
+| 2026-11-26T00:06 | photo | POLITICS | Elon Musk’s SpaceX matches Trump contributions, sparking debate | 562 | 44 | 20 | 6 | 266.4 |
+| 2026-11-25T23:07 | reel | TECH | Elon Musk gives free Starlink hardware, cuts $738M grants | 653 | 27 | 10 | 0 | 214.6 |
+| 2026-11-25T22:09 | reel | TECH | Elon Musk avoids apartheid army by moving to Canada | 807 | 37 | 12 | 0 | 271.4 |
+| 2026-11-25T20:08 | reel | TECH | Elon Musk launches xAI to rival ChatGPT | 1068 | 46 | 8 | 0 | 329.6 |
+| 2026-11-25T05:07 | photo | AI | Elon Musk's robot sparks job debate | 2258 | 117 | 34 | 11 | 793.6 |
+| 2026-11-25T04:08 | reel | AI | Elon Musk: Earns more renting AI power at SpaceX | 1424 | 130 | 33 | 0 | 643.8 |
+| 2026-11-25T02:07 | reel | TECH | Elon Musk’s Falcon Heavy test rockets to 5 million lb‑force | 1631 | 133 | 25 | 0 | 667.2 |
+| 2026-11-25T00:07 | photo | TECH | Elon Musk's AI5 chip skips self-driving cars | 881 | 54 | 17 | 12 | 341.2 |
+| 2026-11-24T23:10 | reel | BUSINESS | Elon Musk banned the tracker following his private jets | 731 | 34 | 7 | 0 | 235.2 |
+| 2026-11-24T22:10 | reel | TECH | Elon Musk pledged $1B to OpenAI, gave only $50M | 753 | 51 | 5 | 0 | 267.6 |
+| 2026-11-24T20:10 | reel | TECH | Amazon Kuiper Falls Behind Starlink in Satellite Race | 2384 | 82 | 14 | 0 | 682.8 |
+| 2026-11-24T05:07 | photo | TECH | Elon Musk’s Tesla raises financing rates to 2.99% | 867 | 74 | 26 | 15 | 405.4 |
+| 2026-11-23T05:08 | photo | BUSINESS | Elon Musk dodged military service with a Canadian passport | 2844 | 117 | 42 | 16 | 934.8 |
+| 2026-11-23T04:07 | reel | AI | Elon Musk says singularity has begun, sparking debate | 2114 | 173 | 23 | 0 | 837.8 |
+| 2026-11-23T02:11 | reel | BUSINESS | Elon Musk’s Starbase creates 5,000 jobs in poor Texas town | 1954 | 150 | 27 | 0 | 771.8 |
+| 2026-11-23T00:07 | photo | TECH | Tesla robotaxi embeds Starlink directly in roof | 588 | 54 | 8 | 7 | 255.6 |
+| 2026-11-22T23:08 | reel | TECH | Elon Musk launches secret NROL-136 spy satellites | 2032 | 188 | 21 | 0 | 845.4 |
+| 2026-11-22T22:07 | reel | TECH | Elon Musk: Tesla AI chips drive 10x annual growth | 1329 | 94 | 11 | 0 | 486.8 |
+| 2026-11-22T20:07 | reel | TECH | Musk gives AI5 to robots, not cars | 1258 | 46 | 13 | 0 | 382.6 |
 | 2026-11-22T05:07 | photo | BUSINESS | Elon Musk's Cybertruck becomes America's fastest-selling used truck | 593 | 43 | 9 | 10 | 237.6 |
 | 2026-11-22T04:07 | reel | SCIENCE | SpaceX delivers 6,300‑pound cancer research cargo | 1268 | 93 | 10 | 0 | 469.6 |
 | 2026-11-22T02:07 | reel | POLITICS | FAA delays Starship license, adds 60‑day setback | 1518 | 88 | 12 | 0 | 515.6 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | E
 | 2026-11-20T22:07 | reel | TECH | Elon Musk's Tesla gets green light in Italy | 12806 | 909 | 53 | 0 | 4538.2 |
 | 2026-11-20T20:07 | reel | BUSINESS | Musk predicts SpaceX to be world's largest company | 1505 | 59 | 12 | 0 | 455.0 |
 | 2026-11-20T05:07 | photo | POLITICS | Elon Musk says he is not MAGA at DealBook Summit | 1483 | 91 | 46 | 16 | 622.6 |
-| 2026-11-20T04:06 | reel | BUSINESS | Elon Musk's Tesla ends 13‑month European sales slump | 7719 | 679 | 54 | 0 | 3063.8 |
