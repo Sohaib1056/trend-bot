@@ -1,21 +1,22 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-28 02:05 UTC_
+_Updated 2026-11-28 04:05 UTC_
 
 ```
 Based on the last 288 posts on this page:
-Best categories: TECH (1011.4), CELEBRITY (976.8), BUSINESS (950.8)
+Best categories: TECH (1002.8), CELEBRITY (976.8), BUSINESS (950.8)
 Weakest categories: VIRAL (375.6), SPORTS (74.8)
-Format: reel (1012.5, 204 posts), photo (547.6, 84 posts)
-Best posting slots (UTC): 21:00 (1717.0), 02:00 (1218.2), 19:00 (1094.0)
-Best faces on this page (avg views per post): Elon Musk 2783 (268 posts), Donald Trump 670 (3 posts), OpenAI 706 (1 posts), Sam Altman 659 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 556 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
+Format: reel (1006.5, 204 posts), photo (547.6, 84 posts)
+Best posting slots (UTC): 21:00 (1744.4), 02:00 (1173.1), 19:00 (1094.0)
+Best faces on this page (avg views per post): Elon Musk 2772 (268 posts), Donald Trump 670 (3 posts), OpenAI 706 (1 posts), Sam Altman 659 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 556 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7437.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-28T02:06 | reel | TECH | Elon Musk’s Tesla Shop Dogecoin guide launched | 0 | 0 | 0 | 0 | 0.0 |
 | 2026-11-28T00:08 | photo | VIRAL | Elon Musk's Tesla sparks massive geyser at Livermore outlet | 82 | 11 | 4 | 0 | 50.4 |
-| 2026-11-27T23:11 | reel | TECH | Elon Musk’s X could sell user data when sold | 14 | 0 | 0 | 0 | 2.8 |
+| 2026-11-27T23:11 | reel | TECH | Elon Musk’s X could sell user data when sold | 0 | 0 | 0 | 0 | 0.0 |
 | 2026-11-27T22:07 | reel | TECH | Elon Musk: Optimus Will Wash Dishes in 18 Months | 512 | 10 | 2 | 0 | 128.4 |
 | 2026-11-27T20:07 | reel | BUSINESS | Elon Musk just ends Cybertruck as used demand surges | 854 | 7 | 1 | 0 | 187.8 |
 | 2026-11-27T05:06 | photo | BUSINESS | Elon Musk pledges $18 billion in SpaceX stock to US kids | 433 | 38 | 8 | 8 | 192.6 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | E
 | 2026-11-21T04:10 | reel | TECH | Elon Musk crashes $1 million McLaren | 1584 | 143 | 36 | 0 | 710.8 |
 | 2026-11-21T02:07 | reel | VIRAL | Elon Musk says Optimus could be biggest product ever | 1291 | 68 | 11 | 0 | 427.2 |
 | 2026-11-21T00:07 | photo | TECH | Elon Musk's SpaceX attempts live Starship landing capture | 796 | 61 | 18 | 11 | 341.2 |
-| 2026-11-20T23:08 | reel | TECH | Elon Musk's Cybertruck loses $50,000 in two years | 1758 | 168 | 21 | 0 | 750.6 |

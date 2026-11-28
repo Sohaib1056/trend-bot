@@ -7596,12 +7596,10 @@
       "instagram": "18030614342877697",
       "youtube": "uH2NBvH6s9g",
       "stats": {
-        "views": 14,
-        "reactions": 0,
-        "comments": 0,
+        "views": 0,
         "shares": 0,
-        "checked": "2026-11-28T00:05+00:00",
-        "score": 2.8
+        "checked": "2026-11-28T04:05+00:00",
+        "score": 0.0
       }
     },
     {
@@ -7647,7 +7645,13 @@
       "facebook_reel": "1686017389856653",
       "facebook": "1686017389856653",
       "instagram": "17878921866650125",
-      "youtube": "CbpfYE35Erg"
+      "youtube": "CbpfYE35Erg",
+      "stats": {
+        "views": 0,
+        "shares": 0,
+        "checked": "2026-11-28T04:05+00:00",
+        "score": 0.0
+      }
     }
   ],
   "replied": [
