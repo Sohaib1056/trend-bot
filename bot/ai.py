@@ -227,19 +227,43 @@ def _groq(prompt):
     raise RuntimeError(last)
 
 
+_LIGHT = []  # the small Groq models that work, found once per run
+
+
+def _light_models():
+    """Small, fast Groq chat models, smallest first. Groq retires models (llama-3.1-8b-instant stopped working on
+    11-27 and replies, duplicate checks and YouTube titles failed), so the list comes from Groq itself."""
+    if not _LIGHT:
+        small = ("8b-instant", "llama-3.1-8b", "gpt-oss-20b", "llama-4-scout", "qwen3-32b", "llama-3.3-70b")
+        try:
+            r = requests.get("https://api.groq.com/openai/v1/models",
+                             headers={"Authorization": f"Bearer {config.GROQ_API_KEY}"}, timeout=30)
+            found = [m["id"] for m in r.json().get("data", []) if m.get("active", True)]
+            _LIGHT.extend(sorted((m for m in found if any(k in m.lower() for k in small)),
+                                 key=lambda m: next(i for i, k in enumerate(small) if k in m.lower())))
+        except Exception as e:
+            print(f"[ai] could not list Groq models: {e}")
+        if not _LIGHT:
+            _LIGHT.extend(["llama-3.1-8b-instant", "openai/gpt-oss-20b"])
+    return _LIGHT[:3]
+
+
 def _light(prompt):
     """Small, fast Groq model with its own (much bigger) rate limit: for short jobs like comment replies,
     so they never use up the quota the posts need."""
     if not config.GROQ_API_KEY:
         raise RuntimeError("no Groq key")
-    r = requests.post("https://api.groq.com/openai/v1/chat/completions", timeout=60,
-                      headers={"Authorization": f"Bearer {config.GROQ_API_KEY}"},
-                      json={"model": "llama-3.1-8b-instant", "temperature": 0.7, "max_tokens": 2000,
-                            "response_format": {"type": "json_object"},
-                            "messages": [{"role": "user", "content": prompt}]})
-    if r.status_code != 200:
-        raise RuntimeError(f"Groq light HTTP {r.status_code}: {r.text[:120]}")
-    return r.json()["choices"][0]["message"]["content"]
+    last = None
+    for m in _light_models():
+        r = requests.post("https://api.groq.com/openai/v1/chat/completions", timeout=60,
+                          headers={"Authorization": f"Bearer {config.GROQ_API_KEY}"},
+                          json={"model": m, "temperature": 0.7, "max_tokens": 2000,
+                                "response_format": {"type": "json_object"},
+                                "messages": [{"role": "user", "content": prompt}]})
+        if r.status_code == 200:
+            return r.json()["choices"][0]["message"]["content"]
+        last = f"Groq light {m} HTTP {r.status_code}: {r.text[:120]}"
+    raise RuntimeError(last)
 
 
 def _cloudflare_text(prompt):

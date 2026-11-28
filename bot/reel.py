@@ -417,14 +417,16 @@ def _kokoro(text, path):
 
 
 def _tts(text, path):
-    """Voiceover: Cloudflare Workers AI (Deepgram Aura-2, natural pacing like a real presenter; Aura-1 as backup)
+    """Voiceover: Cloudflare Workers AI (Deepgram Aura-1, then Aura-2: twice the quota)
     first, then Kokoro (free, unlimited, runs locally), then Cloudflare MeloTTS. VOICE_ENGINE=kokoro puts Kokoro
     first. Returns True on success."""
     acc, tok = os.getenv("CF_ACCOUNT_ID", "").strip(), os.getenv("CF_API_TOKEN", "").strip()
     base = f"https://api.cloudflare.com/client/v4/accounts/{acc}/ai/run/"
     speaker = os.getenv("VOICE", "asteria")  # the page's usual voice; Aura-2 has the same speaker names
-    engines = [("@cf/deepgram/aura-2-en", {"text": text, "speaker": speaker, "encoding": "mp3"}),
-               ("@cf/deepgram/aura-1", {"text": text, "speaker": speaker, "encoding": "mp3"}),
+    # Aura-1 first again (11-28): Aura-2 costs twice the Cloudflare quota and used up the free 10,000 daily neurons
+    # by midnight, which also stopped the image judge and the backup writer
+    engines = [("@cf/deepgram/aura-1", {"text": text, "speaker": speaker, "encoding": "mp3"}),
+               ("@cf/deepgram/aura-2-en", {"text": text, "speaker": speaker, "encoding": "mp3"}),
                ("kokoro", None), ("@cf/myshell-ai/melotts", {"prompt": text, "lang": "en"})]
     if os.getenv("VOICE_ENGINE", "").strip().lower() == "kokoro":
         engines.sort(key=lambda e: e[0] != "kokoro")

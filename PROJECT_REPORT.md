@@ -183,7 +183,7 @@ then shift every slot back -1 h (`1,3,4,19,21,22,23`, photos `4,23`, star `19,21
    - Wikipedia name lists such as "Dan Levy" are resolved with a search plus a role hint.
    - A story with no face photo is tried last.
 10. **Reel** (`reel.make_reel`), 1080×1920, 30 fps.
-   - **Voice**: Cloudflare Deepgram Aura-2 (asteria, more natural; since 11-11) → Aura-1 → Kokoro (local, free) → MeloTTS.
+   - **Voice**: Cloudflare Deepgram Aura-1 (asteria; Aura-2 was first 11-11..11-28 but used up the free Cloudflare quota) → Aura-2 → Kokoro (local, free) → MeloTTS.
    - **Professional look (owner, 11-11, "realistic like a professional Reel, not photos joined together")**: every
      line tries real moving footage first (NASA first for space stories, 1080p, bottom caption band cut off and
      started at 20 s past NASA's title card; then Pixabay, Commons), a photo only when no clip fits; clean hard cuts
