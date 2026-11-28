@@ -1,19 +1,20 @@
 # Hype Atlas performance report
 
-_Updated 2026-11-27 23:06 UTC_
+_Updated 2026-11-28 00:05 UTC_
 
 ```
-Based on the last 287 posts on this page:
-Best categories: TECH (1019.0), CELEBRITY (975.6), BUSINESS (949.4)
+Based on the last 288 posts on this page:
+Best categories: TECH (1010.3), CELEBRITY (975.6), BUSINESS (949.4)
 Weakest categories: VIRAL (411.3), SPORTS (74.8)
-Format: reel (1016.0, 204 posts), photo (553.3, 83 posts)
+Format: reel (1011.1, 205 posts), photo (553.3, 83 posts)
 Best posting slots (UTC): 21:00 (1717.0), 02:00 (1217.5), 19:00 (1087.9)
-Best faces on this page (avg views per post): Elon Musk 2800 (267 posts), Donald Trump 670 (3 posts), OpenAI 706 (1 posts), Sam Altman 659 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 556 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
+Best faces on this page (avg views per post): Elon Musk 2789 (268 posts), Donald Trump 670 (3 posts), OpenAI 706 (1 posts), Sam Altman 659 (1 posts), Satya Nadella 662 (2 posts), Jensen Huang 556 (6 posts). Prefer the top faces; faces with low numbers only for very big news.
 Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | Elon Musk launches Optimus robot production, profit falls 43% (8804.2) | Elon Musk’s Tesla adopts Cybercab inverter for 2026 Model 3 (7437.8)
 ```
 
 | Time (UTC) | Format | Category | Headline | Views | Reactions | Comments | Shares | Score |
 |---|---|---|---|---|---|---|---|---|
+| 2026-11-27T23:11 | reel | TECH | Elon Musk’s X could sell user data when sold | 14 | 0 | 0 | 0 | 2.8 |
 | 2026-11-27T22:07 | reel | TECH | Elon Musk: Optimus Will Wash Dishes in 18 Months | 183 | 4 | 0 | 0 | 44.6 |
 | 2026-11-27T20:07 | reel | BUSINESS | Elon Musk just ends Cybertruck as used demand surges | 457 | 6 | 1 | 0 | 106.4 |
 | 2026-11-27T05:06 | photo | BUSINESS | Elon Musk pledges $18 billion in SpaceX stock to US kids | 405 | 36 | 8 | 8 | 183.0 |
@@ -53,4 +54,3 @@ Top posts: Elon Musk cancels Cybertruck to make room for robotaxis (18577.2) | E
 | 2026-11-21T00:07 | photo | TECH | Elon Musk's SpaceX attempts live Starship landing capture | 796 | 61 | 18 | 11 | 341.2 |
 | 2026-11-20T23:08 | reel | TECH | Elon Musk's Cybertruck loses $50,000 in two years | 1758 | 168 | 21 | 0 | 750.6 |
 | 2026-11-20T22:07 | reel | TECH | Elon Musk's Tesla gets green light in Italy | 12806 | 909 | 53 | 0 | 4538.2 |
-| 2026-11-20T20:07 | reel | BUSINESS | Musk predicts SpaceX to be world's largest company | 1505 | 59 | 12 | 0 | 455.0 |
